@@ -115,7 +115,7 @@
 
 - (void)swipeLeft:(id)sender {
     [self setAddHoure:NO animated:NO];
-    if (viewingDayIndex == 0) viewingDayIndex = [viewingWeek.WeekDurationNames count]-1;
+    if (viewingDayIndex == 0) viewingDayIndex = (int)[viewingWeek.WeekDurationNames count]-1;
     else viewingDayIndex--; 
     [self reloadViewsWithPersonIndex:viewingIndex andDayIndex:viewingDayIndex];
     [table reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationRight];
@@ -179,10 +179,10 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (adding == NO) {
         SubjectCell1 *MainTableCell = [MainData getCellType:101];
-        Subject *rowSubject = [viewingPerson getSubjectForID:[[viewingDay.Subjects objectAtIndex:indexPath.row] HoureSubjectID] onDate:[MainData dateForDayIndex:viewingDayIndex] andHoure:indexPath.row inWeek:viewingWeek];
+        Subject *rowSubject = [viewingPerson getSubjectForID:[[viewingDay.Subjects objectAtIndex:indexPath.row] HoureSubjectID] onDate:[MainData dateForDayIndex:viewingDayIndex] andHoure:(int)indexPath.row inWeek:viewingWeek];
         MainTableCell.backgroundView = [MainData getViewType:6];
-        MainTableCell.SubjectNameLabel.text = [NSString stringWithFormat:@"%i. %@", indexPath.row + 1, rowSubject.SubjectName];
-        MainTableCell.SubjectTimeLabel.text = [[viewingWeek getDateForDay:viewingDayIndex andHoure:indexPath.row] getTime];
+        MainTableCell.SubjectNameLabel.text = [NSString stringWithFormat:@"%i. %@", (int)indexPath.row + 1, rowSubject.SubjectName];
+        MainTableCell.SubjectTimeLabel.text = [[viewingWeek getDateForDay:viewingDayIndex andHoure:(int)indexPath.row] getTime];
         MainTableCell.SubjectTimeLabel.textColor = [MainData getTextColorForBackgroundColor:rowSubject.SubjectColor];
         MainTableCell.SubjectTimeLabel.highlightedTextColor = [MainData getTextColorForBackgroundColor:rowSubject.SubjectColor];
         MainTableCell.SubjectNameLabel.textColor = [MainData getTextColorForBackgroundColor:rowSubject.SubjectColor];
@@ -191,15 +191,15 @@
         return MainTableCell;
     }
     else {
-        int x1 = indexPath.row;
+        int x1 = (int)indexPath.row;
         float x2 = indexPath.row;
         float x3 = x1 / 2;
         if (x3 != x2/2) {
             SubjectCell1 *MainTableCell = [MainData getCellType:101];
-            Subject *rowSubject = [viewingPerson getSubjectForID:[[viewingDay.Subjects objectAtIndex:indexPath.row/2] HoureSubjectID] onDate:[MainData dateForDayIndex:viewingDayIndex] andHoure:indexPath.row/2 inWeek:viewingWeek];
+            Subject *rowSubject = [viewingPerson getSubjectForID:[[viewingDay.Subjects objectAtIndex:(int)indexPath.row/2] HoureSubjectID] onDate:[MainData dateForDayIndex:viewingDayIndex] andHoure:(int)indexPath.row/2 inWeek:viewingWeek];
             MainTableCell.backgroundView = [MainData getViewType:6];
-            MainTableCell.SubjectNameLabel.text = [NSString stringWithFormat:@"%i. %@", indexPath.row/2 + 1, rowSubject.SubjectName];
-            MainTableCell.SubjectTimeLabel.text = [[viewingWeek getDateForDay:viewingDayIndex andHoure:indexPath.row] getTime];
+            MainTableCell.SubjectNameLabel.text = [NSString stringWithFormat:@"%i. %@", (int)indexPath.row/2 + 1, rowSubject.SubjectName];
+            MainTableCell.SubjectTimeLabel.text = [[viewingWeek getDateForDay:viewingDayIndex andHoure:(int)indexPath.row] getTime];
             MainTableCell.SubjectColorView.backgroundColor = rowSubject.SubjectColor;
             MainTableCell.SubjectTimeLabel.textColor = [MainData getTextColorForBackgroundColor:rowSubject.SubjectColor];
             MainTableCell.SubjectTimeLabel.highlightedTextColor = [MainData getTextColorForBackgroundColor:rowSubject.SubjectColor];
@@ -233,7 +233,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    int x1 = indexPath.row;
+    int x1 = (int)indexPath.row;
     float x2 = indexPath.row;
     float x3 = x1 / 2;
     if (adding == NO) return 55;

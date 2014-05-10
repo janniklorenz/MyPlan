@@ -129,7 +129,7 @@
 - (void)tableView:(UITableView *)tbl didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0 && indexPath.row != 0 && indexPath.row < [viewingSubject.Noten count]+1) {
         if (subFunktionenNotenDetail == nil) subFunktionenNotenDetail = [[SubFunktionenNotenDetail alloc] init];
-        [subFunktionenNotenDetail reloadWithViewingIndex:viewingIndex andPerson:viewingPerson andWeek:viewingWeek andSubjectIndex:viewungSubjectIndex andNotenIndex:indexPath.row-1];
+        [subFunktionenNotenDetail reloadWithViewingIndex:viewingIndex andPerson:viewingPerson andWeek:viewingWeek andSubjectIndex:viewungSubjectIndex andNotenIndex:(int)indexPath.row-1];
         subFunktionenNotenDetail.modalPresentationStyle = UIModalPresentationFormSheet;
         subFunktionenNotenDetail.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
         subFunktionenNotenDetail.delegate = self;

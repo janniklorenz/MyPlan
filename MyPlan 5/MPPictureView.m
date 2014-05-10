@@ -69,7 +69,7 @@
 - (void)scrollViewWillBeginZooming:(UIScrollView *)scroll withView:(UIView *)view {
     scrollView.scrollEnabled = NO;
 }
-- (void)scrollViewDidEndZooming:(UIScrollView *)scroll withView:(UIView *)view atScale:(float)scale {
+- (void)scrollViewDidEndZooming:(UIScrollView *)scroll withView:(UIView *)view atScale:(double)scale {
     scrollView.scrollEnabled = YES;
 }
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scroll {
@@ -95,7 +95,7 @@
             UIImageWriteToSavedPhotosAlbum(viewingImage, nil, nil, nil);
         }
         else if (buttonIdx == 1) {
-            controller = [UIDocumentInteractionController interactionControllerWithURL:[NSString stringWithFormat:@"%@.jpg", [NSURL fileURLWithPath:[MainData SaveImg:viewingImage]]]];
+            controller = [UIDocumentInteractionController interactionControllerWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@.jpg", [NSURL fileURLWithPath:[MainData SaveImg:viewingImage]]]]];
             
             CGRect navRect = self.navigationController.navigationBar.frame;
             navRect.size = CGSizeMake(1500.0f, 40.0f);

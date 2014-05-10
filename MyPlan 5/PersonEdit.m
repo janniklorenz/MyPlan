@@ -171,7 +171,7 @@
     if (indexPath.section == 2 && indexPath.row != 0) {
         if (fachEdit == nil) fachEdit = [[FachEdit alloc] init];
         if (indexPath.row - 1 == [editingPerson.Subjects count]) [fachEdit reloadWithNew];
-        else [fachEdit reloadWithFach:[editingPerson.Subjects objectAtIndex:indexPath.row-1] atIndex:indexPath.row-1];
+        else [fachEdit reloadWithFach:[editingPerson.Subjects objectAtIndex:indexPath.row-1] atIndex:(int)indexPath.row-1];
         fachEdit.delegate = self;
         fachEdit.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
         fachEdit.modalPresentationStyle = UIModalPresentationFormSheet;

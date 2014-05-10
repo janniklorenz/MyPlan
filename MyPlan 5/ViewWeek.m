@@ -88,7 +88,7 @@
     while (i > 0) {
         i--;
         if (i < [viewingWeek.WeekDurationNames count]) {
-            if ([[[viewingWeek.WeekDurationNames objectAtIndex:i] Subjects] count] > oldMax) oldMax = [[[viewingWeek.WeekDurationNames objectAtIndex:i] Subjects] count];
+            if ([[[viewingWeek.WeekDurationNames objectAtIndex:i] Subjects] count] > oldMax) oldMax = (int)[[[viewingWeek.WeekDurationNames objectAtIndex:i] Subjects] count];
         }
     }
     spalten = maxNew + 1;
@@ -113,7 +113,7 @@
     cell.layer.borderWidth = 0.0;
     cell.layer.cornerRadius = 0;
     if (spalten * (maxHoures + 1) > indexPath.row) {
-        int day = indexPath.row / spalten;
+        int day = (int)indexPath.row / spalten;
         
         if (day == 0) {
             if (indexPath.row == 0) cell.titleLabel.text = @"Zeiten";
@@ -179,7 +179,7 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (spalten * (maxHoures + 1) > indexPath.row) {
-        int day = indexPath.row / spalten;
+        int day = (int)indexPath.row / spalten;
         if (day == 0) {
             if (indexPath.row % spalten == 0) return CGSizeMake(MenuCollectionView.frame.size.width/(spalten+3)*3,38);
             else return CGSizeMake(MenuCollectionView.frame.size.width/(spalten+3), 38);

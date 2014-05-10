@@ -178,7 +178,7 @@
     if (indexPath.row != 0) {
         if (funktionenHausaufgabeDetail == nil) funktionenHausaufgabeDetail = [[FunktionenHausaufgabeDetail alloc] init];
         
-        int index = [viewingPerson.Homeworks indexOfObject:[[ContendArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]];
+        int index = (int)[viewingPerson.Homeworks indexOfObject:[[ContendArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]];
         
         [funktionenHausaufgabeDetail reloadWithHomeworkAtIndex:index ViewingIndex:viewingIndex andPerson:viewingPerson];
         funktionenHausaufgabeDetail.modalPresentationStyle = UIModalPresentationFormSheet;
@@ -194,7 +194,7 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    int index = [viewingPerson.Homeworks indexOfObject:[[ContendArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]];
+    int index = (int)[viewingPerson.Homeworks indexOfObject:[[ContendArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]];
     
     [[viewingPerson.Homeworks objectAtIndex:index] prepareDelete];
     [viewingPerson.Homeworks removeObjectAtIndex:index];

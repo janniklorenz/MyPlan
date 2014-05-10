@@ -68,7 +68,7 @@
 }
 
 - (void)swipeLeft:(id)sender {
-    if (DayIndex == 0) DayIndex = [viewingWeek.WeekDurationNames count]-1;
+    if (DayIndex == 0) DayIndex = (int)[viewingWeek.WeekDurationNames count]-1;
     else DayIndex--;
     [self reloadTitle];
     DayIndexSegmentedControl.selectedSegmentIndex = DayIndex;
@@ -136,7 +136,7 @@
 
 - (IBAction)ChangDayIndex:(id)sender {
     int old = DayIndex;
-    DayIndex = DayIndexSegmentedControl.selectedSegmentIndex;
+    DayIndex = (int)DayIndexSegmentedControl.selectedSegmentIndex;
     viewingDay = [viewingWeek.WeekDurationNames objectAtIndex:DayIndex];
     if (DayIndex == [MainData dayIndex]) {
         [self reloadTodayArray];
@@ -180,7 +180,7 @@
     if (DayIndex == [MainData dayIndex]) {
         if (section == 1) {
             if ([[TodayArray objectAtIndex:1] count] == 0) return 0;
-            int x1 = [[TodayArray objectAtIndex:section-1] count]-1;
+            int x1 = (int)[[TodayArray objectAtIndex:section-1] count]-1;
             if (x1 == [[TodayArray objectAtIndex:section-1] count]) x1 = 0;
             int fromHoure = x1 + 1;
             Subject *rowSubject = [viewingPerson getSubjectForID:[[viewingDay.Subjects objectAtIndex:fromHoure] HoureSubjectID] onDate:[MainData dateForDayIndex:DayIndex] andHoure:fromHoure inWeek:viewingWeek];
@@ -200,7 +200,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (DayIndex == [MainData dayIndex]) {
         if (indexPath.section == 1) {
-            int x1 = [[TodayArray objectAtIndex:indexPath.section-1] count]-1;
+            int x1 = (int)[[TodayArray objectAtIndex:indexPath.section-1] count]-1;
             if (x1 == [[TodayArray objectAtIndex:indexPath.section-1] count]) x1 = 0;
             
             int fromHoure = x1 + 1;
@@ -225,9 +225,9 @@
             
             int realHoure = 0;
             switch (indexPath.section) {
-                case 0:realHoure = indexPath.row;break;
-                case 1:realHoure = [[TodayArray objectAtIndex:0] count] + indexPath.row;break;
-                case 2:realHoure = [[TodayArray objectAtIndex:0] count] + [[TodayArray objectAtIndex:1] count] + indexPath.row;break;
+                case 0:realHoure = (int)indexPath.row;break;
+                case 1:realHoure = (int)[[TodayArray objectAtIndex:0] count] + (int)indexPath.row;break;
+                case 2:realHoure = (int)[[TodayArray objectAtIndex:0] count] + (int)[[TodayArray objectAtIndex:1] count] + (int)indexPath.row;break;
                 default:break;
             }
             
@@ -242,7 +242,7 @@
                 MainTableCell.timesLabel.text = [[viewingWeek getDateForDay:DayIndex andHoure:realHoure] getTime];
                 MainTableCell.subjectBackgroundView.backgroundColor = [UIColor clearColor];
                 if (indexPath.row+1 < [viewingDay.Subjects count]) {
-                    if ([[viewingWeek getDateForDay:DayIndex andHoure:indexPath.row] toSec] != [[viewingWeek getDateForDay:DayIndex andHoure:indexPath.row+1] fromSec]) {
+                    if ([[viewingWeek getDateForDay:DayIndex andHoure:(int)indexPath.row] toSec] != [[viewingWeek getDateForDay:DayIndex andHoure:(int)indexPath.row+1] fromSec]) {
                         MainTableCell.subjectBackgroundView.backgroundColor = rowSubject.SubjectColor;
                         MainTableCell.backgroundView = [MainData getViewType:6];
                     }
@@ -258,7 +258,7 @@
                 MainTableCell.SubjectTimeLabel.textColor = [MainData getTextColorForBackgroundColor:rowSubject.SubjectColor];
                 MainTableCell.SubjectColorView.backgroundColor = [UIColor clearColor];
                 if (indexPath.row+1 < [viewingDay.Subjects count]) {
-                    if ([[viewingWeek getDateForDay:DayIndex andHoure:indexPath.row] toSec] != [[viewingWeek getDateForDay:DayIndex andHoure:indexPath.row+1] fromSec]) {
+                    if ([[viewingWeek getDateForDay:DayIndex andHoure:(int)indexPath.row] toSec] != [[viewingWeek getDateForDay:DayIndex andHoure:(int)indexPath.row+1] fromSec]) {
                         MainTableCell.SubjectColorView.backgroundColor = rowSubject.SubjectColor;
                         MainTableCell.backgroundView = [MainData getViewType:6];
                     }
@@ -274,21 +274,21 @@
             
         }
         else {
-            Subject *rowSubject = [viewingPerson getSubjectForID:[[viewingDay.Subjects objectAtIndex:indexPath.row] HoureSubjectID] onDate:[MainData dateForDayIndex:DayIndex] andHoure:indexPath.row inWeek:viewingWeek];
+            Subject *rowSubject = [viewingPerson getSubjectForID:[[viewingDay.Subjects objectAtIndex:(int)indexPath.row] HoureSubjectID] onDate:[MainData dateForDayIndex:DayIndex] andHoure:(int)indexPath.row inWeek:viewingWeek];
             
             
             if (rowSubject.isVertretung) {
                 MainTableFile12 *MainTableCell = [MainData getCellType:12];
                 MainTableCell.backgroundView = [MainData getViewWithColor:rowSubject.SubjectColor];
-                MainTableCell.textLabel.text = [NSString stringWithFormat:@"%i. %@", indexPath.row + 1, rowSubject.SubjectName];
+                MainTableCell.textLabel.text = [NSString stringWithFormat:@"%i. %@", (int)indexPath.row + 1, rowSubject.SubjectName];
                 MainTableCell.imgImageView.image = [MainData getVertretungImgForBackgroundColor:rowSubject.SubjectColor];
                 MainTableCell.textLabel.textColor = [MainData getTextColorForBackgroundColor:rowSubject.SubjectColor];
                 MainTableCell.timesLabel.textColor = [MainData getTextColorForBackgroundColor:rowSubject.SubjectColor];
-                MainTableCell.timesLabel.text = [[viewingWeek getDateForDay:DayIndex andHoure:indexPath.row] getTime];
+                MainTableCell.timesLabel.text = [[viewingWeek getDateForDay:DayIndex andHoure:(int)indexPath.row] getTime];
                 MainTableCell.subjectBackgroundView.backgroundColor = [UIColor clearColor];
                 
                 if (indexPath.row+1 < [viewingDay.Subjects count]) {
-                    if ([[viewingWeek getDateForDay:DayIndex andHoure:indexPath.row] toSec] != [[viewingWeek getDateForDay:DayIndex andHoure:indexPath.row+1] fromSec]) {
+                    if ([[viewingWeek getDateForDay:DayIndex andHoure:(int)indexPath.row] toSec] != [[viewingWeek getDateForDay:DayIndex andHoure:(int)indexPath.row+1] fromSec]) {
                         MainTableCell.subjectBackgroundView.backgroundColor = rowSubject.SubjectColor;
                         MainTableCell.backgroundView = [MainData getViewType:6];
                     }
@@ -300,12 +300,12 @@
             else {
                 SubjectCell1 *MainTableCell = [MainData getCellType:101];
                 MainTableCell.backgroundView = [MainData getViewWithColor:rowSubject.SubjectColor];
-                MainTableCell.SubjectNameLabel.text = [NSString stringWithFormat:@"%i. %@", indexPath.row + 1, rowSubject.SubjectName];
-                MainTableCell.SubjectTimeLabel.text = [[viewingWeek getDateForDay:DayIndex andHoure:indexPath.row] getTime];
+                MainTableCell.SubjectNameLabel.text = [NSString stringWithFormat:@"%i. %@", (int)indexPath.row + 1, rowSubject.SubjectName];
+                MainTableCell.SubjectTimeLabel.text = [[viewingWeek getDateForDay:DayIndex andHoure:(int)indexPath.row] getTime];
                 MainTableCell.SubjectColorView.backgroundColor = [UIColor clearColor];
                 
                 if (indexPath.row+1 < [viewingDay.Subjects count]) {
-                    if ([[viewingWeek getDateForDay:DayIndex andHoure:indexPath.row] toSec] != [[viewingWeek getDateForDay:DayIndex andHoure:indexPath.row+1] fromSec]) {
+                    if ([[viewingWeek getDateForDay:DayIndex andHoure:(int)indexPath.row] toSec] != [[viewingWeek getDateForDay:DayIndex andHoure:(int)indexPath.row+1] fromSec]) {
                         MainTableCell.SubjectColorView.backgroundColor = rowSubject.SubjectColor;
                         MainTableCell.backgroundView = [MainData getViewType:6];
                     }
@@ -331,22 +331,22 @@
     if (DayIndex == [MainData dayIndex]) {
         int realHoure = 0;
         switch (indexPath.section) {
-            case 0:realHoure = indexPath.row;break;
-            case 1:realHoure = [[TodayArray objectAtIndex:0] count];break;
-            case 2:realHoure = [[TodayArray objectAtIndex:0] count] + [[TodayArray objectAtIndex:1] count] + indexPath.row;break;
+            case 0:realHoure = (int)indexPath.row;break;
+            case 1:realHoure = (int)[[TodayArray objectAtIndex:0] count];break;
+            case 2:realHoure = (int)[[TodayArray objectAtIndex:0] count] + (int)[[TodayArray objectAtIndex:1] count] + (int)indexPath.row;break;
             default:break;
         }
         [viewJetzt reloadWithViewingIndex:viewingIndex andPerson:viewingPerson andWeek:viewingWeek andDay:DayIndex andHoure:realHoure];
     }
     else {
-        [viewJetzt reloadWithViewingIndex:viewingIndex andPerson:viewingPerson andWeek:viewingWeek andDay:DayIndex andHoure:indexPath.row];
+        [viewJetzt reloadWithViewingIndex:viewingIndex andPerson:viewingPerson andWeek:viewingWeek andDay:DayIndex andHoure:(int)indexPath.row];
     }
     [self.navigationController pushViewController:viewJetzt animated:YES];
 }
 
 - (void)goToNowHoure:(id)sender {
     if (viewJetzt == nil) viewJetzt = [[ViewJetzt alloc] init];
-    int realHoure = [[TodayArray objectAtIndex:0] count];
+    int realHoure = (int)[[TodayArray objectAtIndex:0] count];
     [viewJetzt reloadWithViewingIndex:viewingIndex andPerson:viewingPerson andWeek:viewingWeek andDay:DayIndex andHoure:realHoure];
     [self.navigationController pushViewController:viewJetzt animated:YES];
 }
@@ -398,12 +398,12 @@
         
         if (section == 0) {
             int fromHoure = 0;
-            int toHoure = [[TodayArray objectAtIndex:section] count]-1;
+            int toHoure = (int)[[TodayArray objectAtIndex:section] count]-1;
             headerLabel.text = @"Vorbei:";
             headerLabel2.text = [NSString stringWithFormat:@"%@ - %@", [[viewingWeek getDateForDay:DayIndex andHoure:fromHoure] from], [[viewingWeek getDateForDay:DayIndex andHoure:toHoure] to]];
         }
         else if (section == 1) {
-            int x1 = [[TodayArray objectAtIndex:section-1] count]-1;
+            int x1 = (int)[[TodayArray objectAtIndex:section-1] count]-1;
             if (x1 == [[TodayArray objectAtIndex:section-1] count]) x1 = 0;
             
             int fromHoure = x1 + 1;
@@ -418,13 +418,13 @@
         }
         else if (section == 2) {
             
-            int x1 = [[TodayArray objectAtIndex:section-1] count]-1;
+            int x1 = (int)[[TodayArray objectAtIndex:section-1] count]-1;
             if (x1 == [[TodayArray objectAtIndex:section-1] count]) x1 = 0;
-            int x2 = [[TodayArray objectAtIndex:section-2] count]-1;
+            int x2 = (int)[[TodayArray objectAtIndex:section-2] count]-1;
             if (x2 == [[TodayArray objectAtIndex:section-2] count]) x2 = 0;
             
             int fromHoure = x1 + x2 + 2;
-            int toHoure = x1 + x2 + [[TodayArray objectAtIndex:section] count] + 1;
+            int toHoure = x1 + x2 + (int)[[TodayArray objectAtIndex:section] count] + 1;
             headerLabel.text = @"Verbleiben:";
             headerLabel2.text = [NSString stringWithFormat:@"%@ - %@", [[viewingWeek getDateForDay:DayIndex andHoure:fromHoure] from], [[viewingWeek getDateForDay:DayIndex andHoure:toHoure] to]];
         }

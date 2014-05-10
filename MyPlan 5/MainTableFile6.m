@@ -47,7 +47,7 @@
 }
 
 - (IBAction)clickAtButton:(id)sender {
-    [self.delegate didSelectButton:[sender tag] andIndex:index];
+    [self.delegate didSelectButton:(int)[sender tag] andIndex:index];
 }
 
 @end

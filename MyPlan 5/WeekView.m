@@ -314,7 +314,7 @@
             [self.navigationController pushViewController:subPlanEdit animated:YES];
         }
         else if (indexPath.row == 2) {
-            [self.delegate didSelectWeekEditWithRow:[viewingPerson.Weeks indexOfObject:viewingWeek] andPersonRow:viewingIndex];
+            [self.delegate didSelectWeekEditWithRow:(int)[viewingPerson.Weeks indexOfObject:viewingWeek] andPersonRow:viewingIndex];
         }
     }
     [table selectRowAtIndexPath:nil animated:YES scrollPosition:UITableViewScrollPositionNone];

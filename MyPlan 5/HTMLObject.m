@@ -11,7 +11,7 @@
 @implementation HTMLObject
 
 + (NSString *)MakeHTMLTable:(NSMutableArray *)Datensatze Spalten:(int)Spalten Header:(NSString *)Header {
-	int FinalValue = [Datensatze count];
+	int FinalValue = (int)[Datensatze count];
 	
 	NSString *t1 = @"<table border='1' cellspacing='0' cellpadding='5'>";
 	NSString *t2 = @"<tr>";
@@ -122,7 +122,7 @@
 
 + (NSString *)MakePDF:(NSMutableArray *)Datensatze Spalten:(int)Spalten Header:(NSString *)Header {
     
-    int h = 100 + 20 * [Datensatze count];
+    int h = 100 + 20 * (int)[Datensatze count];
     int w = 20 + 60*Spalten;
     
     CGSize pageSize = CGSizeMake(w, h );

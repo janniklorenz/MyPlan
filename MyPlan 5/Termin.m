@@ -66,7 +66,7 @@
     NSString *returnString = @"";
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setDateFormat:@"EEEE, dd.MM.yyyy"];
-    if (restDays < -2) returnString = returnString = [formatter stringFromDate:newDate];
+    if (restDays < -2) returnString = [formatter stringFromDate:newDate];
     else if (-2 <= restDays && restDays < -1) returnString = @"Vorgestern";
     else if (-1 <= restDays && restDays < 0) returnString = @"Gestern";
     else if (0 <= restDays && restDays < 1) returnString = @"Heute";

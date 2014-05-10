@@ -12,7 +12,6 @@
 #import "MainTableFile3.h"
 #import <QuartzCore/QuartzCore.h>
 #import "MainData.h"
-#import "GAI.h"
 #import "IAPHelper.h"
 #import "RageIAPHelper.h"
 #import <StoreKit/StoreKit.h>
@@ -74,7 +73,6 @@
             
             if (idx == 0) { // Werbung Entfernt
                 [MainData setAdFree:YES];
-                [[[GAI sharedInstance] defaultTracker] sendView:@"Werbung Entfernt"];
             }
             
             *stop = YES;

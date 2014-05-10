@@ -30,7 +30,6 @@
 #import "MPNavigationBar.h"
 #import "NotificationsSettings.h"
 #import "Houre.h"
-#import "GAI.h"
 #import "Help.h"
 #import "InfoVC.h"
 #import "KGModal.h"
@@ -74,14 +73,6 @@
     
     [self.window makeKeyAndVisible];
     
-    // ------ Google Analytics -----
-    [GAI sharedInstance].debug = NO;
-    [GAI sharedInstance].dispatchInterval = 5;
-    [GAI sharedInstance].trackUncaughtExceptions = YES;
-    [[GAI sharedInstance] trackerWithTrackingId:@"UA-25973605-9"];
-    [[[GAI sharedInstance] defaultTracker] sendEventWithCategory:@"" withAction:@"" withLabel:@"a" withValue:[NSNumber numberWithInt:0]];
-    // -----------------------------
-    
     
     NSString *currendVersion = @"5.0.1";
     
@@ -107,22 +98,8 @@
         self.update.delegate = self;
         [self.weekView presentViewController:self.update animated:YES completion:NULL];
         
-        [[[GAI sharedInstance] defaultTracker] sendView:@"Erster Start"];
     }
     else {
-        if ([appData checkForUpdateWithVersion:currendVersion]) { // Update
-			NSLog(@"Update");
-            
-//            if (self.update == nil) self.update = [[Update alloc] init];
-//            self.update.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-//            self.update.modalPresentationStyle = UIModalPresentationFormSheet;
-//            self.update.isFirst = NO;
-//            self.update.delegate = self;
-//            [self.weekView presentViewController:self.update animated:YES completion:NULL];
-            
-            [[[GAI sharedInstance] defaultTracker] sendView:@"Update"];
-        }
-        else [[[GAI sharedInstance] defaultTracker] sendView:@"Start"];
         
     }
     [appData saveStart];
@@ -529,7 +506,7 @@
         AppData *appData = [MainData LoadAppData];
         appData.selectedPersonID = [newPerson PersonID];
         [MainData SaveAppData:appData];
-        [self.weekView reloadViewsWithIndex:[Persons indexOfObject:newPerson]];
+        [self.weekView reloadViewsWithIndex:(int)[Persons indexOfObject:newPerson]];
     }
     else if (actionSheet.tag == 11 && buttonIndex == 0)  {
         
@@ -612,7 +589,7 @@
                 planNew.WeekID = [[[person objectAtIndex:0] objectAtIndex:0] objectAtIndex:pcount];                     // ID
 //                if () personNew.selectedWeekID = planNew.WeekID;                                                              // ID
                 
-                planNew.WeekMaxHoures = [[[plan objectAtIndex:2] objectAtIndex:0] count];                               // Zeiten
+                planNew.WeekMaxHoures = (int)[[[plan objectAtIndex:2] objectAtIndex:0] count];                          // Zeiten
                 [planNew.WeekMaxHouresTimes removeAllObjects];                                                          // Zeiten
                 for (int tcount = 0; tcount < [[[plan objectAtIndex:2] objectAtIndex:0] count]; tcount++) {             // Zeiten
                     MPDate *dateNew = [[MPDate alloc] init];                                                            // Zeiten
@@ -656,7 +633,7 @@
             AppData *appData = [MainData LoadAppData];
             appData.selectedPersonID = [personNew PersonID];
             [MainData SaveAppData:appData];
-            [self.weekView reloadViewsWithIndex:[Persons indexOfObject:personNew]];
+            [self.weekView reloadViewsWithIndex:(int)[Persons indexOfObject:personNew]];
         }
         
         
@@ -678,7 +655,6 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
-    [[[GAI sharedInstance] defaultTracker] sendView:@"Geöffnet"];
     [self.weekView viewDidAppear:YES];
     
     // ------- Start Ansicht -------

@@ -137,7 +137,7 @@
 
 - (void)tableView:(UITableView *)table didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (subFunktionenNoten == nil) subFunktionenNoten = [[SubFunktionenNoten alloc] init];
-    [subFunktionenNoten reloadWithViewingIndex:viewingIndex andPerson:viewingPerson andWeek:viewingWeek andSubjectIndex:indexPath.row-1];
+    [subFunktionenNoten reloadWithViewingIndex:viewingIndex andPerson:viewingPerson andWeek:viewingWeek andSubjectIndex:(int)indexPath.row-1];
     [self.navigationController pushViewController:subFunktionenNoten animated:YES];
 }
 

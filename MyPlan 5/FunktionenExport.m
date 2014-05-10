@@ -137,7 +137,7 @@
     if (indexPath.section >= 0 && indexPath.section <= 2 && indexPath.row == 0) {
         if (oppened && oppendIndex == indexPath.section) oppened = NO;
         else oppened = YES;
-        oppendIndex = indexPath.section;        
+        oppendIndex = (int)indexPath.section;
         [table reloadData];
     }
     
@@ -145,7 +145,7 @@
         int max = 0;
         NSMutableArray *TopArray = [NSMutableArray arrayWithObjects:viewingWeek.WeekName, nil];
         for (int i = 0; i < [viewingWeek.WeekDurationNames count]; i++) {
-            if ([[[viewingWeek.WeekDurationNames objectAtIndex:i] Subjects] count] > max) max = [[[viewingWeek.WeekDurationNames objectAtIndex:i] Subjects] count];
+            if ([[[viewingWeek.WeekDurationNames objectAtIndex:i] Subjects] count] > max) max = (int)[[[viewingWeek.WeekDurationNames objectAtIndex:i] Subjects] count];
             [TopArray addObject:[[viewingWeek.WeekDurationNames objectAtIndex:i] DayShort]];
         }
         NSMutableArray *DatabaseArray = [NSMutableArray arrayWithObjects:TopArray, nil];
@@ -164,7 +164,7 @@
         }
         
         if (indexPath.row == 1) {
-            NSString *filepath = [HTMLObject MakePDF:DatabaseArray Spalten:[viewingWeek.WeekDurationNames count]+1 Header:viewingPerson.PersonName];
+            NSString *filepath = [HTMLObject MakePDF:DatabaseArray Spalten:(int)[viewingWeek.WeekDurationNames count]+1 Header:viewingPerson.PersonName];
             shareController = [UIDocumentInteractionController interactionControllerWithURL:[NSURL fileURLWithPath:filepath]];
             CGRect navRect = self.navigationController.navigationBar.frame;
             navRect.size = CGSizeMake(1500.0f, 40.0f);
@@ -174,7 +174,7 @@
             NSString *documentsFolder = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
             NSString *fileName = [NSString stringWithFormat:@"MyPlan Export - CSV (%@).csv", viewingPerson.PersonName];
             NSString *path = [documentsFolder stringByAppendingPathComponent:fileName];
-            NSString *contend = [HTMLObject MakeCSVTable:DatabaseArray Spalten:[viewingWeek.WeekDurationNames count]+1 Header:viewingPerson.PersonName];
+            NSString *contend = [HTMLObject MakeCSVTable:DatabaseArray Spalten:(int)[viewingWeek.WeekDurationNames count]+1 Header:viewingPerson.PersonName];
             [[NSFileManager defaultManager] createFileAtPath:path contents:[contend dataUsingEncoding:NSUTF8StringEncoding] attributes:nil];
             
             shareController = [UIDocumentInteractionController interactionControllerWithURL:[NSURL fileURLWithPath:path]];
@@ -183,7 +183,7 @@
             [shareController presentOptionsMenuFromRect:navRect inView:self.view animated:YES];
         }
         else if (indexPath.row == 3) {
-            NSString *contend = [HTMLObject MakeHTMLTable:DatabaseArray Spalten:[viewingWeek.WeekDurationNames count]+1 Header:viewingPerson.PersonName];
+            NSString *contend = [HTMLObject MakeHTMLTable:DatabaseArray Spalten:(int)[viewingWeek.WeekDurationNames count]+1 Header:viewingPerson.PersonName];
             NSString *name = [HTMLObject uploadContend:contend andName:[NSString stringWithFormat:@"%@-%@", viewingPerson.PersonName, viewingWeek.WeekName]];
             UIActionSheet *really = [[UIActionSheet alloc] initWithTitle:@"" delegate:self cancelButtonTitle:@"OK" destructiveButtonTitle:nil otherButtonTitles:@"Website öffnen", @"Link kopieren", nil];
             really.tag = 10;
@@ -195,7 +195,7 @@
     else if (indexPath.section == 1 && indexPath.row != 0) {
         
         int maxNoten = 0;
-        for (int i = 0; i < [viewingPerson.Subjects count]; i++) if ([[[viewingPerson.Subjects objectAtIndex:i] Noten] count] > maxNoten) maxNoten = [[[viewingPerson.Subjects objectAtIndex:i] Noten] count];
+        for (int i = 0; i < [viewingPerson.Subjects count]; i++) if ([[[viewingPerson.Subjects objectAtIndex:i] Noten] count] > maxNoten) maxNoten = (int)[[[viewingPerson.Subjects objectAtIndex:i] Noten] count];
         
         NSMutableArray *DatabaseArray = [NSMutableArray arrayWithObjects:nil];
         NSMutableArray *addLine2 = [NSMutableArray arrayWithObjects:nil];

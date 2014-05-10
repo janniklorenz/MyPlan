@@ -182,7 +182,7 @@
             subVertretungNavController = [[UINavigationController alloc] initWithRootViewController:subVertretung];
             subVertretungNavController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
         }
-        [subVertretung reloadWithVertretung:[[VertretungenOrderd objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] andIndex:indexPath.row-1 andWeek:viewingWeek AndPerson:viewingPerson AndViewingIndex:viewingIndex];
+        [subVertretung reloadWithVertretung:[[VertretungenOrderd objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] andIndex:(int)indexPath.row-1 andWeek:viewingWeek AndPerson:viewingPerson AndViewingIndex:viewingIndex];
         subVertretungNavController.modalPresentationStyle = UIModalPresentationFormSheet;
         subVertretungNavController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
         

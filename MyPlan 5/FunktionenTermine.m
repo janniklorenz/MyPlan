@@ -366,7 +366,7 @@
             }
             else {
                 if (funktionenTermineDetail == nil) funktionenTermineDetail = [[FunktionenTermineDetail alloc] init];
-                int index = [viewingPerson.Termine indexOfObject:[[ContendArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]];
+                int index = (int)[viewingPerson.Termine indexOfObject:[[ContendArray objectAtIndex:(int)indexPath.section] objectAtIndex:(int)indexPath.row]];
                 [funktionenTermineDetail reloadWithTerminAtIndex:index ViewingIndex:viewingIndex andPerson:viewingPerson andWeek:viewingWeek];
                 funktionenTermineDetail.delegate = self;
                 funktionenTermineDetail.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
@@ -395,7 +395,7 @@
     return 44;
 }
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    int index = [viewingPerson.Termine indexOfObject:[[ContendArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]];
+    int index = (int)[viewingPerson.Termine indexOfObject:[[ContendArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]];
     [[viewingPerson.Termine objectAtIndex:index] prepareDelete];
     [viewingPerson.Termine removeObjectAtIndex:index];
     [self reloadContendArray];

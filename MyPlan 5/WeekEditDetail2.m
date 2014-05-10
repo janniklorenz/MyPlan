@@ -111,7 +111,7 @@
             MainTableCell.indexPath = indexPath;
             MainTableCell.textField.keyboardType = UIKeyboardTypeNumbersAndPunctuation;
             MainTableCell.textLabel.text = @"Zeiten:";
-            MainTableCell.textField.text = [NSString stringWithFormat:@"%i", [editingDay.WeekMaxHouresTimes count]];
+            MainTableCell.textField.text = [NSString stringWithFormat:@"%lu", (unsigned long)[editingDay.WeekMaxHouresTimes count]];
             return MainTableCell;
         }
         else {
@@ -120,7 +120,7 @@
             MainTableCell.selectedBackgroundView = [MainData getViewType:0];
             MainTableCell.delegate = self;
             MainTableCell.indexPath = indexPath;
-            MainTableCell.custumTextLabel1.text = [NSString stringWithFormat:@"%i. Stunde von %@ bis %@", indexPath.row, [[editingDay.WeekMaxHouresTimes objectAtIndex:indexPath.row - 1] from], [[editingDay.WeekMaxHouresTimes objectAtIndex:indexPath.row - 1] to]];;
+            MainTableCell.custumTextLabel1.text = [NSString stringWithFormat:@"%li. Stunde von %@ bis %@", (long)indexPath.row, [[editingDay.WeekMaxHouresTimes objectAtIndex:indexPath.row - 1] from], [[editingDay.WeekMaxHouresTimes objectAtIndex:indexPath.row - 1] to]];;
             return MainTableCell;
         }
     }
@@ -131,7 +131,7 @@
 - (void)tableView:(UITableView *)table didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 1 && indexPath.row != 0) {
         editingDate = [editingDay.WeekMaxHouresTimes objectAtIndex:indexPath.row - 1];
-        editingDateIndex = indexPath.row-1;
+        editingDateIndex = (int)indexPath.row-1;
         [fromPicker selectRow:[editingDate startHoure] inComponent:0 animated:YES];
         [fromPicker selectRow:[editingDate startMinute] inComponent:1 animated:YES];
         [toPicker selectRow:[editingDate stopHoure] inComponent:0 animated:YES];
@@ -234,20 +234,20 @@
 }
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-	if (component == 0) return [NSString stringWithFormat:@"%@", [self makeZeros:row]];
-    else return [NSString stringWithFormat:@"%@", [self makeZeros:row]];
+	if (component == 0) return [NSString stringWithFormat:@"%@", [self makeZeros:(int)row]];
+    else return [NSString stringWithFormat:@"%@", [self makeZeros:(int)row]];
     return 0;
 }
 
 - (void)pickerView:(UIPickerView *)thePickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     MPDate *new;
     if (thePickerView == fromPicker) {
-        if (component == 0) new = [MPDate newTimeFromHoure:row andMinute:editingDate.startMinute toHoure:editingDate.stopHoure andMinute:editingDate.stopMinute];
-        else new = [MPDate newTimeFromHoure:editingDate.startHoure andMinute:row toHoure:editingDate.stopHoure andMinute:editingDate.stopMinute];
+        if (component == 0) new = [MPDate newTimeFromHoure:(int)row andMinute:editingDate.startMinute toHoure:editingDate.stopHoure andMinute:editingDate.stopMinute];
+        else new = [MPDate newTimeFromHoure:editingDate.startHoure andMinute:(int)row toHoure:editingDate.stopHoure andMinute:editingDate.stopMinute];
     }
     if (thePickerView == toPicker) {
-        if (component == 0) new = [MPDate newTimeFromHoure:editingDate.startHoure andMinute:editingDate.startMinute toHoure:row andMinute:editingDate.stopMinute];
-        else new = [MPDate newTimeFromHoure:editingDate.startHoure andMinute:editingDate.startMinute toHoure:editingDate.stopHoure andMinute:row];
+        if (component == 0) new = [MPDate newTimeFromHoure:editingDate.startHoure andMinute:editingDate.startMinute toHoure:(int)row andMinute:editingDate.stopMinute];
+        else new = [MPDate newTimeFromHoure:editingDate.startHoure andMinute:editingDate.startMinute toHoure:editingDate.stopHoure andMinute:(int)row];
     }
     editingDate = new;
     [editingDay.WeekMaxHouresTimes removeObjectAtIndex:editingDateIndex];

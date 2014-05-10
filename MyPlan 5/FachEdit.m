@@ -384,7 +384,7 @@
     }
     else if (indexPath.section == 2 && indexPath.row != 0) {
         if (fachEditDetail == nil) fachEditDetail = [[FachEditDetail alloc] init];
-        [fachEditDetail reloadViewsWithSubject:editingSubject andDayIndex:indexPath.row - 1];
+        [fachEditDetail reloadViewsWithSubject:editingSubject andDayIndex:(int)indexPath.row - 1];
         [self.navigationController pushViewController:fachEditDetail animated:YES];
     }
     else if (indexPath.section == 3 && indexPath.row != 0) {

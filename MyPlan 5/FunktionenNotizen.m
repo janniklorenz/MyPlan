@@ -184,8 +184,8 @@
 - (void)tableView:(UITableView *)table didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     int personIndex = 0;
-    if (indexPath.section < [dataArray count]) personIndex = [viewingPerson.Notizen indexOfObject:[[dataArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row-1]];
-    else personIndex = [viewingPerson.Notizen indexOfObject:[clearDataArray objectAtIndex:indexPath.row-1]];
+    if (indexPath.section < [dataArray count]) personIndex = (int)[viewingPerson.Notizen indexOfObject:[[dataArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row-1]];
+    else personIndex = (int)[viewingPerson.Notizen indexOfObject:[clearDataArray objectAtIndex:indexPath.row-1]];
     
     if (funktionenNotizDetail == nil) funktionenNotizDetail = [[FunktionenNotizDetail alloc] init];
     funktionenNotizDetail.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
@@ -203,8 +203,8 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
     int personIndex = 0;
-    if (indexPath.section < [dataArray count]) personIndex = [viewingPerson.Notizen indexOfObject:[[dataArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row-1]];
-    else personIndex = [viewingPerson.Notizen indexOfObject:[clearDataArray objectAtIndex:indexPath.row-1]];
+    if (indexPath.section < [dataArray count]) personIndex = (int)[viewingPerson.Notizen indexOfObject:[[dataArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row-1]];
+    else personIndex = (int)[viewingPerson.Notizen indexOfObject:[clearDataArray objectAtIndex:indexPath.row-1]];
     
     [[viewingPerson.Notizen objectAtIndex:personIndex] prepareDelete];
     [viewingPerson.Notizen removeObjectAtIndex:personIndex];

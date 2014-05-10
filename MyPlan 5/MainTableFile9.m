@@ -30,7 +30,7 @@
 }
 
 - (IBAction)changeSegControl:(id)sender {
-    [self.delegate changeSegmentedControlTo:segControl.selectedSegmentIndex];
+    [self.delegate changeSegmentedControlTo:(int)segControl.selectedSegmentIndex];
 }
 
 @end

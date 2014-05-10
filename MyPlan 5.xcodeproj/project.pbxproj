@@ -1534,7 +1534,7 @@
 				B462D2E316CEFAC6006A2081 /* Funktionen */,
 				B462311A16CD796E00DB3855 /* Hauptansichten */,
 				B4CD5C7716BC1A8800DD350B /* WeekMenu */,
-				B4CD5C7816BC1A9100DD350B /* Wochenübersicht */,
+				B4CD5C7816BC1A9100DD350B /* Wochenübersicht */,
 				B4CD5C9016BC3A8300DD350B /* WeekEdit */,
 				B4920BF316C000DF00A1D752 /* PersonEdit */,
 				B4920BC616BEA5E600A1D752 /* Settings */,
@@ -1598,7 +1598,7 @@
 			name = WeekMenu;
 			sourceTree = "<group>";
 		};
-		B4CD5C7816BC1A9100DD350B /* Wochenübersicht */ = {
+		B4CD5C7816BC1A9100DD350B /* Wochenübersicht */ = {
 			isa = PBXGroup;
 			children = (
 				B462D2E516CEFB49006A2081 /* img */,
@@ -1728,6 +1728,7 @@
 		B4CD5C0F16BC161C00DD350B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastTestingUpgradeCheck = 0510;
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Jannik Lorenz";
 			};

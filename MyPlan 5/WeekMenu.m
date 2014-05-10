@@ -99,7 +99,7 @@
             MainTableCell.custumImageView.image = [UIImage imageNamed:@"MyPlan_img_1.png"];
             if ([[[Persons objectAtIndex:indexPath.section - 1] PersonID] isEqualToString:[appData selectedPersonID]]) {
                 MainTableCell.accessoryType = UITableViewCellAccessoryCheckmark;
-                openedIndex = indexPath.section;
+                openedIndex = (int)indexPath.section;
             }
         }
         else if (indexPath.section + 1 == [menuContend count] && indexPath.row == 0) {
@@ -119,7 +119,7 @@
             if ([[[Persons objectAtIndex:indexPath.section - 1] Weeks] count] > indexPath.row-1) {
                 if ([[[Persons objectAtIndex:indexPath.section - 1] selectedWeekID] isEqualToString:[[[[Persons objectAtIndex:indexPath.section - 1] Weeks] objectAtIndex:indexPath.row-1] WeekID]]) {
                     MainTableCell.accessoryType = UITableViewCellAccessoryCheckmark;
-                    openedIndex = indexPath.section;
+                    openedIndex = (int)indexPath.section;
                 }
             }
             else if ([[[Persons objectAtIndex:indexPath.section - 1] Weeks] count] == indexPath.row-1) {
@@ -142,16 +142,16 @@
 }
 - (void)tableView:(UITableView *)tbl didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) [self.delegate didSelectAddPerson];
-    else if (indexPath.section + 1 == [menuContend count]) [self.delegate didSelectSettingsWithRow:indexPath.row];
+    else if (indexPath.section + 1 == [menuContend count]) [self.delegate didSelectSettingsWithRow:(int)indexPath.row];
     else {
         if (indexPath.section + 1 != [menuContend count] && indexPath.section != 0) {
-            openedIndex = indexPath.section;
+            openedIndex = (int)indexPath.section;
         }
         if (indexPath.row + 2 == [[menuContend objectAtIndex:indexPath.section] count]) [self.delegate didSelectCreateWeek];
-        else if (indexPath.row + 1 == [[menuContend objectAtIndex:indexPath.section] count]) [self.delegate didSelectPersonEditWithRow:indexPath.section-1];
-        else if (indexPath.row == 0) [self.delegate didSelectPerson:indexPath.section-1];
-        else [self.delegate didSelectWeekWithRow:indexPath.row-1 andPersonRow:indexPath.section-1];
-        [self.delegate enablePersonAtIndex:indexPath.section-1];
+        else if (indexPath.row + 1 == [[menuContend objectAtIndex:(int)indexPath.section] count]) [self.delegate didSelectPersonEditWithRow:(int)indexPath.section-1];
+        else if (indexPath.row == 0) [self.delegate didSelectPerson:(int)indexPath.section-1];
+        else [self.delegate didSelectWeekWithRow:(int)indexPath.row-1 andPersonRow:(int)indexPath.section-1];
+        [self.delegate enablePersonAtIndex:(int)indexPath.section-1];
         
         appData = [MainData LoadAppData];
         Persons = [MainData LoadMain];
@@ -167,10 +167,10 @@
     else if (indexPath.row == 0) ;
     else {
         if (indexPath.section + 1 != [menuContend count] && indexPath.section != 0) {
-            openedIndex = indexPath.section;
+            openedIndex = (int)indexPath.section;
         }
-        if (indexPath.row + 1 != [[menuContend objectAtIndex:indexPath.section] count] && indexPath.row + 2 != [[menuContend objectAtIndex:indexPath.section] count]) [self.delegate didSelectWeekEditWithRow:indexPath.row-1 andPersonRow:indexPath.section-1];
-        [self.delegate enablePersonAtIndex:indexPath.section-1];
+        if (indexPath.row + 1 != [[menuContend objectAtIndex:(int)indexPath.section] count] && indexPath.row + 2 != [[menuContend objectAtIndex:(int)indexPath.section] count]) [self.delegate didSelectWeekEditWithRow:(int)indexPath.row-1 andPersonRow:(int)indexPath.section-1];
+        [self.delegate enablePersonAtIndex:(int)indexPath.section-1];
         appData = [MainData LoadAppData];
         [table reloadData];
     }

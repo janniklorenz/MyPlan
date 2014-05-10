@@ -163,7 +163,7 @@
             weekEditDetail2.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
             weekEditDetail2.modalPresentationStyle = UIModalPresentationFormSheet;
             weekEditDetail2.delegate = self;
-            [weekEditDetail2 reloadWithDay:[editingWeek.WeekDurationNames objectAtIndex:indexPath.row-1] andIndex:indexPath.row-1];
+            [weekEditDetail2 reloadWithDay:[editingWeek.WeekDurationNames objectAtIndex:(int)indexPath.row-1] andIndex:(int)indexPath.row-1];
             [self presentViewController:weekEditDetail2 animated:YES completion:NULL];
         }
     }

@@ -132,7 +132,7 @@
 
 - (void)reloadTitle {
     WeekDays = [NSMutableArray arrayWithObjects:@"Montag", @"Dienstag", @"Mittwoch", @"Donnerstag", @"Freitag", @"Samstag", @"Sonntag", nil];
-    self.title = [NSString stringWithFormat:@"%@ (%i. Stunden)", [WeekDays objectAtIndex:DayIndex], [DaySubjets count]];
+    self.title = [NSString stringWithFormat:@"%@ (%lu. Stunden)", [WeekDays objectAtIndex:DayIndex], (unsigned long)[DaySubjets count]];
 }
 
 
@@ -347,7 +347,7 @@
                 MainTableCell.selectedBackgroundView = [MainData getViewType:0];
                 MainTableCell.custumImageView.image = [UIImage imageNamed:@"MyPlan_img_19.png"];
                 if ([[rowSubject homeworksInPerson:viewingPerson] count] == 0) MainTableCell.custumTextLabel1.text = @"Hausaufgaben";
-                else MainTableCell.custumTextLabel1.text = [NSString stringWithFormat:@"Hausaufgaben (%i)", [[rowSubject homeworksInPerson:viewingPerson] count]];
+                else MainTableCell.custumTextLabel1.text = [NSString stringWithFormat:@"Hausaufgaben (%lu)", (unsigned long)[[rowSubject homeworksInPerson:viewingPerson] count]];
                 return MainTableCell;
             }
             else if (indexPath.row < [[rowSubject homeworksInPerson:viewingPerson] count]+1) {
@@ -376,7 +376,7 @@
                 MainTableCell.selectedBackgroundView = [MainData getViewType:0];
                 MainTableCell.custumImageView.image = [UIImage imageNamed:@"MyPlan_img_10.png"];
                 if ([[rowSubject termineInPerson:viewingPerson] count] == 0) MainTableCell.custumTextLabel1.text = @"Termine";
-                else MainTableCell.custumTextLabel1.text = [NSString stringWithFormat:@"Termine (%i)", [[rowSubject termineInPerson:viewingPerson] count]];
+                else MainTableCell.custumTextLabel1.text = [NSString stringWithFormat:@"Termine (%i)", (int)[[rowSubject termineInPerson:viewingPerson] count]];
                 return MainTableCell;
             }
             else if (indexPath.row < [[rowSubject termineInPerson:viewingPerson] count]+1) {
@@ -482,7 +482,7 @@
     if (viewingHoure < [viewingDay.Subjects count]) rowSubject = [viewingPerson getSubjectForID:[[viewingDay.Subjects objectAtIndex:viewingHoure] HoureSubjectID] onDate:[MainData dateForDayIndex:DayIndex] andHoure:viewingHoure inWeek:viewingWeek];
     if (indexPath.section == 2 && indexPath.row != 0 && indexPath.row < [rowSubject.Noten count]+1) {
         if (subFunktionenNotenDetail == nil) subFunktionenNotenDetail = [[SubFunktionenNotenDetail alloc] init];
-        [subFunktionenNotenDetail reloadWithViewingIndex:viewingIndex andPerson:viewingPerson andWeek:viewingWeek andSubjectIndex:[viewingPerson getSubjectIndexForID:[[viewingDay.Subjects objectAtIndex:viewingHoure] HoureSubjectID]] andNotenIndex:indexPath.row-1];
+        [subFunktionenNotenDetail reloadWithViewingIndex:viewingIndex andPerson:viewingPerson andWeek:viewingWeek andSubjectIndex:[viewingPerson getSubjectIndexForID:[[viewingDay.Subjects objectAtIndex:viewingHoure] HoureSubjectID]] andNotenIndex:(int)indexPath.row-1];
         subFunktionenNotenDetail.modalPresentationStyle = UIModalPresentationFormSheet;
         subFunktionenNotenDetail.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
         subFunktionenNotenDetail.delegate = self;
@@ -498,7 +498,7 @@
     }
     if (indexPath.section == 3 && indexPath.row != 0 && indexPath.row < [[rowSubject homeworksInPerson:viewingPerson] count]+1) {
         if (funktionenHausaufgabeDetail == nil) funktionenHausaufgabeDetail = [[FunktionenHausaufgabeDetail alloc] init];
-        [funktionenHausaufgabeDetail reloadWithHomeworkAtIndex:indexPath.row-1 ViewingIndex:viewingIndex andPerson:viewingPerson];
+        [funktionenHausaufgabeDetail reloadWithHomeworkAtIndex:(int)indexPath.row-1 ViewingIndex:viewingIndex andPerson:viewingPerson];
         funktionenHausaufgabeDetail.modalPresentationStyle = UIModalPresentationFormSheet;
         funktionenHausaufgabeDetail.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
         funktionenHausaufgabeDetail.delegate = self;
@@ -517,7 +517,7 @@
     
     if (indexPath.section == 4 && indexPath.row != 0 && indexPath.row < [[rowSubject termineInPerson:viewingPerson] count]+1) {
         if (funktionenTermineDetail == nil) funktionenTermineDetail = [[FunktionenTermineDetail alloc] init];
-        int index = [viewingPerson.Termine indexOfObject:[[rowSubject termineInPerson:viewingPerson] objectAtIndex:indexPath.row-1]];
+        int index = (int)[viewingPerson.Termine indexOfObject:[[rowSubject termineInPerson:viewingPerson] objectAtIndex:(int)indexPath.row-1]];
         [funktionenTermineDetail reloadWithTerminAtIndex:index ViewingIndex:viewingIndex andPerson:viewingPerson andWeek:viewingWeek];
         funktionenTermineDetail.modalPresentationStyle = UIModalPresentationFormSheet;
         funktionenTermineDetail.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
@@ -537,7 +537,7 @@
     
     if (indexPath.section == 5 && indexPath.row != 0 && indexPath.row < [[rowSubject NotizenWithViewingPerson:viewingPerson] count]+1) {
         if (funktionenNotizDetail == nil) funktionenNotizDetail = [[FunktionenNotizDetail alloc] init];
-        int notizIndex = [viewingPerson.Notizen indexOfObject:[[rowSubject NotizenWithViewingPerson:viewingPerson] objectAtIndex:indexPath.row-1]];
+        int notizIndex = (int)[viewingPerson.Notizen indexOfObject:[[rowSubject NotizenWithViewingPerson:viewingPerson] objectAtIndex:(int)indexPath.row-1]];
         [funktionenNotizDetail reloadWithNotiz:[[rowSubject NotizenWithViewingPerson:viewingPerson] objectAtIndex:indexPath.row-1] andIndex:notizIndex andWeek:viewingWeek AndPerson:viewingPerson AndViewingIndex:viewingIndex];
         funktionenNotizDetail.modalPresentationStyle = UIModalPresentationFormSheet;
         funktionenNotizDetail.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
@@ -613,7 +613,7 @@
         Subject *rowSubject = [Subject clearSubject];
         if (viewingHoure < [viewingDay.Subjects count]) rowSubject = [viewingPerson getSubjectForID:[[viewingDay.Subjects objectAtIndex:viewingHoure] HoureSubjectID] onDate:[MainData dateForDayIndex:DayIndex] andHoure:viewingHoure inWeek:viewingWeek];
         
-        int notizIndex = [viewingPerson.Notizen indexOfObject:[[rowSubject NotizenWithViewingPerson:viewingPerson] objectAtIndex:indexPath.row-1]];
+        int notizIndex = (int)[viewingPerson.Notizen indexOfObject:[[rowSubject NotizenWithViewingPerson:viewingPerson] objectAtIndex:indexPath.row-1]];
         [[viewingPerson.Notizen objectAtIndex:notizIndex] prepareDelete];
         [viewingPerson.Notizen removeObjectAtIndex:notizIndex];
         

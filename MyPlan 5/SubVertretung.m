@@ -165,13 +165,13 @@
             else {
                 MainTableFile8 *MainTableCell = [MainData getCellType:8];
                 Day *viewingDay = [viewingWeek.WeekDurationNames objectAtIndex:[MainData dayIndexForDate:editingVertretung.VertretungsDatum]];
-                Subject *rowSubject = [viewingPerson getSubjectForID:[[viewingDay.Subjects objectAtIndex:indexPath.row-1] HoureSubjectID] onDate:[MainData dateForDayIndex:[MainData dayIndexForDate:editingVertretung.VertretungsDatum]] andHoure:indexPath.row-1 inWeek:viewingWeek];
+                Subject *rowSubject = [viewingPerson getSubjectForID:[[viewingDay.Subjects objectAtIndex:indexPath.row-1] HoureSubjectID] onDate:[MainData dateForDayIndex:[MainData dayIndexForDate:editingVertretung.VertretungsDatum]] andHoure:(int)indexPath.row-1 inWeek:viewingWeek];
                 
                 if ([rowSubject.SubjectID isEqualToString:editingVertretung.SubjectID] && indexPath.row-1 == editingVertretung.SubjectHoureIndex) MainTableCell.accessoryType = UITableViewCellAccessoryCheckmark;
                 
                 MainTableCell.backgroundView = [MainData getViewWithColor:rowSubject.SubjectColor];
-                MainTableCell.NameLabel.text = [NSString stringWithFormat:@"%i. %@", indexPath.row, rowSubject.SubjectName];
-                MainTableCell.InfoLabel.text = [[viewingWeek getDateForDay:[MainData dayIndexForDate:editingVertretung.VertretungsDatum] andHoure:indexPath.row-1] getTime];
+                MainTableCell.NameLabel.text = [NSString stringWithFormat:@"%li. %@", (long)indexPath.row, rowSubject.SubjectName];
+                MainTableCell.InfoLabel.text = [[viewingWeek getDateForDay:[MainData dayIndexForDate:editingVertretung.VertretungsDatum] andHoure:(int)indexPath.row-1] getTime];
                 MainTableCell.NameLabel.enabled = NO;
                 MainTableCell.InfoLabel.enabled = NO;
                 MainTableCell.NameLabel.placeholder = @"";
@@ -277,7 +277,7 @@
             }
             else {
                 editingVertretung.SubjectID = rowSubject.SubjectID;
-                editingVertretung.SubjectHoureIndex = indexPath.row-1;
+                editingVertretung.SubjectHoureIndex = (int)indexPath.row-1;
                 editingVertretung.VertretungsName = [NSString stringWithFormat:@"%@ Vertretung", rowSubject.SubjectName];
                 self.title = editingVertretung.VertretungsName;
                 [table reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];

@@ -94,7 +94,7 @@
         MainTableCell.backgroundView = [MainData getViewType:4];
         MainTableCell.selectedBackgroundView = [MainData getViewType:0];
         MainTableCell.DayLabel.text = [[viewingWeek.WeekDurationNames objectAtIndex:indexPath.row-1] DayName];
-        MainTableCell.HouresLabel.text = [NSString stringWithFormat:@"Stunden: %i", [[[viewingWeek.WeekDurationNames objectAtIndex:indexPath.row-1] Subjects] count]];
+        MainTableCell.HouresLabel.text = [NSString stringWithFormat:@"Stunden: %lu", (unsigned long)[[[viewingWeek.WeekDurationNames objectAtIndex:indexPath.row-1] Subjects] count]];
         return MainTableCell;
     }
     return 0;
@@ -104,7 +104,7 @@
     if (indexPath.section == 0) {
         if (indexPath.row != 0) {
             if (subPlanEditDetail == nil) subPlanEditDetail = [[SubPlanEditDetail alloc] init];
-            [subPlanEditDetail reloadViewsWithPersonIndex:viewingIndex andDayIndex:indexPath.row-1];
+            [subPlanEditDetail reloadViewsWithPersonIndex:viewingIndex andDayIndex:(int)indexPath.row-1];
             [self.navigationController pushViewController:subPlanEditDetail animated:YES];
         }
     }

@@ -1,0 +1,43 @@
+body {position: relative;top: 20px;margin: 0 auto;min-width: 1000px;width: 900px;background-color: #fff;}
+h1 {text-align: center;font-family: "Myraid Pro", "Helvetica";}
+
+
+#TopHeadText1 {font-weight: 500;font-size: 70px;}
+#TopHeadText2 {margin-top: -40px;color: #999;font-weight: 200;font-size: 45px;}
+
+
+.TopImgFrame {position:relative;z-index: 1;margin-top: 30px;margin-left: 30px;height: 579px;width: 550px;}
+.TopImgFrame img {z-index:1;width:550px;height:579px;}
+		
+.TopHeadFrame {position: absolute;top: -10px;z-index: 2;margin-left: 520px;width: 450px;height: 150px;}
+						
+.TopTextFrame {position: absolute;top: 230px;z-index: 2;margin-left: 570px;width: 340px;height: 415px;}
+.TopTextFrame ul {list-style-type: square;font-size: 20px;font-family: "Myraid Pro", "Helvetica";}
+.TopTextFrame ul li {padding-top:15px;color: #444;font-weight: 100;}
+.TopTextFrame a img {margin-top: -30px;margin-left: 220px;width: 180px;}
+
+
+.BoxFrame {position: relative;top: 50px;width: 1000px;height: 250px;}
+.BoxFrame ul {list-style-type: none;}
+.BoxFrame ul li {float: left;margin-left: -10px;width: 80px;height: 250px;}
+.BoxFrame ul #sep {float: left;width: 1px;height: 250px;background-color: black;}
+
+
+.Foother {position: relative;top: 90px;left: 25px;width: 950px;height: 70px;}
+.Foother p {color: #666;font-family: "Myraid Pro", "Helvetica";}
+
+
+.Preview {position: fixed;top: 0px;left: 0px;z-index: 60000;display: none;width: 100%;height: 100%;background-color: #999;opacity: 0.7;}
+.PreviewSection {position: fixed;top: 0px;right: 0px;bottom: 0px;left: 25px;z-index: 60000;display: none;margin: auto;width: 0px;height: 90%;background-color: gray;opacity: 1.0;}
+.PreviewSection img {position: fixed;top: 0px;right: 0px;bottom: 0px;left: 25px;margin: auto;height: 95%;border-radius: 10px;background-color: white;}
+
+
+#BoxListItem {float: left;width: 175px;height: 250px;}
+#BoxListItemText {font-weight: 200;font-size: 17px;}
+.BoxListItemImg {position:relative;top:15px;left:8px;width:159px;}
+
+
+#iPadBox {position: absolute;margin-top: 125px;width: 70px;height: 125px;}
+#iPadBoxImg {position: relative;top: 10px;width: 70px;}
+#iPhoneBox {position: absolute;margin-top: 0px;width: 70px;height: 125px;background-color: #ddd;}
+#iPhoneBoxImg {position: relative;top: 10px;width: 70px;}

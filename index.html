@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<link href="index.css" rel="stylesheet" type="text/css">
+		<title>MyPlan 5</title>
+		
+		<script language="JavaScript">
+			
+  			function showiPhone() {
+  				document.getElementById("img1a").style.display="block";
+  				document.getElementById("img2a").style.display="block";
+  				document.getElementById("img3a").style.display="block";
+  				document.getElementById("img4a").style.display="block";
+  				document.getElementById("img5a").style.display="block";
+  				
+  				document.getElementById("img1b").style.display="none";
+  				document.getElementById("img2b").style.display="none";
+  				document.getElementById("img3b").style.display="none";
+  				document.getElementById("img4b").style.display="none";
+  				document.getElementById("img5b").style.display="none";	
+				
+				document.getElementById("iPhoneBox").style.background = '#ddd';
+				document.getElementById("iPadBox").style.background = '#fff';
+			}
+			function showiPad() {
+				document.getElementById("img1a").style.display="none";
+  				document.getElementById("img2a").style.display="none";
+  				document.getElementById("img3a").style.display="none";
+  				document.getElementById("img4a").style.display="none";
+  				document.getElementById("img5a").style.display="none";
+  				
+  				document.getElementById("img1b").style.display="block";
+  				document.getElementById("img2b").style.display="block";
+  				document.getElementById("img3b").style.display="block";
+  				document.getElementById("img4b").style.display="block";
+  				document.getElementById("img5b").style.display="block";		
+  				
+				document.getElementById("iPhoneBox").style.background = '#fff';
+				document.getElementById("iPadBox").style.background = '#ddd';
+  			}
+  			
+			function openImg(img) {
+				document.getElementById("FullScreenImg").setAttribute('src', img);
+				document.getElementById("PreviewSection").style.display="block";		
+				document.getElementById("Preview").style.display="block";	
+			}
+			function closeImg() {
+				document.getElementById("PreviewSection").style.display="none";		
+				document.getElementById("Preview").style.display="none";	
+			}
+			
+		</script>
+		<BODY onLoad = "showiPhone()">
+	</head>
+
+	<body>
+		
+		<div onclick=closeImg() class="Preview"></div>
+		<div class="PreviewSection" onclick=closeImg()><img src="./img/BoxListItem_6.png" alt="Logo"/></div>
+	
+		
+		<div class="TopImgFrame">
+			 <img src="./img/TopImgFrame.png"/>
+		</div>
+		
+			
+		<div class="TopHeadFrame">					
+		    <h1 id="TopHeadText1">MyPlan 5</h1>
+		    <h1 id="TopHeadText2">Jetzt &Iota; Heute &Iota; Woche</h1>
+		</div>
+		
+		
+		<div class="TopTextFrame">
+		    <ul>
+		    	<li>Viele verschiedene Ansichten</li>
+		    	<li>Einfache Bedienung</li>
+		    	<li>Integrierter Notenmanager</li>
+		    	<li>Eigene Fächer</li>
+		    	<li>Export des Stundenplans (PDF, CSV, Web)</li>
+		    	<li>Unbegrenzt viele Pläne und Personen</li>
+		    </ul>
+		    <a target="_blank" href="https://itunes.apple.com/us/app/myplan-5/id620776357?l=de&ls=1&mt=8"><img src="./img/App_Store.png"></a>
+		</div>
+		    
+		    
+		<div class="BoxFrame">
+		    <ul>
+		    	<li>
+		    		<div id="iPhoneBox" onClick = showiPhone()><img id="iPhoneBoxImg" src="./img/iPhoneBoxImg.png"/></div>
+		    		<div id="iPadBox" onClick = showiPad()><img id="iPadBoxImg" src="./img/iPadBoxImg.png"/></div>
+		    	</li>
+		    	
+		    	<li id="sep"></li>
+		    	
+		    	<li id="BoxListItem">
+		    		<h1 id="BoxListItemText">Hausaufgaben</h1>
+		    		<div onclick=openImg('./img/BoxListItem_1.png')><img class="BoxListItemImg" id="img1a" src="./img/BoxListItem_1_small.png" /></div>
+		    		<div onclick=openImg('./img/BoxListItem_6.png')><img class="BoxListItemImg" id="img1b" style="display:none;" src="./img/BoxListItem_6_small.png"/></div>
+
+		    	</li>
+		    	
+		    	<li id="sep"></li>
+		    	
+		    	<li id="BoxListItem">
+		    		<h1 id="BoxListItemText">Noten</h1>
+		    		<div onclick=openImg('./img/BoxListItem_2.png')><img class="BoxListItemImg" id="img2a" src="./img/BoxListItem_2_small.png"/></div>
+		    		<div onclick=openImg('./img/BoxListItem_7.png')><img class="BoxListItemImg" id="img2b" style="display:none;" src="./img/BoxListItem_7_small.png"/></div>
+		    	</li>
+		    	
+		    	<li id="sep"></li>
+		    	
+		    	<li id="BoxListItem">
+		    		<h1 id="BoxListItemText">Export</h1>
+		    		<div onclick=openImg('./img/BoxListItem_3.png')><img class="BoxListItemImg" id="img3a" src="./img/BoxListItem_3_small.png"/></div>
+		    		<div onclick=openImg('./img/BoxListItem_8.png')><img class="BoxListItemImg" id="img3b" style="display:none;" src="./img/BoxListItem_8_small.png"/></div>
+		    	</li>
+		    	
+		    	<li id="sep"></li>
+		    	
+		    	<li id="BoxListItem">
+		    		<h1 id="BoxListItemText">Termine</h1>
+		    		<div onclick=openImg('./img/BoxListItem_4.png')><img class="BoxListItemImg" id="img4a" src="./img/BoxListItem_4_small.png"/></div>
+		    		<div onclick=openImg('./img/BoxListItem_9.png')><img class="BoxListItemImg" id="img4b" style="display:none;" src="./img/BoxListItem_9_small.png"/></div>
+		    	</li>
+		    	
+		    	<li id="sep"></li>
+		    	
+		    	<li id="BoxListItem">
+		    		<h1 id="BoxListItemText">Vertretungsplan</h1>
+		    		<div onclick=openImg('./img/BoxListItem_5.png')><img class="BoxListItemImg" id="img5a" src="./img/BoxListItem_5_small.png"/></div>
+		    		<div onclick=openImg('./img/BoxListItem_10.png')><img class="BoxListItemImg" id="img5b" style="display:none;" src="./img/BoxListItem_10_small.png"/></div>
+		    	</li>
+		    </ul>
+		</div>	
+		
+		<div class="Foother">
+		    <p id="BottomText1"><a href="../">&copy; 2013 Jannik Lorenz</a></p>
+		</div>	
+			
+				
+	</body>
+</html

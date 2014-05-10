@@ -33,8 +33,6 @@
 #import "Help.h"
 #import "InfoVC.h"
 #import "KGModal.h"
-#import "MyPlanPro.h"
-#import "RageIAPHelper.h"
 
 
 @implementation AppDelegate
@@ -45,7 +43,6 @@
 @synthesize metadataQuery;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [RageIAPHelper sharedInstance];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.weekMenu = [[WeekMenu alloc] init];
@@ -331,36 +328,36 @@
 }
 
 - (void)showAdMessage {
-    UIView *contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 280, 150)];
-    
-    CGRect welcomeLabelRect = contentView.bounds;
-    welcomeLabelRect.origin.y = 20;
-    welcomeLabelRect.size.height = 20;
-    UIFont *welcomeLabelFont = [UIFont boldSystemFontOfSize:19];
-    UILabel *welcomeLabel = [[UILabel alloc] initWithFrame:welcomeLabelRect];
-    welcomeLabel.text = @"Werbung?";
-    welcomeLabel.font = welcomeLabelFont;
-    welcomeLabel.textColor = [UIColor whiteColor];
-    welcomeLabel.textAlignment = NSTextAlignmentCenter;
-    welcomeLabel.backgroundColor = [UIColor clearColor];
-    welcomeLabel.shadowColor = [UIColor blackColor];
-    welcomeLabel.shadowOffset = CGSizeMake(0, 1);
-    [contentView addSubview:welcomeLabel];
-    
-    CGRect infoLabelRect = CGRectInset(contentView.bounds, 5, 5);
-    infoLabelRect.origin.y = CGRectGetMaxY(welcomeLabelRect)+5;
-    infoLabelRect.size.height -= CGRectGetMinY(infoLabelRect);
-    UILabel *infoLabel = [[UILabel alloc] initWithFrame:infoLabelRect];
-    infoLabel.text = @"Sie können die Werbung unter 'Werbung Entfernen' im Menü mit einem In-App-Purchase in Höhe von 0,89 € deaktivieren.";
-    infoLabel.numberOfLines = 4;
-    infoLabel.textColor = [UIColor whiteColor];
-    infoLabel.textAlignment = NSTextAlignmentCenter;
-    infoLabel.backgroundColor = [UIColor clearColor];
-    infoLabel.shadowColor = [UIColor blackColor];
-    infoLabel.shadowOffset = CGSizeMake(0, 1);
-    [contentView addSubview:infoLabel];
-    
-    [[KGModal sharedInstance] showWithContentView:contentView andAnimated:YES];
+//    UIView *contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 280, 150)];
+//    
+//    CGRect welcomeLabelRect = contentView.bounds;
+//    welcomeLabelRect.origin.y = 20;
+//    welcomeLabelRect.size.height = 20;
+//    UIFont *welcomeLabelFont = [UIFont boldSystemFontOfSize:19];
+//    UILabel *welcomeLabel = [[UILabel alloc] initWithFrame:welcomeLabelRect];
+//    welcomeLabel.text = @"Werbung?";
+//    welcomeLabel.font = welcomeLabelFont;
+//    welcomeLabel.textColor = [UIColor whiteColor];
+//    welcomeLabel.textAlignment = NSTextAlignmentCenter;
+//    welcomeLabel.backgroundColor = [UIColor clearColor];
+//    welcomeLabel.shadowColor = [UIColor blackColor];
+//    welcomeLabel.shadowOffset = CGSizeMake(0, 1);
+//    [contentView addSubview:welcomeLabel];
+//    
+//    CGRect infoLabelRect = CGRectInset(contentView.bounds, 5, 5);
+//    infoLabelRect.origin.y = CGRectGetMaxY(welcomeLabelRect)+5;
+//    infoLabelRect.size.height -= CGRectGetMinY(infoLabelRect);
+//    UILabel *infoLabel = [[UILabel alloc] initWithFrame:infoLabelRect];
+//    infoLabel.text = @"Sie können die Werbung unter 'Werbung Entfernen' im Menü mit einem In-App-Purchase in Höhe von 0,89 € deaktivieren.";
+//    infoLabel.numberOfLines = 4;
+//    infoLabel.textColor = [UIColor whiteColor];
+//    infoLabel.textAlignment = NSTextAlignmentCenter;
+//    infoLabel.backgroundColor = [UIColor clearColor];
+//    infoLabel.shadowColor = [UIColor blackColor];
+//    infoLabel.shadowOffset = CGSizeMake(0, 1);
+//    [contentView addSubview:infoLabel];
+//    
+//    [[KGModal sharedInstance] showWithContentView:contentView andAnimated:YES];
 }
 
 
@@ -462,13 +459,6 @@
 //        self.help.delegate = self;
 //        [self.weekView presentViewController:self.help animated:YES completion:NULL];
 //    }
-    else if (row == 5) { // Werbung entfernen
-        if (self.myPlanPro == nil) self.myPlanPro = [[MyPlanPro alloc] init];
-        self.myPlanPro.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-        self.myPlanPro.modalPresentationStyle = UIModalPresentationFormSheet;
-        self.myPlanPro.delegate = self;
-        [self.weekView presentViewController:self.myPlanPro animated:YES completion:NULL];
-    }
 }
 - (void)didSelectPerson:(int)row2 {
     [self.weekView reloadViewsWithIndex:row2];

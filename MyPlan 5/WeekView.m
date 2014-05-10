@@ -27,7 +27,6 @@
 #import "AppData.h"
 #import "MPNotification.h"
 #import "Day.h"
-#import <iAd/iAd.h>
 
 @interface WeekView ()
 
@@ -56,12 +55,9 @@
     // Enable Dragging
     [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
     
-    
-    banner1 = [[ADBannerView alloc] initWithFrame:CGRectZero];
-    
-}
-
-- (void)bannerViewWillLoadAd:(ADBannerView *)banner {
+    table.backgroundView = nil;
+    table.backgroundColor = [UIColor clearColor];
+    table.layer.borderWidth = 0;
     
 }
 
@@ -125,32 +121,8 @@
         
         NSLog(@"YYYAAA");
     }
-//    else {
-//        table.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-banner1.frame.size.height);
-//        backImg.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-banner1.frame.size.height);
-//        
-//        
-//        NSLog(@"NOOOO");
-//    }
 }
 
-- (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error {
-    [UIView beginAnimations:nil context:nil];
-//    [UIView setAnimationDuration:0.5];
-    [table setFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-    backImg.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
-    [UIView commitAnimations];
-}
-
-- (void)bannerViewDidLoadAd:(ADBannerView *)banner {
-    if (![[MainData LoadAppData] AdFree]) {
-        [UIView beginAnimations:nil context:nil];
-//        [UIView setAnimationDuration:0.5];
-        table.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-banner1.frame.size.height);
-        backImg.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-banner1.frame.size.height);
-        [UIView commitAnimations];
-    }
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -194,6 +166,7 @@
     if (indexPath.section == 0) {
         MainTableFile6 *MainTableCell = [MainData getCellType:6];
         MainTableCell.backgroundView = [MainData getViewType:6];
+        MainTableCell.backgroundColor = [UIColor clearColor];
         MainTableCell.index = indexPath;
         MainTableCell.delegate = self;
         [MainTableCell setShadow];
@@ -207,6 +180,7 @@
             MainTableCell.custumTextLabel1.text = @"Funktionen";
         }
         else {
+            MainTableCell.backgroundColor = [UIColor clearColor];
             MainTableCell.backgroundView = [MainData getViewType:4];
             MainTableCell.selectedBackgroundView = [MainData getViewType:0];
             if (indexPath.row == 1) {

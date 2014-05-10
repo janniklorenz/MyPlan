@@ -71,7 +71,7 @@
     }
     
     
-    [array addObject:[NSMutableArray arrayWithObjects:@"Einstellungen", @"Generell", @"Hintergrund", @"Benachrichtigungen", @"Infos", @"Werbung entfernen", nil]];
+    [array addObject:[NSMutableArray arrayWithObjects:@"Einstellungen", @"Generell", @"Hintergrund", @"Benachrichtigungen", @"Infos", nil]];
     return array;
 }
 

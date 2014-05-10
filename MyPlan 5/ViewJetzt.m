@@ -72,7 +72,6 @@
     
     [super viewDidLoad];
     
-    banner2 = [[ADBannerView alloc] initWithFrame:CGRectZero];
     
 }
 
@@ -96,34 +95,9 @@
         
         NSLog(@"YYYAAA");
     }
-//    else {
-//        table.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-banner2.frame.size.height);
-//        backImg.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-banner2.frame.size.height);
-//        
-//        
-//        NSLog(@"NOOOO");
-//    }
-    
-    
 }
 
-- (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error {
-    [UIView beginAnimations:nil context:nil];
-//    [UIView setAnimationDuration:0.5];
-    [table setFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-    backImg.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
-    [UIView commitAnimations];
-}
 
-- (void)bannerViewDidLoadAd:(ADBannerView *)banner {
-    if (![[MainData LoadAppData] AdFree]) {
-        [UIView beginAnimations:nil context:nil];
-//        [UIView setAnimationDuration:0.5];
-        table.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-banner2.frame.size.height);
-        backImg.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-banner2.frame.size.height);
-        [UIView commitAnimations];
-    }
-}
 
 - (void)swipeLeft:(id)sender {
 //    [self.navigationController popToRootViewControllerAnimated:YES];
@@ -645,7 +619,7 @@
 
 
 - (IBAction)changeSegmentedControl:(id)sender {
-    [self reloadWithViewingIndex:viewingIndex andPerson:viewingPerson andWeek:viewingWeek andDay:DayIndexSegmentedControl.selectedSegmentIndex andHoure:0];
+    [self reloadWithViewingIndex:viewingIndex andPerson:viewingPerson andWeek:viewingWeek andDay:(int)DayIndexSegmentedControl.selectedSegmentIndex andHoure:0];
 }
 
 @end

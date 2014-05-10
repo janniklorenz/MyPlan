@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 Jannik Lorenz. All rights reserved.
 //
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
-@interface MyPlan_5Tests : SenTestCase
+@interface MyPlan_5Tests : XCTestCase
 
 @end

@@ -12,7 +12,6 @@
 #import "WeekEditDetail.h"
 #import "WeekEditDetail2.h"
 #import "SubjectCell4.h"
-#import <iAd/iAd.h>
 
 @class Week;
 @class WeekEditDetail;
@@ -23,7 +22,7 @@
 @class FunktionenTermineDetail;
 @class FunktionenNotizDetail;
 
-@interface ViewJetzt : UIViewController <MainTableFileDelegate,WeekEditDetail, WeekEditDetail2, UIActionSheetDelegate, SubjectCell4Delegate, ADBannerViewDelegate> {
+@interface ViewJetzt : UIViewController <MainTableFileDelegate,WeekEditDetail, WeekEditDetail2, UIActionSheetDelegate, SubjectCell4Delegate> {
     IBOutlet UITableView *table;
     IBOutlet UIImageView *backImg;
     
@@ -51,7 +50,6 @@
     BOOL OppendTermine;
     BOOL OppendNotizen;
     
-    IBOutlet ADBannerView *banner2;
 }
 @property (readwrite) BOOL hideProgress;
 

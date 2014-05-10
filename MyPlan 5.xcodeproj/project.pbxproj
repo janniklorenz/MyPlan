@@ -17,7 +17,6 @@
 		B4483C8B1709075D0004693E /* CVCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = B4483C891709075D0004693E /* CVCell2.m */; };
 		B4483C8C1709075D0004693E /* CVCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4483C8A1709075D0004693E /* CVCell2.xib */; };
 		B4483C8F170908E30004693E /*  02.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B4483C8E170908E30004693E /*  02.jpg */; };
-		B448B02A172D7A1700C16258 /* RageIAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B448B029172D7A1700C16258 /* RageIAPHelper.m */; };
 		B462310516CD537100DB3855 /* Info.m in Sources */ = {isa = PBXBuildFile; fileRef = B462310416CD537100DB3855 /* Info.m */; };
 		B462310916CD5EBF00DB3855 /* FachEditDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = B462310816CD5EBF00DB3855 /* FachEditDetail.m */; };
 		B462310E16CD5ED900DB3855 /* FachEditDetail_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B462310A16CD5ED900DB3855 /* FachEditDetail_iPad.xib */; };
@@ -152,14 +151,7 @@
 		B4A0310716D6691C004A34CE /* Vertretung.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A0310616D6691C004A34CE /* Vertretung.m */; };
 		B4A2345116FB5E6D00101EE9 /* KGModal.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A2345016FB5E6D00101EE9 /* KGModal.m */; };
 		B4A2345316FB64A100101EE9 /* Protocol.h in Resources */ = {isa = PBXBuildFile; fileRef = B4A2345216FB64A100101EE9 /* Protocol.h */; };
-		B4A2345516FE0EFD00101EE9 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4A2345416FE0EFC00101EE9 /* iAd.framework */; };
-		B4AA655C1701F1A60042AFE5 /* IAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AA655B1701F1A60042AFE5 /* IAPHelper.m */; };
 		B4AA655E1701F2530042AFE5 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4AA655D1701F2530042AFE5 /* StoreKit.framework */; };
-		B4AA65651701F4D80042AFE5 /* MyPlanPro.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AA65641701F4D80042AFE5 /* MyPlanPro.m */; };
-		B4AA656A1701F4FA0042AFE5 /* MyPlanPro_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4AA65661701F4FA0042AFE5 /* MyPlanPro_iPad.xib */; };
-		B4AA656B1701F4FA0042AFE5 /* MyPlanPro_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4AA65681701F4FA0042AFE5 /* MyPlanPro_iPhone.xib */; };
-		B4AA656F1701F6E60042AFE5 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AA656E1701F6E60042AFE5 /* Reachability.m */; };
-		B4AA65721701F7250042AFE5 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AA65711701F7250042AFE5 /* MBProgressHUD.m */; };
 		B4AE14BC16CEB7BA000F3A1C /* ViewJetzt.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AE14BB16CEB7BA000F3A1C /* ViewJetzt.m */; };
 		B4AE14BF16CEB7CF000F3A1C /* ViewWeek.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AE14BE16CEB7CF000F3A1C /* ViewWeek.m */; };
 		B4AE14C816CEB827000F3A1C /* ViewJetzt_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4AE14C016CEB827000F3A1C /* ViewJetzt_iPad.xib */; };
@@ -225,8 +217,6 @@
 		B4BF160C16EE9BA800C6811C /* Struktur 7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B4BF160916EE9BA800C6811C /* Struktur 7.jpg */; };
 		B4BF160D16EE9BA800C6811C /* Struktur 8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B4BF160A16EE9BA800C6811C /* Struktur 8.jpg */; };
 		B4BF160F16EF7D9100C6811C /* Natur 8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B4BF160E16EF7D9100C6811C /* Natur 8.jpg */; };
-		B4BF161D16EFD3D300C6811C /* libGoogleAnalytics_debug.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B4BF161B16EFD3D300C6811C /* libGoogleAnalytics_debug.a */; };
-		B4BF161E16EFD3D300C6811C /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B4BF161C16EFD3D300C6811C /* libGoogleAnalytics.a */; };
 		B4CD5C1B16BC161C00DD350B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4CD5C1A16BC161C00DD350B /* UIKit.framework */; };
 		B4CD5C1D16BC161C00DD350B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4CD5C1C16BC161C00DD350B /* Foundation.framework */; };
 		B4CD5C1F16BC161C00DD350B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4CD5C1E16BC161C00DD350B /* CoreGraphics.framework */; };
@@ -237,7 +227,6 @@
 		B4CD5C2F16BC161C00DD350B /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4CD5C2E16BC161C00DD350B /* Default@2x.png */; };
 		B4CD5C3116BC161C00DD350B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4CD5C3016BC161C00DD350B /* Default-568h@2x.png */; };
 		B4CD5C3416BC161C00DD350B /* WeekMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = B4CD5C3316BC161C00DD350B /* WeekMenu.m */; };
-		B4CD5C4216BC161C00DD350B /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4CD5C4116BC161C00DD350B /* SenTestingKit.framework */; };
 		B4CD5C4316BC161C00DD350B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4CD5C1A16BC161C00DD350B /* UIKit.framework */; };
 		B4CD5C4416BC161C00DD350B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4CD5C1C16BC161C00DD350B /* Foundation.framework */; };
 		B4CD5C4C16BC161C00DD350B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B4CD5C4A16BC161C00DD350B /* InfoPlist.strings */; };
@@ -314,8 +303,6 @@
 		B4483C891709075D0004693E /* CVCell2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CVCell2.m; sourceTree = "<group>"; };
 		B4483C8A1709075D0004693E /* CVCell2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CVCell2.xib; sourceTree = "<group>"; };
 		B4483C8E170908E30004693E /*  02.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = " 02.jpg"; sourceTree = "<group>"; };
-		B448B028172D7A1700C16258 /* RageIAPHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RageIAPHelper.h; sourceTree = "<group>"; };
-		B448B029172D7A1700C16258 /* RageIAPHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RageIAPHelper.m; sourceTree = "<group>"; };
 		B462310316CD537100DB3855 /* Info.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Info.h; sourceTree = "<group>"; };
 		B462310416CD537100DB3855 /* Info.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Info.m; sourceTree = "<group>"; };
 		B462310716CD5EBF00DB3855 /* FachEditDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FachEditDetail.h; sourceTree = "<group>"; };
@@ -506,17 +493,7 @@
 		B4A2345016FB5E6D00101EE9 /* KGModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGModal.m; sourceTree = "<group>"; };
 		B4A2345216FB64A100101EE9 /* Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Protocol.h; sourceTree = "<group>"; };
 		B4A2345416FE0EFC00101EE9 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
-		B4AA655A1701F1A60042AFE5 /* IAPHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAPHelper.h; sourceTree = "<group>"; };
-		B4AA655B1701F1A60042AFE5 /* IAPHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAPHelper.m; sourceTree = "<group>"; };
 		B4AA655D1701F2530042AFE5 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		B4AA65631701F4D80042AFE5 /* MyPlanPro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPlanPro.h; sourceTree = "<group>"; };
-		B4AA65641701F4D80042AFE5 /* MyPlanPro.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPlanPro.m; sourceTree = "<group>"; };
-		B4AA65671701F4FA0042AFE5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MyPlanPro_iPad.xib; sourceTree = "<group>"; };
-		B4AA65691701F4FA0042AFE5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MyPlanPro_iPhone.xib; sourceTree = "<group>"; };
-		B4AA656D1701F6E60042AFE5 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
-		B4AA656E1701F6E60042AFE5 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
-		B4AA65701701F7250042AFE5 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
-		B4AA65711701F7250042AFE5 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		B4AE14BA16CEB7BA000F3A1C /* ViewJetzt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewJetzt.h; sourceTree = "<group>"; };
 		B4AE14BB16CEB7BA000F3A1C /* ViewJetzt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewJetzt.m; sourceTree = "<group>"; };
 		B4AE14BD16CEB7CF000F3A1C /* ViewWeek.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewWeek.h; sourceTree = "<group>"; };
@@ -600,13 +577,6 @@
 		B4BF160916EE9BA800C6811C /* Struktur 7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Struktur 7.jpg"; sourceTree = "<group>"; };
 		B4BF160A16EE9BA800C6811C /* Struktur 8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Struktur 8.jpg"; sourceTree = "<group>"; };
 		B4BF160E16EF7D9100C6811C /* Natur 8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Natur 8.jpg"; sourceTree = "<group>"; };
-		B4BF161616EFD3D300C6811C /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
-		B4BF161716EFD3D300C6811C /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
-		B4BF161816EFD3D300C6811C /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
-		B4BF161916EFD3D300C6811C /* GAITransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITransaction.h; sourceTree = "<group>"; };
-		B4BF161A16EFD3D300C6811C /* GAITransactionItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITransactionItem.h; sourceTree = "<group>"; };
-		B4BF161B16EFD3D300C6811C /* libGoogleAnalytics_debug.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics_debug.a; sourceTree = "<group>"; };
-		B4BF161C16EFD3D300C6811C /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics.a; sourceTree = "<group>"; };
 		B4CD5C1716BC161C00DD350B /* MyPlan 5.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MyPlan 5.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4CD5C1A16BC161C00DD350B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B4CD5C1C16BC161C00DD350B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -622,8 +592,7 @@
 		B4CD5C3016BC161C00DD350B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		B4CD5C3216BC161C00DD350B /* WeekMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeekMenu.h; sourceTree = "<group>"; };
 		B4CD5C3316BC161C00DD350B /* WeekMenu.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeekMenu.m; sourceTree = "<group>"; };
-		B4CD5C4016BC161C00DD350B /* MyPlan 5Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MyPlan 5Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		B4CD5C4116BC161C00DD350B /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		B4CD5C4016BC161C00DD350B /* MyPlan 5Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MyPlan 5Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4CD5C4916BC161C00DD350B /* MyPlan 5Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MyPlan 5Tests-Info.plist"; sourceTree = "<group>"; };
 		B4CD5C4B16BC161C00DD350B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B4CD5C4D16BC161C00DD350B /* MyPlan_5Tests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyPlan_5Tests.h; sourceTree = "<group>"; };
@@ -693,7 +662,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4AA655E1701F2530042AFE5 /* StoreKit.framework in Frameworks */,
-				B4A2345516FE0EFD00101EE9 /* iAd.framework in Frameworks */,
 				B462D32B16CF135F006A2081 /* CoreData.framework in Frameworks */,
 				B462D32916CF1358006A2081 /* SystemConfiguration.framework in Frameworks */,
 				B462D31016CF0B36006A2081 /* CFNetwork.framework in Frameworks */,
@@ -702,8 +670,6 @@
 				B4CD5C1B16BC161C00DD350B /* UIKit.framework in Frameworks */,
 				B4CD5C1D16BC161C00DD350B /* Foundation.framework in Frameworks */,
 				B4CD5C1F16BC161C00DD350B /* CoreGraphics.framework in Frameworks */,
-				B4BF161D16EFD3D300C6811C /* libGoogleAnalytics_debug.a in Frameworks */,
-				B4BF161E16EFD3D300C6811C /* libGoogleAnalytics.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -711,7 +677,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B4CD5C4216BC161C00DD350B /* SenTestingKit.framework in Frameworks */,
 				B4CD5C4316BC161C00DD350B /* UIKit.framework in Frameworks */,
 				B4CD5C4416BC161C00DD350B /* Foundation.framework in Frameworks */,
 			);
@@ -891,20 +856,6 @@
 				B462D2FD16CEFE8D006A2081 /* FunktionenVertretungsplan_iPad.xib */,
 			);
 			name = FunktionenVertretungsplan;
-			sourceTree = "<group>";
-		};
-		B462D30E16CF07DB006A2081 /* Google Analytics */ = {
-			isa = PBXGroup;
-			children = (
-				B4BF161616EFD3D300C6811C /* GAI.h */,
-				B4BF161716EFD3D300C6811C /* GAITrackedViewController.h */,
-				B4BF161816EFD3D300C6811C /* GAITracker.h */,
-				B4BF161916EFD3D300C6811C /* GAITransaction.h */,
-				B4BF161A16EFD3D300C6811C /* GAITransactionItem.h */,
-				B4BF161B16EFD3D300C6811C /* libGoogleAnalytics_debug.a */,
-				B4BF161C16EFD3D300C6811C /* libGoogleAnalytics.a */,
-			);
-			name = "Google Analytics";
 			sourceTree = "<group>";
 		};
 		B462D33216D00A36006A2081 /* Main */ = {
@@ -1127,7 +1078,6 @@
 		B4920BC616BEA5E600A1D752 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				B4AA656C1701F5000042AFE5 /* MyPlanPro */,
 				B49DD5CB16C728B20072E184 /* BackgroundSettings */,
 				B49DD5CC16C728BE0072E184 /* MainSettings */,
 				B4902BA116E2A55400062C62 /* NotificationsSettings */,
@@ -1305,34 +1255,6 @@
 			name = MP.framework;
 			sourceTree = "<group>";
 		};
-		B4AA65621701F4360042AFE5 /* InAppPurchases */ = {
-			isa = PBXGroup;
-			children = (
-				B4AA655A1701F1A60042AFE5 /* IAPHelper.h */,
-				B4AA655B1701F1A60042AFE5 /* IAPHelper.m */,
-				B448B028172D7A1700C16258 /* RageIAPHelper.h */,
-				B448B029172D7A1700C16258 /* RageIAPHelper.m */,
-				B4AA656D1701F6E60042AFE5 /* Reachability.h */,
-				B4AA656E1701F6E60042AFE5 /* Reachability.m */,
-				B4AA65701701F7250042AFE5 /* MBProgressHUD.h */,
-				B4AA65711701F7250042AFE5 /* MBProgressHUD.m */,
-			);
-			name = InAppPurchases;
-			path = ..;
-			sourceTree = "<group>";
-		};
-		B4AA656C1701F5000042AFE5 /* MyPlanPro */ = {
-			isa = PBXGroup;
-			children = (
-				B4AA65621701F4360042AFE5 /* InAppPurchases */,
-				B4AA65631701F4D80042AFE5 /* MyPlanPro.h */,
-				B4AA65641701F4D80042AFE5 /* MyPlanPro.m */,
-				B4AA65681701F4FA0042AFE5 /* MyPlanPro_iPhone.xib */,
-				B4AA65661701F4FA0042AFE5 /* MyPlanPro_iPad.xib */,
-			);
-			name = MyPlanPro;
-			sourceTree = "<group>";
-		};
 		B4AE14CC16CEB83B000F3A1C /* ViewTag */ = {
 			isa = PBXGroup;
 			children = (
@@ -1501,7 +1423,7 @@
 			isa = PBXGroup;
 			children = (
 				B4CD5C1716BC161C00DD350B /* MyPlan 5.app */,
-				B4CD5C4016BC161C00DD350B /* MyPlan 5Tests.octest */,
+				B4CD5C4016BC161C00DD350B /* MyPlan 5Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1520,7 +1442,6 @@
 				B4CD5C1A16BC161C00DD350B /* UIKit.framework */,
 				B4CD5C1C16BC161C00DD350B /* Foundation.framework */,
 				B4CD5C1E16BC161C00DD350B /* CoreGraphics.framework */,
-				B4CD5C4116BC161C00DD350B /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1634,7 +1555,6 @@
 				B462D2D916CEFA5B006A2081 /* img */,
 				B4B04B8016DFB94C000BCCB4 /* MPPictureView */,
 				B4B04B6C16DD3D4B000BCCB4 /* Update */,
-				B462D30E16CF07DB006A2081 /* Google Analytics */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -1719,8 +1639,8 @@
 			);
 			name = "MyPlan 5Tests";
 			productName = "MyPlan 5Tests";
-			productReference = B4CD5C4016BC161C00DD350B /* MyPlan 5Tests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productReference = B4CD5C4016BC161C00DD350B /* MyPlan 5Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -1904,8 +1824,6 @@
 				B468BD2A16F223C400D0F285 /* MyPlan_Large.png in Resources */,
 				B468BD2D16F62C3300D0F285 /* HTML in Resources */,
 				B4A2345316FB64A100101EE9 /* Protocol.h in Resources */,
-				B4AA656A1701F4FA0042AFE5 /* MyPlanPro_iPad.xib in Resources */,
-				B4AA656B1701F4FA0042AFE5 /* MyPlanPro_iPhone.xib in Resources */,
 				B4440134170687FB0075CB2F /* FunktionenTermineDetailDate_iPad.xib in Resources */,
 				B4440135170687FB0075CB2F /* FunktionenTermineDetailDate_iPhone.xib in Resources */,
 				B4483C7D170905150004693E /* MyPlan_img_24.png in Resources */,
@@ -2039,15 +1957,10 @@
 				B468BD2216F220FC00D0F285 /* InfoVC.m in Sources */,
 				B468BD2716F222B800D0F285 /* MainTableFile16.m in Sources */,
 				B4A2345116FB5E6D00101EE9 /* KGModal.m in Sources */,
-				B4AA655C1701F1A60042AFE5 /* IAPHelper.m in Sources */,
-				B4AA65651701F4D80042AFE5 /* MyPlanPro.m in Sources */,
-				B4AA656F1701F6E60042AFE5 /* Reachability.m in Sources */,
-				B4AA65721701F7250042AFE5 /* MBProgressHUD.m in Sources */,
 				B444012F170687C20075CB2F /* FunktionenTermineDetailDate.m in Sources */,
 				B4483C80170905570004693E /* FunktionenFotos.m in Sources */,
 				B4483C8B1709075D0004693E /* CVCell2.m in Sources */,
 				B49D89C0171073BD003DD93A /* SubjectCell5.m in Sources */,
-				B448B02A172D7A1700C16258 /* RageIAPHelper.m in Sources */,
 				B4D4038C1730316E001F55ED /* Notiz.m in Sources */,
 				B4D40395173038BF001F55ED /* FunktionenNotizen.m in Sources */,
 				B4D4039E17303968001F55ED /* FunktionenNotizDetail.m in Sources */,
@@ -2395,22 +2308,6 @@
 			name = SubAddHoureViewController_iPhone.xib;
 			sourceTree = "<group>";
 		};
-		B4AA65661701F4FA0042AFE5 /* MyPlanPro_iPad.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B4AA65671701F4FA0042AFE5 /* en */,
-			);
-			name = MyPlanPro_iPad.xib;
-			sourceTree = "<group>";
-		};
-		B4AA65681701F4FA0042AFE5 /* MyPlanPro_iPhone.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B4AA65691701F4FA0042AFE5 /* en */,
-			);
-			name = MyPlanPro_iPhone.xib;
-			sourceTree = "<group>";
-		};
 		B4AE14C016CEB827000F3A1C /* ViewJetzt_iPad.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -2690,8 +2587,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "2991AE8B-6613-4750-A48E-147C05521F44";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2991AE8B-6613-4750-A48E-147C05521F44";
+				PROVISIONING_PROFILE = "53D97575-9732-4588-8773-2FE602A12BAC";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "53D97575-9732-4588-8773-2FE602A12BAC";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -2718,8 +2615,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "2991AE8B-6613-4750-A48E-147C05521F44";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2991AE8B-6613-4750-A48E-147C05521F44";
+				PROVISIONING_PROFILE = "53D97575-9732-4588-8773-2FE602A12BAC";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "53D97575-9732-4588-8773-2FE602A12BAC";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -2741,8 +2638,8 @@
 					"\"$(SRCROOT)/MyPlan 5\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "E1FB1F84-CF25-45FF-968F-ABEACC5DCADA";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E1FB1F84-CF25-45FF-968F-ABEACC5DCADA";
+				PROVISIONING_PROFILE = "53D97575-9732-4588-8773-2FE602A12BAC";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "53D97575-9732-4588-8773-2FE602A12BAC";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2762,8 +2659,8 @@
 					"\"$(SRCROOT)/MyPlan 5\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "E1FB1F84-CF25-45FF-968F-ABEACC5DCADA";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E1FB1F84-CF25-45FF-968F-ABEACC5DCADA";
+				PROVISIONING_PROFILE = "53D97575-9732-4588-8773-2FE602A12BAC";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "53D97575-9732-4588-8773-2FE602A12BAC";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -2775,6 +2672,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MyPlan 5/MyPlan 5-Prefix.pch";
@@ -2785,7 +2683,6 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
 		};
@@ -2796,6 +2693,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MyPlan 5/MyPlan 5-Prefix.pch";
@@ -2806,7 +2704,6 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
 		};

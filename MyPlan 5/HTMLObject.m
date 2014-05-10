@@ -43,7 +43,7 @@
 }
 
 + (NSString *)MakeCSVTable:(NSMutableArray *)Datensatze Spalten:(int)Spalten Header:(NSString *)Header {
-	int FinalValue = [Datensatze count];
+	int FinalValue = (int)[Datensatze count];
 	
 	NSString *t = @"";
 	

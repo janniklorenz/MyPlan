@@ -32,8 +32,7 @@
 - (void)didSelectButton:(int)buttonIndex andIndex:(NSIndexPath *)indexPath;
 @end
 
-@interface WeekView : UIViewController <MainTableFile6Delegate, ADBannerViewDelegate> {
-    IBOutlet ADBannerView *banner1;
+@interface WeekView : UIViewController <MainTableFile6Delegate> {
     
     IBOutlet UITableView *table;
     IBOutlet UIImageView *backImg;

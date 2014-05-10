@@ -268,7 +268,7 @@
     if (isNew) {
         if (indexPath.section == 0 && indexPath.row != 0) {
             Day *viewingDay = [viewingWeek.WeekDurationNames objectAtIndex:[MainData dayIndexForDate:editingVertretung.VertretungsDatum]];
-            Subject *rowSubject = [viewingPerson getSubjectForID:[[viewingDay.Subjects objectAtIndex:indexPath.row-1] HoureSubjectID] onDate:[MainData dateForDayIndex:[MainData dayIndexForDate:editingVertretung.VertretungsDatum]] andHoure:indexPath.row-1 inWeek:viewingWeek];
+            Subject *rowSubject = [viewingPerson getSubjectForID:[[viewingDay.Subjects objectAtIndex:indexPath.row-1] HoureSubjectID] onDate:[MainData dateForDayIndex:[MainData dayIndexForDate:editingVertretung.VertretungsDatum]] andHoure:(int)indexPath.row-1 inWeek:viewingWeek];
             
             if (rowSubject.isVertretung) {
                 [table selectRowAtIndexPath:nil animated:YES scrollPosition:UITableViewScrollPositionNone];

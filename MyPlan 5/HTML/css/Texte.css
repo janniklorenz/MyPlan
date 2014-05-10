@@ -1,0 +1,102 @@
+h1 {
+	font-family: "Myraid Pro", "Helvetica";
+	text-align: center;
+}
+
+#TopImgFrameImg {
+	width: 550px;
+	height: 579px;
+	z-index: 1;
+}
+
+#TopHeadText1 {
+	font-size: 70px;
+	font-weight: 500;
+}
+#TopHeadText2 {
+	font-size: 45px;
+	color: #999;
+	margin-top: -40px;
+	font-weight: 200;
+}
+
+
+
+
+#TopTextList {
+	font-family: "Myraid Pro", "Helvetica";
+	font-size: 20px;
+	list-style-type: square;
+}
+#TopTextListItem {
+	padding-top:15px;
+	font-weight: 100;
+	color: #444;
+}
+
+
+
+#BoxList {
+	list-style-type: none;
+}
+#BoxListItem {
+	float: left;
+	width: 175px;
+	height: 250px;
+}
+#BoxListItem2 {
+	float: left;
+	width: 1px;
+	height: 250px;
+	background-color: black;
+}
+#BoxListItem1 {
+	float: left;
+	width: 80px;
+	height: 250px;
+	margin-left: -10px;
+}
+#BoxListItemText {
+	font-size: 17px;
+	font-weight: 200;
+}
+.BoxListItemImg {
+	width: 159px;
+	position: relative;
+	left: 8px;
+	top: 15px;
+}
+
+#iPadBox {
+	width: 70px;
+	height: 125px;
+	position: absolute;
+	margin-top: 125px;
+}
+#iPadBoxImg {
+	width: 70px;
+	position: relative;
+	top: 10px;
+}
+#iPhoneBox {
+	width: 70px;
+	height: 125px;
+	position: absolute;
+	margin-top: 0px;
+	background-color: #ddd;
+}
+#iPhoneBoxImg {
+	width: 70px;
+	position: relative;
+	top: 10px;
+}
+
+
+
+
+
+#BottomText1 {
+	font-family: "Myraid Pro", "Helvetica";
+	
+	color: #666;
+}

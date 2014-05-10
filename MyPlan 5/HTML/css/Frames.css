@@ -1,0 +1,144 @@
+
+
+
+
+
+
+#MainFrame {
+	width: 900px;
+	margin: 0 auto;
+	min-width: 1000px;
+	
+	background-color: #fff;
+	
+	position: relative;
+	top: 20px;
+}
+
+
+
+
+#TopImgFrame {
+	/*background-image: url("../img/TopImgFrame.png");
+	background-size: cover;
+    background-repeat: no-repeat;*/
+	
+	width: 550px;
+	height: 579px;
+	
+	position: relative;
+	margin-left: 30px;
+	margin-top: 30px;
+	
+	z-index: 1;
+}
+			
+#TopHeadFrame {
+	width: 450px;
+	height: 150px;
+
+	position: absolute;
+	margin-left: 520px;
+	top: -10px;
+	
+	
+	z-index: 2;
+}
+							
+#TopTextFrame {
+	width: 340px;
+	height: 415px;
+
+	position: absolute;
+	margin-left: 570px;
+	top: 230px;
+	z-index: 2;
+}
+
+
+
+
+
+#BoxFrame {
+	width: 1000px;
+	height: 250px;
+	position: relative;
+	top: 50px;
+}
+
+
+
+
+#VideoFrame {
+	width: 1000px;
+	height: 250px;
+	position: relative;
+	top: 50px;
+}
+
+
+
+
+
+#BottomFrame {
+	width: 950px;
+	height: 70px;
+	
+	position: relative;
+	top: 90px;
+	left: 25px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Preview {
+	height: 100%;
+	width: 100%;
+	position: fixed;
+    z-index: 60000;
+	background-color: #999;
+	opacity: 0.7;
+	
+	left: 0px;
+	top: 0px;
+	display: none;
+}
+
+#PreviewSection {
+	height: 90%;
+	width: 0px;
+	background-color: gray;
+	top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 25px;
+    opacity: 1.0;
+    margin: auto;
+    z-index: 60000;
+    position: fixed;
+    
+    display: none;
+}
+#FullScreenImg {
+	height: 95%;
+	top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 25px;
+    margin: auto;
+    position: fixed;
+    background-color: white;
+    border-radius: 10px;
+}

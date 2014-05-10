@@ -1,4 +1,4 @@
-myplan
+MyPlan
 ======
 
 Timetable

@@ -56,7 +56,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    backImg.image = [UIImage imageWithContentsOfFile:[MainData selectedBackgroundImg]];
+//    backImg.image = [UIImage imageWithContentsOfFile:[MainData selectedBackgroundImg]];
     table.backgroundView = nil;
 }
 
@@ -110,7 +110,7 @@
 - (void)tableView:(UITableView *)table didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0 && indexPath.row != 0) {
         [MainData SaveBackgroundImg:[UIImage imageNamed:[NSString stringWithFormat:@"%@.jpg", [Files objectAtIndex:indexPath.row - 1]]]];
-        backImg.image = [UIImage imageWithContentsOfFile:[MainData selectedBackgroundImg]];
+//        backImg.image = [UIImage imageWithContentsOfFile:[MainData selectedBackgroundImg]];
         [self.delegate viewWillAppear:YES];
     }
     else if (indexPath.section == 1) {

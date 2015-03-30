@@ -41,7 +41,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    backImg.image = [UIImage imageWithContentsOfFile:[MainData selectedBackgroundImg]];
+//    backImg.image = [UIImage imageWithContentsOfFile:[MainData selectedBackgroundImg]];
     navBar.topItem.title = editingDay.DayName;
     
     if (editingDay.sameTimes) {

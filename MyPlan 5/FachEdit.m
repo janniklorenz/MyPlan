@@ -82,7 +82,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    backImg.image = [UIImage imageWithContentsOfFile:[MainData selectedBackgroundImg]];
+//    backImg.image = [UIImage imageWithContentsOfFile:[MainData selectedBackgroundImg]];
     table.backgroundView = nil;
     navBar.topItem.title = editingSubject.SubjectNameAndShort;
     self.navigationController.navigationBarHidden = YES;

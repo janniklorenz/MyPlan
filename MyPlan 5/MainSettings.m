@@ -40,7 +40,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     appData = [MainData LoadAppData];
     
-    backImg.image = [UIImage imageWithContentsOfFile:[MainData selectedBackgroundImg]];
+//    backImg.image = [UIImage imageWithContentsOfFile:[MainData selectedBackgroundImg]];
     table.backgroundView = nil;
 }
 

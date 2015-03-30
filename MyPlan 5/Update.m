@@ -32,7 +32,7 @@
     
 }
 - (void)viewWillAppear:(BOOL)animated {
-    backImg.image = [UIImage imageWithContentsOfFile:[MainData selectedBackgroundImg]];
+//    backImg.image = [UIImage imageWithContentsOfFile:[MainData selectedBackgroundImg]];
     
     NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"index" ofType:@"html" inDirectory:@"HTML"]];
     [webView loadRequest:[NSURLRequest requestWithURL:url]];

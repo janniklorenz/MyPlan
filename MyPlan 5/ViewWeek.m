@@ -63,7 +63,7 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     
-    backImg.image = [UIImage imageWithContentsOfFile:[MainData selectedBackgroundImg]];
+//    backImg.image = [UIImage imageWithContentsOfFile:[MainData selectedBackgroundImg]];
     MenuCollectionView.backgroundView = nil;
     self.navigationController.navigationBarHidden = YES;
 }

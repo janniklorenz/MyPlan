@@ -64,7 +64,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    backImg.image = [UIImage imageWithContentsOfFile:[MainData selectedBackgroundImg]];
+//    backImg.image = [UIImage imageWithContentsOfFile:[MainData selectedBackgroundImg]];
     table.backgroundView = nil;
 }
 

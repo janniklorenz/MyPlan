@@ -10,29 +10,29 @@
 	<string>MyPlan 5</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>1593F8CD-A7E0-4A32-B4AF-AE58AF4C6BAF</key>
-		<string>https://github.com/jannik199512/myplan.git</string>
+		<key>1B2A0D24C60437F7A24E0800AE27160BB13C19D9</key>
+		<string>https://github.com/janniklorenz/MyPlan</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>MyPlan 5.xcodeproj/project.xcworkspace</string>
+	<string>MyPlan 5.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>1593F8CD-A7E0-4A32-B4AF-AE58AF4C6BAF</key>
+		<key>1B2A0D24C60437F7A24E0800AE27160BB13C19D9</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/jannik199512/myplan.git</string>
+	<string>https://github.com/janniklorenz/MyPlan</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>1593F8CD-A7E0-4A32-B4AF-AE58AF4C6BAF</string>
+	<string>1B2A0D24C60437F7A24E0800AE27160BB13C19D9</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>1593F8CD-A7E0-4A32-B4AF-AE58AF4C6BAF</string>
+			<string>1B2A0D24C60437F7A24E0800AE27160BB13C19D9</string>
 			<key>IDESourceControlWCCName</key>
 			<string>MyPlan</string>
 		</dict>

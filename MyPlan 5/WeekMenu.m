@@ -34,11 +34,15 @@
 - (void)viewWillAppear:(BOOL)animated {
     appData = [MainData LoadAppData];
     Persons = [MainData LoadMain];
+    
     for (int i = 0; i < [Persons count]; i++) {
         if ([[[Persons objectAtIndex:i] PersonID] isEqualToString:appData.selectedPersonID]) openedIndex = i + 1;
     }
-    backImg.image = [UIImage imageWithContentsOfFile:[MainData selectedBackgroundImg]];
+    
     table.backgroundView = nil;
+    table.backgroundColor = [UIColor clearColor];
+    self.view.backgroundColor = [UIColor greenColor];
+    
     menuContend = [self menuArray];
     [table reloadData];
 }
@@ -48,10 +52,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
 }
 
 

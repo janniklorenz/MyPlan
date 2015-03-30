@@ -54,7 +54,7 @@
     if (isNew) navBar.topItem.title = @"Neue Hausaufgabe";
     else navBar.topItem.title = viewingHomework.HomeworkName;
     
-    backImg.image = [UIImage imageWithContentsOfFile:[MainData selectedBackgroundImg]];
+//    backImg.image = [UIImage imageWithContentsOfFile:[MainData selectedBackgroundImg]];
     table.backgroundView = nil;
     [table reloadData];
 }

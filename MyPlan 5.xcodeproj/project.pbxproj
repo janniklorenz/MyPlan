@@ -1452,10 +1452,10 @@
 				B4AE14CF16CEBDF5000F3A1C /* MyPlan 5.entitlements */,
 				B4CD5C7D16BC225F00DD350B /* Main */,
 				B4CD5C6216BC17BE00DD350B /* TableViewCells */,
-				B462D2E316CEFAC6006A2081 /* Funktionen */,
 				B462311A16CD796E00DB3855 /* Hauptansichten */,
-				B4CD5C7716BC1A8800DD350B /* WeekMenu */,
-				B4CD5C7816BC1A9100DD350B /* Wochenübersicht */,
+				B462D2E316CEFAC6006A2081 /* Funktionen */,
+				B4CD5C7716BC1A8800DD350B /* Rear Menu */,
+				B4CD5C7816BC1A9100DD350B /* Front Menu */,
 				B4CD5C9016BC3A8300DD350B /* WeekEdit */,
 				B4920BF316C000DF00A1D752 /* PersonEdit */,
 				B4920BC616BEA5E600A1D752 /* Settings */,
@@ -1508,7 +1508,7 @@
 			name = TableViewCells;
 			sourceTree = "<group>";
 		};
-		B4CD5C7716BC1A8800DD350B /* WeekMenu */ = {
+		B4CD5C7716BC1A8800DD350B /* Rear Menu */ = {
 			isa = PBXGroup;
 			children = (
 				B4CD5C3216BC161C00DD350B /* WeekMenu.h */,
@@ -1516,10 +1516,10 @@
 				B4CD5C6D16BC1A7600DD350B /* WeekMenu_iPhone.xib */,
 				B4CD5C6B16BC1A7600DD350B /* WeekMenu_iPad.xib */,
 			);
-			name = WeekMenu;
+			name = "Rear Menu";
 			sourceTree = "<group>";
 		};
-		B4CD5C7816BC1A9100DD350B /* Wochenübersicht */ = {
+		B4CD5C7816BC1A9100DD350B /* Front Menu */ = {
 			isa = PBXGroup;
 			children = (
 				B462D2E516CEFB49006A2081 /* img */,
@@ -1529,7 +1529,7 @@
 				B4CD5C6F16BC1A7600DD350B /* WeekView_iPad.xib */,
 				B486B48B16C1B3B2007827E7 /* Stundenplan Erstellen */,
 			);
-			name = "Wochenübersicht";
+			name = "Front Menu";
 			sourceTree = "<group>";
 		};
 		B4CD5C7D16BC225F00DD350B /* Main */ = {

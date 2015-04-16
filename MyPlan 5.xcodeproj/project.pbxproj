@@ -7,37 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B444012F170687C20075CB2F /* FunktionenTermineDetailDate.m in Sources */ = {isa = PBXBuildFile; fileRef = B444012E170687C20075CB2F /* FunktionenTermineDetailDate.m */; };
+		7FCC6FF64B3EBFEA48A6711E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E89688496B90CEDE59E1000 /* libPods.a */; };
 		B4440134170687FB0075CB2F /* FunktionenTermineDetailDate_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4440130170687FB0075CB2F /* FunktionenTermineDetailDate_iPad.xib */; };
 		B4440135170687FB0075CB2F /* FunktionenTermineDetailDate_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4440132170687FB0075CB2F /* FunktionenTermineDetailDate_iPhone.xib */; };
 		B4483C7D170905150004693E /* MyPlan_img_24.png in Resources */ = {isa = PBXBuildFile; fileRef = B4483C7C170905150004693E /* MyPlan_img_24.png */; };
-		B4483C80170905570004693E /* FunktionenFotos.m in Sources */ = {isa = PBXBuildFile; fileRef = B4483C7F170905570004693E /* FunktionenFotos.m */; };
 		B4483C85170905790004693E /* FunktionenFotos_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4483C81170905790004693E /* FunktionenFotos_iPad.xib */; };
 		B4483C86170905790004693E /* FunktionenFotos_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4483C83170905790004693E /* FunktionenFotos_iPhone.xib */; };
-		B4483C8B1709075D0004693E /* CVCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = B4483C891709075D0004693E /* CVCell2.m */; };
 		B4483C8C1709075D0004693E /* CVCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4483C8A1709075D0004693E /* CVCell2.xib */; };
 		B4483C8F170908E30004693E /*  02.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B4483C8E170908E30004693E /*  02.jpg */; };
-		B462310516CD537100DB3855 /* Info.m in Sources */ = {isa = PBXBuildFile; fileRef = B462310416CD537100DB3855 /* Info.m */; };
-		B462310916CD5EBF00DB3855 /* FachEditDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = B462310816CD5EBF00DB3855 /* FachEditDetail.m */; };
 		B462310E16CD5ED900DB3855 /* FachEditDetail_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B462310A16CD5ED900DB3855 /* FachEditDetail_iPad.xib */; };
 		B462310F16CD5ED900DB3855 /* FachEditDetail_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = B462310C16CD5ED900DB3855 /* FachEditDetail_iPhone.xib */; };
-		B462311316CD794F00DB3855 /* ViewTag.m in Sources */ = {isa = PBXBuildFile; fileRef = B462311216CD794E00DB3855 /* ViewTag.m */; };
 		B462311816CD796800DB3855 /* ViewTag_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B462311416CD796600DB3855 /* ViewTag_iPad.xib */; };
 		B462311916CD796800DB3855 /* ViewTag_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = B462311616CD796700DB3855 /* ViewTag_iPhone.xib */; };
-		B462312116CD93C600DB3855 /* MainTableFile9.m in Sources */ = {isa = PBXBuildFile; fileRef = B462311C16CD93C000DB3855 /* MainTableFile9.m */; };
 		B462312216CD93C600DB3855 /* MainTableFile9.xib in Resources */ = {isa = PBXBuildFile; fileRef = B462311D16CD93C100DB3855 /* MainTableFile9.xib */; };
-		B462312316CD93C600DB3855 /* MainTableFile10.m in Sources */ = {isa = PBXBuildFile; fileRef = B462311F16CD93C300DB3855 /* MainTableFile10.m */; };
 		B462312416CD93C600DB3855 /* MainTableFile10.xib in Resources */ = {isa = PBXBuildFile; fileRef = B462312016CD93C500DB3855 /* MainTableFile10.xib */; };
-		B462D2DC16CEFAA7006A2081 /* FunktionenExport.m in Sources */ = {isa = PBXBuildFile; fileRef = B462D2DB16CEFAA7006A2081 /* FunktionenExport.m */; };
 		B462D2E116CEFABF006A2081 /* FunktionenExport_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B462D2DD16CEFABF006A2081 /* FunktionenExport_iPad.xib */; };
 		B462D2E216CEFABF006A2081 /* FunktionenExport_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = B462D2DF16CEFABF006A2081 /* FunktionenExport_iPhone.xib */; };
-		B462D2E816CEFDC4006A2081 /* FunktionenNoten.m in Sources */ = {isa = PBXBuildFile; fileRef = B462D2E716CEFDC4006A2081 /* FunktionenNoten.m */; };
 		B462D2ED16CEFDDA006A2081 /* FunktionenNoten_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B462D2E916CEFDDA006A2081 /* FunktionenNoten_iPad.xib */; };
 		B462D2EE16CEFDDA006A2081 /* FunktionenNoten_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = B462D2EB16CEFDDA006A2081 /* FunktionenNoten_iPhone.xib */; };
-		B462D2F216CEFE1B006A2081 /* FunktionenTermine.m in Sources */ = {isa = PBXBuildFile; fileRef = B462D2F116CEFE1B006A2081 /* FunktionenTermine.m */; };
 		B462D2F716CEFE32006A2081 /* FunktionenTermine_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = B462D2F316CEFE32006A2081 /* FunktionenTermine_iPhone.xib */; };
 		B462D2F816CEFE32006A2081 /* FunktionenTermine_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B462D2F516CEFE32006A2081 /* FunktionenTermine_iPad.xib */; };
-		B462D2FC16CEFE73006A2081 /* FunktionenVertretungsplan.m in Sources */ = {isa = PBXBuildFile; fileRef = B462D2FB16CEFE73006A2081 /* FunktionenVertretungsplan.m */; };
 		B462D30116CEFE8D006A2081 /* FunktionenVertretungsplan_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B462D2FD16CEFE8D006A2081 /* FunktionenVertretungsplan_iPad.xib */; };
 		B462D30216CEFE8D006A2081 /* FunktionenVertretungsplan_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = B462D2FF16CEFE8D006A2081 /* FunktionenVertretungsplan_iPhone.xib */; };
 		B462D30D16CF07C9006A2081 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B462D30C16CF07C9006A2081 /* libsqlite3.dylib */; };
@@ -48,25 +37,17 @@
 		B462D32F16CF1F2C006A2081 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4920BE416BF20B200A1D752 /* Icon@2x.png */; };
 		B462D33016CF2007006A2081 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = B4920BE616BF20CC00A1D752 /* Icon-72.png */; };
 		B462D33116CF200B006A2081 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4920BE816BF20D300A1D752 /* Icon-72@2x.png */; };
-		B462D33616D00AC8006A2081 /* SubjectCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = B462D33416D00AC8006A2081 /* SubjectCell1.m */; };
 		B462D33716D00AC8006A2081 /* SubjectCell1.xib in Resources */ = {isa = PBXBuildFile; fileRef = B462D33516D00AC8006A2081 /* SubjectCell1.xib */; };
 		B462D33C16D043A1006A2081 /* CVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B462D33A16D043A1006A2081 /* CVCell.m */; };
 		B462D33D16D043A1006A2081 /* CVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B462D33B16D043A1006A2081 /* CVCell.xib */; };
-		B462D34016D043EB006A2081 /* MPTapGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = B462D33F16D043EB006A2081 /* MPTapGestureRecognizer.m */; };
 		B462D34316D044EF006A2081 /* UICollectionViewWaterfallLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = B462D34216D044EE006A2081 /* UICollectionViewWaterfallLayout.m */; };
-		B462D34716D2C6E3006A2081 /* SubjectCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = B462D34516D2C6E3006A2081 /* SubjectCell2.m */; };
 		B462D34816D2C6E3006A2081 /* SubjectCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = B462D34616D2C6E3006A2081 /* SubjectCell2.xib */; };
-		B462D34C16D2CE3F006A2081 /* SubjectCell3.m in Sources */ = {isa = PBXBuildFile; fileRef = B462D34A16D2CE3E006A2081 /* SubjectCell3.m */; };
 		B462D34D16D2CE3F006A2081 /* SubjectCell3.xib in Resources */ = {isa = PBXBuildFile; fileRef = B462D34B16D2CE3F006A2081 /* SubjectCell3.xib */; };
-		B462D35116D2D2F3006A2081 /* SubjectCell4.m in Sources */ = {isa = PBXBuildFile; fileRef = B462D34F16D2D2F1006A2081 /* SubjectCell4.m */; };
 		B462D35216D2D2F3006A2081 /* SubjectCell4.xib in Resources */ = {isa = PBXBuildFile; fileRef = B462D35016D2D2F2006A2081 /* SubjectCell4.xib */; };
-		B468BD1216F21FF700D0F285 /* Help.m in Sources */ = {isa = PBXBuildFile; fileRef = B468BD1116F21FF700D0F285 /* Help.m */; };
 		B468BD1716F2202000D0F285 /* Help_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B468BD1316F2202000D0F285 /* Help_iPad.xib */; };
 		B468BD1816F2202000D0F285 /* Help_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = B468BD1516F2202000D0F285 /* Help_iPhone.xib */; };
 		B468BD1E16F220BF00D0F285 /* InfoVC_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B468BD1A16F220BF00D0F285 /* InfoVC_iPad.xib */; };
 		B468BD1F16F220BF00D0F285 /* InfoVC_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = B468BD1C16F220BF00D0F285 /* InfoVC_iPhone.xib */; };
-		B468BD2216F220FC00D0F285 /* InfoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = B468BD2116F220FC00D0F285 /* InfoVC.m */; };
-		B468BD2716F222B800D0F285 /* MainTableFile16.m in Sources */ = {isa = PBXBuildFile; fileRef = B468BD2516F222B800D0F285 /* MainTableFile16.m */; };
 		B468BD2816F222B800D0F285 /* MainTableFile16.xib in Resources */ = {isa = PBXBuildFile; fileRef = B468BD2616F222B800D0F285 /* MainTableFile16.xib */; };
 		B468BD2A16F223C400D0F285 /* MyPlan_Large.png in Resources */ = {isa = PBXBuildFile; fileRef = B468BD2916F223C400D0F285 /* MyPlan_Large.png */; };
 		B468BD2D16F62C3300D0F285 /* HTML in Resources */ = {isa = PBXBuildFile; fileRef = B468BD2C16F62C3300D0F285 /* HTML */; };
@@ -76,107 +57,57 @@
 		B486B46916C14B2C007827E7 /* MyPlan_img_6.png in Resources */ = {isa = PBXBuildFile; fileRef = B486B46616C14B2C007827E7 /* MyPlan_img_6.png */; };
 		B486B46A16C14B2C007827E7 /* MyPlan_img_5.png in Resources */ = {isa = PBXBuildFile; fileRef = B486B46716C14B2C007827E7 /* MyPlan_img_5.png */; };
 		B486B46B16C14B2C007827E7 /* MyPlan_img_4.png in Resources */ = {isa = PBXBuildFile; fileRef = B486B46816C14B2C007827E7 /* MyPlan_img_4.png */; };
-		B486B46F16C14EF4007827E7 /* MainTableFile5.m in Sources */ = {isa = PBXBuildFile; fileRef = B486B46D16C14EF4007827E7 /* MainTableFile5.m */; };
 		B486B47016C14EF4007827E7 /* MainTableFile5.xib in Resources */ = {isa = PBXBuildFile; fileRef = B486B46E16C14EF4007827E7 /* MainTableFile5.xib */; };
 		B486B47A16C1A92D007827E7 /* MenuButtons_Heute.png in Resources */ = {isa = PBXBuildFile; fileRef = B486B47716C1A92D007827E7 /* MenuButtons_Heute.png */; };
 		B486B47B16C1A92D007827E7 /* MenuButtons_Jetzt.png in Resources */ = {isa = PBXBuildFile; fileRef = B486B47816C1A92D007827E7 /* MenuButtons_Jetzt.png */; };
 		B486B47C16C1A92D007827E7 /* MenuButtons_Woche.png in Resources */ = {isa = PBXBuildFile; fileRef = B486B47916C1A92D007827E7 /* MenuButtons_Woche.png */; };
-		B486B48016C1A9AA007827E7 /* MainTableFile6.m in Sources */ = {isa = PBXBuildFile; fileRef = B486B47E16C1A9A9007827E7 /* MainTableFile6.m */; };
 		B486B48116C1A9AA007827E7 /* MainTableFile6.xib in Resources */ = {isa = PBXBuildFile; fileRef = B486B47F16C1A9A9007827E7 /* MainTableFile6.xib */; };
-		B486B48416C1B146007827E7 /* SubPlanEdit.m in Sources */ = {isa = PBXBuildFile; fileRef = B486B48316C1B146007827E7 /* SubPlanEdit.m */; };
 		B486B48916C1B187007827E7 /* SubPlanEdit_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B486B48516C1B186007827E7 /* SubPlanEdit_iPad.xib */; };
 		B486B48A16C1B187007827E7 /* SubPlanEdit_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = B486B48716C1B187007827E7 /* SubPlanEdit_iPhone.xib */; };
-		B486B48F16C1B4FE007827E7 /* MainTableFile7.m in Sources */ = {isa = PBXBuildFile; fileRef = B486B48D16C1B4FD007827E7 /* MainTableFile7.m */; };
-		B486B49016C1B4FE007827E7 /* MainTableFile7.m in Sources */ = {isa = PBXBuildFile; fileRef = B486B48D16C1B4FD007827E7 /* MainTableFile7.m */; };
 		B486B49116C1B4FE007827E7 /* MainTableFile7.xib in Resources */ = {isa = PBXBuildFile; fileRef = B486B48E16C1B4FE007827E7 /* MainTableFile7.xib */; };
 		B486B49216C1B4FE007827E7 /* MainTableFile7.xib in Resources */ = {isa = PBXBuildFile; fileRef = B486B48E16C1B4FE007827E7 /* MainTableFile7.xib */; };
-		B486B49516C1C332007827E7 /* SubPlanEditDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = B486B49416C1C332007827E7 /* SubPlanEditDetail.m */; };
 		B486B49B16C1C34D007827E7 /* SubPlanEditDetail_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = B486B49816C1C34D007827E7 /* SubPlanEditDetail_iPhone.xib */; };
-		B486B49F16C1C4BA007827E7 /* Houre.m in Sources */ = {isa = PBXBuildFile; fileRef = B486B49E16C1C4BA007827E7 /* Houre.m */; };
-		B486B4A416C27ED2007827E7 /* SubAddHoureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B486B4A216C27ED1007827E7 /* SubAddHoureViewController.m */; };
 		B486B4A916C27F20007827E7 /* SubAddHoureViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B486B4A716C27F20007827E7 /* SubAddHoureViewController_iPad.xib */; };
 		B486B4AC16C28187007827E7 /* SubPlanEditDetail_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B486B4AA16C28187007827E7 /* SubPlanEditDetail_iPad.xib */; };
-		B486B4F916C2A8FD007827E7 /* FachEdit.m in Sources */ = {isa = PBXBuildFile; fileRef = B486B4F816C2A8FC007827E7 /* FachEdit.m */; };
 		B486B4FD16C2A95C007827E7 /* FachEdit_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = B486B4FB16C2A95B007827E7 /* FachEdit_iPhone.xib */; };
 		B486B50016C46127007827E7 /* FachEdit_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B486B4FF16C46127007827E7 /* FachEdit_iPad.xib */; };
-		B486B50416C4667C007827E7 /* MainTableFile8.m in Sources */ = {isa = PBXBuildFile; fileRef = B486B50216C46678007827E7 /* MainTableFile8.m */; };
 		B486B50516C4667C007827E7 /* MainTableFile8.xib in Resources */ = {isa = PBXBuildFile; fileRef = B486B50316C4667A007827E7 /* MainTableFile8.xib */; };
 		B4902B9C16E2A53900062C62 /* NotificationsSettings_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4902B9816E2A53900062C62 /* NotificationsSettings_iPad.xib */; };
 		B4902B9D16E2A53900062C62 /* NotificationsSettings_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4902B9A16E2A53900062C62 /* NotificationsSettings_iPhone.xib */; };
-		B4902BA016E2A54C00062C62 /* NotificationsSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = B4902B9F16E2A54C00062C62 /* NotificationsSettings.m */; };
-		B4902BA516E2C26B00062C62 /* MainTableFile15.m in Sources */ = {isa = PBXBuildFile; fileRef = B4902BA316E2C26B00062C62 /* MainTableFile15.m */; };
 		B4902BA616E2C26B00062C62 /* MainTableFile15.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4902BA416E2C26B00062C62 /* MainTableFile15.xib */; };
-		B4902BA916E36DFF00062C62 /* MPNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = B4902BA816E36DFF00062C62 /* MPNotification.m */; };
-		B4902BAC16E4E98200062C62 /* Termin.m in Sources */ = {isa = PBXBuildFile; fileRef = B4902BAB16E4E98200062C62 /* Termin.m */; };
-		B4902BB016E4EC7C00062C62 /* FunktionenTermineDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = B4902BAF16E4EC7C00062C62 /* FunktionenTermineDetail.m */; };
 		B4902BB516E4ECA500062C62 /* FunktionenTermineDetail_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4902BB116E4ECA500062C62 /* FunktionenTermineDetail_iPad.xib */; };
 		B4902BB616E4ECA500062C62 /* FunktionenTermineDetail_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4902BB316E4ECA500062C62 /* FunktionenTermineDetail_iPhone.xib */; };
-		B4902BC916E522A300062C62 /* CalendarController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4902BB916E522A000062C62 /* CalendarController.m */; };
-		B4902BCA16E522A300062C62 /* NSDate+TKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = B4902BBB16E522A000062C62 /* NSDate+TKCategory.m */; };
 		B4902BCB16E522A300062C62 /* TapkuLibrary.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B4902BBC16E522A100062C62 /* TapkuLibrary.bundle */; };
-		B4902BCC16E522A300062C62 /* TKCalendarMonthTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4902BBE16E522A100062C62 /* TKCalendarMonthTableViewController.m */; };
-		B4902BCD16E522A300062C62 /* TKCalendarMonthView.m in Sources */ = {isa = PBXBuildFile; fileRef = B4902BC016E522A200062C62 /* TKCalendarMonthView.m */; };
-		B4902BCE16E522A300062C62 /* TKCalendarMonthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4902BC216E522A200062C62 /* TKCalendarMonthViewController.m */; };
-		B4902BCF16E522A300062C62 /* TKGlobal.m in Sources */ = {isa = PBXBuildFile; fileRef = B4902BC416E522A300062C62 /* TKGlobal.m */; };
-		B4902BD016E522A300062C62 /* UIImage+TKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = B4902BC616E522A300062C62 /* UIImage+TKCategory.m */; };
-		B4902BD116E522A300062C62 /* UIView+TKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = B4902BC816E522A300062C62 /* UIView+TKCategory.m */; };
-		B4920BAE16BC487D00A1D752 /* Week.m in Sources */ = {isa = PBXBuildFile; fileRef = B4920BAD16BC487D00A1D752 /* Week.m */; };
-		B4920BB116BC4A4700A1D752 /* MPDate.m in Sources */ = {isa = PBXBuildFile; fileRef = B4920BB016BC4A4700A1D752 /* MPDate.m */; };
-		B4920BB416BC4C7D00A1D752 /* Subject.m in Sources */ = {isa = PBXBuildFile; fileRef = B4920BB316BC4C7D00A1D752 /* Subject.m */; };
-		B4920BB816BC52C300A1D752 /* MainTableFile3.m in Sources */ = {isa = PBXBuildFile; fileRef = B4920BB616BC52C300A1D752 /* MainTableFile3.m */; };
 		B4920BB916BC52C300A1D752 /* MainTableFile3.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4920BB716BC52C300A1D752 /* MainTableFile3.xib */; };
-		B4920BBC16BE9F6100A1D752 /* AppData.m in Sources */ = {isa = PBXBuildFile; fileRef = B4920BBB16BE9F6100A1D752 /* AppData.m */; };
-		B4920BBF16BEA5C100A1D752 /* MainSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = B4920BBE16BEA5C100A1D752 /* MainSettings.m */; };
 		B4920BC416BEA5DF00A1D752 /* MainSettings_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4920BC016BEA5DF00A1D752 /* MainSettings_iPad.xib */; };
 		B4920BC516BEA5DF00A1D752 /* MainSettings_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4920BC216BEA5DF00A1D752 /* MainSettings_iPhone.xib */; };
-		B4920BC916BEB44700A1D752 /* WeekEditDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = B4920BC816BEB44700A1D752 /* WeekEditDetail.m */; };
 		B4920BCE16BEB46700A1D752 /* WeekEditDetail_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4920BCA16BEB46700A1D752 /* WeekEditDetail_iPad.xib */; };
 		B4920BCF16BEB46700A1D752 /* WeekEditDetail_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4920BCC16BEB46700A1D752 /* WeekEditDetail_iPhone.xib */; };
-		B4920BD416BEBE7A00A1D752 /* MainTableFile4.m in Sources */ = {isa = PBXBuildFile; fileRef = B4920BD216BEBE7900A1D752 /* MainTableFile4.m */; };
 		B4920BD516BEBE7A00A1D752 /* MainTableFile4.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4920BD316BEBE7A00A1D752 /* MainTableFile4.xib */; };
-		B4920BD816BED02900A1D752 /* WeekEditDetail2.m in Sources */ = {isa = PBXBuildFile; fileRef = B4920BD716BED02900A1D752 /* WeekEditDetail2.m */; };
 		B4920BDD16BED06500A1D752 /* WeekEditDetail2_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4920BD916BED06400A1D752 /* WeekEditDetail2_iPad.xib */; };
 		B4920BDE16BED06500A1D752 /* WeekEditDetail2_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4920BDB16BED06400A1D752 /* WeekEditDetail2_iPhone.xib */; };
-		B4920BE116BED1F700A1D752 /* Day.m in Sources */ = {isa = PBXBuildFile; fileRef = B4920BE016BED1F600A1D752 /* Day.m */; };
-		B4920BEC16C000BD00A1D752 /* PersonEdit.m in Sources */ = {isa = PBXBuildFile; fileRef = B4920BEB16C000BB00A1D752 /* PersonEdit.m */; };
 		B4920BF116C000D400A1D752 /* PersonEdit_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4920BED16C000D100A1D752 /* PersonEdit_iPad.xib */; };
 		B4920BF216C000D400A1D752 /* PersonEdit_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4920BEF16C000D200A1D752 /* PersonEdit_iPhone.xib */; };
-		B4920BF616C0016100A1D752 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = B4920BF516C0016000A1D752 /* Person.m */; };
-		B49D89C0171073BD003DD93A /* SubjectCell5.m in Sources */ = {isa = PBXBuildFile; fileRef = B49D89BE171073BD003DD93A /* SubjectCell5.m */; };
 		B49D89C1171073BD003DD93A /* SubjectCell5.xib in Resources */ = {isa = PBXBuildFile; fileRef = B49D89BF171073BD003DD93A /* SubjectCell5.xib */; };
-		B49DD5C416C728920072E184 /* BackgroundSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = B49DD5C316C728920072E184 /* BackgroundSettings.m */; };
 		B49DD5C916C728A90072E184 /* BackgroundSettings_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B49DD5C516C728A90072E184 /* BackgroundSettings_iPad.xib */; };
 		B49DD5CA16C728A90072E184 /* BackgroundSettings_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = B49DD5C716C728A90072E184 /* BackgroundSettings_iPhone.xib */; };
 		B4A0310416D667EA004A34CE /* SubAddHoureViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4A0310216D667EA004A34CE /* SubAddHoureViewController_iPhone.xib */; };
-		B4A0310716D6691C004A34CE /* Vertretung.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A0310616D6691C004A34CE /* Vertretung.m */; };
-		B4A2345116FB5E6D00101EE9 /* KGModal.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A2345016FB5E6D00101EE9 /* KGModal.m */; };
 		B4A2345316FB64A100101EE9 /* Protocol.h in Resources */ = {isa = PBXBuildFile; fileRef = B4A2345216FB64A100101EE9 /* Protocol.h */; };
 		B4AA655E1701F2530042AFE5 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4AA655D1701F2530042AFE5 /* StoreKit.framework */; };
-		B4AE14BC16CEB7BA000F3A1C /* ViewJetzt.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AE14BB16CEB7BA000F3A1C /* ViewJetzt.m */; };
-		B4AE14BF16CEB7CF000F3A1C /* ViewWeek.m in Sources */ = {isa = PBXBuildFile; fileRef = B4AE14BE16CEB7CF000F3A1C /* ViewWeek.m */; };
 		B4AE14C816CEB827000F3A1C /* ViewJetzt_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4AE14C016CEB827000F3A1C /* ViewJetzt_iPad.xib */; };
 		B4AE14C916CEB827000F3A1C /* ViewJetzt_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4AE14C216CEB827000F3A1C /* ViewJetzt_iPhone.xib */; };
 		B4AE14CA16CEB827000F3A1C /* ViewWeek_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4AE14C416CEB827000F3A1C /* ViewWeek_iPad.xib */; };
 		B4AE14CB16CEB827000F3A1C /* ViewWeek_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4AE14C616CEB827000F3A1C /* ViewWeek_iPhone.xib */; };
-		B4B04ADE16D673AA000BCCB4 /* SubVertretung.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B04ADD16D673AA000BCCB4 /* SubVertretung.m */; };
 		B4B04AE916D6749A000BCCB4 /* SubVertretung_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4B04AE516D6749A000BCCB4 /* SubVertretung_iPad.xib */; };
 		B4B04AEA16D6749A000BCCB4 /* SubVertretung_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4B04AE716D6749A000BCCB4 /* SubVertretung_iPhone.xib */; };
-		B4B04AEE16D679A0000BCCB4 /* MainTableFile11.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B04AEC16D679A0000BCCB4 /* MainTableFile11.m */; };
 		B4B04AEF16D679A0000BCCB4 /* MainTableFile11.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4B04AED16D679A0000BCCB4 /* MainTableFile11.xib */; };
-		B4B04AF316D75A2D000BCCB4 /* MainTableFile12.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B04AF116D75A2C000BCCB4 /* MainTableFile12.m */; };
 		B4B04AF416D75A2D000BCCB4 /* MainTableFile12.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4B04AF216D75A2C000BCCB4 /* MainTableFile12.xib */; };
-		B4B04AF716D75BDB000BCCB4 /* MyPlan_Vertretung_B.png in Resources */ = {isa = PBXBuildFile; fileRef = B4B04AF516D75BDB000BCCB4 /* MyPlan_Vertretung_B.png */; };
-		B4B04AF816D75BDB000BCCB4 /* MyPlan_Vertretung_W.png in Resources */ = {isa = PBXBuildFile; fileRef = B4B04AF616D75BDB000BCCB4 /* MyPlan_Vertretung_W.png */; };
 		B4B04B0116D7AF70000BCCB4 /* MyPlan_Menu_1.png in Resources */ = {isa = PBXBuildFile; fileRef = B4B04AFE16D7AF70000BCCB4 /* MyPlan_Menu_1.png */; };
 		B4B04B0216D7AF70000BCCB4 /* MyPlan_Menu_3.png in Resources */ = {isa = PBXBuildFile; fileRef = B4B04AFF16D7AF70000BCCB4 /* MyPlan_Menu_3.png */; };
 		B4B04B0316D7AF70000BCCB4 /* MyPlan_Menu_2.png in Resources */ = {isa = PBXBuildFile; fileRef = B4B04B0016D7AF70000BCCB4 /* MyPlan_Menu_2.png */; };
-		B4B04B1216D96237000BCCB4 /* MPNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B04B1116D96236000BCCB4 /* MPNavigationBar.m */; };
 		B4B04B1516D97DDD000BCCB4 /* MyPlan_img_7.png in Resources */ = {isa = PBXBuildFile; fileRef = B4B04B1416D97DDD000BCCB4 /* MyPlan_img_7.png */; };
-		B4B04B1816D98514000BCCB4 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B04B1716D98514000BCCB4 /* Note.m */; };
-		B4B04B1C16D988BE000BCCB4 /* SubFunktionenNoten.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B04B1B16D988BE000BCCB4 /* SubFunktionenNoten.m */; };
 		B4B04B2116D988DD000BCCB4 /* SubFunktionenNoten_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4B04B1D16D988DD000BCCB4 /* SubFunktionenNoten_iPad.xib */; };
 		B4B04B2216D988DD000BCCB4 /* SubFunktionenNoten_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4B04B1F16D988DD000BCCB4 /* SubFunktionenNoten_iPhone.xib */; };
-		B4B04B2616D98E57000BCCB4 /* SubFunktionenNotenDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B04B2516D98E57000BCCB4 /* SubFunktionenNotenDetail.m */; };
 		B4B04B2B16D98E73000BCCB4 /* SubFunktionenNotenDetail_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4B04B2716D98E72000BCCB4 /* SubFunktionenNotenDetail_iPad.xib */; };
 		B4B04B2C16D98E73000BCCB4 /* SubFunktionenNotenDetail_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4B04B2916D98E72000BCCB4 /* SubFunktionenNotenDetail_iPhone.xib */; };
 		B4B04B3116D99800000BCCB4 /* MyPlan_img_9.png in Resources */ = {isa = PBXBuildFile; fileRef = B4B04B2E16D997FE000BCCB4 /* MyPlan_img_9.png */; };
@@ -186,29 +117,20 @@
 		B4B04B3716DA95D3000BCCB4 /* MyPlan_img_13.png in Resources */ = {isa = PBXBuildFile; fileRef = B4B04B3516DA95D2000BCCB4 /* MyPlan_img_13.png */; };
 		B4B04B3916DA990A000BCCB4 /* MyPlan_img_14.png in Resources */ = {isa = PBXBuildFile; fileRef = B4B04B3816DA9909000BCCB4 /* MyPlan_img_14.png */; };
 		B4B04B3B16DA99F4000BCCB4 /* MyPlan_img_15.png in Resources */ = {isa = PBXBuildFile; fileRef = B4B04B3A16DA99F4000BCCB4 /* MyPlan_img_15.png */; };
-		B4B04B3E16DAD0FB000BCCB4 /* FunktionenHausaufgabe.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B04B3D16DAD0FA000BCCB4 /* FunktionenHausaufgabe.m */; };
 		B4B04B4316DAD121000BCCB4 /* FunktionenHausaufgabe_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4B04B3F16DAD11D000BCCB4 /* FunktionenHausaufgabe_iPad.xib */; };
 		B4B04B4416DAD121000BCCB4 /* FunktionenHausaufgabe_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4B04B4116DAD11E000BCCB4 /* FunktionenHausaufgabe_iPhone.xib */; };
 		B4B04B4716DBA626000BCCB4 /* MyPlan_img_16.png in Resources */ = {isa = PBXBuildFile; fileRef = B4B04B4616DBA625000BCCB4 /* MyPlan_img_16.png */; };
 		B4B04B4A16DBA79F000BCCB4 /* MyPlan_img_17.png in Resources */ = {isa = PBXBuildFile; fileRef = B4B04B4816DBA79E000BCCB4 /* MyPlan_img_17.png */; };
 		B4B04B4B16DBA79F000BCCB4 /* MyPlan_img_18.png in Resources */ = {isa = PBXBuildFile; fileRef = B4B04B4916DBA79E000BCCB4 /* MyPlan_img_18.png */; };
-		B4B04B4E16DC2115000BCCB4 /* FunktionenHausaufgabeDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B04B4D16DC2115000BCCB4 /* FunktionenHausaufgabeDetail.m */; };
 		B4B04B5316DC213F000BCCB4 /* FunktionenHausaufgabeDetail_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4B04B4F16DC213E000BCCB4 /* FunktionenHausaufgabeDetail_iPad.xib */; };
 		B4B04B5416DC213F000BCCB4 /* FunktionenHausaufgabeDetail_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4B04B5116DC213F000BCCB4 /* FunktionenHausaufgabeDetail_iPhone.xib */; };
-		B4B04B5816DC2336000BCCB4 /* Homework.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B04B5716DC2336000BCCB4 /* Homework.m */; };
-		B4B04B5D16DD2095000BCCB4 /* MainTableFile13.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B04B5B16DD208A000BCCB4 /* MainTableFile13.m */; };
 		B4B04B5E16DD2095000BCCB4 /* MainTableFile13.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4B04B5C16DD2090000BCCB4 /* MainTableFile13.xib */; };
 		B4B04B6016DD25C5000BCCB4 /* MyPlan_img_19.png in Resources */ = {isa = PBXBuildFile; fileRef = B4B04B5F16DD25C3000BCCB4 /* MyPlan_img_19.png */; };
-		B4B04B6316DD3A88000BCCB4 /* Update.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B04B6216DD3A86000BCCB4 /* Update.m */; };
 		B4B04B6816DD3AAF000BCCB4 /* Update_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4B04B6416DD3AAD000BCCB4 /* Update_iPad.xib */; };
 		B4B04B6916DD3AAF000BCCB4 /* Update_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4B04B6616DD3AAE000BCCB4 /* Update_iPhone.xib */; };
-		B4B04B7516DD4F4E000BCCB4 /* MainTableFile14.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B04B7316DD4F45000BCCB4 /* MainTableFile14.m */; };
 		B4B04B7616DD4F4E000BCCB4 /* MainTableFile14.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4B04B7416DD4F49000BCCB4 /* MainTableFile14.xib */; };
-		B4B04B7916DFB925000BCCB4 /* MPPictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B04B7816DFB923000BCCB4 /* MPPictureView.m */; };
 		B4B04B7E16DFB940000BCCB4 /* MPPictureView_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4B04B7A16DFB93C000BCCB4 /* MPPictureView_iPad.xib */; };
 		B4B04B7F16DFB940000BCCB4 /* MPPictureView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4B04B7C16DFB93E000BCCB4 /* MPPictureView_iPhone.xib */; };
-		B4B04B8316DFBDFD000BCCB4 /* CustomScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B04B8216DFBDFD000BCCB4 /* CustomScrollView.m */; };
-		B4B04B8616E0ED28000BCCB4 /* clear.png in Resources */ = {isa = PBXBuildFile; fileRef = B4B04B8516E0ED28000BCCB4 /* clear.png */; };
 		B4B04B8816E0F8AA000BCCB4 /* restarbeiten.txt in Resources */ = {isa = PBXBuildFile; fileRef = B4B04B8716E0F8A8000BCCB4 /* restarbeiten.txt */; };
 		B4B04B8A16E0FCCF000BCCB4 /* MyPlan_img_20.png in Resources */ = {isa = PBXBuildFile; fileRef = B4B04B8916E0FCCC000BCCB4 /* MyPlan_img_20.png */; };
 		B4BCE23816E55DB9002A98C9 /* reveal-icon2.png in Resources */ = {isa = PBXBuildFile; fileRef = B4BCE23716E55DB9002A98C9 /* reveal-icon2.png */; };
@@ -221,30 +143,19 @@
 		B4CD5C1D16BC161C00DD350B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4CD5C1C16BC161C00DD350B /* Foundation.framework */; };
 		B4CD5C1F16BC161C00DD350B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4CD5C1E16BC161C00DD350B /* CoreGraphics.framework */; };
 		B4CD5C2516BC161C00DD350B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B4CD5C2316BC161C00DD350B /* InfoPlist.strings */; };
-		B4CD5C2716BC161C00DD350B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B4CD5C2616BC161C00DD350B /* main.m */; };
-		B4CD5C2B16BC161C00DD350B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B4CD5C2A16BC161C00DD350B /* AppDelegate.m */; };
 		B4CD5C2D16BC161C00DD350B /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = B4CD5C2C16BC161C00DD350B /* Default.png */; };
 		B4CD5C2F16BC161C00DD350B /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4CD5C2E16BC161C00DD350B /* Default@2x.png */; };
 		B4CD5C3116BC161C00DD350B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B4CD5C3016BC161C00DD350B /* Default-568h@2x.png */; };
-		B4CD5C3416BC161C00DD350B /* WeekMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = B4CD5C3316BC161C00DD350B /* WeekMenu.m */; };
 		B4CD5C4316BC161C00DD350B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4CD5C1A16BC161C00DD350B /* UIKit.framework */; };
 		B4CD5C4416BC161C00DD350B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4CD5C1C16BC161C00DD350B /* Foundation.framework */; };
 		B4CD5C4C16BC161C00DD350B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B4CD5C4A16BC161C00DD350B /* InfoPlist.strings */; };
 		B4CD5C4F16BC161C00DD350B /* MyPlan_5Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = B4CD5C4E16BC161C00DD350B /* MyPlan_5Tests.m */; };
-		B4CD5C5E16BC17B900DD350B /* MainTableFile.m in Sources */ = {isa = PBXBuildFile; fileRef = B4CD5C5916BC17B900DD350B /* MainTableFile.m */; };
 		B4CD5C5F16BC17B900DD350B /* MainTableFile.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4CD5C5A16BC17B900DD350B /* MainTableFile.xib */; };
-		B4CD5C6016BC17B900DD350B /* MainTableFile2.m in Sources */ = {isa = PBXBuildFile; fileRef = B4CD5C5C16BC17B900DD350B /* MainTableFile2.m */; };
 		B4CD5C6116BC17B900DD350B /* MainTableFile2.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4CD5C5D16BC17B900DD350B /* MainTableFile2.xib */; };
 		B4CD5C6416BC186B00DD350B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4CD5C6316BC186B00DD350B /* QuartzCore.framework */; };
-		B4CD5C6716BC194A00DD350B /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4CD5C6616BC194A00DD350B /* SWRevealViewController.m */; };
-		B4CD5C6A16BC1A4D00DD350B /* WeekView.m in Sources */ = {isa = PBXBuildFile; fileRef = B4CD5C6916BC1A4D00DD350B /* WeekView.m */; };
-		B4CD5C7316BC1A7600DD350B /* WeekMenu_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4CD5C6B16BC1A7600DD350B /* WeekMenu_iPad.xib */; };
-		B4CD5C7416BC1A7600DD350B /* WeekMenu_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4CD5C6D16BC1A7600DD350B /* WeekMenu_iPhone.xib */; };
 		B4CD5C7516BC1A7600DD350B /* WeekView_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4CD5C6F16BC1A7600DD350B /* WeekView_iPad.xib */; };
 		B4CD5C7616BC1A7600DD350B /* WeekView_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4CD5C7116BC1A7600DD350B /* WeekView_iPhone.xib */; };
 		B4CD5C7A16BC1FF800DD350B /* reveal-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = B4CD5C7916BC1FF800DD350B /* reveal-icon.png */; };
-		B4CD5C8016BC22BC00DD350B /* MainData.m in Sources */ = {isa = PBXBuildFile; fileRef = B4CD5C7F16BC22BC00DD350B /* MainData.m */; };
-		B4CD5C8716BC382C00DD350B /* WeekEdit.m in Sources */ = {isa = PBXBuildFile; fileRef = B4CD5C8616BC382C00DD350B /* WeekEdit.m */; };
 		B4CD5C8C16BC384300DD350B /* WeekEdit_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4CD5C8816BC384200DD350B /* WeekEdit_iPad.xib */; };
 		B4CD5C8D16BC384300DD350B /* WeekEdit_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4CD5C8A16BC384300DD350B /* WeekEdit_iPhone.xib */; };
 		B4D1CDAE16E667BA00E4E74E /* Natur 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B4D1CDA416E667BA00E4E74E /* Natur 1.jpg */; };
@@ -265,18 +176,31 @@
 		B4D1CDC716EA6B8D00E4E74E /* MyPlan_img_21.png in Resources */ = {isa = PBXBuildFile; fileRef = B4D1CDC416EA6B8900E4E74E /* MyPlan_img_21.png */; };
 		B4D1CDC816EA6B8D00E4E74E /* MyPlan_img_22.png in Resources */ = {isa = PBXBuildFile; fileRef = B4D1CDC516EA6B8A00E4E74E /* MyPlan_img_22.png */; };
 		B4D1CDC916EA6B8D00E4E74E /* MyPlan_img_23.png in Resources */ = {isa = PBXBuildFile; fileRef = B4D1CDC616EA6B8B00E4E74E /* MyPlan_img_23.png */; };
-		B4D1CDCC16EA6CB000E4E74E /* HTMLObject.m in Sources */ = {isa = PBXBuildFile; fileRef = B4D1CDCB16EA6CB000E4E74E /* HTMLObject.m */; };
-		B4D4038C1730316E001F55ED /* Notiz.m in Sources */ = {isa = PBXBuildFile; fileRef = B4D4038B1730316E001F55ED /* Notiz.m */; };
 		B4D4039017303505001F55ED /* MyPlan_img_25.png in Resources */ = {isa = PBXBuildFile; fileRef = B4D4038E17303505001F55ED /* MyPlan_img_25.png */; };
 		B4D4039117303505001F55ED /* MyPlan_img_26.png in Resources */ = {isa = PBXBuildFile; fileRef = B4D4038F17303505001F55ED /* MyPlan_img_26.png */; };
-		B4D40395173038BF001F55ED /* FunktionenNotizen.m in Sources */ = {isa = PBXBuildFile; fileRef = B4D40394173038BF001F55ED /* FunktionenNotizen.m */; };
 		B4D4039A173038E0001F55ED /* FunktionenNotizen_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4D40396173038E0001F55ED /* FunktionenNotizen_iPad.xib */; };
 		B4D4039B173038E0001F55ED /* FunktionenNotizen_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4D40398173038E0001F55ED /* FunktionenNotizen_iPhone.xib */; };
-		B4D4039E17303968001F55ED /* FunktionenNotizDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = B4D4039D17303968001F55ED /* FunktionenNotizDetail.m */; };
 		B4D403A31730398C001F55ED /* FunktionenNotizDetail_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4D4039F1730398C001F55ED /* FunktionenNotizDetail_iPad.xib */; };
 		B4D403A41730398C001F55ED /* FunktionenNotizDetail_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4D403A11730398C001F55ED /* FunktionenNotizDetail_iPhone.xib */; };
-		B4D403A9173070B2001F55ED /* MainTableFile17.m in Sources */ = {isa = PBXBuildFile; fileRef = B4D403A7173070B2001F55ED /* MainTableFile17.m */; };
 		B4D403AA173070B2001F55ED /* MainTableFile17.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4D403A8173070B2001F55ED /* MainTableFile17.xib */; };
+		C93F44E7F501E7A7D4C2C57D /* libPods-MyPlan 5.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BBCFEBD44FE8F334D5197D0 /* libPods-MyPlan 5.a */; };
+		FB04256D1AE056A8002F794F /* MPPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB04256C1AE056A8002F794F /* MPPlanViewController.swift */; };
+		FB6AA3161AE04DBA000195F2 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6AA3151AE04DBA000195F2 /* Day.swift */; };
+		FB6AA3181AE04DBB000195F2 /* Homework.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6AA3171AE04DBB000195F2 /* Homework.swift */; };
+		FB6AA31A1AE04DBB000195F2 /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6AA3191AE04DBB000195F2 /* Subject.swift */; };
+		FB6AA31C1AE04DBB000195F2 /* Houre.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6AA31B1AE04DBB000195F2 /* Houre.swift */; };
+		FB6AA31E1AE04DBB000195F2 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6AA31D1AE04DBB000195F2 /* Person.swift */; };
+		FB6AA3201AE04DBB000195F2 /* Marks.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6AA31F1AE04DBB000195F2 /* Marks.swift */; };
+		FB6AA3221AE04DBB000195F2 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6AA3211AE04DBB000195F2 /* Event.swift */; };
+		FB6AA3241AE04DBB000195F2 /* Plan.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6AA3231AE04DBB000195F2 /* Plan.swift */; };
+		FB6AA3261AE04DBB000195F2 /* Mark.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6AA3251AE04DBB000195F2 /* Mark.swift */; };
+		FB6AA3281AE04DBB000195F2 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6AA3271AE04DBB000195F2 /* Image.swift */; };
+		FB6AA32A1AE04DBB000195F2 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB6AA3291AE04DBB000195F2 /* Note.swift */; };
+		FBB53CCE1AE06FAF0086B182 /* MPMarksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBB53CCD1AE06FAF0086B182 /* MPMarksViewController.swift */; };
+		FBD2B23C1AD35ECA00E96788 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD2B23B1AD35ECA00E96788 /* AppDelegate.swift */; };
+		FBD2B26C1AD362D800E96788 /* MPMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD2B26B1AD362D800E96788 /* MPMenuView.swift */; };
+		FBD2B26E1AD365AD00E96788 /* MPPersonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD2B26D1AD365AD00E96788 /* MPPersonView.swift */; };
+		FBF7F4781AD2198E00F4C495 /* Data.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FBF7F4761AD2198E00F4C495 /* Data.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -290,6 +214,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1BBCFEBD44FE8F334D5197D0 /* libPods-MyPlan 5.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyPlan 5.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E89688496B90CEDE59E1000 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		80B4FC85E6C2BE2807FBB335 /* Pods-MyPlan 5.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyPlan 5.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyPlan 5/Pods-MyPlan 5.debug.xcconfig"; sourceTree = "<group>"; };
+		B24C87A43DDC929E319E7104 /* Pods-MyPlan 5.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyPlan 5.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyPlan 5/Pods-MyPlan 5.release.xcconfig"; sourceTree = "<group>"; };
 		B444012D170687C20075CB2F /* FunktionenTermineDetailDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FunktionenTermineDetailDate.h; sourceTree = "<group>"; };
 		B444012E170687C20075CB2F /* FunktionenTermineDetailDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FunktionenTermineDetailDate.m; sourceTree = "<group>"; };
 		B4440131170687FB0075CB2F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FunktionenTermineDetailDate_iPad.xib; sourceTree = "<group>"; };
@@ -303,8 +231,6 @@
 		B4483C891709075D0004693E /* CVCell2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CVCell2.m; sourceTree = "<group>"; };
 		B4483C8A1709075D0004693E /* CVCell2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CVCell2.xib; sourceTree = "<group>"; };
 		B4483C8E170908E30004693E /*  02.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = " 02.jpg"; sourceTree = "<group>"; };
-		B462310316CD537100DB3855 /* Info.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Info.h; sourceTree = "<group>"; };
-		B462310416CD537100DB3855 /* Info.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Info.m; sourceTree = "<group>"; };
 		B462310716CD5EBF00DB3855 /* FachEditDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FachEditDetail.h; sourceTree = "<group>"; };
 		B462310816CD5EBF00DB3855 /* FachEditDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FachEditDetail.m; sourceTree = "<group>"; };
 		B462310B16CD5ED900DB3855 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FachEditDetail_iPad.xib; sourceTree = "<group>"; };
@@ -396,8 +322,6 @@
 		B486B49316C1C332007827E7 /* SubPlanEditDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubPlanEditDetail.h; sourceTree = "<group>"; };
 		B486B49416C1C332007827E7 /* SubPlanEditDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubPlanEditDetail.m; sourceTree = "<group>"; };
 		B486B49916C1C34D007827E7 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SubPlanEditDetail_iPhone.xib; sourceTree = "<group>"; };
-		B486B49D16C1C4B9007827E7 /* Houre.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Houre.h; sourceTree = "<group>"; };
-		B486B49E16C1C4BA007827E7 /* Houre.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Houre.m; sourceTree = "<group>"; };
 		B486B4A116C27ED1007827E7 /* SubAddHoureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubAddHoureViewController.h; sourceTree = "<group>"; };
 		B486B4A216C27ED1007827E7 /* SubAddHoureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubAddHoureViewController.m; sourceTree = "<group>"; };
 		B486B4A816C27F20007827E7 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SubAddHoureViewController_iPad.xib; sourceTree = "<group>"; };
@@ -418,8 +342,6 @@
 		B4902BA416E2C26B00062C62 /* MainTableFile15.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainTableFile15.xib; sourceTree = "<group>"; };
 		B4902BA716E36DFF00062C62 /* MPNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPNotification.h; sourceTree = "<group>"; };
 		B4902BA816E36DFF00062C62 /* MPNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPNotification.m; sourceTree = "<group>"; };
-		B4902BAA16E4E98200062C62 /* Termin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Termin.h; sourceTree = "<group>"; };
-		B4902BAB16E4E98200062C62 /* Termin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Termin.m; sourceTree = "<group>"; };
 		B4902BAE16E4EC7C00062C62 /* FunktionenTermineDetail.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FunktionenTermineDetail.h; sourceTree = "<group>"; };
 		B4902BAF16E4EC7C00062C62 /* FunktionenTermineDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FunktionenTermineDetail.m; sourceTree = "<group>"; };
 		B4902BB216E4ECA500062C62 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FunktionenTermineDetail_iPad.xib; sourceTree = "<group>"; };
@@ -441,12 +363,6 @@
 		B4902BC616E522A300062C62 /* UIImage+TKCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+TKCategory.m"; sourceTree = "<group>"; };
 		B4902BC716E522A300062C62 /* UIView+TKCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+TKCategory.h"; sourceTree = "<group>"; };
 		B4902BC816E522A300062C62 /* UIView+TKCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+TKCategory.m"; sourceTree = "<group>"; };
-		B4920BAC16BC487D00A1D752 /* Week.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Week.h; sourceTree = "<group>"; };
-		B4920BAD16BC487D00A1D752 /* Week.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Week.m; sourceTree = "<group>"; };
-		B4920BAF16BC4A4700A1D752 /* MPDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPDate.h; sourceTree = "<group>"; };
-		B4920BB016BC4A4700A1D752 /* MPDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPDate.m; sourceTree = "<group>"; };
-		B4920BB216BC4C7D00A1D752 /* Subject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Subject.h; sourceTree = "<group>"; };
-		B4920BB316BC4C7D00A1D752 /* Subject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Subject.m; sourceTree = "<group>"; };
 		B4920BB516BC52C200A1D752 /* MainTableFile3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTableFile3.h; sourceTree = "<group>"; };
 		B4920BB616BC52C300A1D752 /* MainTableFile3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTableFile3.m; sourceTree = "<group>"; };
 		B4920BB716BC52C300A1D752 /* MainTableFile3.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainTableFile3.xib; sourceTree = "<group>"; };
@@ -467,8 +383,6 @@
 		B4920BD716BED02900A1D752 /* WeekEditDetail2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeekEditDetail2.m; sourceTree = "<group>"; };
 		B4920BDA16BED06400A1D752 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/WeekEditDetail2_iPad.xib; sourceTree = "<group>"; };
 		B4920BDC16BED06500A1D752 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/WeekEditDetail2_iPhone.xib; sourceTree = "<group>"; };
-		B4920BDF16BED1F600A1D752 /* Day.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Day.h; sourceTree = "<group>"; };
-		B4920BE016BED1F600A1D752 /* Day.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Day.m; sourceTree = "<group>"; };
 		B4920BE216BF20AD00A1D752 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
 		B4920BE416BF20B200A1D752 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 		B4920BE616BF20CC00A1D752 /* Icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-72.png"; sourceTree = "<group>"; };
@@ -477,8 +391,6 @@
 		B4920BEB16C000BB00A1D752 /* PersonEdit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonEdit.m; sourceTree = "<group>"; };
 		B4920BEE16C000D200A1D752 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/PersonEdit_iPad.xib; sourceTree = "<group>"; };
 		B4920BF016C000D400A1D752 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/PersonEdit_iPhone.xib; sourceTree = "<group>"; };
-		B4920BF416C0015F00A1D752 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
-		B4920BF516C0016000A1D752 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		B49D89BD171073BD003DD93A /* SubjectCell5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubjectCell5.h; sourceTree = "<group>"; };
 		B49D89BE171073BD003DD93A /* SubjectCell5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubjectCell5.m; sourceTree = "<group>"; };
 		B49D89BF171073BD003DD93A /* SubjectCell5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SubjectCell5.xib; sourceTree = "<group>"; };
@@ -487,8 +399,6 @@
 		B49DD5C616C728A90072E184 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/BackgroundSettings_iPad.xib; sourceTree = "<group>"; };
 		B49DD5C816C728A90072E184 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/BackgroundSettings_iPhone.xib; sourceTree = "<group>"; };
 		B4A0310316D667EA004A34CE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SubAddHoureViewController_iPhone.xib; sourceTree = "<group>"; };
-		B4A0310516D6691C004A34CE /* Vertretung.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vertretung.h; sourceTree = "<group>"; };
-		B4A0310616D6691C004A34CE /* Vertretung.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Vertretung.m; sourceTree = "<group>"; };
 		B4A2344F16FB5E6D00101EE9 /* KGModal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KGModal.h; sourceTree = "<group>"; };
 		B4A2345016FB5E6D00101EE9 /* KGModal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KGModal.m; sourceTree = "<group>"; };
 		B4A2345216FB64A100101EE9 /* Protocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Protocol.h; sourceTree = "<group>"; };
@@ -513,16 +423,10 @@
 		B4B04AF016D75A2B000BCCB4 /* MainTableFile12.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTableFile12.h; sourceTree = "<group>"; };
 		B4B04AF116D75A2C000BCCB4 /* MainTableFile12.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTableFile12.m; sourceTree = "<group>"; };
 		B4B04AF216D75A2C000BCCB4 /* MainTableFile12.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainTableFile12.xib; sourceTree = "<group>"; };
-		B4B04AF516D75BDB000BCCB4 /* MyPlan_Vertretung_B.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MyPlan_Vertretung_B.png; sourceTree = "<group>"; };
-		B4B04AF616D75BDB000BCCB4 /* MyPlan_Vertretung_W.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MyPlan_Vertretung_W.png; sourceTree = "<group>"; };
 		B4B04AFE16D7AF70000BCCB4 /* MyPlan_Menu_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MyPlan_Menu_1.png; sourceTree = "<group>"; };
 		B4B04AFF16D7AF70000BCCB4 /* MyPlan_Menu_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MyPlan_Menu_3.png; sourceTree = "<group>"; };
 		B4B04B0016D7AF70000BCCB4 /* MyPlan_Menu_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MyPlan_Menu_2.png; sourceTree = "<group>"; };
-		B4B04B1016D96236000BCCB4 /* MPNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPNavigationBar.h; sourceTree = "<group>"; };
-		B4B04B1116D96236000BCCB4 /* MPNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPNavigationBar.m; sourceTree = "<group>"; };
 		B4B04B1416D97DDD000BCCB4 /* MyPlan_img_7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MyPlan_img_7.png; sourceTree = "<group>"; };
-		B4B04B1616D98514000BCCB4 /* Note.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Note.h; sourceTree = "<group>"; };
-		B4B04B1716D98514000BCCB4 /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
 		B4B04B1A16D988BE000BCCB4 /* SubFunktionenNoten.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubFunktionenNoten.h; sourceTree = "<group>"; };
 		B4B04B1B16D988BE000BCCB4 /* SubFunktionenNoten.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubFunktionenNoten.m; sourceTree = "<group>"; };
 		B4B04B1E16D988DD000BCCB4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SubFunktionenNoten_iPad.xib; sourceTree = "<group>"; };
@@ -549,8 +453,6 @@
 		B4B04B4D16DC2115000BCCB4 /* FunktionenHausaufgabeDetail.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FunktionenHausaufgabeDetail.m; sourceTree = "<group>"; };
 		B4B04B5016DC213F000BCCB4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FunktionenHausaufgabeDetail_iPad.xib; sourceTree = "<group>"; };
 		B4B04B5216DC213F000BCCB4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/FunktionenHausaufgabeDetail_iPhone.xib; sourceTree = "<group>"; };
-		B4B04B5616DC2336000BCCB4 /* Homework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Homework.h; sourceTree = "<group>"; };
-		B4B04B5716DC2336000BCCB4 /* Homework.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Homework.m; sourceTree = "<group>"; };
 		B4B04B5A16DD2086000BCCB4 /* MainTableFile13.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTableFile13.h; sourceTree = "<group>"; };
 		B4B04B5B16DD208A000BCCB4 /* MainTableFile13.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTableFile13.m; sourceTree = "<group>"; };
 		B4B04B5C16DD2090000BCCB4 /* MainTableFile13.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainTableFile13.xib; sourceTree = "<group>"; };
@@ -568,7 +470,6 @@
 		B4B04B7D16DFB940000BCCB4 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MPPictureView_iPhone.xib; sourceTree = "<group>"; };
 		B4B04B8116DFBDFC000BCCB4 /* CustomScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomScrollView.h; sourceTree = "<group>"; };
 		B4B04B8216DFBDFD000BCCB4 /* CustomScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomScrollView.m; sourceTree = "<group>"; };
-		B4B04B8516E0ED28000BCCB4 /* clear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clear.png; sourceTree = "<group>"; };
 		B4B04B8716E0F8A8000BCCB4 /* restarbeiten.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = restarbeiten.txt; sourceTree = "<group>"; };
 		B4B04B8916E0FCCC000BCCB4 /* MyPlan_img_20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MyPlan_img_20.png; sourceTree = "<group>"; };
 		B4BCE23716E55DB9002A98C9 /* reveal-icon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reveal-icon2.png"; sourceTree = "<group>"; };
@@ -585,13 +486,11 @@
 		B4CD5C2416BC161C00DD350B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		B4CD5C2616BC161C00DD350B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B4CD5C2816BC161C00DD350B /* MyPlan 5-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyPlan 5-Prefix.pch"; sourceTree = "<group>"; };
-		B4CD5C2916BC161C00DD350B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		B4CD5C2A16BC161C00DD350B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		B4CD5C2916BC161C00DD350B /* _AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _AppDelegate.h; sourceTree = "<group>"; };
+		B4CD5C2A16BC161C00DD350B /* _AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _AppDelegate.m; sourceTree = "<group>"; };
 		B4CD5C2C16BC161C00DD350B /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		B4CD5C2E16BC161C00DD350B /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		B4CD5C3016BC161C00DD350B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		B4CD5C3216BC161C00DD350B /* WeekMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WeekMenu.h; sourceTree = "<group>"; };
-		B4CD5C3316BC161C00DD350B /* WeekMenu.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeekMenu.m; sourceTree = "<group>"; };
 		B4CD5C4016BC161C00DD350B /* MyPlan 5Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MyPlan 5Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4CD5C4916BC161C00DD350B /* MyPlan 5Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MyPlan 5Tests-Info.plist"; sourceTree = "<group>"; };
 		B4CD5C4B16BC161C00DD350B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -608,8 +507,6 @@
 		B4CD5C6616BC194A00DD350B /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		B4CD5C6816BC1A4D00DD350B /* WeekView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeekView.h; sourceTree = "<group>"; };
 		B4CD5C6916BC1A4D00DD350B /* WeekView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeekView.m; sourceTree = "<group>"; };
-		B4CD5C6C16BC1A7600DD350B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/WeekMenu_iPad.xib; sourceTree = "<group>"; };
-		B4CD5C6E16BC1A7600DD350B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/WeekMenu_iPhone.xib; sourceTree = "<group>"; };
 		B4CD5C7016BC1A7600DD350B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/WeekView_iPad.xib; sourceTree = "<group>"; };
 		B4CD5C7216BC1A7600DD350B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/WeekView_iPhone.xib; sourceTree = "<group>"; };
 		B4CD5C7916BC1FF800DD350B /* reveal-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reveal-icon.png"; sourceTree = "<group>"; };
@@ -637,10 +534,6 @@
 		B4D1CDC416EA6B8900E4E74E /* MyPlan_img_21.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MyPlan_img_21.png; sourceTree = "<group>"; };
 		B4D1CDC516EA6B8A00E4E74E /* MyPlan_img_22.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MyPlan_img_22.png; sourceTree = "<group>"; };
 		B4D1CDC616EA6B8B00E4E74E /* MyPlan_img_23.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MyPlan_img_23.png; sourceTree = "<group>"; };
-		B4D1CDCA16EA6CAF00E4E74E /* HTMLObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTMLObject.h; sourceTree = "<group>"; };
-		B4D1CDCB16EA6CB000E4E74E /* HTMLObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTMLObject.m; sourceTree = "<group>"; };
-		B4D4038A1730316E001F55ED /* Notiz.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notiz.h; sourceTree = "<group>"; };
-		B4D4038B1730316E001F55ED /* Notiz.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notiz.m; sourceTree = "<group>"; };
 		B4D4038E17303505001F55ED /* MyPlan_img_25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MyPlan_img_25.png; sourceTree = "<group>"; };
 		B4D4038F17303505001F55ED /* MyPlan_img_26.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MyPlan_img_26.png; sourceTree = "<group>"; };
 		B4D40393173038BF001F55ED /* FunktionenNotizen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FunktionenNotizen.h; sourceTree = "<group>"; };
@@ -654,6 +547,24 @@
 		B4D403A6173070B2001F55ED /* MainTableFile17.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTableFile17.h; sourceTree = "<group>"; };
 		B4D403A7173070B2001F55ED /* MainTableFile17.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTableFile17.m; sourceTree = "<group>"; };
 		B4D403A8173070B2001F55ED /* MainTableFile17.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainTableFile17.xib; sourceTree = "<group>"; };
+		FB04256C1AE056A8002F794F /* MPPlanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPPlanViewController.swift; sourceTree = "<group>"; };
+		FB6AA3151AE04DBA000195F2 /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
+		FB6AA3171AE04DBB000195F2 /* Homework.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Homework.swift; sourceTree = "<group>"; };
+		FB6AA3191AE04DBB000195F2 /* Subject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Subject.swift; sourceTree = "<group>"; };
+		FB6AA31B1AE04DBB000195F2 /* Houre.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Houre.swift; sourceTree = "<group>"; };
+		FB6AA31D1AE04DBB000195F2 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		FB6AA31F1AE04DBB000195F2 /* Marks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Marks.swift; sourceTree = "<group>"; };
+		FB6AA3211AE04DBB000195F2 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		FB6AA3231AE04DBB000195F2 /* Plan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plan.swift; sourceTree = "<group>"; };
+		FB6AA3251AE04DBB000195F2 /* Mark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mark.swift; sourceTree = "<group>"; };
+		FB6AA3271AE04DBB000195F2 /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		FB6AA3291AE04DBB000195F2 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		FBB53CCD1AE06FAF0086B182 /* MPMarksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPMarksViewController.swift; sourceTree = "<group>"; };
+		FBD2B2381AD35E9B00E96788 /* MyPlan 5-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyPlan 5-Bridging-Header.h"; sourceTree = "<group>"; };
+		FBD2B23B1AD35ECA00E96788 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FBD2B26B1AD362D800E96788 /* MPMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPMenuView.swift; sourceTree = "<group>"; };
+		FBD2B26D1AD365AD00E96788 /* MPPersonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPPersonView.swift; sourceTree = "<group>"; };
+		FBF7F4771AD2198E00F4C495 /* Data.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Data.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -670,6 +581,8 @@
 				B4CD5C1B16BC161C00DD350B /* UIKit.framework in Frameworks */,
 				B4CD5C1D16BC161C00DD350B /* Foundation.framework in Frameworks */,
 				B4CD5C1F16BC161C00DD350B /* CoreGraphics.framework in Frameworks */,
+				C93F44E7F501E7A7D4C2C57D /* libPods-MyPlan 5.a in Frameworks */,
+				7FCC6FF64B3EBFEA48A6711E /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -719,15 +632,6 @@
 			name = cell;
 			sourceTree = "<group>";
 		};
-		B462310616CD537600DB3855 /* Info */ = {
-			isa = PBXGroup;
-			children = (
-				B462310316CD537100DB3855 /* Info.h */,
-				B462310416CD537100DB3855 /* Info.m */,
-			);
-			name = Info;
-			sourceTree = "<group>";
-		};
 		B462311016CD5F0800DB3855 /* FachEditDetail */ = {
 			isa = PBXGroup;
 			children = (
@@ -739,14 +643,14 @@
 			name = FachEditDetail;
 			sourceTree = "<group>";
 		};
-		B462311A16CD796E00DB3855 /* Hauptansichten */ = {
+		B462311A16CD796E00DB3855 /* _Hauptansichten */ = {
 			isa = PBXGroup;
 			children = (
 				B4AE14CD16CEB842000F3A1C /* ViewJetzt */,
 				B4AE14CC16CEB83B000F3A1C /* ViewTag */,
 				B4AE14CE16CEB867000F3A1C /* ViewWeek */,
 			);
-			name = Hauptansichten;
+			name = _Hauptansichten;
 			sourceTree = "<group>";
 		};
 		B462D2D916CEFA5B006A2081 /* img */ = {
@@ -784,7 +688,7 @@
 			name = img;
 			sourceTree = "<group>";
 		};
-		B462D2E316CEFAC6006A2081 /* Funktionen */ = {
+		B462D2E316CEFAC6006A2081 /* _Funktionen */ = {
 			isa = PBXGroup;
 			children = (
 				B4B04B4516DBA282000BCCB4 /* FunktionenHausaufgabe */,
@@ -795,7 +699,7 @@
 				B4483C871709057E0004693E /* FunktionenFotos */,
 				B4D4039217303896001F55ED /* FunktionenNotizen */,
 			);
-			name = Funktionen;
+			name = _Funktionen;
 			sourceTree = "<group>";
 		};
 		B462D2E416CEFACF006A2081 /* FunktionenExport */ = {
@@ -938,7 +842,7 @@
 			name = Subject;
 			sourceTree = "<group>";
 		};
-		B468BD1916F2202900D0F285 /* Help */ = {
+		B468BD1916F2202900D0F285 /* _Help */ = {
 			isa = PBXGroup;
 			children = (
 				B468BD1016F21FF700D0F285 /* Help.h */,
@@ -946,10 +850,10 @@
 				B468BD1516F2202000D0F285 /* Help_iPhone.xib */,
 				B468BD1316F2202000D0F285 /* Help_iPad.xib */,
 			);
-			name = Help;
+			name = _Help;
 			sourceTree = "<group>";
 		};
-		B468BD2316F2210B00D0F285 /* InfoVC */ = {
+		B468BD2316F2210B00D0F285 /* _InfoVC */ = {
 			isa = PBXGroup;
 			children = (
 				B468BD2916F223C400D0F285 /* MyPlan_Large.png */,
@@ -958,7 +862,7 @@
 				B468BD1C16F220BF00D0F285 /* InfoVC_iPhone.xib */,
 				B468BD1A16F220BF00D0F285 /* InfoVC_iPad.xib */,
 			);
-			name = InfoVC;
+			name = _InfoVC;
 			sourceTree = "<group>";
 		};
 		B486B48B16C1B3B2007827E7 /* Stundenplan Erstellen */ = {
@@ -983,16 +887,6 @@
 				B486B4AA16C28187007827E7 /* SubPlanEditDetail_iPad.xib */,
 			);
 			name = SubPlanEditDetail;
-			sourceTree = "<group>";
-		};
-		B486B4A016C1C51F007827E7 /* Houre */ = {
-			isa = PBXGroup;
-			children = (
-				B486B49D16C1C4B9007827E7 /* Houre.h */,
-				B486B49E16C1C4BA007827E7 /* Houre.m */,
-			);
-			name = Houre;
-			path = "MyPlan 5";
 			sourceTree = "<group>";
 		};
 		B486B4A616C27EDF007827E7 /* SubAddHoureViewController */ = {
@@ -1027,15 +921,6 @@
 				B4902B9816E2A53900062C62 /* NotificationsSettings_iPad.xib */,
 			);
 			name = NotificationsSettings;
-			sourceTree = "<group>";
-		};
-		B4902BAD16E4E98B00062C62 /* Termin */ = {
-			isa = PBXGroup;
-			children = (
-				B4902BAA16E4E98200062C62 /* Termin.h */,
-				B4902BAB16E4E98200062C62 /* Termin.m */,
-			);
-			name = Termin;
 			sourceTree = "<group>";
 		};
 		B4902BB716E4ECAE00062C62 /* FunktionenTermineDetail */ = {
@@ -1075,14 +960,14 @@
 			name = TKCalendar;
 			sourceTree = "<group>";
 		};
-		B4920BC616BEA5E600A1D752 /* Settings */ = {
+		B4920BC616BEA5E600A1D752 /* _Settings */ = {
 			isa = PBXGroup;
 			children = (
 				B49DD5CB16C728B20072E184 /* BackgroundSettings */,
 				B49DD5CC16C728BE0072E184 /* MainSettings */,
 				B4902BA116E2A55400062C62 /* NotificationsSettings */,
 			);
-			name = Settings;
+			name = _Settings;
 			sourceTree = "<group>";
 		};
 		B4920BD016BEB47000A1D752 /* WeekEditDetail */ = {
@@ -1100,7 +985,7 @@
 			name = WeekEditDetail;
 			sourceTree = "<group>";
 		};
-		B4920BF316C000DF00A1D752 /* PersonEdit */ = {
+		B4920BF316C000DF00A1D752 /* _PersonEdit */ = {
 			isa = PBXGroup;
 			children = (
 				B486B4FE16C46012007827E7 /* FachEdit */,
@@ -1109,63 +994,7 @@
 				B4920BEF16C000D200A1D752 /* PersonEdit_iPhone.xib */,
 				B4920BED16C000D100A1D752 /* PersonEdit_iPad.xib */,
 			);
-			name = PersonEdit;
-			sourceTree = "<group>";
-		};
-		B4920BF716C002A100A1D752 /* Person */ = {
-			isa = PBXGroup;
-			children = (
-				B4920BF816C002AD00A1D752 /* Week */,
-				B4B04B5916DC233E000BCCB4 /* Homework */,
-				B4902BAD16E4E98B00062C62 /* Termin */,
-				B4D4038D17303173001F55ED /* Notiz */,
-				B4920BF416C0015F00A1D752 /* Person.h */,
-				B4920BF516C0016000A1D752 /* Person.m */,
-			);
-			name = Person;
-			path = "MyPlan 5";
-			sourceTree = "<group>";
-		};
-		B4920BF816C002AD00A1D752 /* Week */ = {
-			isa = PBXGroup;
-			children = (
-				B4920BAC16BC487D00A1D752 /* Week.h */,
-				B4920BAD16BC487D00A1D752 /* Week.m */,
-				B4BF161016EF85B000C6811C /* HTML */,
-				B4920BFB16C002CC00A1D752 /* MPDate */,
-				B4920BF916C002BE00A1D752 /* Day */,
-			);
-			name = Week;
-			sourceTree = "<group>";
-		};
-		B4920BF916C002BE00A1D752 /* Day */ = {
-			isa = PBXGroup;
-			children = (
-				B4920BDF16BED1F600A1D752 /* Day.h */,
-				B4920BE016BED1F600A1D752 /* Day.m */,
-			);
-			name = Day;
-			sourceTree = "<group>";
-		};
-		B4920BFA16C002C400A1D752 /* Subjects */ = {
-			isa = PBXGroup;
-			children = (
-				B4B04B1916D9851E000BCCB4 /* Noten */,
-				B462310616CD537600DB3855 /* Info */,
-				B4920BB216BC4C7D00A1D752 /* Subject.h */,
-				B4920BB316BC4C7D00A1D752 /* Subject.m */,
-			);
-			name = Subjects;
-			path = "MyPlan 5";
-			sourceTree = "<group>";
-		};
-		B4920BFB16C002CC00A1D752 /* MPDate */ = {
-			isa = PBXGroup;
-			children = (
-				B4920BAF16BC4A4700A1D752 /* MPDate.h */,
-				B4920BB016BC4A4700A1D752 /* MPDate.m */,
-			);
-			name = MPDate;
+			name = _PersonEdit;
 			sourceTree = "<group>";
 		};
 		B49DD5CB16C728B20072E184 /* BackgroundSettings */ = {
@@ -1232,29 +1061,6 @@
 			name = SubAddVertretung;
 			sourceTree = "<group>";
 		};
-		B4A0310816D66927004A34CE /* Vertretung */ = {
-			isa = PBXGroup;
-			children = (
-				B4A0310516D6691C004A34CE /* Vertretung.h */,
-				B4A0310616D6691C004A34CE /* Vertretung.m */,
-				B4B04AF516D75BDB000BCCB4 /* MyPlan_Vertretung_B.png */,
-				B4B04AF616D75BDB000BCCB4 /* MyPlan_Vertretung_W.png */,
-			);
-			name = Vertretung;
-			path = "MyPlan 5";
-			sourceTree = "<group>";
-		};
-		B4A0310916D669B5004A34CE /* MP.framework */ = {
-			isa = PBXGroup;
-			children = (
-				B486B4A016C1C51F007827E7 /* Houre */,
-				B4A0310816D66927004A34CE /* Vertretung */,
-				B4920BFA16C002C400A1D752 /* Subjects */,
-				B4920BF716C002A100A1D752 /* Person */,
-			);
-			name = MP.framework;
-			sourceTree = "<group>";
-		};
 		B4AE14CC16CEB83B000F3A1C /* ViewTag */ = {
 			isa = PBXGroup;
 			children = (
@@ -1287,25 +1093,6 @@
 				B4AE14C416CEB827000F3A1C /* ViewWeek_iPad.xib */,
 			);
 			name = ViewWeek;
-			sourceTree = "<group>";
-		};
-		B4B04B1316D9792F000BCCB4 /* clearNavigationBar */ = {
-			isa = PBXGroup;
-			children = (
-				B4B04B8516E0ED28000BCCB4 /* clear.png */,
-				B4B04B1016D96236000BCCB4 /* MPNavigationBar.h */,
-				B4B04B1116D96236000BCCB4 /* MPNavigationBar.m */,
-			);
-			name = clearNavigationBar;
-			sourceTree = "<group>";
-		};
-		B4B04B1916D9851E000BCCB4 /* Noten */ = {
-			isa = PBXGroup;
-			children = (
-				B4B04B1616D98514000BCCB4 /* Note.h */,
-				B4B04B1716D98514000BCCB4 /* Note.m */,
-			);
-			name = Noten;
 			sourceTree = "<group>";
 		};
 		B4B04B2316D988E2000BCCB4 /* SubFunktionenNoten */ = {
@@ -1354,15 +1141,6 @@
 			name = FunktionenHausaufgabeDetail;
 			sourceTree = "<group>";
 		};
-		B4B04B5916DC233E000BCCB4 /* Homework */ = {
-			isa = PBXGroup;
-			children = (
-				B4B04B5616DC2336000BCCB4 /* Homework.h */,
-				B4B04B5716DC2336000BCCB4 /* Homework.m */,
-			);
-			name = Homework;
-			sourceTree = "<group>";
-		};
 		B4B04B6C16DD3D4B000BCCB4 /* Update */ = {
 			isa = PBXGroup;
 			children = (
@@ -1396,15 +1174,6 @@
 			name = scrollView;
 			sourceTree = "<group>";
 		};
-		B4BF161016EF85B000C6811C /* HTML */ = {
-			isa = PBXGroup;
-			children = (
-				B4D1CDCA16EA6CAF00E4E74E /* HTMLObject.h */,
-				B4D1CDCB16EA6CB000E4E74E /* HTMLObject.m */,
-			);
-			name = HTML;
-			sourceTree = "<group>";
-		};
 		B4CD5C0E16BC161C00DD350B = {
 			isa = PBXGroup;
 			children = (
@@ -1416,6 +1185,7 @@
 				B4CD5C4716BC161C00DD350B /* MyPlan 5Tests */,
 				B4CD5C1916BC161C00DD350B /* Frameworks */,
 				B4CD5C1816BC161C00DD350B /* Products */,
+				DA0D9C337662D49ED6CD42B2 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1431,7 +1201,6 @@
 		B4CD5C1916BC161C00DD350B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B4A0310916D669B5004A34CE /* MP.framework */,
 				B4A2345416FE0EFC00101EE9 /* iAd.framework */,
 				B4AA655D1701F2530042AFE5 /* StoreKit.framework */,
 				B462D32A16CF135F006A2081 /* CoreData.framework */,
@@ -1442,6 +1211,8 @@
 				B4CD5C1A16BC161C00DD350B /* UIKit.framework */,
 				B4CD5C1C16BC161C00DD350B /* Foundation.framework */,
 				B4CD5C1E16BC161C00DD350B /* CoreGraphics.framework */,
+				1BBCFEBD44FE8F334D5197D0 /* libPods-MyPlan 5.a */,
+				1E89688496B90CEDE59E1000 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1449,18 +1220,23 @@
 		B4CD5C2016BC161C00DD350B /* MyPlan 5 */ = {
 			isa = PBXGroup;
 			children = (
+				FBD2B2381AD35E9B00E96788 /* MyPlan 5-Bridging-Header.h */,
+				FBF7F4A41AD2B07000F4C495 /* AppDelegate */,
+				FBF7F4A31AD2204300F4C495 /* Database */,
+				B4CD5C7716BC1A8800DD350B /* _Rear Menu */,
+				B4CD5C2916BC161C00DD350B /* _AppDelegate.h */,
+				B4CD5C2A16BC161C00DD350B /* _AppDelegate.m */,
+				B4CD5C7816BC1A9100DD350B /* _Front Menu */,
 				B4AE14CF16CEBDF5000F3A1C /* MyPlan 5.entitlements */,
+				B462311A16CD796E00DB3855 /* _Hauptansichten */,
 				B4CD5C7D16BC225F00DD350B /* Main */,
-				B4CD5C6216BC17BE00DD350B /* TableViewCells */,
-				B462311A16CD796E00DB3855 /* Hauptansichten */,
-				B462D2E316CEFAC6006A2081 /* Funktionen */,
-				B4CD5C7716BC1A8800DD350B /* Rear Menu */,
-				B4CD5C7816BC1A9100DD350B /* Front Menu */,
-				B4CD5C9016BC3A8300DD350B /* WeekEdit */,
-				B4920BF316C000DF00A1D752 /* PersonEdit */,
-				B4920BC616BEA5E600A1D752 /* Settings */,
-				B468BD1916F2202900D0F285 /* Help */,
-				B468BD2316F2210B00D0F285 /* InfoVC */,
+				B4CD5C6216BC17BE00DD350B /* _TableViewCells */,
+				B462D2E316CEFAC6006A2081 /* _Funktionen */,
+				B4CD5C9016BC3A8300DD350B /* _WeekEdit */,
+				B4920BF316C000DF00A1D752 /* _PersonEdit */,
+				B4920BC616BEA5E600A1D752 /* _Settings */,
+				B468BD1916F2202900D0F285 /* _Help */,
+				B468BD2316F2210B00D0F285 /* _InfoVC */,
 				B4CD5C2116BC161C00DD350B /* Supporting Files */,
 			);
 			path = "MyPlan 5";
@@ -1499,27 +1275,27 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		B4CD5C6216BC17BE00DD350B /* TableViewCells */ = {
+		B4CD5C6216BC17BE00DD350B /* _TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
 				B462D33816D00AD2006A2081 /* Subject */,
 				B462D33216D00A36006A2081 /* Main */,
 			);
-			name = TableViewCells;
+			name = _TableViewCells;
 			sourceTree = "<group>";
 		};
-		B4CD5C7716BC1A8800DD350B /* Rear Menu */ = {
+		B4CD5C7716BC1A8800DD350B /* _Rear Menu */ = {
 			isa = PBXGroup;
 			children = (
-				B4CD5C3216BC161C00DD350B /* WeekMenu.h */,
-				B4CD5C3316BC161C00DD350B /* WeekMenu.m */,
-				B4CD5C6D16BC1A7600DD350B /* WeekMenu_iPhone.xib */,
-				B4CD5C6B16BC1A7600DD350B /* WeekMenu_iPad.xib */,
+				FBD2B26B1AD362D800E96788 /* MPMenuView.swift */,
+				FBD2B26D1AD365AD00E96788 /* MPPersonView.swift */,
+				FB04256C1AE056A8002F794F /* MPPlanViewController.swift */,
+				FBB53CCD1AE06FAF0086B182 /* MPMarksViewController.swift */,
 			);
-			name = "Rear Menu";
+			name = "_Rear Menu";
 			sourceTree = "<group>";
 		};
-		B4CD5C7816BC1A9100DD350B /* Front Menu */ = {
+		B4CD5C7816BC1A9100DD350B /* _Front Menu */ = {
 			isa = PBXGroup;
 			children = (
 				B462D2E516CEFB49006A2081 /* img */,
@@ -1529,21 +1305,18 @@
 				B4CD5C6F16BC1A7600DD350B /* WeekView_iPad.xib */,
 				B486B48B16C1B3B2007827E7 /* Stundenplan Erstellen */,
 			);
-			name = "Front Menu";
+			name = "_Front Menu";
 			sourceTree = "<group>";
 		};
 		B4CD5C7D16BC225F00DD350B /* Main */ = {
 			isa = PBXGroup;
 			children = (
 				B4B04B8716E0F8A8000BCCB4 /* restarbeiten.txt */,
-				B4CD5C2916BC161C00DD350B /* AppDelegate.h */,
-				B4CD5C2A16BC161C00DD350B /* AppDelegate.m */,
 				B4A2345216FB64A100101EE9 /* Protocol.h */,
 				B4902BA716E36DFF00062C62 /* MPNotification.h */,
 				B4902BA816E36DFF00062C62 /* MPNotification.m */,
 				B4A2344F16FB5E6D00101EE9 /* KGModal.h */,
 				B4A2345016FB5E6D00101EE9 /* KGModal.m */,
-				B4B04B1316D9792F000BCCB4 /* clearNavigationBar */,
 				B4CD5C6516BC194A00DD350B /* SWRevealViewController.h */,
 				B4CD5C6616BC194A00DD350B /* SWRevealViewController.m */,
 				B4CD5C7E16BC22BC00DD350B /* MainData.h */,
@@ -1559,7 +1332,7 @@
 			name = Main;
 			sourceTree = "<group>";
 		};
-		B4CD5C9016BC3A8300DD350B /* WeekEdit */ = {
+		B4CD5C9016BC3A8300DD350B /* _WeekEdit */ = {
 			isa = PBXGroup;
 			children = (
 				B4920BD016BEB47000A1D752 /* WeekEditDetail */,
@@ -1568,16 +1341,7 @@
 				B4CD5C8A16BC384300DD350B /* WeekEdit_iPhone.xib */,
 				B4CD5C8816BC384200DD350B /* WeekEdit_iPad.xib */,
 			);
-			name = WeekEdit;
-			sourceTree = "<group>";
-		};
-		B4D4038D17303173001F55ED /* Notiz */ = {
-			isa = PBXGroup;
-			children = (
-				B4D4038A1730316E001F55ED /* Notiz.h */,
-				B4D4038B1730316E001F55ED /* Notiz.m */,
-			);
-			name = Notiz;
+			name = _WeekEdit;
 			sourceTree = "<group>";
 		};
 		B4D4039217303896001F55ED /* FunktionenNotizen */ = {
@@ -1603,6 +1367,42 @@
 			name = FunktionenNotizDetail;
 			sourceTree = "<group>";
 		};
+		DA0D9C337662D49ED6CD42B2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				80B4FC85E6C2BE2807FBB335 /* Pods-MyPlan 5.debug.xcconfig */,
+				B24C87A43DDC929E319E7104 /* Pods-MyPlan 5.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		FBF7F4A31AD2204300F4C495 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				FBF7F4761AD2198E00F4C495 /* Data.xcdatamodeld */,
+				FB6AA3291AE04DBB000195F2 /* Note.swift */,
+				FB6AA3271AE04DBB000195F2 /* Image.swift */,
+				FB6AA3251AE04DBB000195F2 /* Mark.swift */,
+				FB6AA3231AE04DBB000195F2 /* Plan.swift */,
+				FB6AA3211AE04DBB000195F2 /* Event.swift */,
+				FB6AA31F1AE04DBB000195F2 /* Marks.swift */,
+				FB6AA31D1AE04DBB000195F2 /* Person.swift */,
+				FB6AA31B1AE04DBB000195F2 /* Houre.swift */,
+				FB6AA3191AE04DBB000195F2 /* Subject.swift */,
+				FB6AA3171AE04DBB000195F2 /* Homework.swift */,
+				FB6AA3151AE04DBA000195F2 /* Day.swift */,
+			);
+			name = Database;
+			sourceTree = "<group>";
+		};
+		FBF7F4A41AD2B07000F4C495 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				FBD2B23B1AD35ECA00E96788 /* AppDelegate.swift */,
+			);
+			name = AppDelegate;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1610,9 +1410,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B4CD5C5216BC161C00DD350B /* Build configuration list for PBXNativeTarget "MyPlan 5" */;
 			buildPhases = (
+				33D1D6EB07DB03CBE6A8E7B4 /* Check Pods Manifest.lock */,
 				B4CD5C1316BC161C00DD350B /* Sources */,
 				B4CD5C1416BC161C00DD350B /* Frameworks */,
 				B4CD5C1516BC161C00DD350B /* Resources */,
+				726B9A942C533CB3528651E0 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1681,8 +1483,6 @@
 				B4CD5C3116BC161C00DD350B /* Default-568h@2x.png in Resources */,
 				B4CD5C5F16BC17B900DD350B /* MainTableFile.xib in Resources */,
 				B4CD5C6116BC17B900DD350B /* MainTableFile2.xib in Resources */,
-				B4CD5C7316BC1A7600DD350B /* WeekMenu_iPad.xib in Resources */,
-				B4CD5C7416BC1A7600DD350B /* WeekMenu_iPhone.xib in Resources */,
 				B4CD5C7516BC1A7600DD350B /* WeekView_iPad.xib in Resources */,
 				B4CD5C7616BC1A7600DD350B /* WeekView_iPhone.xib in Resources */,
 				B4CD5C7A16BC1FF800DD350B /* reveal-icon.png in Resources */,
@@ -1752,8 +1552,6 @@
 				B4B04AEA16D6749A000BCCB4 /* SubVertretung_iPhone.xib in Resources */,
 				B4B04AEF16D679A0000BCCB4 /* MainTableFile11.xib in Resources */,
 				B4B04AF416D75A2D000BCCB4 /* MainTableFile12.xib in Resources */,
-				B4B04AF716D75BDB000BCCB4 /* MyPlan_Vertretung_B.png in Resources */,
-				B4B04AF816D75BDB000BCCB4 /* MyPlan_Vertretung_W.png in Resources */,
 				B4B04B0116D7AF70000BCCB4 /* MyPlan_Menu_1.png in Resources */,
 				B4B04B0216D7AF70000BCCB4 /* MyPlan_Menu_3.png in Resources */,
 				B4B04B0316D7AF70000BCCB4 /* MyPlan_Menu_2.png in Resources */,
@@ -1783,7 +1581,6 @@
 				B4B04B7616DD4F4E000BCCB4 /* MainTableFile14.xib in Resources */,
 				B4B04B7E16DFB940000BCCB4 /* MPPictureView_iPad.xib in Resources */,
 				B4B04B7F16DFB940000BCCB4 /* MPPictureView_iPhone.xib in Resources */,
-				B4B04B8616E0ED28000BCCB4 /* clear.png in Resources */,
 				B4B04B8816E0F8AA000BCCB4 /* restarbeiten.txt in Resources */,
 				B4B04B8A16E0FCCF000BCCB4 /* MyPlan_img_20.png in Resources */,
 				B4902B9C16E2A53900062C62 /* NotificationsSettings_iPad.xib in Resources */,
@@ -1854,6 +1651,36 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		33D1D6EB07DB03CBE6A8E7B4 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		726B9A942C533CB3528651E0 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		B4CD5C3E16BC161C00DD350B /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1874,97 +1701,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B4CD5C2716BC161C00DD350B /* main.m in Sources */,
-				B4CD5C2B16BC161C00DD350B /* AppDelegate.m in Sources */,
-				B4CD5C3416BC161C00DD350B /* WeekMenu.m in Sources */,
-				B4CD5C5E16BC17B900DD350B /* MainTableFile.m in Sources */,
-				B4CD5C6016BC17B900DD350B /* MainTableFile2.m in Sources */,
-				B4CD5C6716BC194A00DD350B /* SWRevealViewController.m in Sources */,
-				B4CD5C6A16BC1A4D00DD350B /* WeekView.m in Sources */,
-				B4CD5C8016BC22BC00DD350B /* MainData.m in Sources */,
-				B4CD5C8716BC382C00DD350B /* WeekEdit.m in Sources */,
-				B4920BAE16BC487D00A1D752 /* Week.m in Sources */,
-				B4920BB116BC4A4700A1D752 /* MPDate.m in Sources */,
-				B4920BB416BC4C7D00A1D752 /* Subject.m in Sources */,
-				B4920BB816BC52C300A1D752 /* MainTableFile3.m in Sources */,
-				B4920BBC16BE9F6100A1D752 /* AppData.m in Sources */,
-				B4920BBF16BEA5C100A1D752 /* MainSettings.m in Sources */,
-				B4920BC916BEB44700A1D752 /* WeekEditDetail.m in Sources */,
-				B4920BD416BEBE7A00A1D752 /* MainTableFile4.m in Sources */,
-				B4920BD816BED02900A1D752 /* WeekEditDetail2.m in Sources */,
-				B4920BE116BED1F700A1D752 /* Day.m in Sources */,
-				B4920BEC16C000BD00A1D752 /* PersonEdit.m in Sources */,
-				B4920BF616C0016100A1D752 /* Person.m in Sources */,
-				B486B46F16C14EF4007827E7 /* MainTableFile5.m in Sources */,
-				B486B48016C1A9AA007827E7 /* MainTableFile6.m in Sources */,
-				B486B48416C1B146007827E7 /* SubPlanEdit.m in Sources */,
-				B486B48F16C1B4FE007827E7 /* MainTableFile7.m in Sources */,
-				B486B49516C1C332007827E7 /* SubPlanEditDetail.m in Sources */,
-				B486B49F16C1C4BA007827E7 /* Houre.m in Sources */,
-				B486B4A416C27ED2007827E7 /* SubAddHoureViewController.m in Sources */,
-				B486B4F916C2A8FD007827E7 /* FachEdit.m in Sources */,
-				B486B50416C4667C007827E7 /* MainTableFile8.m in Sources */,
-				B49DD5C416C728920072E184 /* BackgroundSettings.m in Sources */,
-				B462310516CD537100DB3855 /* Info.m in Sources */,
-				B462310916CD5EBF00DB3855 /* FachEditDetail.m in Sources */,
-				B462311316CD794F00DB3855 /* ViewTag.m in Sources */,
-				B462312116CD93C600DB3855 /* MainTableFile9.m in Sources */,
-				B462312316CD93C600DB3855 /* MainTableFile10.m in Sources */,
-				B4AE14BC16CEB7BA000F3A1C /* ViewJetzt.m in Sources */,
-				B4AE14BF16CEB7CF000F3A1C /* ViewWeek.m in Sources */,
-				B462D2DC16CEFAA7006A2081 /* FunktionenExport.m in Sources */,
-				B462D2E816CEFDC4006A2081 /* FunktionenNoten.m in Sources */,
-				B462D2F216CEFE1B006A2081 /* FunktionenTermine.m in Sources */,
-				B462D2FC16CEFE73006A2081 /* FunktionenVertretungsplan.m in Sources */,
-				B462D33616D00AC8006A2081 /* SubjectCell1.m in Sources */,
+				FB6AA3201AE04DBB000195F2 /* Marks.swift in Sources */,
+				FB6AA3161AE04DBA000195F2 /* Day.swift in Sources */,
+				FB6AA3241AE04DBB000195F2 /* Plan.swift in Sources */,
+				FB04256D1AE056A8002F794F /* MPPlanViewController.swift in Sources */,
+				FBD2B26C1AD362D800E96788 /* MPMenuView.swift in Sources */,
+				FB6AA32A1AE04DBB000195F2 /* Note.swift in Sources */,
+				FBF7F4781AD2198E00F4C495 /* Data.xcdatamodeld in Sources */,
+				FB6AA31C1AE04DBB000195F2 /* Houre.swift in Sources */,
+				FB6AA31E1AE04DBB000195F2 /* Person.swift in Sources */,
+				FBD2B26E1AD365AD00E96788 /* MPPersonView.swift in Sources */,
+				FBB53CCE1AE06FAF0086B182 /* MPMarksViewController.swift in Sources */,
+				FBD2B23C1AD35ECA00E96788 /* AppDelegate.swift in Sources */,
+				FB6AA3281AE04DBB000195F2 /* Image.swift in Sources */,
+				FB6AA3181AE04DBB000195F2 /* Homework.swift in Sources */,
 				B462D33C16D043A1006A2081 /* CVCell.m in Sources */,
-				B462D34016D043EB006A2081 /* MPTapGestureRecognizer.m in Sources */,
+				FB6AA31A1AE04DBB000195F2 /* Subject.swift in Sources */,
 				B462D34316D044EF006A2081 /* UICollectionViewWaterfallLayout.m in Sources */,
-				B462D34716D2C6E3006A2081 /* SubjectCell2.m in Sources */,
-				B462D34C16D2CE3F006A2081 /* SubjectCell3.m in Sources */,
-				B462D35116D2D2F3006A2081 /* SubjectCell4.m in Sources */,
-				B4A0310716D6691C004A34CE /* Vertretung.m in Sources */,
-				B4B04ADE16D673AA000BCCB4 /* SubVertretung.m in Sources */,
-				B4B04AEE16D679A0000BCCB4 /* MainTableFile11.m in Sources */,
-				B4B04AF316D75A2D000BCCB4 /* MainTableFile12.m in Sources */,
-				B4B04B1216D96237000BCCB4 /* MPNavigationBar.m in Sources */,
-				B4B04B1816D98514000BCCB4 /* Note.m in Sources */,
-				B4B04B1C16D988BE000BCCB4 /* SubFunktionenNoten.m in Sources */,
-				B4B04B2616D98E57000BCCB4 /* SubFunktionenNotenDetail.m in Sources */,
-				B4B04B3E16DAD0FB000BCCB4 /* FunktionenHausaufgabe.m in Sources */,
-				B4B04B4E16DC2115000BCCB4 /* FunktionenHausaufgabeDetail.m in Sources */,
-				B4B04B5816DC2336000BCCB4 /* Homework.m in Sources */,
-				B4B04B5D16DD2095000BCCB4 /* MainTableFile13.m in Sources */,
-				B4B04B6316DD3A88000BCCB4 /* Update.m in Sources */,
-				B4B04B7516DD4F4E000BCCB4 /* MainTableFile14.m in Sources */,
-				B4B04B7916DFB925000BCCB4 /* MPPictureView.m in Sources */,
-				B4B04B8316DFBDFD000BCCB4 /* CustomScrollView.m in Sources */,
-				B4902BA016E2A54C00062C62 /* NotificationsSettings.m in Sources */,
-				B4902BA516E2C26B00062C62 /* MainTableFile15.m in Sources */,
-				B4902BA916E36DFF00062C62 /* MPNotification.m in Sources */,
-				B4902BAC16E4E98200062C62 /* Termin.m in Sources */,
-				B4902BB016E4EC7C00062C62 /* FunktionenTermineDetail.m in Sources */,
-				B4902BC916E522A300062C62 /* CalendarController.m in Sources */,
-				B4902BCA16E522A300062C62 /* NSDate+TKCategory.m in Sources */,
-				B4902BCC16E522A300062C62 /* TKCalendarMonthTableViewController.m in Sources */,
-				B4902BCD16E522A300062C62 /* TKCalendarMonthView.m in Sources */,
-				B4902BCE16E522A300062C62 /* TKCalendarMonthViewController.m in Sources */,
-				B4902BCF16E522A300062C62 /* TKGlobal.m in Sources */,
-				B4902BD016E522A300062C62 /* UIImage+TKCategory.m in Sources */,
-				B4902BD116E522A300062C62 /* UIView+TKCategory.m in Sources */,
-				B4D1CDCC16EA6CB000E4E74E /* HTMLObject.m in Sources */,
-				B468BD1216F21FF700D0F285 /* Help.m in Sources */,
-				B468BD2216F220FC00D0F285 /* InfoVC.m in Sources */,
-				B468BD2716F222B800D0F285 /* MainTableFile16.m in Sources */,
-				B4A2345116FB5E6D00101EE9 /* KGModal.m in Sources */,
-				B444012F170687C20075CB2F /* FunktionenTermineDetailDate.m in Sources */,
-				B4483C80170905570004693E /* FunktionenFotos.m in Sources */,
-				B4483C8B1709075D0004693E /* CVCell2.m in Sources */,
-				B49D89C0171073BD003DD93A /* SubjectCell5.m in Sources */,
-				B4D4038C1730316E001F55ED /* Notiz.m in Sources */,
-				B4D40395173038BF001F55ED /* FunktionenNotizen.m in Sources */,
-				B4D4039E17303968001F55ED /* FunktionenNotizDetail.m in Sources */,
-				B4D403A9173070B2001F55ED /* MainTableFile17.m in Sources */,
+				FB6AA3221AE04DBB000195F2 /* Event.swift in Sources */,
+				FB6AA3261AE04DBB000195F2 /* Mark.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1973,7 +1728,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B4CD5C4F16BC161C00DD350B /* MyPlan_5Tests.m in Sources */,
-				B486B49016C1B4FE007827E7 /* MainTableFile7.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2476,22 +2230,6 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
-		B4CD5C6B16BC1A7600DD350B /* WeekMenu_iPad.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B4CD5C6C16BC1A7600DD350B /* en */,
-			);
-			name = WeekMenu_iPad.xib;
-			sourceTree = "<group>";
-		};
-		B4CD5C6D16BC1A7600DD350B /* WeekMenu_iPhone.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B4CD5C6E16BC1A7600DD350B /* en */,
-			);
-			name = WeekMenu_iPhone.xib;
-			sourceTree = "<group>";
-		};
 		B4CD5C6F16BC1A7600DD350B /* WeekView_iPad.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -2585,7 +2323,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "53D97575-9732-4588-8773-2FE602A12BAC";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "53D97575-9732-4588-8773-2FE602A12BAC";
@@ -2613,7 +2351,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PROVISIONING_PROFILE = "53D97575-9732-4588-8773-2FE602A12BAC";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "53D97575-9732-4588-8773-2FE602A12BAC";
@@ -2625,14 +2363,17 @@
 		};
 		B4CD5C5316BC161C00DD350B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 80B4FC85E6C2BE2807FBB335 /* Pods-MyPlan 5.debug.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "MyPlan 5/MyPlan 5.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer: Ulrike Lorenz (XFF4C3Y74R)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ulrike Lorenz (XFF4C3Y74R)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MyPlan 5/MyPlan 5-Prefix.pch";
 				INFOPLIST_FILE = "MyPlan 5/MyPlan 5-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/MyPlan 5\"",
@@ -2640,20 +2381,25 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "53D97575-9732-4588-8773-2FE602A12BAC";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "53D97575-9732-4588-8773-2FE602A12BAC";
+				SWIFT_OBJC_BRIDGING_HEADER = "MyPlan 5/MyPlan 5-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
 		B4CD5C5416BC161C00DD350B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B24C87A43DDC929E319E7104 /* Pods-MyPlan 5.release.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "MyPlan 5/MyPlan 5.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer: Ulrike Lorenz (XFF4C3Y74R)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ulrike Lorenz (XFF4C3Y74R)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MyPlan 5/MyPlan 5-Prefix.pch";
 				INFOPLIST_FILE = "MyPlan 5/MyPlan 5-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/MyPlan 5\"",
@@ -2661,6 +2407,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "53D97575-9732-4588-8773-2FE602A12BAC";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "53D97575-9732-4588-8773-2FE602A12BAC";
+				SWIFT_OBJC_BRIDGING_HEADER = "MyPlan 5/MyPlan 5-Bridging-Header.h";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -2738,6 +2485,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FBF7F4761AD2198E00F4C495 /* Data.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FBF7F4771AD2198E00F4C495 /* Data.xcdatamodel */,
+			);
+			currentVersion = FBF7F4771AD2198E00F4C495 /* Data.xcdatamodel */;
+			path = Data.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B4CD5C0F16BC161C00DD350B /* Project object */;
 }

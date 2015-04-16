@@ -1,0 +1,18 @@
+PODS:
+  - MagicalRecord (2.2):
+    - MagicalRecord/Core (= 2.2)
+  - MagicalRecord/Core (2.2)
+  - MBProgressHUD (0.9.1)
+  - SWRevealViewController (2.3.0)
+
+DEPENDENCIES:
+  - MagicalRecord
+  - MBProgressHUD (~> 0.8)
+  - SWRevealViewController
+
+SPEC CHECKSUMS:
+  MagicalRecord: f8a56bb87ab6552f20c4bb8681a1958a197ea3cd
+  MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
+  SWRevealViewController: 6d3fd97f70112fd7cef9de14df4260eacce4c63a
+
+COCOAPODS: 0.36.3

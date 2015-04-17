@@ -10,16 +10,15 @@ import UIKit
 
 import CoreData
 
-protocol MPMenuViewDelegate {
+protocol MPMenuViewControllerDelegate {
     func openPerson(person: Person)
     func openPlan(plan: Plan)
-    func openMarks(marks: Marks)
+    func openMarkGroup(markGroup: MarkGroup)
     func openSettings()
 }
 
-class MPMenuView: UITableViewController, NSFetchedResultsControllerDelegate {
-    
-    var menuViewDelegate: MPMenuViewDelegate?
+class MPMenuViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+    var delegate: MPMenuViewControllerDelegate?
     
     var _personFetchedResultsController: NSFetchedResultsController?
     var personFetchedResultsController: NSFetchedResultsController {
@@ -74,6 +73,7 @@ class MPMenuView: UITableViewController, NSFetchedResultsControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Add Person Button
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "addPerson" )
     }
     
@@ -98,8 +98,8 @@ class MPMenuView: UITableViewController, NSFetchedResultsControllerDelegate {
                 let person = self.personFetchedResultsController.objectAtIndexPath(NSIndexPath(forRow: section, inSection: 0)) as Person
                 
                 let plans = Plan.MR_countOfEntitiesWithPredicate(NSPredicate(format: "(person == %@)", person))
-                let marks = Marks.MR_countOfEntitiesWithPredicate(NSPredicate(format: "(person == %@)", person))
-                return 1 + Int(plans) + Int(marks);
+                let markGroup = MarkGroup.MR_countOfEntitiesWithPredicate(NSPredicate(format: "(person == %@)", person))
+                return 1 + Int(plans) + Int(markGroup);
         }
     }
     
@@ -114,7 +114,7 @@ class MPMenuView: UITableViewController, NSFetchedResultsControllerDelegate {
             let person = self.personFetchedResultsController.objectAtIndexPath(NSIndexPath(forRow: indexPath.section, inSection: 0)) as Person
             
             let plans = Plan.MR_findAllWithPredicate(NSPredicate(format: "(person == %@)", person))
-            let marks = Marks.MR_findAllWithPredicate(NSPredicate(format: "(person == %@)", person))
+            let markGroup = MarkGroup.MR_findAllWithPredicate(NSPredicate(format: "(person == %@)", person))
             
             switch (indexPath.row) {
             case 0:
@@ -122,8 +122,8 @@ class MPMenuView: UITableViewController, NSFetchedResultsControllerDelegate {
             case 1..<plans.count+1:
                 var plan = plans[indexPath.row-1] as Plan
                 cell.textLabel?.text = plan.title
-            case plans.count+1..<plans.count+1+marks.count:
-                var mark = marks[(indexPath.row-plans.count-1)] as Marks
+            case plans.count+1..<plans.count+1+markGroup.count:
+                var mark = markGroup[(indexPath.row-plans.count-1)] as MarkGroup
                 cell.textLabel?.text = mark.title
             default:
                 cell.textLabel?.text = ""
@@ -149,22 +149,22 @@ class MPMenuView: UITableViewController, NSFetchedResultsControllerDelegate {
     
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if (self.menuViewDelegate != nil) {
+        if (self.delegate != nil) {
             let person = self.personFetchedResultsController.objectAtIndexPath(NSIndexPath(forRow: indexPath.section, inSection: 0)) as Person
             
             let plans = Plan.MR_findAllWithPredicate(NSPredicate(format: "(person == %@)", person))
-            let marks = Marks.MR_findAllWithPredicate(NSPredicate(format: "(person == %@)", person))
+            let markGroups = MarkGroup.MR_findAllWithPredicate(NSPredicate(format: "(person == %@)", person))
             
             switch (indexPath.row) {
             case 0:
                 print(indexPath.row)
-                self.menuViewDelegate?.openPerson(person)
+                self.delegate?.openPerson(person)
             case 1..<plans.count+1:
                 var plan = plans[indexPath.row-1] as Plan
-                self.menuViewDelegate?.openPlan(plan)
-            case plans.count+1..<plans.count+1+marks.count:
-                var mark = marks[(indexPath.row-plans.count-1)] as Marks
-               self.menuViewDelegate?.openMarks(mark)
+                self.delegate?.openPlan(plan)
+            case plans.count+1..<plans.count+1+markGroups.count:
+                var markGroup = markGroups[(indexPath.row-plans.count-1)] as MarkGroup
+               self.delegate?.openMarkGroup(markGroup)
             default:
                 break
             }
@@ -217,7 +217,7 @@ class MPMenuView: UITableViewController, NSFetchedResultsControllerDelegate {
         return true
     }
     */
-
+    
     
     
     
@@ -231,18 +231,43 @@ class MPMenuView: UITableViewController, NSFetchedResultsControllerDelegate {
             person.title = "New Person"
             
             
+            var subjectDeutsch = Subject.MR_createInContext(localContext) as Subject!
+            subjectDeutsch.person = person;
+            subjectDeutsch.notify = NSNumber(bool: true);
+            subjectDeutsch.title = "Deutsch"
+            
+            var subjectEnglisch = Subject.MR_createInContext(localContext) as Subject!
+            subjectEnglisch.person = person;
+            subjectEnglisch.notify = NSNumber(bool: true);
+            subjectEnglisch.title = "Englisch"
+            
+            var subjectMathe = Subject.MR_createInContext(localContext) as Subject!
+            subjectMathe.person = person;
+            subjectMathe.notify = NSNumber(bool: true);
+            subjectMathe.title = "Mathe"
+            
+            var subjectPhysik = Subject.MR_createInContext(localContext) as Subject!
+            subjectPhysik.person = person;
+            subjectPhysik.notify = NSNumber(bool: true);
+            subjectPhysik.title = "Physik"
+            
+            
             var plan = Plan.MR_createInContext(localContext) as Plan!
             plan.title = "Plan"
             plan.person = person
+            var days = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"]
+            var daysShort = ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"]
             for i in 0...6 {
                 var day = Day.MR_createInContext(localContext) as Day!
                 day.plan = plan
-                day.title = String(i)
+                day.weekIndex = i
+                day.title = days[i]
+                day.titleShort = daysShort[i]
             }
             
-            var noten = Marks.MR_createInContext(localContext) as Marks!
-            noten.title = "Noten"
-            noten.person = person
+            var markGroup = MarkGroup.MR_createInContext(localContext) as MarkGroup!
+            markGroup.title = "Noten"
+            markGroup.person = person
             
             localContext.MR_saveToPersistentStoreWithCompletion({ (var success:Bool, var error:NSError!) -> Void in
 //                self.tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .Fade)

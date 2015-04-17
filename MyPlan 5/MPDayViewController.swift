@@ -1,5 +1,5 @@
 //
-//  MPPlanViewController.swift
+//  MPDayViewController.swift
 //  MyPlan 5
 //
 //  Created by Jannik Lorenz on 07.04.15.
@@ -10,9 +10,9 @@ import UIKit
 
 import CoreData
 
-class MPPlanViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+class MPDayViewController: UITableViewController, NSFetchedResultsControllerDelegate, MPSubjectsViewControllerDefault {
     
-    var plan: Plan?
+    var day: Day?
     
     var fetchedResultsController: NSFetchedResultsController {
         
@@ -21,12 +21,12 @@ class MPPlanViewController: UITableViewController, NSFetchedResultsControllerDel
         }
         let managedObjectContext = NSManagedObjectContext.MR_defaultContext()
         
-        let sort = NSSortDescriptor(key: "weekIndex", ascending: true)
+        let sort = NSSortDescriptor(key: "houre", ascending: true)
         
         let req = NSFetchRequest()
-        req.entity = Day.MR_entityDescription()
+        req.entity = Houre.MR_entityDescription()
         req.sortDescriptors = [sort]
-        req.predicate = NSPredicate(format: "(plan == %@)", self.plan!)
+        req.predicate = NSPredicate(format: "(day == %@)", self.day!)
         
         let aFetchedResultsController = NSFetchedResultsController(fetchRequest: req, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
         aFetchedResultsController.delegate = self
@@ -43,13 +43,12 @@ class MPPlanViewController: UITableViewController, NSFetchedResultsControllerDel
     var _fetchedResultsController: NSFetchedResultsController?
     
     
-    required init(plan: Plan) {
+    required init(day: Day) {
         super.init(style: UITableViewStyle.Grouped)
         
-        self.plan = plan
+        self.day = day
         
-        print(self.plan)
-        self.title = self.plan?.title
+        self.title = self.day?.title
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -67,8 +66,8 @@ class MPPlanViewController: UITableViewController, NSFetchedResultsControllerDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Reval Button
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "RevalIcon"), style: UIBarButtonItemStyle.Bordered, target: self.revealViewController(), action: "revealToggle:")
+        // Add Houre Button
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "addHoure" )
     }
     
     
@@ -91,23 +90,19 @@ class MPPlanViewController: UITableViewController, NSFetchedResultsControllerDel
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
-        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+        let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "Cell")
         
-        let day = self.fetchedResultsController.objectAtIndexPath(indexPath) as Day
-        cell.textLabel?.text = day.title
-        
-        cell.detailTextLabel?.text = String(day.houres.count) + " Stunde(n)"
-        cell.detailTextLabel?.textColor = UIColor.grayColor()
+        let houre = self.fetchedResultsController.objectAtIndexPath(indexPath) as Houre
+        cell.textLabel?.text = houre.houre.stringValue + ". " + houre.subject.title
         
         return cell
     }
     
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let day = self.fetchedResultsController.objectAtIndexPath(indexPath) as Day
-        var dayVC = MPDayViewController(day: day)
-        self.navigationController?.pushViewController(dayVC, animated: true)
+        let houre = self.fetchedResultsController.objectAtIndexPath(indexPath) as Houre
+        var houreVC = MPHoureViewController(houre: houre)
+        self.navigationController?.pushViewController(houreVC, animated: true)
     }
     
     /*
@@ -150,6 +145,37 @@ class MPPlanViewController: UITableViewController, NSFetchedResultsControllerDel
     
     
     
+    // MARK: - addHoure
+    
+    func addHoure() {
+        var person = self.day!.plan.person
+        var subjectVC = MPSubjectsViewController(person: person)
+        subjectVC.delegate = self
+        var nav = UINavigationController(rootViewController: subjectVC)
+        self.presentViewController(nav, animated: true) { () -> Void in
+            
+        }
+    }
+    
+    
+    
+    // MARK: - MPSubjectsViewControllerDefault
+    
+    func didSelectSubject(subject: Subject) {
+        
+        MagicalRecord.saveWithBlock { (localContect: NSManagedObjectContext!) -> Void in
+            var houre = Houre.MR_createInContext(localContect) as Houre
+            houre.subject = subject.MR_inContext(localContect) as Subject
+            houre.day = self.day!.MR_inContext(localContect) as Day
+            
+            // DEBUG ONLY
+            let info = self.fetchedResultsController.sections![0] as NSFetchedResultsSectionInfo
+            houre.houre = NSNumber(integer: info.numberOfObjects)
+            
+            localContect.MR_saveToPersistentStoreAndWait()
+        }
+        
+    }
     
     
     

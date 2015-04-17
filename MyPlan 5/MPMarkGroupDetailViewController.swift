@@ -1,5 +1,5 @@
 //
-//  MPPlanViewController.swift
+//  MPMarkViewController.swift
 //  MyPlan 5
 //
 //  Created by Jannik Lorenz on 07.04.15.
@@ -10,9 +10,10 @@ import UIKit
 
 import CoreData
 
-class MPPlanViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+class MPMarkGroupDetailViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     
-    var plan: Plan?
+    var markGroup: MarkGroup?
+    var subject: Subject?
     
     var fetchedResultsController: NSFetchedResultsController {
         
@@ -21,12 +22,12 @@ class MPPlanViewController: UITableViewController, NSFetchedResultsControllerDel
         }
         let managedObjectContext = NSManagedObjectContext.MR_defaultContext()
         
-        let sort = NSSortDescriptor(key: "weekIndex", ascending: true)
+        let sort = NSSortDescriptor(key: "title", ascending: false)
         
         let req = NSFetchRequest()
-        req.entity = Day.MR_entityDescription()
+        req.entity = Mark.MR_entityDescription()
         req.sortDescriptors = [sort]
-        req.predicate = NSPredicate(format: "(plan == %@)", self.plan!)
+        req.predicate = NSPredicate(format: "(subject == %@) AND (markGroup == %@)", self.subject!, self.markGroup!)
         
         let aFetchedResultsController = NSFetchedResultsController(fetchRequest: req, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
         aFetchedResultsController.delegate = self
@@ -43,13 +44,13 @@ class MPPlanViewController: UITableViewController, NSFetchedResultsControllerDel
     var _fetchedResultsController: NSFetchedResultsController?
     
     
-    required init(plan: Plan) {
+    required init(markGroup: MarkGroup, subject: Subject) {
         super.init(style: UITableViewStyle.Grouped)
         
-        self.plan = plan
+        self.markGroup = markGroup
+        self.subject = subject
         
-        print(self.plan)
-        self.title = self.plan?.title
+        self.title = self.subject?.title
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -67,8 +68,8 @@ class MPPlanViewController: UITableViewController, NSFetchedResultsControllerDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Reval Button
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "RevalIcon"), style: UIBarButtonItemStyle.Bordered, target: self.revealViewController(), action: "revealToggle:")
+        // Add mark
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "addMark")
     }
     
     
@@ -92,22 +93,19 @@ class MPPlanViewController: UITableViewController, NSFetchedResultsControllerDel
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
-        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         
-        let day = self.fetchedResultsController.objectAtIndexPath(indexPath) as Day
-        cell.textLabel?.text = day.title
-        
-        cell.detailTextLabel?.text = String(day.houres.count) + " Stunde(n)"
-        cell.detailTextLabel?.textColor = UIColor.grayColor()
+        let mark = self.fetchedResultsController.objectAtIndexPath(indexPath) as Mark
+        cell.textLabel?.text = mark.title
+        cell.detailTextLabel?.text = mark.mark.stringValue
         
         return cell
     }
     
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let day = self.fetchedResultsController.objectAtIndexPath(indexPath) as Day
-        var dayVC = MPDayViewController(day: day)
-        self.navigationController?.pushViewController(dayVC, animated: true)
+        let mark = self.fetchedResultsController.objectAtIndexPath(indexPath) as Mark
+        let markVC = MPMarkViewController(mark: mark)
+        self.navigationController?.pushViewController(markVC, animated: true)
     }
     
     /*
@@ -145,8 +143,27 @@ class MPPlanViewController: UITableViewController, NSFetchedResultsControllerDel
         return true
     }
     */
-
     
+    
+    
+    
+    
+    // MARK: - addMark
+    func addMark() {
+        MagicalRecord.saveWithBlock { (localContext: NSManagedObjectContext!) -> Void in
+            var mark = Mark.MR_createInContext(localContext) as Mark
+            mark.timestamp = NSDate()
+            mark.markGroup = self.markGroup?.MR_inContext(localContext) as MarkGroup
+            mark.subject = self.subject?.MR_inContext(localContext) as Subject
+            
+            mark.mark = NSNumber(integer: Int(arc4random_uniform(7)))
+            mark.judging = NSNumber(integer: 1)
+            mark.title = "Test Mark"
+            mark.text = "Lorem Ipsum"
+            
+            localContext.MR_saveToPersistentStoreAndWait()
+        }
+    }
     
     
     

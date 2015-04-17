@@ -1,5 +1,5 @@
 //
-//  MPPlanViewController.swift
+//  MPMarksViewController.swift
 //  MyPlan 5
 //
 //  Created by Jannik Lorenz on 07.04.15.
@@ -10,9 +10,9 @@ import UIKit
 
 import CoreData
 
-class MPPlanViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+class MPMarkGroupViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     
-    var plan: Plan?
+    var markGroup: MarkGroup?
     
     var fetchedResultsController: NSFetchedResultsController {
         
@@ -21,12 +21,12 @@ class MPPlanViewController: UITableViewController, NSFetchedResultsControllerDel
         }
         let managedObjectContext = NSManagedObjectContext.MR_defaultContext()
         
-        let sort = NSSortDescriptor(key: "weekIndex", ascending: true)
+        let sort = NSSortDescriptor(key: "title", ascending: false)
         
         let req = NSFetchRequest()
-        req.entity = Day.MR_entityDescription()
+        req.entity = Subject.MR_entityDescription()
         req.sortDescriptors = [sort]
-        req.predicate = NSPredicate(format: "(plan == %@)", self.plan!)
+        req.predicate = NSPredicate(format: "(person == %@)", self.markGroup!.person)
         
         let aFetchedResultsController = NSFetchedResultsController(fetchRequest: req, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
         aFetchedResultsController.delegate = self
@@ -43,13 +43,11 @@ class MPPlanViewController: UITableViewController, NSFetchedResultsControllerDel
     var _fetchedResultsController: NSFetchedResultsController?
     
     
-    required init(plan: Plan) {
+    required init(markGroup: MarkGroup) {
         super.init(style: UITableViewStyle.Grouped)
         
-        self.plan = plan
-        
-        print(self.plan)
-        self.title = self.plan?.title
+        self.markGroup = markGroup
+        self.title = self.markGroup?.title
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -92,22 +90,19 @@ class MPPlanViewController: UITableViewController, NSFetchedResultsControllerDel
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
-        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         
-        let day = self.fetchedResultsController.objectAtIndexPath(indexPath) as Day
-        cell.textLabel?.text = day.title
-        
-        cell.detailTextLabel?.text = String(day.houres.count) + " Stunde(n)"
-        cell.detailTextLabel?.textColor = UIColor.grayColor()
+        let subject = self.fetchedResultsController.objectAtIndexPath(indexPath) as Subject
+        cell.textLabel?.text = subject.title
+        cell.detailTextLabel?.text = "\(String(subject.marks.count)) Note(n)"
         
         return cell
     }
     
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let day = self.fetchedResultsController.objectAtIndexPath(indexPath) as Day
-        var dayVC = MPDayViewController(day: day)
-        self.navigationController?.pushViewController(dayVC, animated: true)
+        let subject = self.fetchedResultsController.objectAtIndexPath(indexPath) as Subject
+        var markVC = MPMarkGroupDetailViewController(markGroup: self.markGroup!, subject: subject)
+        self.navigationController?.pushViewController(markVC, animated: true)
     }
     
     /*
@@ -145,9 +140,6 @@ class MPPlanViewController: UITableViewController, NSFetchedResultsControllerDel
         return true
     }
     */
-
-    
-    
     
     
     

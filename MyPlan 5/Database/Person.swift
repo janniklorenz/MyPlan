@@ -16,6 +16,6 @@ import CoreData
     @NSManaged var events: NSSet
     @NSManaged var plans: NSSet
     @NSManaged var subjects: NSSet
-    @NSManaged var marks: NSSet
+    @NSManaged var markGroups: NSSet
 
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MPPersonView: UITableViewController {
+class MPPersonViewController: UITableViewController {
     
     var _person: Person?
     var person: Person? {
@@ -52,13 +52,8 @@ class MPPersonView: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Edit, target: self.revealViewController(), action: "revealToggle:" )
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        // Reval Button
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "RevalIcon"), style: UIBarButtonItemStyle.Bordered, target: self.revealViewController(), action: "revealToggle:")
     }
 
     
@@ -70,7 +65,7 @@ class MPPersonView: UITableViewController {
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -81,11 +76,33 @@ class MPPersonView: UITableViewController {
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as UITableViewCell
-
+        let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "Cell")
+        
         // Configure the cell...
-
+        
+        if (indexPath.row == 0) {
+            cell.textLabel?.text = "Woche"
+        }
+        else if (indexPath.row == 1) {
+            cell.textLabel?.text = "Tag"
+        }
+        else if (indexPath.row == 2) {
+            cell.textLabel?.text = "Jetzt"
+        }
+        
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if (indexPath.row == 0) {
+            
+        }
+        else if (indexPath.row == 1) {
+            
+        }
+        else if (indexPath.row == 2) {
+            
+        }
     }
     
 

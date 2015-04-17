@@ -22,13 +22,12 @@ extension NSManagedObject {
 
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, MPMenuViewDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, MPMenuViewControllerDelegate {
     
     var window: UIWindow?
     var revealViewController: SWRevealViewController?
     
     var menuNavigationController: UINavigationController?
-    var personView: MPPersonView?
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
@@ -36,24 +35,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MPMenuViewDelegate {
         
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
-        var menuView = MPMenuView()
+        var menuViewController = MPMenuViewController()
         
         if (Person.MR_countOfEntities() == 0) {
             MagicalRecord.saveWithBlockAndWait({ (localContext: NSManagedObjectContext!) -> Void in
                 var person = Person.MR_createEntity() as Person!
-                person.title = "Person"
                 person.timestamp = NSDate()
+                
+                person.title = "Person"
+                
                 
                 localContext.MR_saveToPersistentStoreAndWait()
             })
         }
         
         
-        self.personView = MPPersonView(person: Person.MR_findFirst() as Person)
-        menuView.menuViewDelegate = self
+        var personViewController = MPPersonViewController(person: Person.MR_findFirst() as Person)
+        menuViewController.delegate = self
         
-        menuNavigationController = UINavigationController(rootViewController: menuView)
-        var personNavigationController = UINavigationController(rootViewController: self.personView!)
+        menuNavigationController = UINavigationController(rootViewController: menuViewController)
+        var personNavigationController = UINavigationController(rootViewController: personViewController)
         
         revealViewController = SWRevealViewController(rearViewController: menuNavigationController, frontViewController: personNavigationController)
         
@@ -102,8 +103,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MPMenuViewDelegate {
     // MARK: - MPMenuViewDelegate
     
     func openPerson(person:Person) {
-        personView?.person = person
-        var nav = UINavigationController(rootViewController: personView!)
+        var personViewController = MPPersonViewController(person: person)
+        var nav = UINavigationController(rootViewController: personViewController)
         self.revealViewController?.setFrontViewController(nav, animated: true)
         self.revealViewController?.revealToggleAnimated(true)
     }
@@ -113,8 +114,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MPMenuViewDelegate {
         self.revealViewController?.setFrontViewController(nav, animated: true)
         self.revealViewController?.revealToggleAnimated(true)
     }
-    func openMarks(marks: Marks) {
-        var marksVC = MPMarksViewController(marks: marks)
+    func openMarkGroup(markGroup: MarkGroup) {
+        var marksVC = MPMarkGroupViewController(markGroup: markGroup)
         var nav = UINavigationController(rootViewController: marksVC)
         self.revealViewController?.setFrontViewController(nav, animated: true)
         self.revealViewController?.revealToggleAnimated(true)

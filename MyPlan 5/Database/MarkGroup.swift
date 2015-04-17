@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-@objc(Marks) class Marks: NSManagedObject {
+@objc(MarkGroup) class MarkGroup: NSManagedObject {
 
     @NSManaged var title: String
     @NSManaged var marks: NSSet

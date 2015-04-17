@@ -11,6 +11,7 @@ import CoreData
 
 @objc(Houre) class Houre: NSManagedObject {
 
+    @NSManaged var notify: NSNumber
     @NSManaged var houre: NSNumber
     @NSManaged var info: String
     @NSManaged var day: Day

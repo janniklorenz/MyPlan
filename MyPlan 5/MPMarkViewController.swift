@@ -1,5 +1,5 @@
 //
-//  MPPlanViewController.swift
+//  MPMarkViewController.swift
 //  MyPlan 5
 //
 //  Created by Jannik Lorenz on 07.04.15.
@@ -10,46 +10,45 @@ import UIKit
 
 import CoreData
 
-class MPPlanViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+class MPMarkViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     
-    var plan: Plan?
+    var mark: Mark?
     
-    var fetchedResultsController: NSFetchedResultsController {
-        
-        if self._fetchedResultsController != nil {
-            return self._fetchedResultsController!
-        }
-        let managedObjectContext = NSManagedObjectContext.MR_defaultContext()
-        
-        let sort = NSSortDescriptor(key: "weekIndex", ascending: true)
-        
-        let req = NSFetchRequest()
-        req.entity = Day.MR_entityDescription()
-        req.sortDescriptors = [sort]
-        req.predicate = NSPredicate(format: "(plan == %@)", self.plan!)
-        
-        let aFetchedResultsController = NSFetchedResultsController(fetchRequest: req, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
-        aFetchedResultsController.delegate = self
-        self._fetchedResultsController = aFetchedResultsController
-        
-        var e: NSError?
-        if !self._fetchedResultsController!.performFetch(&e) {
-            println("fetch error: \(e!.localizedDescription)")
-            abort();
-        }
-        
-        return self._fetchedResultsController!
-    }
-    var _fetchedResultsController: NSFetchedResultsController?
+//    var fetchedResultsController: NSFetchedResultsController {
+//        
+//        if self._fetchedResultsController != nil {
+//            return self._fetchedResultsController!
+//        }
+//        let managedObjectContext = NSManagedObjectContext.MR_defaultContext()
+//        
+//        let sort = NSSortDescriptor(key: "title", ascending: false)
+//        
+//        let req = NSFetchRequest()
+//        req.entity = Mark.MR_entityDescription()
+//        req.sortDescriptors = [sort]
+//        req.predicate = NSPredicate(format: "(subject == %@) AND (markGroup == %@)", self.subject!, self.markGroup!)
+//        
+//        let aFetchedResultsController = NSFetchedResultsController(fetchRequest: req, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+//        aFetchedResultsController.delegate = self
+//        self._fetchedResultsController = aFetchedResultsController
+//        
+//        var e: NSError?
+//        if !self._fetchedResultsController!.performFetch(&e) {
+//            println("fetch error: \(e!.localizedDescription)")
+//            abort();
+//        }
+//        
+//        return self._fetchedResultsController!
+//    }
+//    var _fetchedResultsController: NSFetchedResultsController?
     
     
-    required init(plan: Plan) {
+    required init(mark: Mark) {
         super.init(style: UITableViewStyle.Grouped)
         
-        self.plan = plan
+        self.mark = mark
         
-        print(self.plan)
-        self.title = self.plan?.title
+        self.title = self.mark?.title
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -67,8 +66,8 @@ class MPPlanViewController: UITableViewController, NSFetchedResultsControllerDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Reval Button
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "RevalIcon"), style: UIBarButtonItemStyle.Bordered, target: self.revealViewController(), action: "revealToggle:")
+        // Remove mark
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Trash, target: self, action: "removeMark")
     }
     
     
@@ -78,36 +77,31 @@ class MPPlanViewController: UITableViewController, NSFetchedResultsControllerDel
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        return 0
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch (section) {
-        case 0:
-            let info = self.fetchedResultsController.sections![section] as NSFetchedResultsSectionInfo
-            return info.numberOfObjects
+//        case 0:
+//            let info = self.fetchedResultsController.sections![section] as NSFetchedResultsSectionInfo
+//            return info.numberOfObjects
         default: return 0;
         }
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
-        cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         
-        let day = self.fetchedResultsController.objectAtIndexPath(indexPath) as Day
-        cell.textLabel?.text = day.title
-        
-        cell.detailTextLabel?.text = String(day.houres.count) + " Stunde(n)"
-        cell.detailTextLabel?.textColor = UIColor.grayColor()
+//        let mark = self.fetchedResultsController.objectAtIndexPath(indexPath) as Mark
+//        cell.textLabel?.text = mark.title
+//        cell.detailTextLabel?.text = mark.mark.stringValue
         
         return cell
     }
     
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let day = self.fetchedResultsController.objectAtIndexPath(indexPath) as Day
-        var dayVC = MPDayViewController(day: day)
-        self.navigationController?.pushViewController(dayVC, animated: true)
+        
     }
     
     /*
@@ -145,10 +139,26 @@ class MPPlanViewController: UITableViewController, NSFetchedResultsControllerDel
         return true
     }
     */
-
     
     
     
+    
+    // MARK: - removeMark
+    func removeMark() {
+        
+        let actionSheetController: UIAlertController = UIAlertController(title: "Delete", message: "Delete \(self.mark?.title) ?", preferredStyle: .Alert)
+        actionSheetController.addAction( UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in } )
+        actionSheetController.addAction( UIAlertAction(title: "Delete", style: .Default) { action -> Void in
+            MagicalRecord.saveWithBlock { (localContext: NSManagedObjectContext!) -> Void in
+                var mark = self.mark?.MR_inContext(localContext) as Mark
+                mark.MR_deleteEntity()
+                
+                localContext.MR_saveToPersistentStoreAndWait()
+            }
+            self.navigationController?.popViewControllerAnimated(true)
+        })
+        self.presentViewController(actionSheetController, animated: true, completion: nil)
+    }
     
     
     

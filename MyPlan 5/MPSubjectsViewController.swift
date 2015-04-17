@@ -1,5 +1,5 @@
 //
-//  MPMenu.swift
+//  MPSubjectsViewController.swift
 //  MyPlan 5
 //
 //  Created by Jannik Lorenz on 07.04.15.
@@ -10,9 +10,14 @@ import UIKit
 
 import CoreData
 
-class MPMarksViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+protocol MPSubjectsViewControllerDefault {
+    func didSelectSubject(subject: Subject)
+}
+
+class MPSubjectsViewController: UITableViewController, NSFetchedResultsControllerDelegate, MPSubjectViewControllerDelegate {
     
-    var marks: Marks?
+    var person: Person?
+    var delegate: MPSubjectsViewControllerDefault?
     
     var fetchedResultsController: NSFetchedResultsController {
         
@@ -21,11 +26,12 @@ class MPMarksViewController: UITableViewController, NSFetchedResultsControllerDe
         }
         let managedObjectContext = NSManagedObjectContext.MR_defaultContext()
         
-        let sort = NSSortDescriptor(key: "title", ascending: false)
+        let sort = NSSortDescriptor(key: "title", ascending: true)
         
         let req = NSFetchRequest()
-        req.entity = Marks.MR_entityDescription()
+        req.entity = Subject.MR_entityDescription()
         req.sortDescriptors = [sort]
+        req.predicate = NSPredicate(format: "(person == %@)", self.person!)
         
         let aFetchedResultsController = NSFetchedResultsController(fetchRequest: req, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
         aFetchedResultsController.delegate = self
@@ -42,11 +48,12 @@ class MPMarksViewController: UITableViewController, NSFetchedResultsControllerDe
     var _fetchedResultsController: NSFetchedResultsController?
     
     
-    required init(marks: Marks) {
+    required init(person: Person) {
         super.init(style: UITableViewStyle.Grouped)
         
-        self.marks = marks
-        self.title = self.marks?.title
+        self.person = person
+        
+        self.title = "Subject"
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -64,8 +71,8 @@ class MPMarksViewController: UITableViewController, NSFetchedResultsControllerDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Edit, target: self.revealViewController(), action: "revealToggle:" )
+        // Close Button
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action: "close" )
     }
     
     
@@ -75,7 +82,7 @@ class MPMarksViewController: UITableViewController, NSFetchedResultsControllerDe
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -83,6 +90,8 @@ class MPMarksViewController: UITableViewController, NSFetchedResultsControllerDe
         case 0:
             let info = self.fetchedResultsController.sections![section] as NSFetchedResultsSectionInfo
             return info.numberOfObjects
+        case 1:
+            return 1
         default: return 0;
         }
     }
@@ -90,14 +99,36 @@ class MPMarksViewController: UITableViewController, NSFetchedResultsControllerDe
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "Cell")
         
-        let item = self.fetchedResultsController.objectAtIndexPath(indexPath) as Marks
-//        cell.textLabel?.text = item.title
+        switch (indexPath.section) {
+        case 0:
+            let subject = self.fetchedResultsController.objectAtIndexPath(indexPath) as Subject
+            cell.textLabel?.text = subject.title
+        case 1:
+            cell.textLabel?.text = "New Subject"
+        default:
+            break
+        }
+        
         
         return cell
     }
     
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        switch (indexPath.section) {
+        case 0:
+            let subject = self.fetchedResultsController.objectAtIndexPath(indexPath) as Subject
+            self.delegate?.didSelectSubject(subject)
+            self.dismissViewControllerAnimated(true, completion: { () -> Void in })
+        case 1:
+            var subjectVC = MPSubjectViewController()
+            subjectVC.delegate = self
+            var nav = UINavigationController(rootViewController: subjectVC)
+            self.presentViewController(nav, animated: true, completion: { () -> Void in })
+        default:
+            break
+        }
+        
         
     }
     
@@ -136,8 +167,26 @@ class MPMarksViewController: UITableViewController, NSFetchedResultsControllerDe
         return true
     }
     */
+
     
     
+    
+    
+    // MARK: - close
+    
+    func close() {
+        self.dismissViewControllerAnimated(true, completion: { () -> Void in
+            
+        })
+    }
+    
+    
+    
+    
+    // MARK: - MPSubjectViewController
+    func didSaveSubject(subject: Subject) {
+        
+    }
     
     
     

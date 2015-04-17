@@ -11,6 +11,7 @@ import CoreData
 
 @objc(Event) class Event: NSManagedObject {
 
+    @NSManaged var notify: NSNumber
     @NSManaged var date: NSDate
     @NSManaged var test: String
     @NSManaged var timestamp: NSDate

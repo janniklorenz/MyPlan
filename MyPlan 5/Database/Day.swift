@@ -11,7 +11,9 @@ import CoreData
 
 @objc(Day) class Day: NSManagedObject {
 
+    @NSManaged var weekIndex: NSNumber
     @NSManaged var title: String
+    @NSManaged var titleShort: String
     @NSManaged var houres: NSSet
     @NSManaged var plan: Plan
 

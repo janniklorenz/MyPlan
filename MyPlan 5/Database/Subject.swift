@@ -11,6 +11,7 @@ import CoreData
 
 @objc(Subject) class Subject: NSManagedObject {
 
+    @NSManaged var notify: NSNumber
     @NSManaged var info: String
     @NSManaged var title: String
     @NSManaged var homeworks: NSSet

@@ -9,11 +9,11 @@ pod "MagicalRecord"
 pod 'MBProgressHUD', '~> 0.8'
 pod 'SWRevealViewController'
 
-target 'MyPlan 5' do
+target 'MyPlan' do
 
 end
 
-target 'MyPlan 5Tests' do
+target 'MyPlanTests' do
 
 end
 

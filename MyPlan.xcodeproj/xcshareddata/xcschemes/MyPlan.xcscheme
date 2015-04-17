@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B4CD5C1616BC161C00DD350B"
-               BuildableName = "MyPlan 5.app"
-               BlueprintName = "MyPlan 5"
-               ReferencedContainer = "container:MyPlan 5.xcodeproj">
+               BuildableName = "MyPlan.app"
+               BlueprintName = "MyPlan"
+               ReferencedContainer = "container:MyPlan.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B4CD5C3F16BC161C00DD350B"
-               BuildableName = "MyPlan 5Tests.xctest"
-               BlueprintName = "MyPlan 5Tests"
-               ReferencedContainer = "container:MyPlan 5.xcodeproj">
+               BuildableName = "MyPlanTests.xctest"
+               BlueprintName = "MyPlanTests"
+               ReferencedContainer = "container:MyPlan.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B4CD5C3F16BC161C00DD350B"
-               BuildableName = "MyPlan 5Tests.xctest"
-               BlueprintName = "MyPlan 5Tests"
-               ReferencedContainer = "container:MyPlan 5.xcodeproj">
+               BuildableName = "MyPlanTests.xctest"
+               BlueprintName = "MyPlanTests"
+               ReferencedContainer = "container:MyPlan.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B4CD5C1616BC161C00DD350B"
-            BuildableName = "MyPlan 5.app"
-            BlueprintName = "MyPlan 5"
-            ReferencedContainer = "container:MyPlan 5.xcodeproj">
+            BuildableName = "MyPlan.app"
+            BlueprintName = "MyPlan"
+            ReferencedContainer = "container:MyPlan.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -77,9 +77,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B4CD5C1616BC161C00DD350B"
-            BuildableName = "MyPlan 5.app"
-            BlueprintName = "MyPlan 5"
-            ReferencedContainer = "container:MyPlan 5.xcodeproj">
+            BuildableName = "MyPlan.app"
+            BlueprintName = "MyPlan"
+            ReferencedContainer = "container:MyPlan.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -96,9 +96,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B4CD5C1616BC161C00DD350B"
-            BuildableName = "MyPlan 5.app"
-            BlueprintName = "MyPlan 5"
-            ReferencedContainer = "container:MyPlan 5.xcodeproj">
+            BuildableName = "MyPlan.app"
+            BlueprintName = "MyPlan"
+            ReferencedContainer = "container:MyPlan.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

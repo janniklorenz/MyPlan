@@ -1,0 +1,527 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7FCC6FF64B3EBFEA48A6711E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E89688496B90CEDE59E1000 /* libPods.a */; };
+		B462D30D16CF07C9006A2081 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B462D30C16CF07C9006A2081 /* libsqlite3.dylib */; };
+		B462D31016CF0B36006A2081 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B462D30F16CF0B36006A2081 /* CFNetwork.framework */; };
+		B462D32916CF1358006A2081 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B462D32816CF1357006A2081 /* SystemConfiguration.framework */; };
+		B462D32B16CF135F006A2081 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B462D32A16CF135F006A2081 /* CoreData.framework */; };
+		B4AA655E1701F2530042AFE5 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4AA655D1701F2530042AFE5 /* StoreKit.framework */; };
+		B4CD5C1B16BC161C00DD350B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4CD5C1A16BC161C00DD350B /* UIKit.framework */; };
+		B4CD5C1D16BC161C00DD350B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4CD5C1C16BC161C00DD350B /* Foundation.framework */; };
+		B4CD5C1F16BC161C00DD350B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4CD5C1E16BC161C00DD350B /* CoreGraphics.framework */; };
+		B4CD5C6416BC186B00DD350B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4CD5C6316BC186B00DD350B /* QuartzCore.framework */; };
+		C93F44E7F501E7A7D4C2C57D /* libPods-MyPlan 5.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BBCFEBD44FE8F334D5197D0 /* libPods-MyPlan 5.a */; };
+		FB681D131AE15A0D0002929D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB681D121AE15A0D0002929D /* AppDelegate.swift */; };
+		FB681D211AE15A170002929D /* Data.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FB681D141AE15A170002929D /* Data.xcdatamodeld */; };
+		FB681D221AE15A170002929D /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB681D161AE15A170002929D /* Day.swift */; };
+		FB681D231AE15A170002929D /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB681D171AE15A170002929D /* Event.swift */; };
+		FB681D241AE15A170002929D /* Homework.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB681D181AE15A170002929D /* Homework.swift */; };
+		FB681D251AE15A170002929D /* Houre.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB681D191AE15A170002929D /* Houre.swift */; };
+		FB681D261AE15A170002929D /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB681D1A1AE15A170002929D /* Image.swift */; };
+		FB681D271AE15A170002929D /* Mark.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB681D1B1AE15A170002929D /* Mark.swift */; };
+		FB681D281AE15A170002929D /* MarkGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB681D1C1AE15A170002929D /* MarkGroup.swift */; };
+		FB681D291AE15A170002929D /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB681D1D1AE15A170002929D /* Note.swift */; };
+		FB681D2A1AE15A170002929D /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB681D1E1AE15A170002929D /* Person.swift */; };
+		FB681D2B1AE15A170002929D /* Plan.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB681D1F1AE15A170002929D /* Plan.swift */; };
+		FB681D2C1AE15A170002929D /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB681D201AE15A170002929D /* Subject.swift */; };
+		FB681D371AE15A220002929D /* MPDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB681D2D1AE15A220002929D /* MPDayViewController.swift */; };
+		FB681D381AE15A220002929D /* MPHoureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB681D2E1AE15A220002929D /* MPHoureViewController.swift */; };
+		FB681D391AE15A220002929D /* MPMarkGroupDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB681D2F1AE15A220002929D /* MPMarkGroupDetailViewController.swift */; };
+		FB681D3A1AE15A220002929D /* MPMarkGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB681D301AE15A220002929D /* MPMarkGroupViewController.swift */; };
+		FB681D3B1AE15A220002929D /* MPMarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB681D311AE15A220002929D /* MPMarkViewController.swift */; };
+		FB681D3C1AE15A220002929D /* MPMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB681D321AE15A220002929D /* MPMenuViewController.swift */; };
+		FB681D3D1AE15A220002929D /* MPPersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB681D331AE15A220002929D /* MPPersonViewController.swift */; };
+		FB681D3E1AE15A220002929D /* MPPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB681D341AE15A220002929D /* MPPlanViewController.swift */; };
+		FB681D3F1AE15A220002929D /* MPSubjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB681D351AE15A220002929D /* MPSubjectsViewController.swift */; };
+		FB681D401AE15A220002929D /* MPSubjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB681D361AE15A220002929D /* MPSubjectViewController.swift */; };
+		FB681D451AE15A430002929D /* MyPlan.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = FB681D441AE15A430002929D /* MyPlan.entitlements */; };
+		FB681D481AE15A4E0002929D /* MyPlan-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB681D461AE15A4E0002929D /* MyPlan-Info.plist */; };
+		FBB53CEA1AE076CA0086B182 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBB53CE91AE076CA0086B182 /* Media.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1BBCFEBD44FE8F334D5197D0 /* libPods-MyPlan 5.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyPlan 5.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E89688496B90CEDE59E1000 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		80B4FC85E6C2BE2807FBB335 /* Pods-MyPlan 5.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyPlan 5.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyPlan 5/Pods-MyPlan 5.debug.xcconfig"; sourceTree = "<group>"; };
+		B24C87A43DDC929E319E7104 /* Pods-MyPlan 5.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyPlan 5.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyPlan 5/Pods-MyPlan 5.release.xcconfig"; sourceTree = "<group>"; };
+		B462D30C16CF07C9006A2081 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		B462D30F16CF0B36006A2081 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		B462D32816CF1357006A2081 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		B462D32A16CF135F006A2081 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		B4A2345416FE0EFC00101EE9 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		B4AA655D1701F2530042AFE5 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		B4CD5C1716BC161C00DD350B /* MyPlan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyPlan.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4CD5C1A16BC161C00DD350B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		B4CD5C1C16BC161C00DD350B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		B4CD5C1E16BC161C00DD350B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		B4CD5C6316BC186B00DD350B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		FB681D121AE15A0D0002929D /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = MyPlan/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
+		FB681D151AE15A170002929D /* Data.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Data.xcdatamodel; sourceTree = "<group>"; };
+		FB681D161AE15A170002929D /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Day.swift; path = MyPlan/Database/Day.swift; sourceTree = SOURCE_ROOT; };
+		FB681D171AE15A170002929D /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Event.swift; path = MyPlan/Database/Event.swift; sourceTree = SOURCE_ROOT; };
+		FB681D181AE15A170002929D /* Homework.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Homework.swift; path = MyPlan/Database/Homework.swift; sourceTree = SOURCE_ROOT; };
+		FB681D191AE15A170002929D /* Houre.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Houre.swift; path = MyPlan/Database/Houre.swift; sourceTree = SOURCE_ROOT; };
+		FB681D1A1AE15A170002929D /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Image.swift; path = MyPlan/Database/Image.swift; sourceTree = SOURCE_ROOT; };
+		FB681D1B1AE15A170002929D /* Mark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Mark.swift; path = MyPlan/Database/Mark.swift; sourceTree = SOURCE_ROOT; };
+		FB681D1C1AE15A170002929D /* MarkGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MarkGroup.swift; path = MyPlan/Database/MarkGroup.swift; sourceTree = SOURCE_ROOT; };
+		FB681D1D1AE15A170002929D /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Note.swift; path = MyPlan/Database/Note.swift; sourceTree = SOURCE_ROOT; };
+		FB681D1E1AE15A170002929D /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Person.swift; path = MyPlan/Database/Person.swift; sourceTree = SOURCE_ROOT; };
+		FB681D1F1AE15A170002929D /* Plan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Plan.swift; path = MyPlan/Database/Plan.swift; sourceTree = SOURCE_ROOT; };
+		FB681D201AE15A170002929D /* Subject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Subject.swift; path = MyPlan/Database/Subject.swift; sourceTree = SOURCE_ROOT; };
+		FB681D2D1AE15A220002929D /* MPDayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MPDayViewController.swift; path = MyPlan/MPDayViewController.swift; sourceTree = SOURCE_ROOT; };
+		FB681D2E1AE15A220002929D /* MPHoureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MPHoureViewController.swift; path = MyPlan/MPHoureViewController.swift; sourceTree = SOURCE_ROOT; };
+		FB681D2F1AE15A220002929D /* MPMarkGroupDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MPMarkGroupDetailViewController.swift; path = MyPlan/MPMarkGroupDetailViewController.swift; sourceTree = SOURCE_ROOT; };
+		FB681D301AE15A220002929D /* MPMarkGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MPMarkGroupViewController.swift; path = MyPlan/MPMarkGroupViewController.swift; sourceTree = SOURCE_ROOT; };
+		FB681D311AE15A220002929D /* MPMarkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MPMarkViewController.swift; path = MyPlan/MPMarkViewController.swift; sourceTree = SOURCE_ROOT; };
+		FB681D321AE15A220002929D /* MPMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MPMenuViewController.swift; path = MyPlan/MPMenuViewController.swift; sourceTree = SOURCE_ROOT; };
+		FB681D331AE15A220002929D /* MPPersonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MPPersonViewController.swift; path = MyPlan/MPPersonViewController.swift; sourceTree = SOURCE_ROOT; };
+		FB681D341AE15A220002929D /* MPPlanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MPPlanViewController.swift; path = MyPlan/MPPlanViewController.swift; sourceTree = SOURCE_ROOT; };
+		FB681D351AE15A220002929D /* MPSubjectsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MPSubjectsViewController.swift; path = MyPlan/MPSubjectsViewController.swift; sourceTree = SOURCE_ROOT; };
+		FB681D361AE15A220002929D /* MPSubjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MPSubjectViewController.swift; path = MyPlan/MPSubjectViewController.swift; sourceTree = SOURCE_ROOT; };
+		FB681D431AE15A3B0002929D /* MyPlan-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "MyPlan-Bridging-Header.h"; path = "MyPlan/MyPlan-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
+		FB681D441AE15A430002929D /* MyPlan.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = MyPlan.entitlements; path = MyPlan/MyPlan.entitlements; sourceTree = SOURCE_ROOT; };
+		FB681D461AE15A4E0002929D /* MyPlan-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "MyPlan-Info.plist"; path = "MyPlan/MyPlan-Info.plist"; sourceTree = SOURCE_ROOT; };
+		FB681D471AE15A4E0002929D /* MyPlan-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MyPlan-Prefix.pch"; path = "MyPlan/MyPlan-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+		FB681D771AE15B1A0002929D /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = SOURCE_ROOT; };
+		FBB53CE91AE076CA0086B182 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Media.xcassets; path = Media/Media.xcassets; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B4CD5C1416BC161C00DD350B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B4AA655E1701F2530042AFE5 /* StoreKit.framework in Frameworks */,
+				B462D32B16CF135F006A2081 /* CoreData.framework in Frameworks */,
+				B462D32916CF1358006A2081 /* SystemConfiguration.framework in Frameworks */,
+				B462D31016CF0B36006A2081 /* CFNetwork.framework in Frameworks */,
+				B462D30D16CF07C9006A2081 /* libsqlite3.dylib in Frameworks */,
+				B4CD5C6416BC186B00DD350B /* QuartzCore.framework in Frameworks */,
+				B4CD5C1B16BC161C00DD350B /* UIKit.framework in Frameworks */,
+				B4CD5C1D16BC161C00DD350B /* Foundation.framework in Frameworks */,
+				B4CD5C1F16BC161C00DD350B /* CoreGraphics.framework in Frameworks */,
+				C93F44E7F501E7A7D4C2C57D /* libPods-MyPlan 5.a in Frameworks */,
+				7FCC6FF64B3EBFEA48A6711E /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B4CD5C0E16BC161C00DD350B = {
+			isa = PBXGroup;
+			children = (
+				B4CD5C2016BC161C00DD350B /* MyPlan */,
+				B4CD5C1916BC161C00DD350B /* Frameworks */,
+				B4CD5C1816BC161C00DD350B /* Products */,
+				DA0D9C337662D49ED6CD42B2 /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		B4CD5C1816BC161C00DD350B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B4CD5C1716BC161C00DD350B /* MyPlan.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B4CD5C1916BC161C00DD350B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B4A2345416FE0EFC00101EE9 /* iAd.framework */,
+				B4AA655D1701F2530042AFE5 /* StoreKit.framework */,
+				B462D32A16CF135F006A2081 /* CoreData.framework */,
+				B462D32816CF1357006A2081 /* SystemConfiguration.framework */,
+				B462D30C16CF07C9006A2081 /* libsqlite3.dylib */,
+				B462D30F16CF0B36006A2081 /* CFNetwork.framework */,
+				B4CD5C6316BC186B00DD350B /* QuartzCore.framework */,
+				B4CD5C1A16BC161C00DD350B /* UIKit.framework */,
+				B4CD5C1C16BC161C00DD350B /* Foundation.framework */,
+				B4CD5C1E16BC161C00DD350B /* CoreGraphics.framework */,
+				1BBCFEBD44FE8F334D5197D0 /* libPods-MyPlan 5.a */,
+				1E89688496B90CEDE59E1000 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B4CD5C2016BC161C00DD350B /* MyPlan */ = {
+			isa = PBXGroup;
+			children = (
+				FB681D771AE15B1A0002929D /* Podfile */,
+				FBB53CE81AE076880086B182 /* Media */,
+				FBF7F4A41AD2B07000F4C495 /* AppDelegate */,
+				FBF7F4A31AD2204300F4C495 /* Database */,
+				B4CD5C7716BC1A8800DD350B /* _Rear Menu */,
+				B4CD5C2116BC161C00DD350B /* Supporting Files */,
+			);
+			name = MyPlan;
+			path = "MyPlan 5";
+			sourceTree = "<group>";
+		};
+		B4CD5C2116BC161C00DD350B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FB681D431AE15A3B0002929D /* MyPlan-Bridging-Header.h */,
+				FB681D441AE15A430002929D /* MyPlan.entitlements */,
+				FB681D461AE15A4E0002929D /* MyPlan-Info.plist */,
+				FB681D471AE15A4E0002929D /* MyPlan-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B4CD5C7716BC1A8800DD350B /* _Rear Menu */ = {
+			isa = PBXGroup;
+			children = (
+				FB681D2D1AE15A220002929D /* MPDayViewController.swift */,
+				FB681D2E1AE15A220002929D /* MPHoureViewController.swift */,
+				FB681D2F1AE15A220002929D /* MPMarkGroupDetailViewController.swift */,
+				FB681D301AE15A220002929D /* MPMarkGroupViewController.swift */,
+				FB681D311AE15A220002929D /* MPMarkViewController.swift */,
+				FB681D321AE15A220002929D /* MPMenuViewController.swift */,
+				FB681D331AE15A220002929D /* MPPersonViewController.swift */,
+				FB681D341AE15A220002929D /* MPPlanViewController.swift */,
+				FB681D351AE15A220002929D /* MPSubjectsViewController.swift */,
+				FB681D361AE15A220002929D /* MPSubjectViewController.swift */,
+			);
+			name = "_Rear Menu";
+			sourceTree = "<group>";
+		};
+		DA0D9C337662D49ED6CD42B2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				80B4FC85E6C2BE2807FBB335 /* Pods-MyPlan 5.debug.xcconfig */,
+				B24C87A43DDC929E319E7104 /* Pods-MyPlan 5.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		FBB53CE81AE076880086B182 /* Media */ = {
+			isa = PBXGroup;
+			children = (
+				FBB53CE91AE076CA0086B182 /* Media.xcassets */,
+			);
+			name = Media;
+			sourceTree = "<group>";
+		};
+		FBF7F4A31AD2204300F4C495 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				FB681D141AE15A170002929D /* Data.xcdatamodeld */,
+				FB681D161AE15A170002929D /* Day.swift */,
+				FB681D171AE15A170002929D /* Event.swift */,
+				FB681D181AE15A170002929D /* Homework.swift */,
+				FB681D191AE15A170002929D /* Houre.swift */,
+				FB681D1A1AE15A170002929D /* Image.swift */,
+				FB681D1B1AE15A170002929D /* Mark.swift */,
+				FB681D1C1AE15A170002929D /* MarkGroup.swift */,
+				FB681D1D1AE15A170002929D /* Note.swift */,
+				FB681D1E1AE15A170002929D /* Person.swift */,
+				FB681D1F1AE15A170002929D /* Plan.swift */,
+				FB681D201AE15A170002929D /* Subject.swift */,
+			);
+			name = Database;
+			sourceTree = "<group>";
+		};
+		FBF7F4A41AD2B07000F4C495 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				FB681D121AE15A0D0002929D /* AppDelegate.swift */,
+			);
+			name = AppDelegate;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B4CD5C1616BC161C00DD350B /* MyPlan */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B4CD5C5216BC161C00DD350B /* Build configuration list for PBXNativeTarget "MyPlan" */;
+			buildPhases = (
+				33D1D6EB07DB03CBE6A8E7B4 /* Check Pods Manifest.lock */,
+				B4CD5C1316BC161C00DD350B /* Sources */,
+				B4CD5C1416BC161C00DD350B /* Frameworks */,
+				B4CD5C1516BC161C00DD350B /* Resources */,
+				726B9A942C533CB3528651E0 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MyPlan;
+			productName = "MyPlan 5";
+			productReference = B4CD5C1716BC161C00DD350B /* MyPlan.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B4CD5C0F16BC161C00DD350B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastTestingUpgradeCheck = 0510;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Jannik Lorenz";
+			};
+			buildConfigurationList = B4CD5C1216BC161C00DD350B /* Build configuration list for PBXProject "MyPlan" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = B4CD5C0E16BC161C00DD350B;
+			productRefGroup = B4CD5C1816BC161C00DD350B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B4CD5C1616BC161C00DD350B /* MyPlan */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B4CD5C1516BC161C00DD350B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB681D481AE15A4E0002929D /* MyPlan-Info.plist in Resources */,
+				FB681D451AE15A430002929D /* MyPlan.entitlements in Resources */,
+				FBB53CEA1AE076CA0086B182 /* Media.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		33D1D6EB07DB03CBE6A8E7B4 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		726B9A942C533CB3528651E0 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B4CD5C1316BC161C00DD350B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB681D131AE15A0D0002929D /* AppDelegate.swift in Sources */,
+				FB681D3D1AE15A220002929D /* MPPersonViewController.swift in Sources */,
+				FB681D2B1AE15A170002929D /* Plan.swift in Sources */,
+				FB681D261AE15A170002929D /* Image.swift in Sources */,
+				FB681D391AE15A220002929D /* MPMarkGroupDetailViewController.swift in Sources */,
+				FB681D241AE15A170002929D /* Homework.swift in Sources */,
+				FB681D271AE15A170002929D /* Mark.swift in Sources */,
+				FB681D2C1AE15A170002929D /* Subject.swift in Sources */,
+				FB681D401AE15A220002929D /* MPSubjectViewController.swift in Sources */,
+				FB681D2A1AE15A170002929D /* Person.swift in Sources */,
+				FB681D231AE15A170002929D /* Event.swift in Sources */,
+				FB681D3A1AE15A220002929D /* MPMarkGroupViewController.swift in Sources */,
+				FB681D3B1AE15A220002929D /* MPMarkViewController.swift in Sources */,
+				FB681D371AE15A220002929D /* MPDayViewController.swift in Sources */,
+				FB681D3E1AE15A220002929D /* MPPlanViewController.swift in Sources */,
+				FB681D281AE15A170002929D /* MarkGroup.swift in Sources */,
+				FB681D3F1AE15A220002929D /* MPSubjectsViewController.swift in Sources */,
+				FB681D221AE15A170002929D /* Day.swift in Sources */,
+				FB681D211AE15A170002929D /* Data.xcdatamodeld in Sources */,
+				FB681D3C1AE15A220002929D /* MPMenuViewController.swift in Sources */,
+				FB681D291AE15A170002929D /* Note.swift in Sources */,
+				FB681D381AE15A220002929D /* MPHoureViewController.swift in Sources */,
+				FB681D251AE15A170002929D /* Houre.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		B4CD5C5016BC161C00DD350B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ulrike Lorenz (XFF4C3Y74R)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ulrike Lorenz (XFF4C3Y74R)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "53D97575-9732-4588-8773-2FE602A12BAC";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "53D97575-9732-4588-8773-2FE602A12BAC";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B4CD5C5116BC161C00DD350B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ulrike Lorenz (XFF4C3Y74R)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ulrike Lorenz (XFF4C3Y74R)";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "53D97575-9732-4588-8773-2FE602A12BAC";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "53D97575-9732-4588-8773-2FE602A12BAC";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B4CD5C5316BC161C00DD350B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 80B4FC85E6C2BE2807FBB335 /* Pods-MyPlan 5.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "MyPlan 5/MyPlan 5.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ulrike Lorenz (XFF4C3Y74R)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ulrike Lorenz (XFF4C3Y74R)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MyPlan/MyPlan-Prefix.pch";
+				INFOPLIST_FILE = "MyPlan/MyPlan-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/MyPlan 5\"",
+				);
+				PRODUCT_NAME = MyPlan;
+				PROVISIONING_PROFILE = "53D97575-9732-4588-8773-2FE602A12BAC";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "53D97575-9732-4588-8773-2FE602A12BAC";
+				SWIFT_OBJC_BRIDGING_HEADER = "MyPlan/MyPlan-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		B4CD5C5416BC161C00DD350B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B24C87A43DDC929E319E7104 /* Pods-MyPlan 5.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "MyPlan 5/MyPlan 5.entitlements";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Ulrike Lorenz (XFF4C3Y74R)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Ulrike Lorenz (XFF4C3Y74R)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MyPlan/MyPlan-Prefix.pch";
+				INFOPLIST_FILE = "MyPlan/MyPlan-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/MyPlan 5\"",
+				);
+				PRODUCT_NAME = MyPlan;
+				PROVISIONING_PROFILE = "53D97575-9732-4588-8773-2FE602A12BAC";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "53D97575-9732-4588-8773-2FE602A12BAC";
+				SWIFT_OBJC_BRIDGING_HEADER = "MyPlan/MyPlan-Bridging-Header.h";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B4CD5C1216BC161C00DD350B /* Build configuration list for PBXProject "MyPlan" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B4CD5C5016BC161C00DD350B /* Debug */,
+				B4CD5C5116BC161C00DD350B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B4CD5C5216BC161C00DD350B /* Build configuration list for PBXNativeTarget "MyPlan" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B4CD5C5316BC161C00DD350B /* Debug */,
+				B4CD5C5416BC161C00DD350B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FB681D141AE15A170002929D /* Data.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FB681D151AE15A170002929D /* Data.xcdatamodel */,
+			);
+			currentVersion = FB681D151AE15A170002929D /* Data.xcdatamodel */;
+			name = Data.xcdatamodeld;
+			path = ../MyPlan/Database/Data.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = B4CD5C0F16BC161C00DD350B /* Project object */;
+}

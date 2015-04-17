@@ -1,6 +1,6 @@
 //
 //  MPMenu.swift
-//  MyPlan 5
+//  MyPlan
 //
 //  Created by Jannik Lorenz on 07.04.15.
 //  Copyright (c) 2015 Jannik Lorenz. All rights reserved.
@@ -52,7 +52,7 @@ class MPMenuViewController: UITableViewController, NSFetchedResultsControllerDel
     
     
     
-    required override init() {
+    required init() {
         super.init(style: UITableViewStyle.Grouped)
         
         self.title = "Personen"
@@ -84,18 +84,18 @@ class MPMenuViewController: UITableViewController, NSFetchedResultsControllerDel
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        let info = self.personFetchedResultsController.sections![0] as NSFetchedResultsSectionInfo
+        let info = self.personFetchedResultsController.sections![0] as! NSFetchedResultsSectionInfo
         return info.numberOfObjects+1
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let info = self.personFetchedResultsController.sections![0] as NSFetchedResultsSectionInfo
+        let info = self.personFetchedResultsController.sections![0] as! NSFetchedResultsSectionInfo
         
         switch (section) {
             case info.numberOfObjects:
                 return 1;
             default:
-                let person = self.personFetchedResultsController.objectAtIndexPath(NSIndexPath(forRow: section, inSection: 0)) as Person
+                let person = self.personFetchedResultsController.objectAtIndexPath(NSIndexPath(forRow: section, inSection: 0)) as! Person
                 
                 let plans = Plan.MR_countOfEntitiesWithPredicate(NSPredicate(format: "(person == %@)", person))
                 let markGroup = MarkGroup.MR_countOfEntitiesWithPredicate(NSPredicate(format: "(person == %@)", person))
@@ -106,12 +106,12 @@ class MPMenuViewController: UITableViewController, NSFetchedResultsControllerDel
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "Cell")
         
-        let info = self.personFetchedResultsController.sections![0] as NSFetchedResultsSectionInfo
+        let info = self.personFetchedResultsController.sections![0] as! NSFetchedResultsSectionInfo
         if (info.numberOfObjects == indexPath.section) {
             cell.textLabel?.text = "Settings"
         }
         else {
-            let person = self.personFetchedResultsController.objectAtIndexPath(NSIndexPath(forRow: indexPath.section, inSection: 0)) as Person
+            let person = self.personFetchedResultsController.objectAtIndexPath(NSIndexPath(forRow: indexPath.section, inSection: 0)) as! Person
             
             let plans = Plan.MR_findAllWithPredicate(NSPredicate(format: "(person == %@)", person))
             let markGroup = MarkGroup.MR_findAllWithPredicate(NSPredicate(format: "(person == %@)", person))
@@ -119,11 +119,12 @@ class MPMenuViewController: UITableViewController, NSFetchedResultsControllerDel
             switch (indexPath.row) {
             case 0:
                 cell.textLabel?.text = person.title
+                
             case 1..<plans.count+1:
-                var plan = plans[indexPath.row-1] as Plan
+                var plan = plans[indexPath.row-1] as! Plan
                 cell.textLabel?.text = plan.title
             case plans.count+1..<plans.count+1+markGroup.count:
-                var mark = markGroup[(indexPath.row-plans.count-1)] as MarkGroup
+                var mark = markGroup[(indexPath.row-plans.count-1)] as! MarkGroup
                 cell.textLabel?.text = mark.title
             default:
                 cell.textLabel?.text = ""
@@ -134,9 +135,9 @@ class MPMenuViewController: UITableViewController, NSFetchedResultsControllerDel
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        let info = self.personFetchedResultsController.sections![0] as NSFetchedResultsSectionInfo
+        let info = self.personFetchedResultsController.sections![0] as! NSFetchedResultsSectionInfo
         if (info.numberOfObjects > indexPath.section) {
-            let person = self.personFetchedResultsController.objectAtIndexPath(NSIndexPath(forRow: indexPath.section, inSection: 0)) as Person
+            let person = self.personFetchedResultsController.objectAtIndexPath(NSIndexPath(forRow: indexPath.section, inSection: 0)) as! Person
             switch (indexPath.row) {
             case 0:
                 return 44
@@ -150,7 +151,7 @@ class MPMenuViewController: UITableViewController, NSFetchedResultsControllerDel
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if (self.delegate != nil) {
-            let person = self.personFetchedResultsController.objectAtIndexPath(NSIndexPath(forRow: indexPath.section, inSection: 0)) as Person
+            let person = self.personFetchedResultsController.objectAtIndexPath(NSIndexPath(forRow: indexPath.section, inSection: 0)) as! Person
             
             let plans = Plan.MR_findAllWithPredicate(NSPredicate(format: "(person == %@)", person))
             let markGroups = MarkGroup.MR_findAllWithPredicate(NSPredicate(format: "(person == %@)", person))
@@ -160,10 +161,10 @@ class MPMenuViewController: UITableViewController, NSFetchedResultsControllerDel
                 print(indexPath.row)
                 self.delegate?.openPerson(person)
             case 1..<plans.count+1:
-                var plan = plans[indexPath.row-1] as Plan
+                var plan = plans[indexPath.row-1] as! Plan
                 self.delegate?.openPlan(plan)
             case plans.count+1..<plans.count+1+markGroups.count:
-                var markGroup = markGroups[(indexPath.row-plans.count-1)] as MarkGroup
+                var markGroup = markGroups[(indexPath.row-plans.count-1)] as! MarkGroup
                self.delegate?.openMarkGroup(markGroup)
             default:
                 break
@@ -188,7 +189,7 @@ class MPMenuViewController: UITableViewController, NSFetchedResultsControllerDel
             // Delete the row from the data source
             
             MagicalRecord.saveWithBlock { (var localContext:NSManagedObjectContext!) -> Void in
-                let item = self.personFetchedResultsController.objectAtIndexPath(NSIndexPath(forRow: indexPath.section, inSection: 0)) as Person
+                let item = self.personFetchedResultsController.objectAtIndexPath(NSIndexPath(forRow: indexPath.section, inSection: 0)) as! Person
                 item.MR_inContext(localContext).MR_deleteEntity()
                 
                 localContext.MR_saveToPersistentStoreWithCompletion({ (var success:Bool, var error:NSError!) -> Void in
@@ -226,46 +227,46 @@ class MPMenuViewController: UITableViewController, NSFetchedResultsControllerDel
     
     func addPerson() {
         MagicalRecord.saveWithBlock { (var localContext: NSManagedObjectContext!) -> Void in
-            var person:Person = Person.MR_createInContext(localContext) as Person!
+            var person:Person = Person.MR_createInContext(localContext) as! Person!
             person.timestamp = NSDate()
             person.title = "New Person"
             
             
-            var subjectDeutsch = Subject.MR_createInContext(localContext) as Subject!
+            var subjectDeutsch = Subject.MR_createInContext(localContext) as! Subject!
             subjectDeutsch.person = person;
             subjectDeutsch.notify = NSNumber(bool: true);
             subjectDeutsch.title = "Deutsch"
             
-            var subjectEnglisch = Subject.MR_createInContext(localContext) as Subject!
+            var subjectEnglisch = Subject.MR_createInContext(localContext) as! Subject!
             subjectEnglisch.person = person;
             subjectEnglisch.notify = NSNumber(bool: true);
             subjectEnglisch.title = "Englisch"
             
-            var subjectMathe = Subject.MR_createInContext(localContext) as Subject!
+            var subjectMathe = Subject.MR_createInContext(localContext) as! Subject!
             subjectMathe.person = person;
             subjectMathe.notify = NSNumber(bool: true);
             subjectMathe.title = "Mathe"
             
-            var subjectPhysik = Subject.MR_createInContext(localContext) as Subject!
+            var subjectPhysik = Subject.MR_createInContext(localContext) as! Subject!
             subjectPhysik.person = person;
             subjectPhysik.notify = NSNumber(bool: true);
             subjectPhysik.title = "Physik"
             
             
-            var plan = Plan.MR_createInContext(localContext) as Plan!
+            var plan = Plan.MR_createInContext(localContext) as! Plan!
             plan.title = "Plan"
             plan.person = person
             var days = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"]
             var daysShort = ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"]
             for i in 0...6 {
-                var day = Day.MR_createInContext(localContext) as Day!
+                var day = Day.MR_createInContext(localContext) as! Day!
                 day.plan = plan
                 day.weekIndex = i
                 day.title = days[i]
                 day.titleShort = daysShort[i]
             }
             
-            var markGroup = MarkGroup.MR_createInContext(localContext) as MarkGroup!
+            var markGroup = MarkGroup.MR_createInContext(localContext) as! MarkGroup!
             markGroup.title = "Noten"
             markGroup.person = person
             
@@ -295,20 +296,18 @@ class MPMenuViewController: UITableViewController, NSFetchedResultsControllerDel
     - when an existing model is updated
     - when an existing model is deleted */
     
-    func controller(controller: NSFetchedResultsController, didChangeObject object: AnyObject, atIndexPath indexPath: NSIndexPath, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath) {
-        print(indexPath.row)
-        
+    func controller(controller: NSFetchedResultsController, didChangeObject object: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
         switch type {
         case .Insert:
-            self.tableView.insertSections(NSIndexSet(index: newIndexPath.row), withRowAnimation: .Fade)
+            self.tableView.insertSections(NSIndexSet(index: newIndexPath!.row), withRowAnimation: .Fade)
         case .Update:
-            let cell = self.tableView.cellForRowAtIndexPath(indexPath)
-            self.tableView.reloadSections(NSIndexSet(index: newIndexPath.row), withRowAnimation: .Fade)
+            let cell = self.tableView.cellForRowAtIndexPath(indexPath!)
+            self.tableView.reloadSections(NSIndexSet(index: newIndexPath!.row), withRowAnimation: .Fade)
 //        case .Move:
 //            self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
 //            self.tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Fade)
         case .Delete:
-            self.tableView.deleteSections(NSIndexSet(index: indexPath.row), withRowAnimation: .Fade)
+            self.tableView.deleteSections(NSIndexSet(index: indexPath!.row), withRowAnimation: .Fade)
         default:
             return
         }

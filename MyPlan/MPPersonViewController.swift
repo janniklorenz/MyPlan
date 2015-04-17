@@ -1,6 +1,6 @@
 //
 //  MPPersonView.swift
-//  MyPlan 5
+//  MyPlan
 //
 //  Created by Jannik Lorenz on 07.04.15.
 //  Copyright (c) 2015 Jannik Lorenz. All rights reserved.
@@ -21,7 +21,7 @@ class MPPersonViewController: UITableViewController {
         }
         get {
             if (_person == nil) {
-                _person = Person.MR_findFirst() as Person?
+                _person = Person.MR_findFirst() as! Person?
             }
             return _person!
         }

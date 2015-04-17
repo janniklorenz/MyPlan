@@ -39,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MPMenuViewControllerDeleg
         
         if (Person.MR_countOfEntities() == 0) {
             MagicalRecord.saveWithBlockAndWait({ (localContext: NSManagedObjectContext!) -> Void in
-                var person = Person.MR_createEntity() as Person!
+                var person = Person.MR_createEntity() as! Person
                 person.timestamp = NSDate()
                 
                 person.title = "Person"
@@ -50,7 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MPMenuViewControllerDeleg
         }
         
         
-        var personViewController = MPPersonViewController(person: Person.MR_findFirst() as Person)
+        var personViewController = MPPersonViewController(person: Person.MR_findFirst() as! Person)
         menuViewController.delegate = self
         
         menuNavigationController = UINavigationController(rootViewController: menuViewController)

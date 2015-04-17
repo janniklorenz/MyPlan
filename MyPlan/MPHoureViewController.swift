@@ -1,6 +1,6 @@
 //
 //  MPHoureViewController.swift
-//  MyPlan 5
+//  MyPlan
 //
 //  Created by Jannik Lorenz on 07.04.15.
 //  Copyright (c) 2015 Jannik Lorenz. All rights reserved.

@@ -1,6 +1,6 @@
 //
 //  MPMarkViewController.swift
-//  MyPlan 5
+//  MyPlan
 //
 //  Created by Jannik Lorenz on 07.04.15.
 //  Copyright (c) 2015 Jannik Lorenz. All rights reserved.
@@ -85,7 +85,7 @@ class MPMarkGroupDetailViewController: UITableViewController, NSFetchedResultsCo
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch (section) {
         case 0:
-            let info = self.fetchedResultsController.sections![section] as NSFetchedResultsSectionInfo
+            let info = self.fetchedResultsController.sections![section] as! NSFetchedResultsSectionInfo
             return info.numberOfObjects
         default: return 0;
         }
@@ -94,7 +94,7 @@ class MPMarkGroupDetailViewController: UITableViewController, NSFetchedResultsCo
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
         
-        let mark = self.fetchedResultsController.objectAtIndexPath(indexPath) as Mark
+        let mark = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Mark
         cell.textLabel?.text = mark.title
         cell.detailTextLabel?.text = mark.mark.stringValue
         
@@ -103,7 +103,7 @@ class MPMarkGroupDetailViewController: UITableViewController, NSFetchedResultsCo
     
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let mark = self.fetchedResultsController.objectAtIndexPath(indexPath) as Mark
+        let mark = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Mark
         let markVC = MPMarkViewController(mark: mark)
         self.navigationController?.pushViewController(markVC, animated: true)
     }
@@ -151,10 +151,10 @@ class MPMarkGroupDetailViewController: UITableViewController, NSFetchedResultsCo
     // MARK: - addMark
     func addMark() {
         MagicalRecord.saveWithBlock { (localContext: NSManagedObjectContext!) -> Void in
-            var mark = Mark.MR_createInContext(localContext) as Mark
+            var mark = Mark.MR_createInContext(localContext) as! Mark
             mark.timestamp = NSDate()
-            mark.markGroup = self.markGroup?.MR_inContext(localContext) as MarkGroup
-            mark.subject = self.subject?.MR_inContext(localContext) as Subject
+            mark.markGroup = self.markGroup?.MR_inContext(localContext) as! MarkGroup
+            mark.subject = self.subject?.MR_inContext(localContext) as! Subject
             
             mark.mark = NSNumber(integer: Int(arc4random_uniform(7)))
             mark.judging = NSNumber(integer: 1)
@@ -183,18 +183,18 @@ class MPMarkGroupDetailViewController: UITableViewController, NSFetchedResultsCo
     - when a new model is created
     - when an existing model is updated
     - when an existing model is deleted */
-    func controller(controller: NSFetchedResultsController, didChangeObject object: AnyObject, atIndexPath indexPath: NSIndexPath, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath) {
+    func controller(controller: NSFetchedResultsController, didChangeObject object: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
             switch type {
             case .Insert:
-                self.tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Fade)
+                self.tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
             case .Update:
-                let cell = self.tableView.cellForRowAtIndexPath(indexPath)
-                self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                let cell = self.tableView.cellForRowAtIndexPath(indexPath!)
+                self.tableView.reloadRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
             case .Move:
-                self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-                self.tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Fade)
+                self.tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
+                self.tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
             case .Delete:
-                self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                self.tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
             default:
                 return
             }

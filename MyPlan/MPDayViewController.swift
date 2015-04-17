@@ -1,6 +1,6 @@
 //
 //  MPDayViewController.swift
-//  MyPlan 5
+//  MyPlan
 //
 //  Created by Jannik Lorenz on 07.04.15.
 //  Copyright (c) 2015 Jannik Lorenz. All rights reserved.
@@ -83,7 +83,7 @@ class MPDayViewController: UITableViewController, NSFetchedResultsControllerDele
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch (section) {
         case 0:
-            let info = self.fetchedResultsController.sections![section] as NSFetchedResultsSectionInfo
+            let info = self.fetchedResultsController.sections![section] as! NSFetchedResultsSectionInfo
             return info.numberOfObjects
         default: return 0;
         }
@@ -92,7 +92,7 @@ class MPDayViewController: UITableViewController, NSFetchedResultsControllerDele
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "Cell")
         
-        let houre = self.fetchedResultsController.objectAtIndexPath(indexPath) as Houre
+        let houre = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Houre
         cell.textLabel?.text = houre.houre.stringValue + ". " + houre.subject.title
         
         return cell
@@ -100,7 +100,7 @@ class MPDayViewController: UITableViewController, NSFetchedResultsControllerDele
     
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let houre = self.fetchedResultsController.objectAtIndexPath(indexPath) as Houre
+        let houre = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Houre
         var houreVC = MPHoureViewController(houre: houre)
         self.navigationController?.pushViewController(houreVC, animated: true)
     }
@@ -164,12 +164,12 @@ class MPDayViewController: UITableViewController, NSFetchedResultsControllerDele
     func didSelectSubject(subject: Subject) {
         
         MagicalRecord.saveWithBlock { (localContect: NSManagedObjectContext!) -> Void in
-            var houre = Houre.MR_createInContext(localContect) as Houre
-            houre.subject = subject.MR_inContext(localContect) as Subject
-            houre.day = self.day!.MR_inContext(localContect) as Day
+            var houre = Houre.MR_createInContext(localContect) as! Houre
+            houre.subject = subject.MR_inContext(localContect) as! Subject
+            houre.day = self.day!.MR_inContext(localContect) as! Day
             
             // DEBUG ONLY
-            let info = self.fetchedResultsController.sections![0] as NSFetchedResultsSectionInfo
+            let info = self.fetchedResultsController.sections![0] as! NSFetchedResultsSectionInfo
             houre.houre = NSNumber(integer: info.numberOfObjects)
             
             localContect.MR_saveToPersistentStoreAndWait()
@@ -192,18 +192,18 @@ class MPDayViewController: UITableViewController, NSFetchedResultsControllerDele
     - when a new model is created
     - when an existing model is updated
     - when an existing model is deleted */
-    func controller(controller: NSFetchedResultsController, didChangeObject object: AnyObject, atIndexPath indexPath: NSIndexPath, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath) {
+    func controller(controller: NSFetchedResultsController, didChangeObject object: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
             switch type {
             case .Insert:
-                self.tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Fade)
+                self.tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
             case .Update:
-                let cell = self.tableView.cellForRowAtIndexPath(indexPath)
-                self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                let cell = self.tableView.cellForRowAtIndexPath(indexPath!)
+                self.tableView.reloadRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
             case .Move:
-                self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-                self.tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Fade)
+                self.tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
+                self.tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
             case .Delete:
-                self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                self.tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
             default:
                 return
             }

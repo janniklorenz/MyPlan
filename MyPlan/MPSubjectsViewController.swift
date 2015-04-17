@@ -1,6 +1,6 @@
 //
 //  MPSubjectsViewController.swift
-//  MyPlan 5
+//  MyPlan
 //
 //  Created by Jannik Lorenz on 07.04.15.
 //  Copyright (c) 2015 Jannik Lorenz. All rights reserved.
@@ -88,7 +88,7 @@ class MPSubjectsViewController: UITableViewController, NSFetchedResultsControlle
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch (section) {
         case 0:
-            let info = self.fetchedResultsController.sections![section] as NSFetchedResultsSectionInfo
+            let info = self.fetchedResultsController.sections![section] as! NSFetchedResultsSectionInfo
             return info.numberOfObjects
         case 1:
             return 1
@@ -101,7 +101,7 @@ class MPSubjectsViewController: UITableViewController, NSFetchedResultsControlle
         
         switch (indexPath.section) {
         case 0:
-            let subject = self.fetchedResultsController.objectAtIndexPath(indexPath) as Subject
+            let subject = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Subject
             cell.textLabel?.text = subject.title
         case 1:
             cell.textLabel?.text = "New Subject"
@@ -117,7 +117,7 @@ class MPSubjectsViewController: UITableViewController, NSFetchedResultsControlle
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         switch (indexPath.section) {
         case 0:
-            let subject = self.fetchedResultsController.objectAtIndexPath(indexPath) as Subject
+            let subject = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Subject
             self.delegate?.didSelectSubject(subject)
             self.dismissViewControllerAnimated(true, completion: { () -> Void in })
         case 1:
@@ -203,18 +203,18 @@ class MPSubjectsViewController: UITableViewController, NSFetchedResultsControlle
     - when a new model is created
     - when an existing model is updated
     - when an existing model is deleted */
-    func controller(controller: NSFetchedResultsController, didChangeObject object: AnyObject, atIndexPath indexPath: NSIndexPath, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath) {
+    func controller(controller: NSFetchedResultsController, didChangeObject object: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
             switch type {
             case .Insert:
-                self.tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Fade)
+                self.tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
             case .Update:
-                let cell = self.tableView.cellForRowAtIndexPath(indexPath)
-                self.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                let cell = self.tableView.cellForRowAtIndexPath(indexPath!)
+                self.tableView.reloadRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
             case .Move:
-                self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-                self.tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Fade)
+                self.tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
+                self.tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
             case .Delete:
-                self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+                self.tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
             default:
                 return
             }

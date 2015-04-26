@@ -161,7 +161,9 @@ class MPDayViewController: UITableViewController, NSFetchedResultsControllerDele
     
     // MARK: - MPSubjectsViewControllerDefault
     
-    func didSelectSubject(subject: Subject) {
+    func didSelectSubject(subject: Subject, subjectsVC: MPSubjectsViewController) {
+        
+        subjectsVC.dismissViewControllerAnimated(true) {}
         
         MagicalRecord.saveWithBlock { (localContect: NSManagedObjectContext!) -> Void in
             var houre = Houre.MR_createInContext(localContect) as! Houre
@@ -174,6 +176,7 @@ class MPDayViewController: UITableViewController, NSFetchedResultsControllerDele
             
             localContect.MR_saveToPersistentStoreAndWait()
         }
+        
         
     }
     

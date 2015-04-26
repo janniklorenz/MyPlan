@@ -1,5 +1,5 @@
 //
-//  MPSubjectViewController.swift
+//  MPPersonSettingsViewController.swift
 //  MyPlan
 //
 //  Show the details of one subject and edit them
@@ -12,33 +12,17 @@ import UIKit
 
 import CoreData
 
-protocol MPSubjectViewControllerDelegate {
-    func didSaveSubject(subject: Subject)
-}
-
-class MPSubjectViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+class MPPersonSettingsViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     
-    var delegate: MPSubjectViewControllerDelegate?
-    
-    var _subject: Subject?
-    var subject: Subject? {
-        set {
-            _subject = subject
-            
-            self.title = self.subject?.title
-        }
-        get {
-            return _subject
-        }
-    }
+    var person: Person?
     
     
-    required init(subject: Subject) {
+    required init(person: Person) {
         super.init(style: UITableViewStyle.Grouped)
         
-        self.subject = subject
+        self.person = person
         
-        self.title = self.subject?.title
+        self.title = self.person?.title
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -56,10 +40,8 @@ class MPSubjectViewController: UITableViewController, NSFetchedResultsController
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if self.navigationController?.viewControllers.count == 1 {
-            // Close Button
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action: "close" )
-        }
+        // Close Button
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action: "close" )
     }
     
     

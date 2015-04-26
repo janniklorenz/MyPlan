@@ -1,20 +1,49 @@
 //
-//  MPPersonView.swift
+//  MPPersonViewController.swift
 //  MyPlan
 //
-//  Created by Jannik Lorenz on 07.04.15.
+//  Created by Jannik Lorenz on 17.04.15.
 //  Copyright (c) 2015 Jannik Lorenz. All rights reserved.
 //
 
 import UIKit
 
-class MPPersonViewController: UITableViewController {
+let reuseIdentifier = "Cell"
+
+
+
+enum Dash {
+    case ShowPlan(Plan)
+    case ShowMarkGroup(MarkGroup)
+    case Settings
+    case Subjects
+}
+
+
+
+
+
+class MPPersonViewController: UICollectionViewController, NSFetchedResultsControllerDelegate, MPSubjectsViewControllerDefault {
+    
+    var cells: [Dash] = []
     
     var _person: Person?
     var person: Person? {
-        set {
-            if (_person != person) {
-                _person = person
+        set(newPerson) {
+            if (_person != newPerson) {
+                _person = newPerson
+                
+                cells = [.Settings, .Subjects]
+                for plan in _person?.plans.allObjects as! [Plan] {
+                    cells.append(.ShowPlan(plan))
+                }
+                for markGroup in _person?.markGroups.allObjects as! [MarkGroup] {
+                    cells.append(.ShowMarkGroup(markGroup))
+                }
+                
+                [self.collectionView?.reloadData()]
+                
+                println(_person?.objectID)
                 
                 self.title = self.person?.title
             }
@@ -27,131 +56,244 @@ class MPPersonViewController: UITableViewController {
         }
     }
     
+    
     required init(person : Person) {
-        super.init(style: UITableViewStyle.Grouped)
+        var layout = UICollectionViewFlowLayout() //DMRCollectionViewLayout()
+        layout.itemSize = CGSize(width: 85, height: 100)
+        layout.minimumInteritemSpacing = 5
+        layout.minimumLineSpacing = 5
+        
+        super.init(collectionViewLayout: layout)
+        
+        self.collectionView?.backgroundColor = UIColor.groupTableViewBackgroundColor()
         
         self.person = person
     }
-    
     required init(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
     }
-    
-    private override init(nibName nibNameOrNil: String!, bundle nibBundleOrNil: NSBundle!) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    }
-    
-    
-    
-    
-    
-    
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
+        // Register cell classes
+        self.collectionView!.registerClass(DMRCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+
+        // Do any additional setup after loading the view.
         
         // Reval Button
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "RevalIcon"), style: UIBarButtonItemStyle.Bordered, target: self.revealViewController(), action: "revealToggle:")
+        
+        // Add mark
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "add")
     }
 
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
     
     
-    
-    
-    // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
+    // MARK: UICollectionViewDataSource
+
+    override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
-        return 3
+
+    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return cells.count
     }
 
+    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! DMRCollectionViewCell
+        
+        switch cells[indexPath.row] {
+        case .ShowMarkGroup(let markGroup):
+            cell.titleLabel.text = markGroup.title
+            
+        case .ShowPlan(let plan):
+            cell.titleLabel.text = plan.title
+            
+        case .Settings:
+            cell.titleLabel.text = "Settings"
+            
+        case .Subjects:
+            cell.titleLabel.text = "Subjects"
+            
+            
+        }
+        
+        
+        
+        // Configure the cell
+        cell.backgroundColor = UIColor.whiteColor()
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "Cell")
-        
-        // Configure the cell...
-        
-        if (indexPath.row == 0) {
-            cell.textLabel?.text = "Woche"
-        }
-        else if (indexPath.row == 1) {
-            cell.textLabel?.text = "Tag"
-        }
-        else if (indexPath.row == 2) {
-            cell.textLabel?.text = "Jetzt"
-        }
-        
         return cell
     }
-    
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if (indexPath.row == 0) {
+
+    // MARK: UICollectionViewDelegate
+
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        switch cells[indexPath.row] {
+        case .ShowMarkGroup(let markGroup):
+            let markGroupVC = MPMarkGroupViewController(markGroup: markGroup)
+            self.navigationController?.pushViewController(markGroupVC, animated: true)
             
-        }
-        else if (indexPath.row == 1) {
+        case .ShowPlan(let plan):
+            let planVC = MPPlanViewController(plan: plan)
+            self.navigationController?.pushViewController(planVC, animated: true)
             
-        }
-        else if (indexPath.row == 2) {
+        case .Settings:
+            if let person = self.person {
+                let settingsVC = MPPersonSettingsViewController(person: person)
+                var nav = UINavigationController(rootViewController: settingsVC)
+                self.presentViewController(nav, animated: true) {}
+            }
+            
+        case .Subjects:
+            if let person = self.person {
+                let subjectsVC = MPSubjectsViewController(person: person)
+                subjectsVC.delegate = self
+                var nav = UINavigationController(rootViewController: subjectsVC)
+                self.presentViewController(nav, animated: true) {}
+            }
             
         }
     }
-    
-
     /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the specified item to be editable.
+    // Uncomment this method to specify if the specified item should be highlighted during tracking
+    override func collectionView(collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
     */
 
     /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the item to be re-orderable.
+    // Uncomment this method to specify if the specified item should be selected
+    override func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
     */
 
     /*
-    // MARK: - Navigation
+    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
+    override func collectionView(collectionView: UICollectionView, shouldShowMenuForItemAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return false
+    }
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+    override func collectionView(collectionView: UICollectionView, canPerformAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool {
+        return false
+    }
+
+    override func collectionView(collectionView: UICollectionView, performAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) {
+    
     }
     */
     
     
     
     
+    // MARK: - Add
+    
+    func add() {
+        
+        let alertController = UIAlertController(title: "New...", message: "Add something to the person", preferredStyle: .ActionSheet)
+        
+        let newPlan = UIAlertAction(title: "New Plan", style: .Default) { (action) in
+            if let person = self.person {
+                MagicalRecord.saveWithBlockAndWait { (var localContext: NSManagedObjectContext!) -> Void in
+                    var plan = Plan.MR_createInContext(localContext) as! Plan
+                    plan.title = "Plan"
+                    plan.person = person.MR_inContext(localContext) as! Person
+                    var days = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"]
+                    var daysShort = ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"]
+                    for i in 0...6 {
+                        var day = Day.MR_createInContext(localContext) as! Day
+                        day.plan = plan
+                        day.weekIndex = i
+                        day.title = days[i]
+                        day.titleShort = daysShort[i]
+                    }
+                    
+                    localContext.MR_saveToPersistentStoreWithCompletion({ (let succsess: Bool, let error: NSError!) -> Void in
+                        self.cells.append(.ShowPlan((plan.MR_inThreadContext() as! Plan)))
+                        self.collectionView?.insertItemsAtIndexPaths([NSIndexPath(forRow: self.cells.count-1, inSection: 0)])
+                    })
+                }
+            }
+        }
+        alertController.addAction(newPlan)
+        
+        let newMarkGroup = UIAlertAction(title: "New Mark Group", style: .Default) { (action) in
+            if let person = self.person {
+                MagicalRecord.saveWithBlockAndWait { (var localContext: NSManagedObjectContext!) -> Void in
+                    var markGroup = MarkGroup.MR_createInContext(localContext) as! MarkGroup
+                    markGroup.title = "Noten"
+                    markGroup.person = person.MR_inContext(localContext) as! Person
+                    
+                    localContext.MR_saveToPersistentStoreWithCompletion({ (let succsess: Bool, let error: NSError!) -> Void in
+                        self.cells.append(.ShowMarkGroup((markGroup.MR_inThreadContext() as! MarkGroup)))
+                        self.collectionView?.insertItemsAtIndexPaths([NSIndexPath(forRow: self.cells.count-1, inSection: 0)])
+                    })
+                }
+            }
+        }
+        alertController.addAction(newMarkGroup)
+        
+        let newSubject = UIAlertAction(title: "New Subject", style: .Default) { (action) in
+            if let person = self.person {
+                MagicalRecord.saveWithBlockAndWait { (var localContext: NSManagedObjectContext!) -> Void in
+                    var newSubject = Subject.MR_createInContext(localContext) as! Subject!
+                    newSubject.person = person.MR_inContext(localContext) as! Person
+                    newSubject.notify = NSNumber(bool: true);
+                    newSubject.title = "New Subject"
+                    
+                    localContext.MR_saveToPersistentStoreWithCompletion({ (let succsess: Bool, let error: NSError!) -> Void in
+                        let subjectVC = MPSubjectViewController(subject: (newSubject.MR_inThreadContext() as! Subject!))
+                        var nav = UINavigationController(rootViewController: subjectVC)
+                        self.presentViewController(nav, animated: true) {
+                            
+                        }
+                    })
+                }
+            }
+        }
+        alertController.addAction(newSubject)
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
+            println(action)
+        }
+        alertController.addAction(cancel)
+        
+        self.presentViewController(alertController, animated: true) {
+            // ...
+        }
+
+    }
+    
+    
+    
+    
+    
+    
+    // MARK: - MPSubjectViewControllerDelegate
+    
+    func didSelectSubject(subject: Subject, subjectsVC: MPSubjectsViewController) {
+        let subjectVC = MPSubjectViewController(subject: subject)
+        var nav = UINavigationController(rootViewController: subjectVC)
+        subjectsVC.presentViewController(nav, animated: true) {}
+    }
+    
+        
+    
+    
+    
+    
+
 }

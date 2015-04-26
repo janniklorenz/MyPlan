@@ -1,9 +1,9 @@
 //
 //  Person.swift
-//  MyPlan
+//  
 //
-//  Created by Jannik Lorenz on 17.04.15.
-//  Copyright (c) 2015 Jannik Lorenz. All rights reserved.
+//  Created by Jannik Lorenz on 26.04.15.
+//
 //
 
 import Foundation
@@ -17,5 +17,6 @@ import CoreData
     @NSManaged var markGroups: NSSet
     @NSManaged var plans: NSSet
     @NSManaged var subjects: NSSet
+    @NSManaged var images: NSSet
 
 }

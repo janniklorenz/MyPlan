@@ -8,19 +8,6 @@
 
 import UIKit
 
-
-
-
-import CoreData
-extension NSManagedObject {
-    func addObject(value: NSManagedObject, forKey: String) {
-        var items = self.mutableSetValueForKey(forKey);
-        items.addObject(value)
-    }
-}
-
-
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, MPMenuViewControllerDelegate {
     
@@ -37,16 +24,55 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MPMenuViewControllerDeleg
         
         var menuViewController = MPMenuViewController()
         
+        
+        
         if (Person.MR_countOfEntities() == 0) {
-            MagicalRecord.saveWithBlockAndWait({ (localContext: NSManagedObjectContext!) -> Void in
-                var person = Person.MR_createEntity() as! Person
+            MagicalRecord.saveWithBlockAndWait { (var localContext: NSManagedObjectContext!) -> Void in
+                var person:Person = Person.MR_createInContext(localContext) as! Person!
                 person.timestamp = NSDate()
+                person.title = "New Person"
                 
-                person.title = "Person"
                 
+                var subjectDeutsch = Subject.MR_createInContext(localContext) as! Subject!
+                subjectDeutsch.person = person;
+                subjectDeutsch.notify = NSNumber(bool: true);
+                subjectDeutsch.title = "Deutsch"
+                
+                var subjectEnglisch = Subject.MR_createInContext(localContext) as! Subject!
+                subjectEnglisch.person = person;
+                subjectEnglisch.notify = NSNumber(bool: true);
+                subjectEnglisch.title = "Englisch"
+                
+                var subjectMathe = Subject.MR_createInContext(localContext) as! Subject!
+                subjectMathe.person = person;
+                subjectMathe.notify = NSNumber(bool: true);
+                subjectMathe.title = "Mathe"
+                
+                var subjectPhysik = Subject.MR_createInContext(localContext) as! Subject!
+                subjectPhysik.person = person;
+                subjectPhysik.notify = NSNumber(bool: true);
+                subjectPhysik.title = "Physik"
+                
+                
+                var plan = Plan.MR_createInContext(localContext) as! Plan!
+                plan.title = "Plan"
+                plan.person = person
+                var days = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"]
+                var daysShort = ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"]
+                for i in 0...6 {
+                    var day = Day.MR_createInContext(localContext) as! Day!
+                    day.plan = plan
+                    day.weekIndex = i
+                    day.title = days[i]
+                    day.titleShort = daysShort[i]
+                }
+                
+                var markGroup = MarkGroup.MR_createInContext(localContext) as! MarkGroup!
+                markGroup.title = "Noten"
+                markGroup.person = person
                 
                 localContext.MR_saveToPersistentStoreAndWait()
-            })
+            }
         }
         
         

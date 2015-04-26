@@ -9,3 +9,8 @@
 #import "CoreData+MagicalRecord.h"
 #import "NSManagedObjectContext+MagicalSaves.h"
 #import "NSPersistentStoreCoordinator+MagicalRecord.h"
+
+
+
+#import "DMRCollectionViewCell.h"
+#import "DMRCollectionViewLayout.h"

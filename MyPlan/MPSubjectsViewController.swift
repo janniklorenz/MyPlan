@@ -11,7 +11,7 @@ import UIKit
 import CoreData
 
 protocol MPSubjectsViewControllerDefault {
-    func didSelectSubject(subject: Subject)
+    func didSelectSubject(subject: Subject, subjectsVC: MPSubjectsViewController)
 }
 
 class MPSubjectsViewController: UITableViewController, NSFetchedResultsControllerDelegate, MPSubjectViewControllerDelegate {
@@ -118,13 +118,25 @@ class MPSubjectsViewController: UITableViewController, NSFetchedResultsControlle
         switch (indexPath.section) {
         case 0:
             let subject = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Subject
-            self.delegate?.didSelectSubject(subject)
-            self.dismissViewControllerAnimated(true, completion: { () -> Void in })
+            self.delegate?.didSelectSubject(subject, subjectsVC: self)
+            
         case 1:
-            var subjectVC = MPSubjectViewController()
-            subjectVC.delegate = self
-            var nav = UINavigationController(rootViewController: subjectVC)
-            self.presentViewController(nav, animated: true, completion: { () -> Void in })
+            if let person = self.person {
+                MagicalRecord.saveWithBlockAndWait { (var localContext: NSManagedObjectContext!) -> Void in
+                    var newSubject = Subject.MR_createInContext(localContext) as! Subject!
+                    newSubject.person = person.MR_inContext(localContext) as! Person
+                    newSubject.notify = NSNumber(bool: true);
+                    newSubject.title = "New Subject"
+                    
+                    localContext.MR_saveToPersistentStoreWithCompletion({ (let succsess: Bool, let error: NSError!) -> Void in
+                        let subjectVC = MPSubjectViewController(subject: (newSubject.MR_inThreadContext() as! Subject!))
+                        subjectVC.delegate = self
+                        var nav = UINavigationController(rootViewController: subjectVC)
+                        self.presentViewController(nav, animated: true) {}
+                    })
+                }
+            }
+            
         default:
             break
         }

@@ -65,8 +65,10 @@ class MPMarkGroupViewController: UITableViewController, NSFetchedResultsControll
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Reval Button
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "RevalIcon"), style: UIBarButtonItemStyle.Bordered, target: self.revealViewController(), action: "revealToggle:")
+        if self.navigationController?.viewControllers.count == 1 {
+            // Reval Button
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "RevalIcon"), style: UIBarButtonItemStyle.Bordered, target: self.revealViewController(), action: "revealToggle:")
+        }
     }
     
     
@@ -93,7 +95,9 @@ class MPMarkGroupViewController: UITableViewController, NSFetchedResultsControll
         
         let subject = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Subject
         cell.textLabel?.text = subject.title
-        cell.detailTextLabel?.text = "\(String(subject.marks.count)) Note(n)"
+        
+        let count = Mark.MR_countOfEntitiesWithPredicate(NSPredicate(format: "(subject == %@) AND (markGroup == %@)", subject, self.markGroup!))
+        cell.detailTextLabel?.text = "\(count) Note(n)"
         
         return cell
     }

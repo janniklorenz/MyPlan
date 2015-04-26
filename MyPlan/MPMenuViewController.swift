@@ -150,8 +150,13 @@ class MPMenuViewController: UITableViewController, NSFetchedResultsControllerDel
     
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if (self.delegate != nil) {
+        let info = self.personFetchedResultsController.sections![0] as! NSFetchedResultsSectionInfo
+        if (info.numberOfObjects == indexPath.section) {
+            self.delegate?.openSettings()
+        }
+        else {
             let person = self.personFetchedResultsController.objectAtIndexPath(NSIndexPath(forRow: indexPath.section, inSection: 0)) as! Person
+            println(person.objectID)
             
             let plans = Plan.MR_findAllWithPredicate(NSPredicate(format: "(person == %@)", person))
             let markGroups = MarkGroup.MR_findAllWithPredicate(NSPredicate(format: "(person == %@)", person))
@@ -165,16 +170,14 @@ class MPMenuViewController: UITableViewController, NSFetchedResultsControllerDel
                 self.delegate?.openPlan(plan)
             case plans.count+1..<plans.count+1+markGroups.count:
                 var markGroup = markGroups[(indexPath.row-plans.count-1)] as! MarkGroup
-               self.delegate?.openMarkGroup(markGroup)
+                self.delegate?.openMarkGroup(markGroup)
             default:
                 break
             }
-            
-            
         }
     }
-    
-    
+
+
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return NO if you do not want the specified item to be editable.
@@ -301,8 +304,9 @@ class MPMenuViewController: UITableViewController, NSFetchedResultsControllerDel
         case .Insert:
             self.tableView.insertSections(NSIndexSet(index: newIndexPath!.row), withRowAnimation: .Fade)
         case .Update:
-            let cell = self.tableView.cellForRowAtIndexPath(indexPath!)
-            self.tableView.reloadSections(NSIndexSet(index: newIndexPath!.row), withRowAnimation: .Fade)
+            break
+//            let cell = self.tableView.cellForRowAtIndexPath(indexPath!)
+//            self.tableView.reloadSections(NSIndexSet(index: newIndexPath!.row), withRowAnimation: .Fade)
 //        case .Move:
 //            self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
 //            self.tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Fade)

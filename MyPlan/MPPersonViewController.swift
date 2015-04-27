@@ -11,19 +11,16 @@ import UIKit
 let reuseIdentifier = "Cell"
 
 
-
-enum Dash {
-    case ShowPlan(Plan)
-    case ShowMarkGroup(MarkGroup)
-    case Settings
-    case Subjects
-}
-
-
-
-
-
 class MPPersonViewController: UICollectionViewController, NSFetchedResultsControllerDelegate, MPSubjectsViewControllerDefault {
+    
+    enum Dash {
+        case ShowPlan(Plan)
+        case ShowMarkGroup(MarkGroup)
+        case Settings
+        case Subjects
+        case Events
+        case Homeworks
+    }
     
     var cells: [Dash] = []
     
@@ -33,7 +30,7 @@ class MPPersonViewController: UICollectionViewController, NSFetchedResultsContro
             if (_person != newPerson) {
                 _person = newPerson
                 
-                cells = [.Settings, .Subjects]
+                cells = [.Settings, .Subjects, .Events, .Homeworks]
                 for plan in _person?.plans.allObjects as! [Plan] {
                     cells.append(.ShowPlan(plan))
                 }
@@ -127,8 +124,13 @@ class MPPersonViewController: UICollectionViewController, NSFetchedResultsContro
         case .Subjects:
             cell.titleLabel.text = "Subjects"
             
+        case .Events:
+            cell.titleLabel.text = "Events"
             
+        case .Homeworks:
+            cell.titleLabel.text = "Homeworks"
         }
+        
         
         
         
@@ -161,8 +163,19 @@ class MPPersonViewController: UICollectionViewController, NSFetchedResultsContro
             if let person = self.person {
                 let subjectsVC = MPSubjectsViewController(person: person)
                 subjectsVC.delegate = self
-                var nav = UINavigationController(rootViewController: subjectsVC)
-                self.presentViewController(nav, animated: true) {}
+                self.navigationController?.pushViewController(subjectsVC, animated: true)
+            }
+            
+        case .Events:
+            if let person = self.person {
+                let eventsVC = MPEventsViewController(person: person)
+                self.navigationController?.pushViewController(eventsVC, animated: true)
+            }
+            
+        case .Homeworks:
+            if let person = self.person {
+                let homeworksVC = MPHomeworksViewController(person: person)
+                self.navigationController?.pushViewController(homeworksVC, animated: true)
             }
             
         }
@@ -246,25 +259,25 @@ class MPPersonViewController: UICollectionViewController, NSFetchedResultsContro
         }
         alertController.addAction(newMarkGroup)
         
-        let newSubject = UIAlertAction(title: "New Subject", style: .Default) { (action) in
-            if let person = self.person {
-                MagicalRecord.saveWithBlockAndWait { (var localContext: NSManagedObjectContext!) -> Void in
-                    var newSubject = Subject.MR_createInContext(localContext) as! Subject!
-                    newSubject.person = person.MR_inContext(localContext) as! Person
-                    newSubject.notify = NSNumber(bool: true);
-                    newSubject.title = "New Subject"
-                    
-                    localContext.MR_saveToPersistentStoreWithCompletion({ (let succsess: Bool, let error: NSError!) -> Void in
-                        let subjectVC = MPSubjectViewController(subject: (newSubject.MR_inThreadContext() as! Subject!))
-                        var nav = UINavigationController(rootViewController: subjectVC)
-                        self.presentViewController(nav, animated: true) {
-                            
-                        }
-                    })
-                }
-            }
-        }
-        alertController.addAction(newSubject)
+//        let newSubject = UIAlertAction(title: "New Subject", style: .Default) { (action) in
+//            if let person = self.person {
+//                MagicalRecord.saveWithBlockAndWait { (var localContext: NSManagedObjectContext!) -> Void in
+//                    var newSubject = Subject.MR_createInContext(localContext) as! Subject!
+//                    newSubject.person = person.MR_inContext(localContext) as! Person
+//                    newSubject.notify = NSNumber(bool: true);
+//                    newSubject.title = "New Subject"
+//                    
+//                    localContext.MR_saveToPersistentStoreWithCompletion({ (let succsess: Bool, let error: NSError!) -> Void in
+//                        let subjectVC = MPSubjectViewController(subject: (newSubject.MR_inThreadContext() as! Subject!))
+//                        var nav = UINavigationController(rootViewController: subjectVC)
+//                        self.presentViewController(nav, animated: true) {
+//                            
+//                        }
+//                    })
+//                }
+//            }
+//        }
+//        alertController.addAction(newSubject)
         
         let cancel = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
             println(action)

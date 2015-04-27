@@ -18,6 +18,7 @@ protocol MPMenuViewControllerDelegate {
 }
 
 class MPMenuViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+    
     var delegate: MPMenuViewControllerDelegate?
     
     var _personFetchedResultsController: NSFetchedResultsController?
@@ -34,7 +35,7 @@ class MPMenuViewController: UITableViewController, NSFetchedResultsControllerDel
         req.entity = Person.MR_entityDescription()
         req.sortDescriptors = [sort]
 //        req.predicate = NSPredicate(format: "(title=%@)", "Person")
-    
+        
         
         let aFetchedResultsController = NSFetchedResultsController(fetchRequest: req, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
         aFetchedResultsController.delegate = self

@@ -13,6 +13,8 @@
 		FB0066601AE1A46F00F0F0EC /* DMRCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = FB00665E1AE1A46F00F0F0EC /* DMRCollectionViewLayout.m */; };
 		FB4DDDC31AED9124009A9B9D /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4DDDBB1AED9124009A9B9D /* Person.swift */; };
 		FB4DDDC61AEDA8EE009A9B9D /* MPPersonSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4DDDC51AEDA8EE009A9B9D /* MPPersonSettingsViewController.swift */; };
+		FB4DDDCF1AEDB512009A9B9D /* MPEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4DDDCD1AEDB512009A9B9D /* MPEventsViewController.swift */; };
+		FB4DDDD01AEDB512009A9B9D /* MPHomeworksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4DDDCE1AEDB512009A9B9D /* MPHomeworksViewController.swift */; };
 		FB681D8E1AE15E660002929D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB681D8D1AE15E660002929D /* AppDelegate.swift */; };
 		FB681D911AE15E660002929D /* MyPlan.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FB681D8F1AE15E660002929D /* MyPlan.xcdatamodeld */; };
 		FB681DA71AE15E670002929D /* MyPlanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB681DA61AE15E670002929D /* MyPlanTests.swift */; };
@@ -59,6 +61,8 @@
 		FB00665E1AE1A46F00F0F0EC /* DMRCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DMRCollectionViewLayout.m; sourceTree = "<group>"; };
 		FB4DDDBB1AED9124009A9B9D /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Person.swift; path = CoreData/Person.swift; sourceTree = "<group>"; };
 		FB4DDDC51AEDA8EE009A9B9D /* MPPersonSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPPersonSettingsViewController.swift; sourceTree = "<group>"; };
+		FB4DDDCD1AEDB512009A9B9D /* MPEventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPEventsViewController.swift; sourceTree = "<group>"; };
+		FB4DDDCE1AEDB512009A9B9D /* MPHomeworksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPHomeworksViewController.swift; sourceTree = "<group>"; };
 		FB681D881AE15E660002929D /* MyPlan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyPlan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB681D8C1AE15E660002929D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB681D8D1AE15E660002929D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -123,6 +127,65 @@
 				E6766D0D13AE6E745B716210 /* libPods.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FB4DDDC71AEDB0AC009A9B9D /* Person */ = {
+			isa = PBXGroup;
+			children = (
+				FB0066591AE1A16000F0F0EC /* MPPersonViewController.swift */,
+				FB4DDDC51AEDA8EE009A9B9D /* MPPersonSettingsViewController.swift */,
+				FB4DDDC81AEDB0B4009A9B9D /* Plan */,
+				FB4DDDCB1AEDB0DA009A9B9D /* MarkGroup */,
+				FB4DDDCC1AEDB17C009A9B9D /* Subjects */,
+				FB4DDDD11AEDB517009A9B9D /* Events */,
+				FB4DDDD21AEDB523009A9B9D /* Homeworks */,
+			);
+			name = Person;
+			sourceTree = "<group>";
+		};
+		FB4DDDC81AEDB0B4009A9B9D /* Plan */ = {
+			isa = PBXGroup;
+			children = (
+				FB681DBC1AE160630002929D /* MPPlanViewController.swift */,
+				FB681DB51AE160630002929D /* MPDayViewController.swift */,
+				FB681DB61AE160630002929D /* MPHoureViewController.swift */,
+			);
+			name = Plan;
+			sourceTree = "<group>";
+		};
+		FB4DDDCB1AEDB0DA009A9B9D /* MarkGroup */ = {
+			isa = PBXGroup;
+			children = (
+				FB681DB81AE160630002929D /* MPMarkGroupViewController.swift */,
+				FB681DB71AE160630002929D /* MPMarkGroupDetailViewController.swift */,
+				FB681DB91AE160630002929D /* MPMarkViewController.swift */,
+			);
+			name = MarkGroup;
+			sourceTree = "<group>";
+		};
+		FB4DDDCC1AEDB17C009A9B9D /* Subjects */ = {
+			isa = PBXGroup;
+			children = (
+				FB681DBD1AE160630002929D /* MPSubjectsViewController.swift */,
+				FB681DBE1AE160630002929D /* MPSubjectViewController.swift */,
+			);
+			name = Subjects;
+			sourceTree = "<group>";
+		};
+		FB4DDDD11AEDB517009A9B9D /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				FB4DDDCD1AEDB512009A9B9D /* MPEventsViewController.swift */,
+			);
+			name = Events;
+			sourceTree = "<group>";
+		};
+		FB4DDDD21AEDB523009A9B9D /* Homeworks */ = {
+			isa = PBXGroup;
+			children = (
+				FB4DDDCE1AEDB512009A9B9D /* MPHomeworksViewController.swift */,
+			);
+			name = Homeworks;
 			sourceTree = "<group>";
 		};
 		FB681D7F1AE15E660002929D = {
@@ -213,21 +276,12 @@
 		FB681DE11AE160890002929D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				FB681DBA1AE160630002929D /* MPMenuViewController.swift */,
-				FB681DB51AE160630002929D /* MPDayViewController.swift */,
-				FB681DB61AE160630002929D /* MPHoureViewController.swift */,
-				FB681DB71AE160630002929D /* MPMarkGroupDetailViewController.swift */,
-				FB681DB81AE160630002929D /* MPMarkGroupViewController.swift */,
-				FB681DB91AE160630002929D /* MPMarkViewController.swift */,
-				FB0066591AE1A16000F0F0EC /* MPPersonViewController.swift */,
-				FB4DDDC51AEDA8EE009A9B9D /* MPPersonSettingsViewController.swift */,
-				FB681DBC1AE160630002929D /* MPPlanViewController.swift */,
-				FB681DBD1AE160630002929D /* MPSubjectsViewController.swift */,
-				FB681DBE1AE160630002929D /* MPSubjectViewController.swift */,
 				FB00665B1AE1A46F00F0F0EC /* DMRCollectionViewCell.h */,
 				FB00665C1AE1A46F00F0F0EC /* DMRCollectionViewCell.m */,
 				FB00665D1AE1A46F00F0F0EC /* DMRCollectionViewLayout.h */,
 				FB00665E1AE1A46F00F0F0EC /* DMRCollectionViewLayout.m */,
+				FB681DBA1AE160630002929D /* MPMenuViewController.swift */,
+				FB4DDDC71AEDB0AC009A9B9D /* Person */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -379,6 +433,7 @@
 				FB681D8E1AE15E660002929D /* AppDelegate.swift in Sources */,
 				FB681DC01AE160630002929D /* MPHoureViewController.swift in Sources */,
 				FB00665A1AE1A16000F0F0EC /* MPPersonViewController.swift in Sources */,
+				FB4DDDCF1AEDB512009A9B9D /* MPEventsViewController.swift in Sources */,
 				FB681DC31AE160630002929D /* MPMarkViewController.swift in Sources */,
 				FB681DD01AE160750002929D /* Houre.swift in Sources */,
 				FB681DDC1AE160760002929D /* Subject.swift in Sources */,
@@ -390,6 +445,7 @@
 				FB681DC41AE160630002929D /* MPMenuViewController.swift in Sources */,
 				FB681DC11AE160630002929D /* MPMarkGroupDetailViewController.swift in Sources */,
 				FB681DD81AE160750002929D /* Day.swift in Sources */,
+				FB4DDDD01AEDB512009A9B9D /* MPHomeworksViewController.swift in Sources */,
 				FB4DDDC31AED9124009A9B9D /* Person.swift in Sources */,
 				FB681DCA1AE160750002929D /* Event.swift in Sources */,
 			);

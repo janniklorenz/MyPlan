@@ -71,8 +71,10 @@ class MPSubjectsViewController: UITableViewController, NSFetchedResultsControlle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Close Button
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action: "close" )
+        if self.navigationController?.viewControllers.count == 1 {
+            // Close Button
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action: "close" )
+        }
     }
     
     

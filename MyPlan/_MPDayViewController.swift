@@ -1,5 +1,5 @@
 //
-//  MPSubjectsViewController.swift
+//  MPDayViewController.swift
 //  MyPlan
 //
 //  Created by Jannik Lorenz on 07.04.15.
@@ -10,14 +10,9 @@ import UIKit
 
 import CoreData
 
-protocol MPSubjectsViewControllerDefault {
-    func didSelectSubject(subject: Subject, subjectsVC: MPSubjectsViewController)
-}
-
-class MPSubjectsViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+class _MPDayViewController: UITableViewController, NSFetchedResultsControllerDelegate, MPSubjectsViewControllerDefault {
     
-    var person: Person?
-    var delegate: MPSubjectsViewControllerDefault?
+    var day: Day?
     
     var fetchedResultsController: NSFetchedResultsController {
         
@@ -26,10 +21,12 @@ class MPSubjectsViewController: UITableViewController, NSFetchedResultsControlle
         }
         let managedObjectContext = NSManagedObjectContext.MR_defaultContext()
         
+        let sort = NSSortDescriptor(key: "houre", ascending: true)
+        
         let req = NSFetchRequest()
-        req.entity = Subject.MR_entityDescription()
-        req.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true), NSSortDescriptor(key: "titleShort", ascending: true)]
-        req.predicate = NSPredicate(format: "(person == %@)", self.person!)
+        req.entity = Houre.MR_entityDescription()
+        req.sortDescriptors = [sort]
+        req.predicate = NSPredicate(format: "(day == %@)", self.day!)
         
         let aFetchedResultsController = NSFetchedResultsController(fetchRequest: req, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
         aFetchedResultsController.delegate = self
@@ -46,15 +43,12 @@ class MPSubjectsViewController: UITableViewController, NSFetchedResultsControlle
     var _fetchedResultsController: NSFetchedResultsController?
     
     
-    required init(person: Person) {
+    required init(day: Day) {
         super.init(style: UITableViewStyle.Grouped)
         
-        self.tableView.registerClass(MPTableViewCellSubject.self, forCellReuseIdentifier: "Subject")
-        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        self.day = day
         
-        self.person = person
-        
-        self.title = "Subjects"
+        self.title = self.day?.title
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -69,17 +63,11 @@ class MPSubjectsViewController: UITableViewController, NSFetchedResultsControlle
     
     
     
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
-        if self.navigationController?.viewControllers.count == 1 {
-            // Close Button
-            self.navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action: "close" )
-        }
-        
-        // Add Button
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "addSubject" )
+        // Add Houre Button
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "addHoure" )
     }
     
     
@@ -97,87 +85,47 @@ class MPSubjectsViewController: UITableViewController, NSFetchedResultsControlle
         case 0:
             let info = self.fetchedResultsController.sections![section] as! NSFetchedResultsSectionInfo
             return info.numberOfObjects
-
         default: return 0;
         }
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "Cell")
         
-        var reuseIdentifier: String
-        switch (indexPath.section, indexPath.row) {
-        case (1, 0):
-            reuseIdentifier = "Cell"
-            
-        default:
-            reuseIdentifier = "Subject"
-        }
-        
-        let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as! UITableViewCell
-        
-        switch (indexPath.section) {
-        case 0:
-            var cell = cell as! MPTableViewCellSubject
-            let subject = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Subject
-            cell.subject = subject
-            
-        default:
-            break
-        }
-        
+        let houre = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Houre
+        cell.textLabel?.text = houre.houre.stringValue + ". " + houre.subject.title
         
         return cell
     }
     
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        switch (indexPath.section) {
-        case 0:
-            let subject = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Subject
-            self.delegate?.didSelectSubject(subject, subjectsVC: self)
-            
-        default:
-            break
-        }
-        
-        
+        let houre = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Houre
+        var houreVC = MPHoureViewController(houre: houre)
+        self.navigationController?.pushViewController(houreVC, animated: true)
     }
     
     
+    // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        switch indexPath.section {
-        case 0:
-            return true
-            
-        default:
-            return false
-        }
+        // Return NO if you do not want the specified item to be editable.
+        return true
     }
-    
 
+
+    
+    // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete the row from the data source
             
-            var alert = UIAlertController(title: "Delete Subject", message: "Delete the subject and all related stuff like makrs, houres, and notes.\n Warning: This can't been undo!", preferredStyle: .ActionSheet)
-            
-            alert.addAction(UIAlertAction(title: "Delete", style: UIAlertActionStyle.Destructive, handler: { (action: UIAlertAction!) -> Void in
-                let subject = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Subject
-                MagicalRecord.saveWithBlock({ (localContext: NSManagedObjectContext!) -> Void in
-                    var subject = subject.MR_inContext(localContext) as! Subject
-                    subject.MR_deleteInContext(localContext)
-                    localContext.MR_saveToPersistentStoreAndWait()
-                })
-            }))
-            
-            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: { (action: UIAlertAction!) -> Void in
+            MagicalRecord.saveWithBlock({ (localContext: NSManagedObjectContext!) -> Void in
+                let houre = self.fetchedResultsController.objectAtIndexPath(indexPath).MR_inContext(localContext) as! Houre
+                houre.MR_deleteInContext(localContext)
                 
-            }))
-            
-            self.presentViewController(alert, animated: true, completion: nil)
-            
-        }
-        else if editingStyle == .Insert {
+                localContext.MR_saveToPersistentStoreAndWait()
+            })
+        } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
@@ -202,31 +150,40 @@ class MPSubjectsViewController: UITableViewController, NSFetchedResultsControlle
     
     
     
-    // MARK: - UI Interaction
+    // MARK: - addHoure
     
-    func close() {
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    func addSubject() {
-        if let person = self.person {
-            MagicalRecord.saveWithBlockAndWait { (var localContext: NSManagedObjectContext!) -> Void in
-                var newSubject = Subject.MR_createInContext(localContext) as! Subject!
-                newSubject.person = person.MR_inContext(localContext) as! Person
-                newSubject.notify = NSNumber(bool: true);
-                newSubject.title = "New Subject"
-                newSubject.titleShort = ""
-                newSubject.color = UIColor.whiteColor()
-                
-                localContext.MR_saveToPersistentStoreWithCompletion({ (let succsess: Bool, let error: NSError!) -> Void in
-                    let subjectVC = MPSubjectViewController(subject: (newSubject.MR_inThreadContext() as! Subject!))
-                    self.navigationController?.pushViewController(subjectVC, animated: true)
-                })
-            }
+    func addHoure() {
+        var person = self.day!.plan.person
+        var subjectVC = MPSubjectsViewController(person: person)
+        subjectVC.delegate = self
+        var nav = UINavigationController(rootViewController: subjectVC)
+        self.presentViewController(nav, animated: true) { () -> Void in
+            
         }
     }
     
     
+    
+    // MARK: - MPSubjectsViewControllerDefault
+    
+    func didSelectSubject(subject: Subject, subjectsVC: MPSubjectsViewController) {
+        
+        subjectsVC.dismissViewControllerAnimated(true) {}
+        
+        MagicalRecord.saveWithBlock { (localContect: NSManagedObjectContext!) -> Void in
+            var houre = Houre.MR_createInContext(localContect) as! Houre
+            houre.subject = subject.MR_inContext(localContect) as! Subject
+            houre.day = self.day!.MR_inContext(localContect) as! Day
+            
+            // DEBUG ONLY
+            let info = self.fetchedResultsController.sections![0] as! NSFetchedResultsSectionInfo
+            houre.houre = NSNumber(integer: info.numberOfObjects)
+            
+            localContect.MR_saveToPersistentStoreAndWait()
+        }
+        
+        
+    }
     
     
     

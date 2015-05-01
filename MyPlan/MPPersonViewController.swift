@@ -11,7 +11,7 @@ import UIKit
 let reuseIdentifier = "Cell"
 
 
-class MPPersonViewController: UICollectionViewController, NSFetchedResultsControllerDelegate, MPSubjectsViewControllerDefault {
+class MPPersonViewController: UICollectionViewController, NSFetchedResultsControllerDelegate, MPSubjectsViewControllerDefault, FMMosaicLayoutDelegate {
     
     enum Dash {
         case ShowPlan(Plan)
@@ -20,6 +20,7 @@ class MPPersonViewController: UICollectionViewController, NSFetchedResultsContro
         case Subjects
         case Events
         case Homeworks
+        case Week
     }
     
     var cells: [Dash] = []
@@ -30,7 +31,7 @@ class MPPersonViewController: UICollectionViewController, NSFetchedResultsContro
             if (_person != newPerson) {
                 _person = newPerson
                 
-                cells = [.Settings, .Subjects, .Events, .Homeworks]
+                cells = [.Settings, .Subjects, .Events, .Homeworks, .Week]
                 for plan in _person?.plans.allObjects as! [Plan] {
                     cells.append(.ShowPlan(plan))
                 }
@@ -55,13 +56,16 @@ class MPPersonViewController: UICollectionViewController, NSFetchedResultsContro
     
     
     required init(person : Person) {
-        var layout = UICollectionViewFlowLayout() //DMRCollectionViewLayout()
-        layout.itemSize = CGSize(width: 85, height: 100)
-        layout.minimumInteritemSpacing = 5
-        layout.minimumLineSpacing = 5
+//        var layout = UICollectionViewFlowLayout() //DMRCollectionViewLayout()
+//        layout.itemSize = CGSize(width: 85, height: 100)
+//        layout.minimumInteritemSpacing = 5
+//        layout.minimumLineSpacing = 5
+        
+        var layout = FMMosaicLayout()
         
         super.init(collectionViewLayout: layout)
         
+        layout.delegate = self
         self.collectionView?.backgroundColor = UIColor.groupTableViewBackgroundColor()
         
         self.person = person
@@ -79,7 +83,7 @@ class MPPersonViewController: UICollectionViewController, NSFetchedResultsContro
         // self.clearsSelectionOnViewWillAppear = false
 
         // Register cell classes
-        self.collectionView!.registerClass(DMRCollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        self.collectionView!.registerClass(MPCalenderSubjectCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
         
@@ -109,7 +113,7 @@ class MPPersonViewController: UICollectionViewController, NSFetchedResultsContro
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! DMRCollectionViewCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! MPCalenderSubjectCell
         
         switch cells[indexPath.row] {
         case .ShowMarkGroup(let markGroup):
@@ -129,13 +133,16 @@ class MPPersonViewController: UICollectionViewController, NSFetchedResultsContro
             
         case .Homeworks:
             cell.titleLabel.text = "Homeworks"
+            
+        case .Week:
+            cell.titleLabel.text = "Week"
         }
         
         
         
         
         // Configure the cell
-        cell.backgroundColor = UIColor.whiteColor()
+        cell.backgroundColor = UIColor.getRandomColor()
     
         return cell
     }
@@ -178,6 +185,10 @@ class MPPersonViewController: UICollectionViewController, NSFetchedResultsContro
                 self.navigationController?.pushViewController(homeworksVC, animated: true)
             }
             
+        case .Week:
+            break
+//            let weekVC = MPWeekViewController()
+//            self.navigationController?.pushViewController(weekVC, animated: true)
         }
     }
     /*
@@ -294,13 +305,36 @@ class MPPersonViewController: UICollectionViewController, NSFetchedResultsContro
     
     
     
+    // MARK: - FMMosaicLayoutDelegate
+    
+    func collectionView(collectionView: UICollectionView!, layout collectionViewLayout: FMMosaicLayout!, numberOfColumnsInSection section: Int) -> Int {
+        return 2
+    }
+//    func collectionView(collectionView: UICollectionView!, layout collectionViewLayout: FMMosaicLayout!, heightForHeaderInSection section: Int) -> CGFloat {
+//        return 0
+//    }
+    
+    func collectionView(collectionView: UICollectionView!, layout collectionViewLayout: FMMosaicLayout!, mosaicCellSizeForItemAtIndexPath indexPath: NSIndexPath!) -> FMMosaicCellSize {
+        if indexPath.item % 2 == 0 {
+            return .Small
+        }
+        return .Big
+    }
+    func collectionView(collectionView: UICollectionView!, layout collectionViewLayout: FMMosaicLayout!, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    }
+    func collectionView(collectionView: UICollectionView!, layout collectionViewLayout: FMMosaicLayout!, interitemSpacingForSectionAtIndex section: Int) -> CGFloat {
+        return 0
+    }
+    
+    
+    
     
     // MARK: - MPSubjectViewControllerDelegate
     
     func didSelectSubject(subject: Subject, subjectsVC: MPSubjectsViewController) {
         let subjectVC = MPSubjectViewController(subject: subject)
-        var nav = UINavigationController(rootViewController: subjectVC)
-        subjectsVC.presentViewController(nav, animated: true) {}
+        subjectsVC.navigationController?.pushViewController(subjectVC, animated: true)
     }
     
         

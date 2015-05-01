@@ -10,7 +10,7 @@
 #import "NSManagedObjectContext+MagicalSaves.h"
 #import "NSPersistentStoreCoordinator+MagicalRecord.h"
 
+#import <pop/POP.h>
 
 
-#import "DMRCollectionViewCell.h"
-#import "DMRCollectionViewLayout.h"
+#import "FMMosaicLayout.h"

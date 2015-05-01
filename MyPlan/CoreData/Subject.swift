@@ -1,9 +1,9 @@
 //
 //  Subject.swift
-//  MyPlan
+//  
 //
-//  Created by Jannik Lorenz on 17.04.15.
-//  Copyright (c) 2015 Jannik Lorenz. All rights reserved.
+//  Created by Jannik Lorenz on 01.05.15.
+//
 //
 
 import Foundation
@@ -14,6 +14,8 @@ import CoreData
     @NSManaged var info: String
     @NSManaged var notify: NSNumber
     @NSManaged var title: String
+    @NSManaged var titleShort: String
+    @NSManaged var colorData: AnyObject
     @NSManaged var homeworks: NSSet
     @NSManaged var marks: NSSet
     @NSManaged var notes: NSSet

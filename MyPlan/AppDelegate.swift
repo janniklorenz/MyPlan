@@ -37,21 +37,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MPMenuViewControllerDeleg
                 subjectDeutsch.person = person;
                 subjectDeutsch.notify = NSNumber(bool: true);
                 subjectDeutsch.title = "Deutsch"
+                subjectDeutsch.titleShort = "D"
+                subjectDeutsch.color = UIColor.blackColor()
                 
                 var subjectEnglisch = Subject.MR_createInContext(localContext) as! Subject!
                 subjectEnglisch.person = person;
                 subjectEnglisch.notify = NSNumber(bool: true);
                 subjectEnglisch.title = "Englisch"
+                subjectEnglisch.titleShort = "E"
+                subjectEnglisch.color = UIColor.redColor()
                 
                 var subjectMathe = Subject.MR_createInContext(localContext) as! Subject!
                 subjectMathe.person = person;
                 subjectMathe.notify = NSNumber(bool: true);
                 subjectMathe.title = "Mathe"
+                subjectMathe.titleShort = "M"
+                subjectMathe.color = UIColor.blueColor()
                 
                 var subjectPhysik = Subject.MR_createInContext(localContext) as! Subject!
                 subjectPhysik.person = person;
                 subjectPhysik.notify = NSNumber(bool: true);
                 subjectPhysik.title = "Physik"
+                subjectPhysik.titleShort = "Ph"
+                subjectPhysik.color = UIColor.whiteColor()
                 
                 
                 var plan = Plan.MR_createInContext(localContext) as! Plan!

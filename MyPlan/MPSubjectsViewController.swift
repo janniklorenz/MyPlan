@@ -162,7 +162,7 @@ class MPSubjectsViewController: UITableViewController, NSFetchedResultsControlle
             
             var alert = UIAlertController(
                 title: NSLocalizedString("Delete Subject", comment: ""),
-                message: NSLocalizedString("Delete the subject and all related stuff like makrs, houres, and notes.\n Warning: This can't been undo!", comment: ""),
+                message: NSLocalizedString("__Delete_Subject_Ask", comment: ""),
                 preferredStyle: .ActionSheet
             )
             

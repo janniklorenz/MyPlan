@@ -40,23 +40,26 @@
 
 
 
-"Delete the subject and all related stuff like makrs, houres, and notes.\n Warning: This can't been undo!" =
+"__Delete_Subject_Ask" =
     "Delete the subject and all related stuff like makrs, houres, and notes.\n Warning: This can't been undo!";
 
-"Assign the subject different values like room or teacher" =
+"__Foother_Subject_Attribute" =
     "Assign the subject different values like room or teacher";
 
-"Color of the Subject" =
+"__Foother_Subject_Color" =
     "Color of the Subject";
 
-"Title ans Short Version of the Subject" =
+"__Foother_Subject_Title" =
     "Title ans Short Version of the Subject";
 
-"Red, Green and Blue (RGB) Sliders" =
+"__Foother_ColorPicker_RGB" =
     "Red, Green and Blue (RGB) Sliders";
 
-"Add something to the person" =
+"__Add_Subjects_Message" =
     "Add something to the person";
 
-"Title of the Plan" =
+"__Foother_Plan_Title" =
     "Title of the Plan";
+
+"__Foother_Plan_Settings" =
+    "Change the title, calender week and more";

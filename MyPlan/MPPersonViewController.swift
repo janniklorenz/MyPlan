@@ -232,7 +232,7 @@ class MPPersonViewController: UICollectionViewController, NSFetchedResultsContro
         
         let alertController = UIAlertController(
             title: NSLocalizedString("New...", comment: ""),
-            message: NSLocalizedString("Add something to the person", comment: ""),
+            message: NSLocalizedString("__Add_Subjects_Message", comment: ""),
             preferredStyle: .ActionSheet
         )
         

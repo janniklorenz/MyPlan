@@ -257,18 +257,18 @@ class MPSubjectViewController: UITableViewController, NSFetchedResultsController
     override func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         switch (section) {
         case kSectionTitle:
-            return NSLocalizedString("Title ans Short Version of the Subject", comment: "")
+            return NSLocalizedString("__Foother_Subject_Title", comment: "")
             
         case kSectionColor:
-            return NSLocalizedString("Color of the Subject", comment: "")
+            return NSLocalizedString("__Foother_Subject_Color", comment: "")
            
         case kSectionAttributes:
             if self.tableView(self.tableView, numberOfRowsInSection: 3) != 0 {
-                return NSLocalizedString("Assign the subject different values like room or teacher", comment: "")
+                return NSLocalizedString("__Foother_Subject_Attribute", comment: "")
             }
             
         case kSectionDelete:
-            return NSLocalizedString("Delete the subject and all related stuff like makrs, houres, and notes.\n Warning: This can't been undo!", comment: "")
+            return NSLocalizedString("__Delete_Subject_Ask", comment: "")
             
         default:
             break
@@ -289,7 +289,7 @@ class MPSubjectViewController: UITableViewController, NSFetchedResultsController
         case (4, 0):
             var alert = UIAlertController(
                 title: NSLocalizedString("Delete Subject", comment: ""),
-                message: NSLocalizedString("Delete the subject and all related stuff like makrs, houres, and notes.\n Warning: This can't been undo!", comment: ""),
+                message: NSLocalizedString("__Delete_Subject_Ask", comment: ""),
                 preferredStyle: .ActionSheet
             )
             

@@ -40,23 +40,26 @@
 
 
 
-"Delete the subject and all related stuff like makrs, houres, and notes.\n Warning: This can't been undo!" =
+"__Delete_Subject_Ask" =
     "Das Fach und alle davon abhängigen Daten wie Stunden und Termine löschen.\n Achtung: Kann nicht Rückgängig gemacht werden!";
 
-"Assign the subject different values like room or teacher" =
+"__Foother_Subject_Attribute" =
     "Verschiedene Attribute des Faches";
 
-"Color of the Subject" =
+"__Foother_Subject_Color" =
     "Farbe des Faches";
 
-"Title ans Short Version of the Subject" =
+"__Foother_Subject_Title" =
     "Titel und Abkürzung des Faches";
 
-"Red, Green and Blue (RGB) Sliders" =
+"__Foother_ColorPicker_RGB" =
     "Rot, Grün und Blau (RGB) für weitere Farben";
 
-"Add something to the person" =
+"__Add_Subjects_Message" =
     "Füge etwas zu der Person hinzu";
 
-"Title of the Plan" =
+"__Foother_Plan_Title" =
     "Titel des Plans";
+
+"__Foother_Plan_Settings" =
+    "Ändere Title, Kalenderwoche und mehr";

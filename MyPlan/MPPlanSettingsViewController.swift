@@ -132,7 +132,7 @@ class MPPlanSettingsViewController: UITableViewController {
     override func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         switch (section) {
         case kSectionTitle:
-            return NSLocalizedString("Title of the Plan", comment: "")
+            return NSLocalizedString("__Foother_Plan_Title", comment: "")
             
         default:
             return ""
@@ -148,23 +148,23 @@ class MPPlanSettingsViewController: UITableViewController {
     }
     
     
+    /*
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        switch indexPath.section {
+        default:
+            return false
+        }
+    }
     
-//    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-//        switch indexPath.section {
-//        default:
-//            return false
-//        }
-//    }
-//    
-//    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-//        if editingStyle == .Delete {
-//            
-//        }
-//        else if editingStyle == .Insert {
-//            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-//        }
-//    }
-
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            
+        }
+        else if editingStyle == .Insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }
+    }
+    */
     
     
     

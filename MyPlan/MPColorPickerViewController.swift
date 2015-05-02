@@ -186,7 +186,7 @@ class MPColorPickerViewController: UITableViewController {
     override func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         switch (section) {
         case kSectionRGB:
-            return NSLocalizedString("Red, Green and Blue (RGB) Sliders", comment: "")
+            return NSLocalizedString("__Foother_ColorPicker_RGB", comment: "")
             
         default:
             return "";

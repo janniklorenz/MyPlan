@@ -145,6 +145,16 @@ class MPPlanViewController: UITableViewController, NSFetchedResultsControllerDel
         return cell
     }
     
+    override func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        switch (section) {
+        case kSectionSettings:
+            return NSLocalizedString("__Foother_Plan_Settings", comment: "")
+            
+        default:
+            return ""
+        }
+    }
+    
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         switch (indexPath.section, indexPath.row) {
         case (kSectionDays, 0...self.tableView(self.tableView, numberOfRowsInSection: 0)):

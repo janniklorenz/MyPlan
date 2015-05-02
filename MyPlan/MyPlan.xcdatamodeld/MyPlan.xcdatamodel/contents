@@ -66,6 +66,7 @@
         <relationship name="subject" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Subject" inverseName="marks" inverseEntity="Subject" syncable="YES"/>
     </entity>
     <entity name="MarkGroup" representedClassName="MarkGroup" syncable="YES">
+        <attribute name="timestamp" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="marks" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="Mark" inverseName="markGroup" inverseEntity="Mark" syncable="YES"/>
         <relationship name="person" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Person" inverseName="markGroups" inverseEntity="Person" syncable="YES"/>
@@ -85,12 +86,18 @@
         <relationship name="images" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Image" inverseName="person" inverseEntity="Image" syncable="YES"/>
         <relationship name="markGroups" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="MarkGroup" inverseName="person" inverseEntity="MarkGroup" syncable="YES"/>
         <relationship name="plans" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="Plan" inverseName="person" inverseEntity="Plan" syncable="YES"/>
+        <relationship name="settings" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Settings" inverseName="currentPerson" inverseEntity="Settings" syncable="YES"/>
         <relationship name="subjects" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="Subject" inverseName="person" inverseEntity="Subject" syncable="YES"/>
     </entity>
     <entity name="Plan" representedClassName="Plan" syncable="YES">
+        <attribute name="timestamp" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="days" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="Day" inverseName="plan" inverseEntity="Day" syncable="YES"/>
         <relationship name="person" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Person" inverseName="plans" inverseEntity="Person" syncable="YES"/>
+    </entity>
+    <entity name="Settings" representedClassName="Settings" syncable="YES">
+        <attribute name="notifications" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <relationship name="currentPerson" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Person" inverseName="settings" inverseEntity="Person" syncable="YES"/>
     </entity>
     <entity name="Subject" representedClassName="Subject" syncable="YES">
         <attribute name="colorData" optional="YES" attributeType="Transformable" syncable="YES"/>
@@ -108,19 +115,20 @@
     </entity>
     <elements>
         <element name="Day" positionX="-218" positionY="251" width="128" height="118"/>
+        <element name="DefaultTime" positionX="-432" positionY="-255" width="128" height="88"/>
         <element name="Event" positionX="-378" positionY="-148" width="128" height="148"/>
         <element name="Homework" positionX="511" positionY="-79" width="128" height="133"/>
         <element name="Houre" positionX="-45" positionY="215" width="128" height="133"/>
         <element name="Image" positionX="691" positionY="-181" width="128" height="118"/>
-        <element name="Mark" positionX="612" positionY="71" width="128" height="163"/>
-        <element name="MarkGroup" positionX="-353" positionY="36" width="128" height="88"/>
-        <element name="Note" positionX="504" positionY="239" width="128" height="103"/>
-        <element name="Person" positionX="-632" positionY="-9" width="128" height="178"/>
-        <element name="Plan" positionX="-389" positionY="189" width="128" height="88"/>
-        <element name="Subject" positionX="268" positionY="9" width="128" height="223"/>
         <element name="Info" positionX="502" positionY="503" width="128" height="88"/>
-        <element name="InfoSubject" positionX="601" positionY="354" width="128" height="58"/>
         <element name="InfoHoure" positionX="205" positionY="408" width="128" height="58"/>
-        <element name="DefaultTime" positionX="-432" positionY="-255" width="128" height="88"/>
+        <element name="InfoSubject" positionX="601" positionY="354" width="128" height="58"/>
+        <element name="Mark" positionX="612" positionY="71" width="128" height="163"/>
+        <element name="MarkGroup" positionX="-353" positionY="36" width="128" height="103"/>
+        <element name="Note" positionX="504" positionY="239" width="128" height="103"/>
+        <element name="Person" positionX="-774" positionY="14" width="128" height="193"/>
+        <element name="Plan" positionX="-389" positionY="189" width="128" height="103"/>
+        <element name="Subject" positionX="268" positionY="9" width="128" height="223"/>
+        <element name="Settings" positionX="-524" positionY="-109" width="128" height="73"/>
     </elements>
 </model>

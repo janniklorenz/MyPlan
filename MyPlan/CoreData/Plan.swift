@@ -11,6 +11,7 @@ import CoreData
 
 @objc(Plan) class Plan: NSManagedObject {
 
+    @NSManaged var timestamp: NSDate
     @NSManaged var title: String
     @NSManaged var days: NSSet
     @NSManaged var person: Person

@@ -1,5 +1,5 @@
 //
-//  MPPlanSettingsViewController.swift
+//  MPSettingsViewController.swift
 //  MyPlan
 //
 //  Created by Jannik Lorenz on 01.05.15.
@@ -8,18 +8,10 @@
 
 import UIKit
 
-protocol MPPlanSettingsViewControllerDelegate {
-    func didFinishEditing(plan: Plan)
-    func didDeletePlan(plan: Plan)
-}
-
-class MPPlanSettingsViewController: UITableViewController {
+class MPSettingsViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     
-    let kSectionTitle = 0
+    let kSectionNotifications = 0
     
-    var delegate: MPPlanSettingsViewControllerDelegate?
-    
-    var plan: Plan?
     
     
     
@@ -28,13 +20,13 @@ class MPPlanSettingsViewController: UITableViewController {
     
     // MARK: - Init
     
-    init(plan: Plan) {
+    init() {
         super.init(style: .Grouped)
         
-        self.plan = plan
-        
-        self.tableView.registerClass(MPTableViewCellTextInput.self, forCellReuseIdentifier: "TextInput")
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        self.tableView.registerClass(MPTableViewCellSwitch.self, forCellReuseIdentifier: "Switch")
+        
+        self.title = NSLocalizedString("Settings", comment: "")
     }
 
     required init!(coder aDecoder: NSCoder!) {
@@ -54,27 +46,11 @@ class MPPlanSettingsViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Reval Button
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "RevalIcon"), style: UIBarButtonItemStyle.Bordered, target: self.revealViewController(), action: "revealToggle:")
     }
     
-    override func viewWillDisappear(animated: Bool) {
-        super.viewDidDisappear(animated)
-        
-        if let savePlan = self.plan {
-            if savePlan.deleted == false {
-                MagicalRecord.saveWithBlock { (localContext: NSManagedObjectContext!) -> Void in
-                    var p = savePlan.MR_inContext(localContext) as! Plan
-                    
-                    p.title = savePlan.title
-                    
-                    localContext.MR_saveToPersistentStoreAndWait()
-                }
-                self.delegate?.didFinishEditing(savePlan)
-            }
-            else {
-                self.delegate?.didDeletePlan(savePlan)
-            }
-        }
-    }
     
     
     
@@ -89,7 +65,7 @@ class MPPlanSettingsViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
-        case kSectionTitle:
+        case kSectionNotifications:
             return 1
             
         default:
@@ -100,9 +76,9 @@ class MPPlanSettingsViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         var reuseIdentifier: String
-        switch (indexPath.section, indexPath.row) {
-        case (kSectionTitle, 0):
-            reuseIdentifier = "TextInput"
+        switch indexPath.section {
+        case (kSectionNotifications):
+            reuseIdentifier = "Switch"
             
         default:
             reuseIdentifier = "Cell"
@@ -112,14 +88,15 @@ class MPPlanSettingsViewController: UITableViewController {
         cell.selectionStyle = .None
         
         switch (indexPath.section, indexPath.row) {
-        case (kSectionTitle, 0):
-            var cell = cell as! MPTableViewCellTextInput
-            cell.textLabel?.text = NSLocalizedString("Title", comment: "")
-            cell.textField.text = plan?.title
-            cell.didChange = { text in
-                self.plan?.title = text
-                self.title = self.plan?.title
-            }
+        case (kSectionNotifications, 0):
+            var cell = cell as! MPTableViewCellSwitch
+            cell.textLabel?.text = NSLocalizedString("Notifications", comment: "")
+//            if let on = person?.notify.boolValue {
+//                cell.switchItem.on = on
+//            }
+//            cell.didChange = { value in
+//                person?.notify = NSNumber(bool: value)
+//            }
             
         default:
             break
@@ -130,8 +107,8 @@ class MPPlanSettingsViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         switch (section) {
-        case kSectionTitle:
-            return NSLocalizedString("__Foother_Plan_Title", comment: "")
+        case kSectionNotifications:
+            return ""
             
         default:
             return ""
@@ -147,9 +124,10 @@ class MPPlanSettingsViewController: UITableViewController {
     }
     
     
-    /*
+    
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         switch indexPath.section {
+            
         default:
             return false
         }
@@ -163,7 +141,7 @@ class MPPlanSettingsViewController: UITableViewController {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
     }
-    */
+
     
     
     

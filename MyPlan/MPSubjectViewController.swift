@@ -287,7 +287,7 @@ class MPSubjectViewController: UITableViewController, NSFetchedResultsController
             }
             
         case (4, 0):
-            var alert = UIAlertController(
+            let alert = UIAlertController(
                 title: NSLocalizedString("Delete Subject", comment: ""),
                 message: NSLocalizedString("__Delete_Subject_Ask", comment: ""),
                 preferredStyle: .ActionSheet

@@ -121,6 +121,12 @@ class MPMenuViewController: UITableViewController, NSFetchedResultsControllerDel
         case (kSectionPersons, 0...self.tableView(self.tableView, numberOfRowsInSection: kSectionPersons)):
             let person = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Person
             cell.textLabel?.text = person.title
+            if person == (Settings.MR_findFirst() as! Settings).currentPerson {
+                cell.accessoryType = .Checkmark
+            }
+            else {
+                cell.accessoryType = .None
+            }
             
         case (kSectionSettings, 0):
             cell.textLabel?.text = NSLocalizedString("Settings", comment: "")
@@ -148,8 +154,6 @@ class MPMenuViewController: UITableViewController, NSFetchedResultsControllerDel
     
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         switch (indexPath.section, indexPath.row) {
-        case (kSectionPersons, 0...self.tableView(self.tableView, numberOfRowsInSection: kSectionPersons)):
-            return true
             
         default:
             return false
@@ -158,16 +162,21 @@ class MPMenuViewController: UITableViewController, NSFetchedResultsControllerDel
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            MagicalRecord.saveWithBlock { (var localContext:NSManagedObjectContext!) -> Void in
-                let person = self.fetchedResultsController.objectAtIndexPath(indexPath).MR_inContext(localContext) as! Person
-                person.MR_deleteInContext(localContext)
-                
-                localContext.MR_saveToPersistentStoreAndWait()
-            }
+            
         }
         else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
+    }
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        switch section {
+        case kSectionPersons:
+            return NSLocalizedString("Persons", comment: "")
+            
+        default:
+            return nil
+        }
     }
     
 
@@ -194,84 +203,12 @@ class MPMenuViewController: UITableViewController, NSFetchedResultsControllerDel
     // MARK: - Add Person
     
     func addPerson() {
-        MagicalRecord.saveWithBlock { (var localContext: NSManagedObjectContext!) -> Void in
-            var person:Person = Person.MR_createInContext(localContext) as! Person!
-            person.timestamp = NSDate()
-            person.title = NSLocalizedString("New Person", comment: "")
+        MagicalRecord.saveWithBlockAndWait({ (localContext: NSManagedObjectContext!) -> Void in
+            var person: Person = Person.MR_createInContext(localContext) as! Person!
+            person.setDefaults(localContext)
             
-            
-            var subjectDeutsch = Subject.MR_createInContext(localContext) as! Subject!
-            subjectDeutsch.timestamp = NSDate()
-            subjectDeutsch.person = person;
-            subjectDeutsch.notify = NSNumber(bool: true);
-            subjectDeutsch.usingMarks = NSNumber(bool: true);
-            subjectDeutsch.title = "Deutsch"
-            subjectDeutsch.titleShort = "D"
-            subjectDeutsch.color = UIColor.blackColor()
-            
-            var subjectEnglisch = Subject.MR_createInContext(localContext) as! Subject!
-            subjectEnglisch.timestamp = NSDate()
-            subjectEnglisch.person = person;
-            subjectEnglisch.notify = NSNumber(bool: true);
-            subjectEnglisch.usingMarks = NSNumber(bool: true);
-            subjectEnglisch.title = "Englisch"
-            subjectEnglisch.titleShort = "E"
-            subjectEnglisch.color = UIColor.redColor()
-            
-            var subjectMathe = Subject.MR_createInContext(localContext) as! Subject!
-            subjectMathe.timestamp = NSDate()
-            subjectMathe.person = person;
-            subjectMathe.notify = NSNumber(bool: true);
-            subjectMathe.usingMarks = NSNumber(bool: true);
-            subjectMathe.title = "Mathe"
-            subjectMathe.titleShort = "M"
-            subjectMathe.color = UIColor.blueColor()
-            
-            var subjectPhysik = Subject.MR_createInContext(localContext) as! Subject!
-            subjectPhysik.timestamp = NSDate()
-            subjectPhysik.person = person;
-            subjectPhysik.notify = NSNumber(bool: true);
-            subjectPhysik.usingMarks = NSNumber(bool: true);
-            subjectPhysik.title = "Physik"
-            subjectPhysik.titleShort = "Ph"
-            subjectPhysik.color = UIColor.whiteColor()
-            
-            var plan = Plan.MR_createInContext(localContext) as! Plan!
-            plan.title = "Plan"
-            plan.person = person
-            var days = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"]
-            var daysShort = ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"]
-            for i in 0...6 {
-                var day = Day.MR_createInContext(localContext) as! Day!
-                day.plan = plan
-                day.weekIndex = i
-                day.title = days[i]
-                day.titleShort = daysShort[i]
-            }
-            
-            var markGroup = MarkGroup.MR_createInContext(localContext) as! MarkGroup!
-            markGroup.title = "Noten"
-            markGroup.person = person
-            
-            var time0 = DefaultTime.MR_createInContext(localContext) as! DefaultTime
-            time0.person = person
-            time0.beginDate = MPDate(houre: 7, minute: 45, seconds: 00)
-            time0.endDate = MPDate(houre: 9, minute: 15, seconds: 00)
-            
-            var time1 = DefaultTime.MR_createInContext(localContext) as! DefaultTime
-            time1.person = person
-            time1.beginDate = MPDate(houre: 9, minute: 35, seconds: 00)
-            time1.endDate = MPDate(houre: 11, minute: 05, seconds: 00)
-            
-            var time2 = DefaultTime.MR_createInContext(localContext) as! DefaultTime
-            time2.person = person
-            time2.beginDate = MPDate(houre: 11, minute: 25, seconds: 00)
-            time2.endDate = MPDate(houre: 12, minute: 55, seconds: 00)
-            
-            localContext.MR_saveToPersistentStoreWithCompletion({ (var success:Bool, var error:NSError!) -> Void in
-//                self.tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .Fade)
-            })
-        }
+            localContext.MR_saveToPersistentStoreAndWait()
+        })
     }
     
     

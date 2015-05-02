@@ -17,119 +17,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MPMenuViewControllerDeleg
     var menuNavigationController: UINavigationController?
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        
         MagicalRecord.setupCoreDataStackWithStoreNamed("Data.xcdatamodeld")
         
-        window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        
-        var menuViewController = MPMenuViewController()
-        
-        
-        
-        if (Person.MR_countOfEntities() == 0) {
-            MagicalRecord.saveWithBlockAndWait { (var localContext: NSManagedObjectContext!) -> Void in
-                var person:Person = Person.MR_createInContext(localContext) as! Person!
-                person.timestamp = NSDate()
-                person.title = NSLocalizedString("New Person", comment: "")
+        if (Settings.MR_countOfEntities() == 0) {
+            MagicalRecord.saveWithBlockAndWait({ (localContext: NSManagedObjectContext!) -> Void in
+                var person: Person = Person.MR_createInContext(localContext) as! Person!
+                person.setDefaults(localContext)
                 
-                
-                var subjectDeutsch = Subject.MR_createInContext(localContext) as! Subject!
-                subjectDeutsch.timestamp = NSDate()
-                subjectDeutsch.person = person;
-                subjectDeutsch.notify = NSNumber(bool: true);
-                subjectDeutsch.usingMarks = NSNumber(bool: true);
-                subjectDeutsch.title = "Deutsch"
-                subjectDeutsch.titleShort = "D"
-                subjectDeutsch.color = UIColor.blackColor()
-                
-                var subjectEnglisch = Subject.MR_createInContext(localContext) as! Subject!
-                subjectEnglisch.timestamp = NSDate()
-                subjectEnglisch.person = person;
-                subjectEnglisch.notify = NSNumber(bool: true);
-                subjectEnglisch.usingMarks = NSNumber(bool: true);
-                subjectEnglisch.title = "Englisch"
-                subjectEnglisch.titleShort = "E"
-                subjectEnglisch.color = UIColor.redColor()
-                
-                var subjectMathe = Subject.MR_createInContext(localContext) as! Subject!
-                subjectMathe.timestamp = NSDate()
-                subjectMathe.person = person;
-                subjectMathe.notify = NSNumber(bool: true);
-                subjectMathe.usingMarks = NSNumber(bool: true);
-                subjectMathe.title = "Mathe"
-                subjectMathe.titleShort = "M"
-                subjectMathe.color = UIColor.blueColor()
-                
-                var subjectPhysik = Subject.MR_createInContext(localContext) as! Subject!
-                subjectPhysik.timestamp = NSDate()
-                subjectPhysik.person = person;
-                subjectPhysik.notify = NSNumber(bool: true);
-                subjectPhysik.usingMarks = NSNumber(bool: true);
-                subjectPhysik.title = "Physik"
-                subjectPhysik.titleShort = "Ph"
-                subjectPhysik.color = UIColor.whiteColor()
-                
-                
-                var plan = Plan.MR_createInContext(localContext) as! Plan!
-                plan.title = "Plan"
-                plan.person = person
-                var days = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"]
-                var daysShort = ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"]
-                for i in 0...6 {
-                    var day = Day.MR_createInContext(localContext) as! Day!
-                    day.plan = plan
-                    day.weekIndex = i
-                    day.title = days[i]
-                    day.titleShort = daysShort[i]
-                }
-                
-                var markGroup = MarkGroup.MR_createInContext(localContext) as! MarkGroup!
-                markGroup.title = "Noten"
-                markGroup.person = person
-                
-                
-                
-                var time0 = DefaultTime.MR_createInContext(localContext) as! DefaultTime
-                time0.person = person
-                time0.beginDate = MPDate(houre: 7, minute: 45, seconds: 00)
-                time0.endDate = MPDate(houre: 9, minute: 15, seconds: 00)
-
-                var time1 = DefaultTime.MR_createInContext(localContext) as! DefaultTime
-                time1.person = person
-                time1.beginDate = MPDate(houre: 9, minute: 35, seconds: 00)
-                time1.endDate = MPDate(houre: 11, minute: 05, seconds: 00)
-                
-                var time2 = DefaultTime.MR_createInContext(localContext) as! DefaultTime
-                time2.person = person
-                time2.beginDate = MPDate(houre: 11, minute: 25, seconds: 00)
-                time2.endDate = MPDate(houre: 12, minute: 55, seconds: 00)
-                
+                var settings = Settings.MR_createInContext(localContext) as! Settings
+                settings.setDefaults()
+                settings.currentPerson = person.MR_inContext(localContext) as! Person
                 
                 localContext.MR_saveToPersistentStoreAndWait()
-            }
+            })
         }
         
+        let settings = Settings.MR_findFirst() as! Settings
         
-        var personViewController = MPPersonViewController(person: Person.MR_findFirst() as! Person)
+        let menuViewController = MPMenuViewController()
         menuViewController.delegate = self
         
         menuNavigationController = UINavigationController(rootViewController: menuViewController)
-        var personNavigationController = UINavigationController(rootViewController: personViewController)
         
-        revealViewController = SWRevealViewController(rearViewController: menuNavigationController, frontViewController: personNavigationController)
-        
-        
+        revealViewController = SWRevealViewController(rearViewController: menuNavigationController, frontViewController: nil)
         revealViewController?.rearViewRevealWidth = 250;
         revealViewController?.rearViewRevealOverdraw = 0;
         revealViewController?.bounceBackOnOverdraw = true;
         revealViewController?.stableDragOnOverdraw = true;
-//        revealViewController?.delegate = self;
         
+        openPerson(settings.currentPerson)
+        
+        window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window?.rootViewController = revealViewController
-        
         window?.makeKeyAndVisible()
-        
-        
         
         return true
     }
@@ -163,26 +83,41 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MPMenuViewControllerDeleg
     // MARK: - MPMenuViewDelegate
     
     func openPerson(person:Person) {
-        var personViewController = MPPersonViewController(person: person)
-        var nav = UINavigationController(rootViewController: personViewController)
-        self.revealViewController?.setFrontViewController(nav, animated: true)
-        self.revealViewController?.revealToggleAnimated(true)
-    }
-    func openPlan(plan: Plan) {
-        var planVC = MPPlanViewController(plan: plan)
-        var nav = UINavigationController(rootViewController: planVC)
-        self.revealViewController?.setFrontViewController(nav, animated: true)
-        self.revealViewController?.revealToggleAnimated(true)
-    }
-    func openMarkGroup(markGroup: MarkGroup) {
-        var marksVC = MPMarkGroupViewController(markGroup: markGroup)
-        var nav = UINavigationController(rootViewController: marksVC)
-        self.revealViewController?.setFrontViewController(nav, animated: true)
-        self.revealViewController?.revealToggleAnimated(true)
-    }
-    func openSettings() {
+        MagicalRecord.saveWithBlock { (localContext: NSManagedObjectContext!) -> Void in
+            if let settings = (Settings.MR_findFirstInContext(localContext) as? Settings)  {
+                settings.currentPerson = person.MR_inContext(localContext) as! Person
+                
+                localContext.MR_saveToPersistentStoreAndWait()
+            }
+        }
         
+        let personVC = MPPersonViewController(person: person)
+        let nav = UINavigationController(rootViewController: personVC)
+        self.revealViewController?.setFrontViewController(nav, animated: true)
+        self.revealViewController?.revealToggleAnimated(true)
     }
+    
+    func openSettings() {
+        let settingsVC = MPSettingsViewController()
+        let nav = UINavigationController(rootViewController: settingsVC)
+        self.revealViewController?.setFrontViewController(nav, animated: true)
+        self.revealViewController?.revealToggleAnimated(true)
+    }
+    
+    func deletePerson(person:Person) {
+        MagicalRecord.saveWithBlock { (localContext: NSManagedObjectContext!) -> Void in
+            let person = person.MR_inContext(localContext) as? Person
+            person?.MR_deleteInContext(localContext)
+            
+            localContext.MR_saveToPersistentStoreWithCompletion({ (bool: Bool, error: NSError!) -> Void in
+                self.openPerson(Person.MR_findFirstWithPredicate(NSPredicate(format: "(self != %@)", person!)) as! Person)
+            })
+        }
+    }
+    
+    
+    
+    
     
 }
 

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MPPersonSettingsDefaultTimesViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+class MPPersonSettingsDefaultTimesViewController: UITableViewController, NSFetchedResultsControllerDelegate, MPDatePickerViewControllerDelegate {
     
     let kSectionDefaultTime = 0
     
@@ -55,6 +55,8 @@ class MPPersonSettingsDefaultTimesViewController: UITableViewController, NSFetch
         self.person = person
         
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        
+        self.title = NSLocalizedString("Times", comment: "")
     }
 
     required init!(coder aDecoder: NSCoder!) {
@@ -73,6 +75,7 @@ class MPPersonSettingsDefaultTimesViewController: UITableViewController, NSFetch
     // MARK: - View Livestyle
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         
         // Add mark
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "addDefaultTime")
@@ -119,6 +122,7 @@ class MPPersonSettingsDefaultTimesViewController: UITableViewController, NSFetch
         case (kSectionDefaultTime, 0...self.tableView(self.tableView, numberOfRowsInSection: kSectionDefaultTime)):
             let defaultTime = self.fetchedResultsController.objectAtIndexPath(indexPath) as! DefaultTime
             cell.textLabel?.text = "\(defaultTime.beginDate.description) \(defaultTime.endDate.description)"
+            cell.accessoryType = .DisclosureIndicator
             
         default:
             break
@@ -136,6 +140,10 @@ class MPPersonSettingsDefaultTimesViewController: UITableViewController, NSFetch
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         switch (indexPath.section, indexPath.row) {
+        case (kSectionDefaultTime, 0...self.tableView(self.tableView, numberOfRowsInSection: kSectionDefaultTime)):
+            let defaultTime = self.fetchedResultsController.objectAtIndexPath(indexPath) as! DefaultTime
+            let timeVC = MPDatePickerViewController(delegate: self, dateFrom: defaultTime.beginDate, dateTo: defaultTime.endDate)
+            self.navigationController?.pushViewController(timeVC, animated: true)
             
         default:
             break
@@ -190,6 +198,18 @@ class MPPersonSettingsDefaultTimesViewController: UITableViewController, NSFetch
             }
         }
     }
+    
+    
+    
+    
+    
+    // MARK: - MPDatePickerViewControllerDelegate
+    
+    func didPickDate(color: UIColor) {
+        
+    }
+    
+    
     
     
     

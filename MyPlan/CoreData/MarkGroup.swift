@@ -11,6 +11,7 @@ import CoreData
 
 @objc(MarkGroup) class MarkGroup: NSManagedObject {
 
+    @NSManaged var timestamp: NSDate
     @NSManaged var title: String
     @NSManaged var marks: NSSet
     @NSManaged var person: Person

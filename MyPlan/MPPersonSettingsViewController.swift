@@ -22,6 +22,7 @@ class MPPersonSettingsViewController: UITableViewController, NSFetchedResultsCon
     let kSectionTitle = 0
     let kSectionIO = 1
     let kSectionTimes = 2
+    let kSectionDeletePerson = 3
     
     var person: Person?
     var delegate: MPPersonSettingsViewControllerDelegate?
@@ -36,6 +37,7 @@ class MPPersonSettingsViewController: UITableViewController, NSFetchedResultsCon
         super.init(style: UITableViewStyle.Grouped)
         
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "CellButton")
         self.tableView.registerClass(MPTableViewCellTextInput.self, forCellReuseIdentifier: "TextInput")
         self.tableView.registerClass(MPTableViewCellSwitch.self, forCellReuseIdentifier: "Switch")
         
@@ -85,7 +87,7 @@ class MPPersonSettingsViewController: UITableViewController, NSFetchedResultsCon
     // MARK: - Table view data source
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 3
+        return 4
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -93,9 +95,16 @@ class MPPersonSettingsViewController: UITableViewController, NSFetchedResultsCon
         case kSectionTitle, kSectionIO, kSectionTimes:
             return 1
             
+        case kSectionDeletePerson:
+            if (Person.MR_countOfEntities() > 1) {
+                return 1
+            }
+            
         default:
-            return 0;
+            break
         }
+        
+        return 0;
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -106,12 +115,16 @@ class MPPersonSettingsViewController: UITableViewController, NSFetchedResultsCon
             
         case (kSectionIO, 0):
             reuseIdentifier = "Switch"
+        
+        case (kSectionDeletePerson, 0):
+            reuseIdentifier = "CellButton"
             
         default:
             reuseIdentifier = "Cell"
         }
         
         let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as! UITableViewCell
+        cell.selectionStyle = .None
         
         switch (indexPath.section, indexPath.row) {
         case (kSectionTitle, 0):
@@ -136,8 +149,14 @@ class MPPersonSettingsViewController: UITableViewController, NSFetchedResultsCon
             
         
         case (kSectionTimes, 0):
-            cell.textLabel?.text = "Times"
+            cell.textLabel?.text = NSLocalizedString("Times", comment: "")
             cell.accessoryType = .DisclosureIndicator
+            
+            
+        case (kSectionDeletePerson, 0):
+            cell.textLabel?.text = NSLocalizedString("Delete Person", comment: "")
+            cell.textLabel?.textAlignment = .Center
+            cell.textLabel?.textColor = UIColor.redColor()
             
             
         default:
@@ -154,6 +173,27 @@ class MPPersonSettingsViewController: UITableViewController, NSFetchedResultsCon
             var defaultTimesVC = MPPersonSettingsDefaultTimesViewController(person: self.person!)
             self.navigationController?.pushViewController(defaultTimesVC, animated: true)
             
+        case (kSectionDeletePerson, 0):
+            let alert = UIAlertController(
+                title: NSLocalizedString("Delete Person", comment: ""),
+                message: NSLocalizedString("__Delete_Person_Ask", comment: ""),
+                preferredStyle: .ActionSheet
+            )
+            
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Delete", comment: ""), style: UIAlertActionStyle.Destructive, handler: { (action: UIAlertAction!) -> Void in
+                if let person = self.person {
+                    var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                    appDelegate.deletePerson(person)
+                }
+            }))
+            
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: UIAlertActionStyle.Cancel, handler: { (action: UIAlertAction!) -> Void in
+                
+            }))
+            
+            self.presentViewController(alert, animated: true, completion: nil)
+            
+            
         default:
             break
         }
@@ -162,10 +202,15 @@ class MPPersonSettingsViewController: UITableViewController, NSFetchedResultsCon
     override func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         switch (section) {
         case kSectionTitle:
-            return "Title of the Person"
+            return NSLocalizedString("__Foother_PersonSettings_Title", comment: "")
             
         case kSectionTimes:
-            return "Set custom times to add houres faster"
+            return NSLocalizedString("__Foother_PersonSettings_Times", comment: "")
+            
+        case kSectionDeletePerson:
+            if (Person.MR_countOfEntities() > 1) {
+                return NSLocalizedString("__Delete_Person_Ask", comment: "")
+            }
             
         default:
             break

@@ -22,11 +22,15 @@
 "Notifications" =   "Benachrichtigung";
 "Using marks" =     "Notenmanager";
 "Delete Subject" =  "Fach löschen";
+"Delete Person" =   "Person löschen";
 "Cancel" =          "Abbrechen";
 "Done" =            "Fertig";
 "Next" =            "Weiter";
 "Persons" =         "Personen";
 "New..." =          "Neu...";
+"Times" =           "Zeiten";
+"Marks" =           "Noten";
+"Plan" =            "Plan";
 
 "Red" =             "Rot";
 "Orange" =          "Orange";
@@ -37,11 +41,38 @@
 "White" =           "Weiß";
 "Brown" =           "Braun";
 
+"Monday" =          "Montag";
+"Tuesday" =         "Dienstag";
+"Wednesday" =       "Mittwoch";
+"Thursday" =        "Donnerstag";
+"Friday" =          "Freitag";
+"Saturday" =        "Samstag";
+"Sunday" =          "Sonntag";
+
+"Mo" =              "Mo";
+"Tu" =              "Di";
+"We" =              "Mi";
+"Th" =              "Do";
+"Fr" =              "Fr";
+"Sa" =              "Sa";
+"Su" =              "So";
+
+"German" =          "Deutsch";
+"Ger" =             "D";
+"English" =         "Englisch";
+"E" =               "E";
+"Maths" =           "Mathe";
+"M" =               "M";
+"Physics" =         "Physik";
+"Ph" =              "Ph";
 
 
 
 "__Delete_Subject_Ask" =
     "Das Fach und alle davon abhängigen Daten wie Stunden und Termine löschen.\n Achtung: Kann nicht Rückgängig gemacht werden!";
+
+"__Delete_Person_Ask" =
+    "Die Person und alle davon abhängigen Daten wie Fächer, Stunden und Termine löschen.\n Achtung: Kann nicht Rückgängig gemacht werden!";
 
 "__Foother_Subject_Attribute" =
     "Verschiedene Attribute des Faches";
@@ -63,3 +94,13 @@
 
 "__Foother_Plan_Settings" =
     "Ändere Title, Kalenderwoche und mehr";
+
+"__Foother_PersonSettings_Title" =
+    "Titel der Person";
+
+"__Foother_PersonSettings_Times" =
+    "Füge Zeiten hinzu, um Stunden schneller hinzuzufügen";
+
+
+
+

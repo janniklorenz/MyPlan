@@ -43,6 +43,11 @@ class MPMarkViewController: UITableViewController, NSFetchedResultsControllerDel
 //    var _fetchedResultsController: NSFetchedResultsController?
     
     
+    
+    
+    
+    // MARK: - Init
+    
     required init(mark: Mark) {
         super.init(style: UITableViewStyle.Grouped)
         
@@ -62,6 +67,8 @@ class MPMarkViewController: UITableViewController, NSFetchedResultsControllerDel
     
     
     
+    
+    // MARK: - View Livestyle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -99,7 +106,6 @@ class MPMarkViewController: UITableViewController, NSFetchedResultsControllerDel
         return cell
     }
     
-
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
     }
@@ -143,7 +149,10 @@ class MPMarkViewController: UITableViewController, NSFetchedResultsControllerDel
     
     
     
+    
+    
     // MARK: - removeMark
+    
     func removeMark() {
         
         let actionSheetController: UIAlertController = UIAlertController(title: "Delete", message: "Delete \(self.mark?.title) ?", preferredStyle: .Alert)
@@ -163,19 +172,13 @@ class MPMarkViewController: UITableViewController, NSFetchedResultsControllerDel
     
     
     
+    
     // MARK: - NSFetchedResultsControllerDelegate
     
-    /* called first
-    begins update to `UITableView`
-    ensures all updates are animated simultaneously */
     func controllerWillChangeContent(controller: NSFetchedResultsController) {
         self.tableView.beginUpdates()
     }
     
-    /* called:
-    - when a new model is created
-    - when an existing model is updated
-    - when an existing model is deleted */
     func controller(controller: NSFetchedResultsController, didChangeObject object: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
             switch type {
             case .Insert:
@@ -193,8 +196,6 @@ class MPMarkViewController: UITableViewController, NSFetchedResultsControllerDel
             }
     }
     
-    /* called last
-    tells `UITableView` updates are complete */
     func controllerDidChangeContent(controller: NSFetchedResultsController) {
         self.tableView.endUpdates()
     }

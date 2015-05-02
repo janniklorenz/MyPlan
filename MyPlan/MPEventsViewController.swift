@@ -17,6 +17,10 @@ class MPEventsViewController: UITableViewController, NSFetchedResultsControllerD
     var person: Person?
     
     
+    
+    
+    // MARK: - Init
+    
     required init(person: Person) {
         super.init(style: UITableViewStyle.Grouped)
         
@@ -36,6 +40,8 @@ class MPEventsViewController: UITableViewController, NSFetchedResultsControllerD
     
     
     
+    
+    // MARK: - View Livestyle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +67,8 @@ class MPEventsViewController: UITableViewController, NSFetchedResultsControllerD
 //        case 0:
 //            let info = self.fetchedResultsController.sections![section] as NSFetchedResultsSectionInfo
 //            return info.numberOfObjects
-        default: return 0;
+        default:
+            return 0;
         }
     }
     
@@ -124,9 +131,9 @@ class MPEventsViewController: UITableViewController, NSFetchedResultsControllerD
     // MARK: - close
     
     func close() {
-        self.dismissViewControllerAnimated(true, completion: { () -> Void in
+        self.dismissViewControllerAnimated(true) {
             
-        })
+        }
     }
     
     

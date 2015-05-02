@@ -47,7 +47,11 @@ class MPColorPickerViewController: UITableViewController {
     }
     
     
+    
+    
+    
     // MARK: - Init
+    
     init(delegate: MPColorPickerViewControllerDelegate) {
         super.init(style: .Grouped)
         
@@ -70,8 +74,10 @@ class MPColorPickerViewController: UITableViewController {
     
     
     
+    // MARK: - View Livestyle
+    
     override func viewWillDisappear(animated: Bool) {
-        self.delegate?.didPickColor(self.color)
+       self.delegate?.didPickColor(self.color)
         
         if let navigationController = self.navigationController {
             if let oldNavBarSettings = self._oldNavBarSettings {
@@ -87,6 +93,7 @@ class MPColorPickerViewController: UITableViewController {
     
 
     // MARK: - Table view data source
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 2
     }
@@ -103,7 +110,6 @@ class MPColorPickerViewController: UITableViewController {
             return 0
         }
     }
-
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
@@ -174,8 +180,6 @@ class MPColorPickerViewController: UITableViewController {
         return cell
     }
     
-    
-    
     override func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         switch (section) {
         case 1:
@@ -185,9 +189,6 @@ class MPColorPickerViewController: UITableViewController {
             return "";
         }
     }
-    
-
-    
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         switch (indexPath.section, indexPath.row) {

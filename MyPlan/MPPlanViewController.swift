@@ -43,6 +43,11 @@ class MPPlanViewController: UITableViewController, NSFetchedResultsControllerDel
     var _fetchedResultsController: NSFetchedResultsController?
     
     
+    
+    
+    
+    // MARK: - Init
+    
     required init(plan: Plan) {
         super.init(style: UITableViewStyle.Grouped)
         
@@ -64,6 +69,8 @@ class MPPlanViewController: UITableViewController, NSFetchedResultsControllerDel
     
     
     
+    // MARK: - View Livestyle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -72,6 +79,7 @@ class MPPlanViewController: UITableViewController, NSFetchedResultsControllerDel
             self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "RevalIcon"), style: UIBarButtonItemStyle.Bordered, target: self.revealViewController(), action: "revealToggle:")
         }
     }
+    
     
     
     
@@ -105,7 +113,6 @@ class MPPlanViewController: UITableViewController, NSFetchedResultsControllerDel
         return cell
     }
     
-
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let day = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Day
         var dayVC = MPDayViewController(day: day)
@@ -153,21 +160,12 @@ class MPPlanViewController: UITableViewController, NSFetchedResultsControllerDel
     
     
     
-    
-    
     // MARK: - NSFetchedResultsControllerDelegate
     
-    /* called first
-    begins update to `UITableView`
-    ensures all updates are animated simultaneously */
     func controllerWillChangeContent(controller: NSFetchedResultsController) {
         self.tableView.beginUpdates()
     }
     
-    /* called:
-    - when a new model is created
-    - when an existing model is updated
-    - when an existing model is deleted */
     func controller(controller: NSFetchedResultsController, didChangeObject object: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
             switch type {
             case .Insert:
@@ -185,8 +183,6 @@ class MPPlanViewController: UITableViewController, NSFetchedResultsControllerDel
             }
     }
     
-    /* called last
-    tells `UITableView` updates are complete */
     func controllerDidChangeContent(controller: NSFetchedResultsController) {
         self.tableView.endUpdates()
     }

@@ -43,6 +43,11 @@ class MPMarkGroupViewController: UITableViewController, NSFetchedResultsControll
     var _fetchedResultsController: NSFetchedResultsController?
     
     
+    
+    
+    
+    // MARK: - Init
+    
     required init(markGroup: MarkGroup) {
         super.init(style: UITableViewStyle.Grouped)
         
@@ -61,6 +66,8 @@ class MPMarkGroupViewController: UITableViewController, NSFetchedResultsControll
     
     
     
+    
+    // MARK: - View Livestyle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,7 +109,6 @@ class MPMarkGroupViewController: UITableViewController, NSFetchedResultsControll
         return cell
     }
     
-
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let subject = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Subject
         var markVC = MPMarkGroupDetailViewController(markGroup: self.markGroup!, subject: subject)
@@ -151,17 +157,10 @@ class MPMarkGroupViewController: UITableViewController, NSFetchedResultsControll
     
     // MARK: - NSFetchedResultsControllerDelegate
     
-    /* called first
-    begins update to `UITableView`
-    ensures all updates are animated simultaneously */
     func controllerWillChangeContent(controller: NSFetchedResultsController) {
         self.tableView.beginUpdates()
     }
     
-    /* called:
-    - when a new model is created
-    - when an existing model is updated
-    - when an existing model is deleted */
     func controller(controller: NSFetchedResultsController, didChangeObject object: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
             switch type {
             case .Insert:
@@ -179,8 +178,6 @@ class MPMarkGroupViewController: UITableViewController, NSFetchedResultsControll
             }
     }
     
-    /* called last
-    tells `UITableView` updates are complete */
     func controllerDidChangeContent(controller: NSFetchedResultsController) {
         self.tableView.endUpdates()
     }

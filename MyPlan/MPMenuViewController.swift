@@ -53,6 +53,9 @@ class MPMenuViewController: UITableViewController, NSFetchedResultsControllerDel
     
     
     
+    
+    // MARK: - Init
+    
     required init() {
         super.init(style: UITableViewStyle.Grouped)
         
@@ -70,6 +73,8 @@ class MPMenuViewController: UITableViewController, NSFetchedResultsControllerDel
     
     
     
+    
+    // MARK: - View Livestyle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -149,7 +154,6 @@ class MPMenuViewController: UITableViewController, NSFetchedResultsControllerDel
         return 44
     }
     
-
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let info = self.personFetchedResultsController.sections![0] as! NSFetchedResultsSectionInfo
         if (info.numberOfObjects == indexPath.section) {
@@ -177,21 +181,14 @@ class MPMenuViewController: UITableViewController, NSFetchedResultsControllerDel
             }
         }
     }
-
-
-    // Override to support conditional editing of the table view.
+    
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return NO if you do not want the specified item to be editable.
         return true
     }
     
-
-    
-    // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            // Delete the row from the data source
-            
             MagicalRecord.saveWithBlock { (var localContext:NSManagedObjectContext!) -> Void in
                 let item = self.personFetchedResultsController.objectAtIndexPath(NSIndexPath(forRow: indexPath.section, inSection: 0)) as! Person
                 item.MR_inContext(localContext).MR_deleteEntity()
@@ -200,9 +197,8 @@ class MPMenuViewController: UITableViewController, NSFetchedResultsControllerDel
                     
                 })
             }
-            
-//            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
+        }
+        else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
@@ -227,6 +223,7 @@ class MPMenuViewController: UITableViewController, NSFetchedResultsControllerDel
     
     
     
+    
     // MARK: - Add Person
     
     func addPerson() {
@@ -237,6 +234,7 @@ class MPMenuViewController: UITableViewController, NSFetchedResultsControllerDel
             
             
             var subjectDeutsch = Subject.MR_createInContext(localContext) as! Subject!
+            subjectDeutsch.timestamp = NSDate()
             subjectDeutsch.person = person;
             subjectDeutsch.notify = NSNumber(bool: true);
             subjectDeutsch.title = "Deutsch"
@@ -244,6 +242,7 @@ class MPMenuViewController: UITableViewController, NSFetchedResultsControllerDel
             subjectDeutsch.color = UIColor.blackColor()
             
             var subjectEnglisch = Subject.MR_createInContext(localContext) as! Subject!
+            subjectEnglisch.timestamp = NSDate()
             subjectEnglisch.person = person;
             subjectEnglisch.notify = NSNumber(bool: true);
             subjectEnglisch.title = "Englisch"
@@ -251,6 +250,7 @@ class MPMenuViewController: UITableViewController, NSFetchedResultsControllerDel
             subjectEnglisch.color = UIColor.redColor()
             
             var subjectMathe = Subject.MR_createInContext(localContext) as! Subject!
+            subjectMathe.timestamp = NSDate()
             subjectMathe.person = person;
             subjectMathe.notify = NSNumber(bool: true);
             subjectMathe.title = "Mathe"
@@ -258,12 +258,12 @@ class MPMenuViewController: UITableViewController, NSFetchedResultsControllerDel
             subjectMathe.color = UIColor.blueColor()
             
             var subjectPhysik = Subject.MR_createInContext(localContext) as! Subject!
+            subjectPhysik.timestamp = NSDate()
             subjectPhysik.person = person;
             subjectPhysik.notify = NSNumber(bool: true);
             subjectPhysik.title = "Physik"
             subjectPhysik.titleShort = "Ph"
             subjectPhysik.color = UIColor.whiteColor()
-            
             
             var plan = Plan.MR_createInContext(localContext) as! Plan!
             plan.title = "Plan"
@@ -282,6 +282,21 @@ class MPMenuViewController: UITableViewController, NSFetchedResultsControllerDel
             markGroup.title = "Noten"
             markGroup.person = person
             
+            var time0 = DefaultTime.MR_createInContext(localContext) as! DefaultTime
+            time0.person = person
+            time0.beginDate = MPDate(houre: 7, minute: 45, seconds: 00)
+            time0.endDate = MPDate(houre: 9, minute: 15, seconds: 00)
+            
+            var time1 = DefaultTime.MR_createInContext(localContext) as! DefaultTime
+            time1.person = person
+            time1.beginDate = MPDate(houre: 9, minute: 35, seconds: 00)
+            time1.endDate = MPDate(houre: 11, minute: 05, seconds: 00)
+            
+            var time2 = DefaultTime.MR_createInContext(localContext) as! DefaultTime
+            time2.person = person
+            time2.beginDate = MPDate(houre: 11, minute: 25, seconds: 00)
+            time2.endDate = MPDate(houre: 12, minute: 55, seconds: 00)
+            
             localContext.MR_saveToPersistentStoreWithCompletion({ (var success:Bool, var error:NSError!) -> Void in
 //                self.tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: .Fade)
             })
@@ -296,17 +311,9 @@ class MPMenuViewController: UITableViewController, NSFetchedResultsControllerDel
     
     // MARK: - NSFetchedResultsControllerDelegate
     
-    /* called first
-    begins update to `UITableView`
-    ensures all updates are animated simultaneously */
     func controllerWillChangeContent(controller: NSFetchedResultsController) {
         self.tableView.beginUpdates()
     }
-    
-    /* called:
-    - when a new model is created
-    - when an existing model is updated
-    - when an existing model is deleted */
     
     func controller(controller: NSFetchedResultsController, didChangeObject object: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
         switch type {
@@ -326,8 +333,6 @@ class MPMenuViewController: UITableViewController, NSFetchedResultsControllerDel
         }
     }
     
-    /* called last
-    tells `UITableView` updates are complete */
     func controllerDidChangeContent(controller: NSFetchedResultsController) {
         self.tableView.endUpdates()
     }

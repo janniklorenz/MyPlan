@@ -11,7 +11,7 @@ import UIKit
 let reuseIdentifier = "Cell"
 
 
-class MPPersonViewController: UICollectionViewController, NSFetchedResultsControllerDelegate, MPSubjectsViewControllerDefault, FMMosaicLayoutDelegate {
+class MPPersonViewController: UICollectionViewController, NSFetchedResultsControllerDelegate, MPSubjectsViewControllerDefault, FMMosaicLayoutDelegate, MPPersonSettingsViewControllerDelegate {
     
     enum Dash {
         case ShowPlan(Plan)
@@ -28,23 +28,19 @@ class MPPersonViewController: UICollectionViewController, NSFetchedResultsContro
     var _person: Person?
     var person: Person? {
         set(newPerson) {
-            if (_person != newPerson) {
-                _person = newPerson
+           _person = newPerson
                 
-                cells = [.Settings, .Subjects, .Events, .Homeworks, .Week]
-                for plan in _person?.plans.allObjects as! [Plan] {
-                    cells.append(.ShowPlan(plan))
-                }
-                for markGroup in _person?.markGroups.allObjects as! [MarkGroup] {
-                    cells.append(.ShowMarkGroup(markGroup))
-                }
-                
-                [self.collectionView?.reloadData()]
-                
-                println(_person?.objectID)
-                
-                self.title = self.person?.title
+            cells = [.Settings, .Subjects, .Events, .Homeworks, .Week]
+            for plan in _person?.plans.allObjects as! [Plan] {
+                cells.append(.ShowPlan(plan))
             }
+            for markGroup in _person?.markGroups.allObjects as! [MarkGroup] {
+                cells.append(.ShowMarkGroup(markGroup))
+            }
+            
+            self.collectionView?.reloadData()
+            
+            self.title = self.person?.title
         }
         get {
             if (_person == nil) {
@@ -54,6 +50,11 @@ class MPPersonViewController: UICollectionViewController, NSFetchedResultsContro
         }
     }
     
+    
+    
+    
+    
+    // MARK: - Init
     
     required init(person : Person) {
 //        var layout = UICollectionViewFlowLayout() //DMRCollectionViewLayout()
@@ -75,6 +76,11 @@ class MPPersonViewController: UICollectionViewController, NSFetchedResultsContro
     }
     
     
+    
+    
+    
+    
+    // MARK: - View Livestyle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,6 +104,8 @@ class MPPersonViewController: UICollectionViewController, NSFetchedResultsContro
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
     
     
 
@@ -138,16 +146,11 @@ class MPPersonViewController: UICollectionViewController, NSFetchedResultsContro
             cell.titleLabel.text = "Week"
         }
         
-        
-        
-        
         // Configure the cell
         cell.backgroundColor = UIColor.getRandomColor()
     
         return cell
     }
-
-    // MARK: UICollectionViewDelegate
 
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         switch cells[indexPath.row] {
@@ -162,8 +165,8 @@ class MPPersonViewController: UICollectionViewController, NSFetchedResultsContro
         case .Settings:
             if let person = self.person {
                 let settingsVC = MPPersonSettingsViewController(person: person)
-                var nav = UINavigationController(rootViewController: settingsVC)
-                self.presentViewController(nav, animated: true) {}
+                settingsVC.delegate = self
+                self.navigationController?.pushViewController(settingsVC, animated: true)
             }
             
         case .Subjects:
@@ -219,6 +222,7 @@ class MPPersonViewController: UICollectionViewController, NSFetchedResultsContro
     
     }
     */
+    
     
     
     
@@ -340,6 +344,13 @@ class MPPersonViewController: UICollectionViewController, NSFetchedResultsContro
         
     
     
+    // MARK: - MPPersonSettingsViewControllerDelegate
+    func didFinishEditingPerson(person: Person) {
+        self.person = person
+    }
+    func didDeletePerson(person: Person) {
+        
+    }
     
     
 

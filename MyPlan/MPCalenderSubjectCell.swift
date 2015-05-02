@@ -36,6 +36,11 @@ class MPCalenderSubjectCell: UICollectionViewCell {
         }
     }
     
+    
+    
+    
+    // MARK: - Init
+    
     override init(frame: CGRect) {
         timeLabel = UILabel()
         titleLabel = UILabel()
@@ -51,7 +56,7 @@ class MPCalenderSubjectCell: UICollectionViewCell {
         titleLabel.autoresizingMask = .FlexibleHeight | .FlexibleWidth
         self.addSubview(titleLabel)
         
-        lineView.frame = CGRectMake(0, 0, 1, self.frame.size.height)
+        lineView.frame = CGRectMake(0, 0, 3, self.frame.size.height)
         lineView.autoresizingMask = .FlexibleWidth | .FlexibleHeight
         self.contentView.addSubview(lineView)
     }

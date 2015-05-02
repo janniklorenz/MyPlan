@@ -2,7 +2,7 @@
 //  Person.swift
 //  
 //
-//  Created by Jannik Lorenz on 26.04.15.
+//  Created by Jannik Lorenz on 02.05.15.
 //
 //
 
@@ -13,10 +13,12 @@ import CoreData
 
     @NSManaged var timestamp: NSDate
     @NSManaged var title: String
+    @NSManaged var notify: NSNumber
     @NSManaged var events: NSSet
+    @NSManaged var images: NSSet
     @NSManaged var markGroups: NSSet
     @NSManaged var plans: NSSet
     @NSManaged var subjects: NSSet
-    @NSManaged var images: NSSet
+    @NSManaged var defaultTime: NSSet
 
 }

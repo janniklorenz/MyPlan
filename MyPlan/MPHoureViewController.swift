@@ -14,34 +14,36 @@ class MPHoureViewController: UITableViewController, NSFetchedResultsControllerDe
     
     var houre: Houre?
     
-//    var fetchedResultsController: NSFetchedResultsController {
-//        
-//        if self._fetchedResultsController != nil {
-//            return self._fetchedResultsController!
-//        }
-//        let managedObjectContext = NSManagedObjectContext.MR_defaultContext()
-//        
-//        let sort = NSSortDescriptor(key: "title", ascending: true)
-//        
-//        let req = NSFetchRequest()
-//        req.entity = Subject.MR_entityDescription()
-//        req.sortDescriptors = [sort]
-//        req.predicate = NSPredicate(format: "(person == %@)", self.houre!)
-//        
-//        let aFetchedResultsController = NSFetchedResultsController(fetchRequest: req, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
-//        aFetchedResultsController.delegate = self
-//        self._fetchedResultsController = aFetchedResultsController
-//        
-//        var e: NSError?
-//        if !self._fetchedResultsController!.performFetch(&e) {
-//            println("fetch error: \(e!.localizedDescription)")
-//            abort();
-//        }
-//        
-//        return self._fetchedResultsController!
-//    }
-//    var _fetchedResultsController: NSFetchedResultsController?
+    var _fetchedResultsController: NSFetchedResultsController?
+    var fetchedResultsController: NSFetchedResultsController {
+        
+        if self._fetchedResultsController != nil {
+            return self._fetchedResultsController!
+        }
+        let managedObjectContext = NSManagedObjectContext.MR_defaultContext()
+        
+        let req = NSFetchRequest()
+        req.entity = InfoHoure.MR_entityDescription()
+        req.sortDescriptors = [NSSortDescriptor(key: "timestamp", ascending: true)]
+        req.predicate = NSPredicate(format: "(houre == %@)", self.houre!)
+        
+        let aFetchedResultsController = NSFetchedResultsController(fetchRequest: req, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+        aFetchedResultsController.delegate = self
+        self._fetchedResultsController = aFetchedResultsController
+        
+        var e: NSError?
+        if !self._fetchedResultsController!.performFetch(&e) {
+            println("fetch error: \(e!.localizedDescription)")
+            abort();
+        }
+        
+        return self._fetchedResultsController!
+    }
     
+    
+    
+    
+    // MARK: - Init
     
     required init(houre: Houre) {
         super.init(style: UITableViewStyle.Grouped)
@@ -62,6 +64,8 @@ class MPHoureViewController: UITableViewController, NSFetchedResultsControllerDe
     
     
     
+    
+    // MARK: - View Livestyle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -100,7 +104,6 @@ class MPHoureViewController: UITableViewController, NSFetchedResultsControllerDe
         return cell
     }
     
-
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
     }

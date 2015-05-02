@@ -43,15 +43,46 @@ class MPSubjectViewController: UITableViewController, NSFetchedResultsController
         }
     }
     
+    var _fetchedResultsController: NSFetchedResultsController?
+    var fetchedResultsController: NSFetchedResultsController {
+        
+        if self._fetchedResultsController != nil {
+            return self._fetchedResultsController!
+        }
+        let managedObjectContext = NSManagedObjectContext.MR_defaultContext()
+        
+        let req = NSFetchRequest()
+        req.entity = InfoSubject.MR_entityDescription()
+        req.sortDescriptors = [NSSortDescriptor(key: "timestamp", ascending: true)]
+        req.predicate = NSPredicate(format: "(subject == %@)", self.subject!)
+        
+        let aFetchedResultsController = NSFetchedResultsController(fetchRequest: req, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+        aFetchedResultsController.delegate = self
+        self._fetchedResultsController = aFetchedResultsController
+        
+        var e: NSError?
+        if !self._fetchedResultsController!.performFetch(&e) {
+            println("fetch error: \(e!.localizedDescription)")
+            abort();
+        }
+        
+        return self._fetchedResultsController!
+    }
     
     
+    
+    
+    // MARK: - Init
     
     required init(subject: Subject) {
         super.init(style: UITableViewStyle.Grouped)
         
+        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "CellButton")
+        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "CellColor")
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
-        self.tableView.registerClass(MPTableViewCellTextImput.self, forCellReuseIdentifier: "TextInput")
+        self.tableView.registerClass(MPTableViewCellTextInput.self, forCellReuseIdentifier: "TextInput")
         self.tableView.registerClass(MPTableViewCellSwitch.self, forCellReuseIdentifier: "Switch")
+        self.tableView.registerClass(MPTableViewCellTextInputDual.self, forCellReuseIdentifier: "TextInputDual")
         
         self.subject = subject
         
@@ -70,13 +101,24 @@ class MPSubjectViewController: UITableViewController, NSFetchedResultsController
     
     
     
-    override func viewDidDisappear(animated: Bool) {
+    // MARK: - View Livestyle
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Add Info
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "addInfo" )
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
         if let saveSubject = self.subject {
             if saveSubject.deleted == false {
                 MagicalRecord.saveWithBlock { (localContext: NSManagedObjectContext!) -> Void in
                     var s = saveSubject.MR_inContext(localContext) as! Subject
                     
                     s.notify = saveSubject.notify
+                    s.usingMarks = saveSubject.usingMarks
                     s.title = saveSubject.title
                     s.titleShort = saveSubject.titleShort
                     s.color = saveSubject.color
@@ -90,6 +132,7 @@ class MPSubjectViewController: UITableViewController, NSFetchedResultsController
     
     
 
+    
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -105,10 +148,11 @@ class MPSubjectViewController: UITableViewController, NSFetchedResultsController
             return 1
             
         case 2:
-            return 1
+            return 2
             
         case 3:
-            return 0
+            let info = self.fetchedResultsController.sections![0] as! NSFetchedResultsSectionInfo
+            return info.numberOfObjects
             
         case 4:
             return 1
@@ -122,11 +166,20 @@ class MPSubjectViewController: UITableViewController, NSFetchedResultsController
         
         var reuseIdentifier: String
         switch (indexPath.section, indexPath.row) {
-        case (0, 0), (0, 1):
+        case (0, 0...1):
             reuseIdentifier = "TextInput"
-            
-        case (2, 0):
+        
+        case (1, 0):
+            reuseIdentifier = "CellColor"
+        
+        case (2, 0...1):
             reuseIdentifier = "Switch"
+            
+        case (3, 0...self.tableView(self.tableView, numberOfRowsInSection: 3)):
+            reuseIdentifier = "TextInputDual"
+            
+        case (4, 0):
+            reuseIdentifier = "CellButton"
             
         default:
             reuseIdentifier = "Cell"
@@ -137,7 +190,7 @@ class MPSubjectViewController: UITableViewController, NSFetchedResultsController
         
         switch (indexPath.section, indexPath.row) {
         case (0, 0):
-            var cell = cell as! MPTableViewCellTextImput
+            var cell = cell as! MPTableViewCellTextInput
             cell.textLabel?.text = "Title"
             cell.textField.text = subject?.title
             cell.didChange = { text in
@@ -145,7 +198,7 @@ class MPSubjectViewController: UITableViewController, NSFetchedResultsController
                 self.title = self.subject?.fullTitle
             }
         case (0, 1):
-            var cell = cell as! MPTableViewCellTextImput
+            var cell = cell as! MPTableViewCellTextInput
             cell.textLabel?.text = "Short"
             cell.textField.text = subject?.titleShort
             cell.didChange = { text in
@@ -167,12 +220,37 @@ class MPSubjectViewController: UITableViewController, NSFetchedResultsController
             if let on = subject?.notify.boolValue {
                 cell.switchItem.on = on
             }
-            
             cell.didChange = { value in
                 subject?.notify = NSNumber(bool: value)
             }
             
             
+        case (2, 1):
+            var cell = cell as! MPTableViewCellSwitch
+            cell.textLabel?.text = "Using marks"
+            if let on = subject?.usingMarks.boolValue {
+                cell.switchItem.on = on
+            }
+            cell.didChange = { value in
+                subject?.usingMarks = NSNumber(bool: value)
+            }
+            
+            
+        case (3, 0...self.tableView(self.tableView, numberOfRowsInSection: 3)):
+            var cell = cell as! MPTableViewCellTextInputDual
+            let info = self.fetchedResultsController.objectAtIndexPath(NSIndexPath(forRow: indexPath.row, inSection: 0)) as! InfoSubject
+            cell.textField.text = info.key
+            cell.detailTextField.text = info.value
+            cell.didChange = {key, value in
+                MagicalRecord.saveWithBlock({ (localContext: NSManagedObjectContext!) -> Void in
+                    var info = info.MR_inContext(localContext) as! InfoSubject
+                    info.key = key
+                    info.value = value
+                    
+                    localContext.MR_saveToPersistentStoreAndWait()
+                })
+            }
+        
         case (4, 0):
             cell.textLabel?.text = "Delete Subject"
             cell.textLabel?.textAlignment = .Center
@@ -194,18 +272,21 @@ class MPSubjectViewController: UITableViewController, NSFetchedResultsController
             
         case 1:
             return "Color of the Subject"
-            
-        case 2:
-            return "Recive notification from this subject"
+           
+        case 3:
+            if self.tableView(self.tableView, numberOfRowsInSection: 3) != 0 {
+                return "Assign the subject different values like room or teacher"
+            }
             
         case 4:
             return "Delete the subject and all related stuff like makrs, houres, and notes."
             
         default:
-            return "";
+            break
         }
+        
+        return "";
     }
-    
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         switch (indexPath.section, indexPath.row) {
@@ -249,26 +330,33 @@ class MPSubjectViewController: UITableViewController, NSFetchedResultsController
         }
     }
     
-    /*
-    // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the specified item to be editable.
-        return true
+        switch indexPath.section {
+        case 3:
+            return true
+            
+        default:
+            break
+        }
+        return false
     }
-    */
-
-    /*
-    // Override to support editing the table view.
+    
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            // Delete the row from the data source
-            
-//            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
+            if let subject = self.subject {
+                MagicalRecord.saveWithBlock { (localContext: NSManagedObjectContext!) -> Void in
+                    let info = self.fetchedResultsController.objectAtIndexPath(NSIndexPath(forRow: indexPath.row, inSection: 0)).MR_inContext(localContext) as! InfoSubject
+                    info.MR_deleteInContext(localContext)
+                    
+                    localContext.MR_saveToPersistentStoreAndWait()
+                }
+            }
+        }
+        else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.
@@ -288,6 +376,27 @@ class MPSubjectViewController: UITableViewController, NSFetchedResultsController
     
     
     
+    
+    
+    // MARK: - UI Interaction
+    func addInfo() {
+        if let subject = self.subject {
+            MagicalRecord.saveWithBlock { (localContext: NSManagedObjectContext!) -> Void in
+                var info = InfoSubject.MR_createInContext(localContext) as! InfoSubject
+                info.subject = subject.MR_inContext(localContext) as! Subject
+                info.timestamp = NSDate()
+                info.key = "key"
+                info.value = "value"
+                
+                localContext.MR_saveToPersistentStoreAndWait()
+            }
+        }
+    }
+    
+    
+    
+    
+    
     // MAKR: - MPColorPickerViewControllerDelegate
     func didPickColor(color: UIColor) {
         self.subject?.color = color
@@ -296,24 +405,32 @@ class MPSubjectViewController: UITableViewController, NSFetchedResultsController
     
     
     
-    // MARK: - removeSubject
-    func removeSubject() {
-        
-//        let actionSheetController: UIAlertController = UIAlertController(title: "Delete", message: "Delete \(self.mark?.title) ?", preferredStyle: .Alert)
-//        actionSheetController.addAction( UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in } )
-//        actionSheetController.addAction( UIAlertAction(title: "Delete", style: .Default) { action -> Void in
-//            MagicalRecord.saveWithBlock { (localContext: NSManagedObjectContext!) -> Void in
-//                var mark = self.mark?.MR_inContext(localContext) as Mark
-//                mark.MR_deleteEntity()
-//                
-//                localContext.MR_saveToPersistentStoreAndWait()
-//            }
-//            self.navigationController?.popViewControllerAnimated(true)
-//        })
-//        self.presentViewController(actionSheetController, animated: true, completion: nil)
+    
+    
+    
+    
+    // MARK: - NSFetchedResultsControllerDelegate
+    func controllerWillChangeContent(controller: NSFetchedResultsController) {
+        self.tableView.beginUpdates()
     }
-    
-    
-    
+    func controller(controller: NSFetchedResultsController, didChangeObject object: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+        switch type {
+        case .Insert:
+            self.tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: newIndexPath!.row, inSection: 3)], withRowAnimation: .Fade)
+//        case .Update:
+//            let cell = self.tableView.cellForRowAtIndexPath(NSIndexPath(forRow: indexPath!.row, inSection: 3))
+//            self.tableView.reloadRowsAtIndexPaths([NSIndexPath(forRow: indexPath!.row, inSection: 3)], withRowAnimation: .Fade)
+        case .Move:
+            self.tableView.deleteRowsAtIndexPaths([NSIndexPath(forRow: indexPath!.row, inSection: 3)], withRowAnimation: .Fade)
+            self.tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: newIndexPath!.row, inSection: 3)], withRowAnimation: .Fade)
+        case .Delete:
+            self.tableView.deleteRowsAtIndexPaths([NSIndexPath(forRow: indexPath!.row, inSection: 3)], withRowAnimation: .Fade)
+        default:
+            return
+        }
+    }
+    func controllerDidChangeContent(controller: NSFetchedResultsController) {
+        self.tableView.endUpdates()
+    }
 
 }

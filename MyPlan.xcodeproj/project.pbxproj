@@ -16,6 +16,15 @@
 		FB5146A81AF18E1100139564 /* MPDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5146A71AF18E1100139564 /* MPDate.swift */; };
 		FB528E211AF2B6E6001DEC43 /* MPCalenderSubjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB528E201AF2B6E6001DEC43 /* MPCalenderSubjectCell.swift */; };
 		FB528E231AF3EE90001DEC43 /* MPColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB528E221AF3EE90001DEC43 /* MPColorPickerViewController.swift */; };
+		FB528E251AF41910001DEC43 /* MPTableViewCellSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB528E241AF41910001DEC43 /* MPTableViewCellSubject.swift */; };
+		FB528E271AF4192D001DEC43 /* MPTableViewCellSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB528E261AF4192D001DEC43 /* MPTableViewCellSlider.swift */; };
+		FB528E291AF4194E001DEC43 /* MPTableViewCellSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB528E281AF4194E001DEC43 /* MPTableViewCellSwitch.swift */; };
+		FB528E2B1AF41963001DEC43 /* MPTableViewCellTextImput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB528E2A1AF41963001DEC43 /* MPTableViewCellTextImput.swift */; };
+		FB528E2E1AF41DF4001DEC43 /* Info.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB528E2D1AF41DF4001DEC43 /* Info.swift */; };
+		FB528E311AF41ED6001DEC43 /* InfoHoure.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB528E2F1AF41ED6001DEC43 /* InfoHoure.swift */; };
+		FB528E321AF41ED6001DEC43 /* InfoSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB528E301AF41ED6001DEC43 /* InfoSubject.swift */; };
+		FB528E341AF44392001DEC43 /* MPTableViewCellTextInputDual.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB528E331AF44392001DEC43 /* MPTableViewCellTextInputDual.swift */; };
+		FB528E361AF454FF001DEC43 /* DefaultTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB528E351AF454FF001DEC43 /* DefaultTime.swift */; };
 		FB61CAAD1AEEAEBD00C3014C /* MPDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB61CAAC1AEEAEBD00C3014C /* MPDayViewController.swift */; };
 		FB61CAC51AEEB92A00C3014C /* MPCalenderLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB61CAC41AEEB92A00C3014C /* MPCalenderLayout.swift */; };
 		FB681D8E1AE15E660002929D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB681D8D1AE15E660002929D /* AppDelegate.swift */; };
@@ -66,6 +75,15 @@
 		FB5146A71AF18E1100139564 /* MPDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPDate.swift; sourceTree = "<group>"; };
 		FB528E201AF2B6E6001DEC43 /* MPCalenderSubjectCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPCalenderSubjectCell.swift; sourceTree = "<group>"; };
 		FB528E221AF3EE90001DEC43 /* MPColorPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPColorPickerViewController.swift; sourceTree = "<group>"; };
+		FB528E241AF41910001DEC43 /* MPTableViewCellSubject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPTableViewCellSubject.swift; sourceTree = "<group>"; };
+		FB528E261AF4192D001DEC43 /* MPTableViewCellSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPTableViewCellSlider.swift; sourceTree = "<group>"; };
+		FB528E281AF4194E001DEC43 /* MPTableViewCellSwitch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPTableViewCellSwitch.swift; sourceTree = "<group>"; };
+		FB528E2A1AF41963001DEC43 /* MPTableViewCellTextImput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPTableViewCellTextImput.swift; sourceTree = "<group>"; };
+		FB528E2D1AF41DF4001DEC43 /* Info.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Info.swift; path = CoreData/Info.swift; sourceTree = "<group>"; };
+		FB528E2F1AF41ED6001DEC43 /* InfoHoure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InfoHoure.swift; path = CoreData/InfoHoure.swift; sourceTree = "<group>"; };
+		FB528E301AF41ED6001DEC43 /* InfoSubject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InfoSubject.swift; path = CoreData/InfoSubject.swift; sourceTree = "<group>"; };
+		FB528E331AF44392001DEC43 /* MPTableViewCellTextInputDual.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPTableViewCellTextInputDual.swift; sourceTree = "<group>"; };
+		FB528E351AF454FF001DEC43 /* DefaultTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DefaultTime.swift; path = CoreData/DefaultTime.swift; sourceTree = "<group>"; };
 		FB61CAAC1AEEAEBD00C3014C /* MPDayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPDayViewController.swift; sourceTree = "<group>"; };
 		FB61CAC41AEEB92A00C3014C /* MPCalenderLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPCalenderLayout.swift; sourceTree = "<group>"; };
 		FB681D881AE15E660002929D /* MyPlan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyPlan.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -195,6 +213,18 @@
 			name = Homeworks;
 			sourceTree = "<group>";
 		};
+		FB528E2C1AF41986001DEC43 /* MPTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				FB528E2A1AF41963001DEC43 /* MPTableViewCellTextImput.swift */,
+				FB528E331AF44392001DEC43 /* MPTableViewCellTextInputDual.swift */,
+				FB528E281AF4194E001DEC43 /* MPTableViewCellSwitch.swift */,
+				FB528E261AF4192D001DEC43 /* MPTableViewCellSlider.swift */,
+				FB528E241AF41910001DEC43 /* MPTableViewCellSubject.swift */,
+			);
+			name = MPTableViewCell;
+			sourceTree = "<group>";
+		};
 		FB681D7F1AE15E660002929D = {
 			isa = PBXGroup;
 			children = (
@@ -222,6 +252,7 @@
 				FB681DE01AE160850002929D /* AppDelegate */,
 				FB681DDF1AE1607B0002929D /* Database */,
 				FB5146A71AF18E1100139564 /* MPDate.swift */,
+				FB528E2C1AF41986001DEC43 /* MPTableViewCell */,
 				FB681DE11AE160890002929D /* ViewControllers */,
 				FB681DB51AE160630002929D /* _MPDayViewController.swift */,
 				FB681D8B1AE15E660002929D /* Supporting Files */,
@@ -261,6 +292,7 @@
 				FB681D8F1AE15E660002929D /* MyPlan.xcdatamodeld */,
 				FB681DDD1AE160760002929D /* Mark.swift */,
 				FB4DDDBB1AED9124009A9B9D /* Person.swift */,
+				FB528E351AF454FF001DEC43 /* DefaultTime.swift */,
 				FB681DDB1AE160760002929D /* Subject.swift */,
 				FB681DD91AE160760002929D /* Image.swift */,
 				FB681DD71AE160750002929D /* Day.swift */,
@@ -268,6 +300,9 @@
 				FB681DD11AE160750002929D /* Note.swift */,
 				FB681DCF1AE160750002929D /* Houre.swift */,
 				FB681DCD1AE160750002929D /* MarkGroup.swift */,
+				FB528E2D1AF41DF4001DEC43 /* Info.swift */,
+				FB528E2F1AF41ED6001DEC43 /* InfoHoure.swift */,
+				FB528E301AF41ED6001DEC43 /* InfoSubject.swift */,
 				FB681DCB1AE160750002929D /* Plan.swift */,
 				FB681DC91AE160750002929D /* Event.swift */,
 			);
@@ -431,17 +466,23 @@
 				FB681DC81AE160630002929D /* MPSubjectViewController.swift in Sources */,
 				FB528E211AF2B6E6001DEC43 /* MPCalenderSubjectCell.swift in Sources */,
 				FB681D911AE15E660002929D /* MyPlan.xcdatamodeld in Sources */,
+				FB528E271AF4192D001DEC43 /* MPTableViewCellSlider.swift in Sources */,
 				FB681DCC1AE160750002929D /* Plan.swift in Sources */,
 				FB681DCE1AE160750002929D /* MarkGroup.swift in Sources */,
 				FB681DD21AE160750002929D /* Note.swift in Sources */,
 				FB61CAC51AEEB92A00C3014C /* MPCalenderLayout.swift in Sources */,
 				FBF8D46F1AF28E38002D10A6 /* Helper.swift in Sources */,
+				FB528E311AF41ED6001DEC43 /* InfoHoure.swift in Sources */,
+				FB528E2B1AF41963001DEC43 /* MPTableViewCellTextImput.swift in Sources */,
 				FB681DC21AE160630002929D /* MPMarkGroupViewController.swift in Sources */,
 				FB681DDE1AE160760002929D /* Mark.swift in Sources */,
+				FB528E291AF4194E001DEC43 /* MPTableViewCellSwitch.swift in Sources */,
 				FB681DDA1AE160760002929D /* Image.swift in Sources */,
 				FB681D8E1AE15E660002929D /* AppDelegate.swift in Sources */,
 				FB681DC01AE160630002929D /* MPHoureViewController.swift in Sources */,
+				FB528E321AF41ED6001DEC43 /* InfoSubject.swift in Sources */,
 				FB00665A1AE1A16000F0F0EC /* MPPersonViewController.swift in Sources */,
+				FB528E341AF44392001DEC43 /* MPTableViewCellTextInputDual.swift in Sources */,
 				FB5146A81AF18E1100139564 /* MPDate.swift in Sources */,
 				FB4DDDCF1AEDB512009A9B9D /* MPEventsViewController.swift in Sources */,
 				FB681DC31AE160630002929D /* MPMarkViewController.swift in Sources */,
@@ -451,10 +492,13 @@
 				FB681DD41AE160750002929D /* Homework.swift in Sources */,
 				FB681DBF1AE160630002929D /* _MPDayViewController.swift in Sources */,
 				FB681DC61AE160630002929D /* MPPlanViewController.swift in Sources */,
+				FB528E2E1AF41DF4001DEC43 /* Info.swift in Sources */,
 				FB4DDDC61AEDA8EE009A9B9D /* MPPersonSettingsViewController.swift in Sources */,
 				FB681DC71AE160630002929D /* MPSubjectsViewController.swift in Sources */,
 				FB681DC41AE160630002929D /* MPMenuViewController.swift in Sources */,
+				FB528E251AF41910001DEC43 /* MPTableViewCellSubject.swift in Sources */,
 				FB681DC11AE160630002929D /* MPMarkGroupDetailViewController.swift in Sources */,
+				FB528E361AF454FF001DEC43 /* DefaultTime.swift in Sources */,
 				FB681DD81AE160750002929D /* Day.swift in Sources */,
 				FB4DDDD01AEDB512009A9B9D /* MPHomeworksViewController.swift in Sources */,
 				FB4DDDC31AED9124009A9B9D /* Person.swift in Sources */,

@@ -7,6 +7,11 @@
         <relationship name="houres" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="Houre" inverseName="day" inverseEntity="Houre" syncable="YES"/>
         <relationship name="plan" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Plan" inverseName="days" inverseEntity="Plan" syncable="YES"/>
     </entity>
+    <entity name="DefaultTime" representedClassName="DefaultTime" syncable="YES">
+        <attribute name="beginDateData" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="endDateData" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <relationship name="person" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Person" inverseName="defaultTime" inverseEntity="Person" syncable="YES"/>
+    </entity>
     <entity name="Event" representedClassName="Event" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="notify" optional="YES" attributeType="Boolean" syncable="YES"/>
@@ -29,6 +34,7 @@
         <attribute name="info" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="notify" optional="YES" attributeType="Boolean" syncable="YES"/>
         <relationship name="day" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Day" inverseName="houres" inverseEntity="Day" syncable="YES"/>
+        <relationship name="infos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="InfoHoure" inverseName="houre" inverseEntity="InfoHoure" syncable="YES"/>
         <relationship name="subject" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Subject" inverseName="stunden" inverseEntity="Subject" syncable="YES"/>
     </entity>
     <entity name="Image" representedClassName="Image" syncable="YES">
@@ -37,6 +43,17 @@
         <attribute name="timestamp" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="person" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Person" inverseName="images" inverseEntity="Person" syncable="YES"/>
+    </entity>
+    <entity name="Info" representedClassName="Info" isAbstract="YES" syncable="YES">
+        <attribute name="key" attributeType="String" syncable="YES"/>
+        <attribute name="timestamp" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="value" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="InfoHoure" representedClassName="InfoHoure" parentEntity="Info" syncable="YES">
+        <relationship name="houre" maxCount="1" deletionRule="Nullify" destinationEntity="Houre" inverseName="infos" inverseEntity="Houre" syncable="YES"/>
+    </entity>
+    <entity name="InfoSubject" representedClassName="InfoSubject" parentEntity="Info" syncable="YES">
+        <relationship name="subject" maxCount="1" deletionRule="Nullify" destinationEntity="Subject" inverseName="infos" inverseEntity="Subject" syncable="YES"/>
     </entity>
     <entity name="Mark" representedClassName="Mark" syncable="YES">
         <attribute name="judging" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
@@ -60,8 +77,10 @@
         <relationship name="subject" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Subject" inverseName="notes" inverseEntity="Subject" syncable="YES"/>
     </entity>
     <entity name="Person" representedClassName="Person" syncable="YES">
+        <attribute name="notify" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="timestamp" attributeType="Date" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="defaultTime" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="DefaultTime" inverseName="person" inverseEntity="DefaultTime" syncable="YES"/>
         <relationship name="events" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="Event" inverseName="person" inverseEntity="Event" syncable="YES"/>
         <relationship name="images" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Image" inverseName="person" inverseEntity="Image" syncable="YES"/>
         <relationship name="markGroups" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="MarkGroup" inverseName="person" inverseEntity="MarkGroup" syncable="YES"/>
@@ -75,11 +94,13 @@
     </entity>
     <entity name="Subject" representedClassName="Subject" syncable="YES">
         <attribute name="colorData" optional="YES" attributeType="Transformable" syncable="YES"/>
-        <attribute name="info" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="notify" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="timestamp" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="titleShort" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="usingMarks" optional="YES" attributeType="Boolean" syncable="YES"/>
         <relationship name="homeworks" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="Homework" inverseName="subject" inverseEntity="Homework" syncable="YES"/>
+        <relationship name="infos" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="InfoSubject" inverseName="subject" inverseEntity="InfoSubject" syncable="YES"/>
         <relationship name="marks" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="Mark" inverseName="subject" inverseEntity="Mark" syncable="YES"/>
         <relationship name="notes" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="Note" inverseName="subject" inverseEntity="Note" syncable="YES"/>
         <relationship name="person" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Person" inverseName="subjects" inverseEntity="Person" syncable="YES"/>
@@ -87,15 +108,19 @@
     </entity>
     <elements>
         <element name="Day" positionX="-218" positionY="251" width="128" height="118"/>
-        <element name="Event" positionX="-378" positionY="-153" width="128" height="148"/>
+        <element name="Event" positionX="-378" positionY="-148" width="128" height="148"/>
         <element name="Homework" positionX="511" positionY="-79" width="128" height="133"/>
-        <element name="Houre" positionX="-45" positionY="215" width="128" height="118"/>
+        <element name="Houre" positionX="-45" positionY="215" width="128" height="133"/>
         <element name="Image" positionX="691" positionY="-181" width="128" height="118"/>
         <element name="Mark" positionX="612" positionY="71" width="128" height="163"/>
-        <element name="MarkGroup" positionX="-342" positionY="32" width="128" height="88"/>
+        <element name="MarkGroup" positionX="-353" positionY="36" width="128" height="88"/>
         <element name="Note" positionX="504" positionY="239" width="128" height="103"/>
-        <element name="Person" positionX="-632" positionY="-9" width="128" height="148"/>
-        <element name="Plan" positionX="-389" positionY="158" width="128" height="88"/>
-        <element name="Subject" positionX="268" positionY="9" width="128" height="195"/>
+        <element name="Person" positionX="-632" positionY="-9" width="128" height="178"/>
+        <element name="Plan" positionX="-389" positionY="189" width="128" height="88"/>
+        <element name="Subject" positionX="268" positionY="9" width="128" height="223"/>
+        <element name="Info" positionX="502" positionY="503" width="128" height="88"/>
+        <element name="InfoSubject" positionX="601" positionY="354" width="128" height="58"/>
+        <element name="InfoHoure" positionX="205" positionY="408" width="128" height="58"/>
+        <element name="DefaultTime" positionX="-432" positionY="-255" width="128" height="88"/>
     </elements>
 </model>

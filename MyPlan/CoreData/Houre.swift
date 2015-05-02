@@ -1,9 +1,9 @@
 //
 //  Houre.swift
-//  MyPlan
+//  
 //
-//  Created by Jannik Lorenz on 17.04.15.
-//  Copyright (c) 2015 Jannik Lorenz. All rights reserved.
+//  Created by Jannik Lorenz on 01.05.15.
+//
 //
 
 import Foundation
@@ -16,5 +16,6 @@ import CoreData
     @NSManaged var notify: NSNumber
     @NSManaged var day: Day
     @NSManaged var subject: Subject
+    @NSManaged var infos: NSSet
 
 }

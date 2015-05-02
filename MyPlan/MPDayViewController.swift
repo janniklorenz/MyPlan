@@ -14,6 +14,12 @@ class MPDayViewController: UICollectionViewController, NSFetchedResultsControlle
     
     var day: Day?
     
+    
+    
+    
+    
+    // MARK: - Init
+    
     required init(day: Day) {
         var layout = MPCalenderLayout()
         self.cells = [Houre]()
@@ -23,13 +29,12 @@ class MPDayViewController: UICollectionViewController, NSFetchedResultsControlle
         self.day = day
         layout.delegate = self
         
-        
-        
         self.cells = Houre.MR_findAllSortedBy("houre", ascending: true, withPredicate: NSPredicate(format: "(day == %@)", day)) as! [Houre]
         
         self.collectionView?.backgroundColor = UIColor.groupTableViewBackgroundColor()
         
     }
+    
     required init(coder aDecoder: NSCoder) {
         cells = [Houre]()
         
@@ -38,29 +43,22 @@ class MPDayViewController: UICollectionViewController, NSFetchedResultsControlle
     
     
     
+    
+    
+    
+    // MARK: - View Livestyle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
         self.collectionView!.registerClass(MPCalenderSubjectCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-        // Do any additional setup after loading the view.
-        
-        // Reval Button
-//        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(named: "RevalIcon"), style: UIBarButtonItemStyle.Bordered, target: self.revealViewController(), action: "revealToggle:")
         
         // Add Houre Button
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "addHoure" )
         
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    
+    
     
     
 
@@ -82,9 +80,7 @@ class MPDayViewController: UICollectionViewController, NSFetchedResultsControlle
         
         return cell
     }
-
-    // MARK: UICollectionViewDelegate
-
+    
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let houre = cells[indexPath.row]
         var houreVC = MPHoureViewController(houre: houre)
@@ -136,10 +132,12 @@ class MPDayViewController: UICollectionViewController, NSFetchedResultsControlle
     }
     
     
+    
+    
+    
     // MARK: - MPSubjectsViewControllerDefault
     
     func didSelectSubject(subject: Subject, subjectsVC: MPSubjectsViewController) {
-        
         subjectsVC.dismissViewControllerAnimated(true) {}
         
         MagicalRecord.saveWithBlock { (localContect: NSManagedObjectContext!) -> Void in
@@ -152,14 +150,7 @@ class MPDayViewController: UICollectionViewController, NSFetchedResultsControlle
                 self.collectionView?.reloadData()
             })
         }
-        
-        
     }
-    
-    
-    
-    
-    
     
     
     
@@ -172,6 +163,9 @@ class MPDayViewController: UICollectionViewController, NSFetchedResultsControlle
 //        var nav = UINavigationController(rootViewController: subjectVC)
 //        subjectsVC.presentViewController(nav, animated: true) {}
 //    }
+    
+    
+    
     
     
     
@@ -196,8 +190,8 @@ class MPDayViewController: UICollectionViewController, NSFetchedResultsControlle
             
             localContect.MR_saveToPersistentStoreWithCompletion({ (bool: Bool, error: NSError!) -> Void in
                 self.cells[indexPath.row] = houre.MR_inThreadContext() as! Houre
-                self.collectionView?.reloadItemsAtIndexPaths([indexPath])
-//                self.collectionView?.reloadData()
+//                self.collectionView?.reloadItemsAtIndexPaths([indexPath])
+                self.collectionView?.reloadData()
             })
         }
     }

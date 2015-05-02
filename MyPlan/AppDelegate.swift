@@ -34,6 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MPMenuViewControllerDeleg
                 
                 
                 var subjectDeutsch = Subject.MR_createInContext(localContext) as! Subject!
+                subjectDeutsch.timestamp = NSDate()
                 subjectDeutsch.person = person;
                 subjectDeutsch.notify = NSNumber(bool: true);
                 subjectDeutsch.title = "Deutsch"
@@ -41,6 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MPMenuViewControllerDeleg
                 subjectDeutsch.color = UIColor.blackColor()
                 
                 var subjectEnglisch = Subject.MR_createInContext(localContext) as! Subject!
+                subjectEnglisch.timestamp = NSDate()
                 subjectEnglisch.person = person;
                 subjectEnglisch.notify = NSNumber(bool: true);
                 subjectEnglisch.title = "Englisch"
@@ -48,6 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MPMenuViewControllerDeleg
                 subjectEnglisch.color = UIColor.redColor()
                 
                 var subjectMathe = Subject.MR_createInContext(localContext) as! Subject!
+                subjectMathe.timestamp = NSDate()
                 subjectMathe.person = person;
                 subjectMathe.notify = NSNumber(bool: true);
                 subjectMathe.title = "Mathe"
@@ -55,6 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MPMenuViewControllerDeleg
                 subjectMathe.color = UIColor.blueColor()
                 
                 var subjectPhysik = Subject.MR_createInContext(localContext) as! Subject!
+                subjectPhysik.timestamp = NSDate()
                 subjectPhysik.person = person;
                 subjectPhysik.notify = NSNumber(bool: true);
                 subjectPhysik.title = "Physik"
@@ -78,6 +82,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MPMenuViewControllerDeleg
                 var markGroup = MarkGroup.MR_createInContext(localContext) as! MarkGroup!
                 markGroup.title = "Noten"
                 markGroup.person = person
+                
+                
+                
+                var time0 = DefaultTime.MR_createInContext(localContext) as! DefaultTime
+                time0.person = person
+                time0.beginDate = MPDate(houre: 7, minute: 45, seconds: 00)
+                time0.endDate = MPDate(houre: 9, minute: 15, seconds: 00)
+
+                var time1 = DefaultTime.MR_createInContext(localContext) as! DefaultTime
+                time1.person = person
+                time1.beginDate = MPDate(houre: 9, minute: 35, seconds: 00)
+                time1.endDate = MPDate(houre: 11, minute: 05, seconds: 00)
+                
+                var time2 = DefaultTime.MR_createInContext(localContext) as! DefaultTime
+                time2.person = person
+                time2.beginDate = MPDate(houre: 11, minute: 25, seconds: 00)
+                time2.endDate = MPDate(houre: 12, minute: 55, seconds: 00)
+                
                 
                 localContext.MR_saveToPersistentStoreAndWait()
             }

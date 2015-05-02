@@ -28,7 +28,7 @@ class MPSubjectsViewController: UITableViewController, NSFetchedResultsControlle
         
         let req = NSFetchRequest()
         req.entity = Subject.MR_entityDescription()
-        req.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true), NSSortDescriptor(key: "titleShort", ascending: true)]
+        req.sortDescriptors = [NSSortDescriptor(key: "timestamp", ascending: false)]
         req.predicate = NSPredicate(format: "(person == %@)", self.person!)
         
         let aFetchedResultsController = NSFetchedResultsController(fetchRequest: req, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
@@ -45,6 +45,11 @@ class MPSubjectsViewController: UITableViewController, NSFetchedResultsControlle
     }
     var _fetchedResultsController: NSFetchedResultsController?
     
+    
+    
+    
+    
+    // MARK: - Init
     
     required init(person: Person) {
         super.init(style: UITableViewStyle.Grouped)
@@ -68,7 +73,7 @@ class MPSubjectsViewController: UITableViewController, NSFetchedResultsControlle
     
     
     
-    
+    // MARK: - View Livestyle
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -98,7 +103,8 @@ class MPSubjectsViewController: UITableViewController, NSFetchedResultsControlle
             let info = self.fetchedResultsController.sections![section] as! NSFetchedResultsSectionInfo
             return info.numberOfObjects
 
-        default: return 0;
+        default:
+            return 0;
         }
     }
     
@@ -129,7 +135,6 @@ class MPSubjectsViewController: UITableViewController, NSFetchedResultsControlle
         return cell
     }
     
-
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         switch (indexPath.section) {
         case 0:
@@ -143,7 +148,6 @@ class MPSubjectsViewController: UITableViewController, NSFetchedResultsControlle
         
     }
     
-    
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         switch indexPath.section {
         case 0:
@@ -154,7 +158,6 @@ class MPSubjectsViewController: UITableViewController, NSFetchedResultsControlle
         }
     }
     
-
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete the row from the data source
@@ -182,6 +185,10 @@ class MPSubjectsViewController: UITableViewController, NSFetchedResultsControlle
         }    
     }
     
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 70
+    }
+    
 
     /*
     // Override to support rearranging the table view.
@@ -198,6 +205,7 @@ class MPSubjectsViewController: UITableViewController, NSFetchedResultsControlle
     }
     */
 
+    
     
     
     
@@ -232,17 +240,10 @@ class MPSubjectsViewController: UITableViewController, NSFetchedResultsControlle
     
     // MARK: - NSFetchedResultsControllerDelegate
     
-    /* called first
-    begins update to `UITableView`
-    ensures all updates are animated simultaneously */
     func controllerWillChangeContent(controller: NSFetchedResultsController) {
         self.tableView.beginUpdates()
     }
     
-    /* called:
-    - when a new model is created
-    - when an existing model is updated
-    - when an existing model is deleted */
     func controller(controller: NSFetchedResultsController, didChangeObject object: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
             switch type {
             case .Insert:
@@ -260,8 +261,6 @@ class MPSubjectsViewController: UITableViewController, NSFetchedResultsControlle
             }
     }
     
-    /* called last
-    tells `UITableView` updates are complete */
     func controllerDidChangeContent(controller: NSFetchedResultsController) {
         self.tableView.endUpdates()
     }

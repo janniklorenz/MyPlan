@@ -17,6 +17,10 @@ class MPHomeworksViewController: UITableViewController, NSFetchedResultsControll
     var person: Person?
     
     
+    
+    
+    // MARK: - Init
+    
     required init(person: Person) {
         super.init(style: UITableViewStyle.Grouped)
         
@@ -36,6 +40,8 @@ class MPHomeworksViewController: UITableViewController, NSFetchedResultsControll
     
     
     
+    
+    // MARK: - View Livestyle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,7 +81,6 @@ class MPHomeworksViewController: UITableViewController, NSFetchedResultsControll
         return cell
     }
     
-
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
     }
@@ -124,9 +129,9 @@ class MPHomeworksViewController: UITableViewController, NSFetchedResultsControll
     // MARK: - close
     
     func close() {
-        self.dismissViewControllerAnimated(true, completion: { () -> Void in
+        self.dismissViewControllerAnimated(true) {
             
-        })
+        }
     }
     
     

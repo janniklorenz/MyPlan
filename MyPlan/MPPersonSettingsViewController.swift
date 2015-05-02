@@ -12,13 +12,28 @@ import UIKit
 
 import CoreData
 
+protocol MPPersonSettingsViewControllerDelegate {
+    func didFinishEditingPerson(person: Person)
+    func didDeletePerson(person: Person)
+}
+
 class MPPersonSettingsViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     
     var person: Person?
+    var delegate: MPPersonSettingsViewControllerDelegate?
     
+    
+    
+    
+    
+    // MARK: - Init
     
     required init(person: Person) {
         super.init(style: UITableViewStyle.Grouped)
+        
+        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        self.tableView.registerClass(MPTableViewCellTextInput.self, forCellReuseIdentifier: "TextInput")
+        self.tableView.registerClass(MPTableViewCellSwitch.self, forCellReuseIdentifier: "Switch")
         
         self.person = person
         
@@ -37,45 +52,122 @@ class MPPersonSettingsViewController: UITableViewController, NSFetchedResultsCon
     
     
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        // Close Button
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action: "close" )
-    }
+    // MARK: - View Livestyle
     
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        if let savePerson = self.person {
+            if savePerson.deleted == false {
+                MagicalRecord.saveWithBlock { (localContext: NSManagedObjectContext!) -> Void in
+                    var p = savePerson.MR_inContext(localContext) as! Person
+                    
+                    p.title = savePerson.title
+                    p.notify = savePerson.notify
+                    
+                    localContext.MR_saveToPersistentStoreAndWait()
+                }
+                self.delegate?.didFinishEditingPerson(savePerson)
+            }
+            else {
+                self.delegate?.didDeletePerson(savePerson)
+            }
+        }
+        
+    }
     
     
     
 
     // MARK: - Table view data source
-
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 0
+        return 3
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch (section) {
-//        case 0:
-//            let info = self.fetchedResultsController.sections![section] as NSFetchedResultsSectionInfo
-//            return info.numberOfObjects
-        default: return 0;
+        case 0, 1, 2:
+            return 1
+            
+        default:
+            return 0;
         }
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
+        var reuseIdentifier: String
+        switch (indexPath.section, indexPath.row) {
+        case (0, 0):
+            reuseIdentifier = "TextInput"
+            
+        case (1, 0):
+            reuseIdentifier = "Switch"
+            
+        default:
+            reuseIdentifier = "Cell"
+        }
         
-//        let mark = self.fetchedResultsController.objectAtIndexPath(indexPath) as Mark
-//        cell.textLabel?.text = mark.title
-//        cell.detailTextLabel?.text = mark.mark.stringValue
+        let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as! UITableViewCell
+        
+        switch (indexPath.section, indexPath.row) {
+        case (0, 0):
+            var cell = cell as! MPTableViewCellTextInput
+            cell.textLabel?.text = "Title"
+            cell.textField.text = person?.title
+            cell.didChange = { text in
+                self.person?.title = text
+                self.title = self.person?.title
+            }
+            
+            
+        case (1, 0):
+            var cell = cell as! MPTableViewCellSwitch
+            cell.textLabel?.text = "Notifications"
+            if let on = person?.notify.boolValue {
+                cell.switchItem.on = on
+            }
+            cell.didChange = { value in
+                person?.notify = NSNumber(bool: value)
+            }
+            
+        
+        case (2, 0):
+            cell.textLabel?.text = "Times"
+            cell.accessoryType = .DisclosureIndicator
+            
+            
+        default:
+            break
+        }
+        
         
         return cell
     }
     
-
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        switch (indexPath.section, indexPath.row) {
+        case (2, 0):
+            break
+            
+            
+        default:
+            break
+        }
+    }
+    
+    override func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        switch (section) {
+        case 0:
+            return "Title of the Person"
+            
+        case  2:
+            return "Set custom times to add houres faster"
+            
+        default:
+            break
+        }
         
+        return "";
     }
     
     /*
@@ -117,34 +209,6 @@ class MPPersonSettingsViewController: UITableViewController, NSFetchedResultsCon
     
     
     
-    
-    
-    // MARK: - close
-    
-    func close() {
-        self.dismissViewControllerAnimated(true, completion: { () -> Void in
-            
-        })
-    }
-    
-    
-    
-    // MARK: - removeSubject
-    func removeSubject() {
-        
-//        let actionSheetController: UIAlertController = UIAlertController(title: "Delete", message: "Delete \(self.mark?.title) ?", preferredStyle: .Alert)
-//        actionSheetController.addAction( UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in } )
-//        actionSheetController.addAction( UIAlertAction(title: "Delete", style: .Default) { action -> Void in
-//            MagicalRecord.saveWithBlock { (localContext: NSManagedObjectContext!) -> Void in
-//                var mark = self.mark?.MR_inContext(localContext) as Mark
-//                mark.MR_deleteEntity()
-//                
-//                localContext.MR_saveToPersistentStoreAndWait()
-//            }
-//            self.navigationController?.popViewControllerAnimated(true)
-//        })
-//        self.presentViewController(actionSheetController, animated: true, completion: nil)
-    }
     
     
     

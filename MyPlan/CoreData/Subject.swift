@@ -11,15 +11,17 @@ import CoreData
 
 @objc(Subject) class Subject: NSManagedObject {
 
-    @NSManaged var info: String
+    @NSManaged var usingMarks: NSNumber
+    @NSManaged var timestamp: NSDate
     @NSManaged var notify: NSNumber
     @NSManaged var title: String
-    @NSManaged var titleShort: String
     @NSManaged var colorData: AnyObject
+    @NSManaged var titleShort: String
     @NSManaged var homeworks: NSSet
     @NSManaged var marks: NSSet
     @NSManaged var notes: NSSet
     @NSManaged var person: Person
     @NSManaged var stunden: NSSet
+    @NSManaged var infos: NSSet
 
 }

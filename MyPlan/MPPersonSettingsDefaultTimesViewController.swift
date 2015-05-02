@@ -10,6 +10,8 @@ import UIKit
 
 class MPPersonSettingsDefaultTimesViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     
+    let kSectionDefaultTime = 0
+    
     var person: Person?
     
     var _fetchedResultsController: NSFetchedResultsController?
@@ -93,8 +95,8 @@ class MPPersonSettingsDefaultTimesViewController: UITableViewController, NSFetch
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
-        case 0:
-            let info = self.fetchedResultsController.sections![0] as! NSFetchedResultsSectionInfo
+        case kSectionDefaultTime:
+            let info = self.fetchedResultsController.sections![kSectionDefaultTime] as! NSFetchedResultsSectionInfo
             return info.numberOfObjects
             
         default:
@@ -114,7 +116,7 @@ class MPPersonSettingsDefaultTimesViewController: UITableViewController, NSFetch
         cell.selectionStyle = .None
         
         switch (indexPath.section, indexPath.row) {
-        case (0, 0...self.tableView(self.tableView, numberOfRowsInSection: 0)):
+        case (kSectionDefaultTime, 0...self.tableView(self.tableView, numberOfRowsInSection: kSectionDefaultTime)):
             let defaultTime = self.fetchedResultsController.objectAtIndexPath(indexPath) as! DefaultTime
             cell.textLabel?.text = "\(defaultTime.beginDate.description) \(defaultTime.endDate.description)"
             
@@ -122,8 +124,6 @@ class MPPersonSettingsDefaultTimesViewController: UITableViewController, NSFetch
             break
         }
         
-        
-
         return cell
     }
     
@@ -146,7 +146,7 @@ class MPPersonSettingsDefaultTimesViewController: UITableViewController, NSFetch
     
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         switch indexPath.section {
-        case 0:
+        case kSectionDefaultTime:
             return true
             
         default:

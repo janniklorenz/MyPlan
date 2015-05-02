@@ -14,6 +14,8 @@
 "Week" =            "Woche";
 "New Person" =      "Neue Person";
 "New Subject" =     "Neues Fach";
+"New Plan" =        "Neuer Plan";
+"New Mark Group" =  "Neue Notenliste";
 "Title" =           "Titel";
 "Short" =           "Abkürzung";
 "Color" =           "Farbe";
@@ -23,6 +25,8 @@
 "Cancel" =          "Abbrechen";
 "Done" =            "Fertig";
 "Next" =            "Weiter";
+"Persons" =         "Personen";
+"New..." =          "Neu...";
 
 "Red" =             "Rot";
 "Orange" =          "Orange";
@@ -50,3 +54,9 @@
 
 "Red, Green and Blue (RGB) Sliders" =
     "Rot, Grün und Blau (RGB) für weitere Farben";
+
+"Add something to the person" =
+    "Füge etwas zu der Person hinzu";
+
+"Title of the Plan" =
+    "Titel des Plans";

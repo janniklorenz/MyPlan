@@ -14,6 +14,9 @@ protocol MPColorPickerViewControllerDelegate {
 
 class MPColorPickerViewController: UITableViewController {
 
+    let kSectionStatic = 0
+    let kSectionRGB = 1
+    
     var delegate: MPColorPickerViewControllerDelegate?
     
     var _oldNavBarSettings: (translucent: Bool, tintColor: UIColor, barTintColor: UIColor?)?
@@ -100,10 +103,10 @@ class MPColorPickerViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
-        case 0:
+        case kSectionStatic:
             return 8
         
-        case 1:
+        case kSectionRGB:
             return 3
             
         default:
@@ -126,25 +129,25 @@ class MPColorPickerViewController: UITableViewController {
         cell.selectionStyle = .None
         
         switch (indexPath.section, indexPath.row) {
-        case (0, 0):
+        case (kSectionStatic, 0):
             cell.textLabel?.text = NSLocalizedString("Red", comment: "")
-        case (0, 1):
+        case (kSectionStatic, 1):
             cell.textLabel?.text = NSLocalizedString("Orange", comment: "")
-        case (0, 2):
+        case (kSectionStatic, 2):
             cell.textLabel?.text = NSLocalizedString("Yellow", comment: "")
-        case (0, 3):
+        case (kSectionStatic, 3):
             cell.textLabel?.text = NSLocalizedString("Blue", comment: "")
-        case (0, 4):
+        case (kSectionStatic, 4):
             cell.textLabel?.text = NSLocalizedString("Green", comment: "")
-        case (0, 5):
+        case (kSectionStatic, 5):
             cell.textLabel?.text = NSLocalizedString("Black", comment: "")
-        case (0, 6):
+        case (kSectionStatic, 6):
             cell.textLabel?.text = NSLocalizedString("White", comment: "")
-        case (0, 7):
+        case (kSectionStatic, 7):
             cell.textLabel?.text = NSLocalizedString("Brown", comment: "")
         
             
-        case (1, 0):
+        case (kSectionRGB, 0):
             var cell = cell as! MPTableViewCellSlider
             var parts = self.color.getRGBA()
             cell.slider.value = Float(parts.red)
@@ -153,7 +156,7 @@ class MPColorPickerViewController: UITableViewController {
                 self.color = UIColor(red: CGFloat(value), green: CGFloat(parts.green), blue: CGFloat(parts.blue), alpha: CGFloat(parts.alpha))
             }
             
-        case (1, 1):
+        case (kSectionRGB, 1):
             var cell = cell as! MPTableViewCellSlider
             var parts = self.color.getRGBA()
             cell.slider.value = Float(parts.green)
@@ -162,7 +165,7 @@ class MPColorPickerViewController: UITableViewController {
                 self.color = UIColor(red: CGFloat(parts.red), green: CGFloat(value), blue: CGFloat(parts.blue), alpha: CGFloat(parts.alpha))
             }
             
-        case (1, 2):
+        case (kSectionRGB, 2):
             var cell = cell as! MPTableViewCellSlider
             var parts = self.color.getRGBA()
             cell.slider.value = Float(parts.blue)
@@ -182,7 +185,7 @@ class MPColorPickerViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         switch (section) {
-        case 1:
+        case kSectionRGB:
             return NSLocalizedString("Red, Green and Blue (RGB) Sliders", comment: "")
             
         default:
@@ -192,21 +195,21 @@ class MPColorPickerViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         switch (indexPath.section, indexPath.row) {
-        case (0, 0):
+        case (kSectionStatic, 0):
             self.color = UIColor.redColor()
-        case (0, 1):
+        case (kSectionStatic, 1):
             self.color = UIColor.orangeColor()
-        case (0, 2):
+        case (kSectionStatic, 2):
             self.color = UIColor.yellowColor()
-        case (0, 3):
+        case (kSectionStatic, 3):
             self.color = UIColor.blueColor()
-        case (0, 4):
+        case (kSectionStatic, 4):
             self.color = UIColor.greenColor()
-        case (0, 5):
+        case (kSectionStatic, 5):
             self.color = UIColor.blackColor()
-        case (0, 6):
+        case (kSectionStatic, 6):
             self.color = UIColor.whiteColor()
-        case (0, 7):
+        case (kSectionStatic, 7):
             self.color = UIColor.brownColor()
             
         default:

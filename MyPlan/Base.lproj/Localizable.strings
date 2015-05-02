@@ -14,6 +14,8 @@
 "Week" =            "Week";
 "New Person" =      "Neue Person";
 "New Subject" =     "New Subject";
+"New Plan" =        "New Plan";
+"New Mark Group" =  "New Mark Group";
 "Title" =           "Title";
 "Short" =           "Short";
 "Color" =           "Color";
@@ -23,6 +25,8 @@
 "Cancel" =          "Cancel";
 "Done" =            "Done";
 "Next" =            "Next";
+"Persons" =         "Persons";
+"New..." =          "New...";
 
 "Red" =             "Red";
 "Orange" =          "Orange";
@@ -42,9 +46,17 @@
 "Assign the subject different values like room or teacher" =
     "Assign the subject different values like room or teacher";
 
-"Color of the Subject" = "Color of the Subject";
+"Color of the Subject" =
+    "Color of the Subject";
+
 "Title ans Short Version of the Subject" =
     "Title ans Short Version of the Subject";
 
 "Red, Green and Blue (RGB) Sliders" =
     "Red, Green and Blue (RGB) Sliders";
+
+"Add something to the person" =
+    "Add something to the person";
+
+"Title of the Plan" =
+    "Title of the Plan";

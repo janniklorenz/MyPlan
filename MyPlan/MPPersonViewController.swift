@@ -230,13 +230,17 @@ class MPPersonViewController: UICollectionViewController, NSFetchedResultsContro
     
     func add() {
         
-        let alertController = UIAlertController(title: "New...", message: "Add something to the person", preferredStyle: .ActionSheet)
+        let alertController = UIAlertController(
+            title: NSLocalizedString("New...", comment: ""),
+            message: NSLocalizedString("Add something to the person", comment: ""),
+            preferredStyle: .ActionSheet
+        )
         
-        let newPlan = UIAlertAction(title: "New Plan", style: .Default) { (action) in
+        let newPlan = UIAlertAction(title: NSLocalizedString("New Plan", comment: ""), style: .Default) { (action) in
             if let person = self.person {
                 MagicalRecord.saveWithBlockAndWait { (var localContext: NSManagedObjectContext!) -> Void in
                     var plan = Plan.MR_createInContext(localContext) as! Plan
-                    plan.title = "Plan"
+                    plan.title = NSLocalizedString("New Plan", comment: "")
                     plan.person = person.MR_inContext(localContext) as! Person
                     var days = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"]
                     var daysShort = ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"]
@@ -257,11 +261,11 @@ class MPPersonViewController: UICollectionViewController, NSFetchedResultsContro
         }
         alertController.addAction(newPlan)
         
-        let newMarkGroup = UIAlertAction(title: "New Mark Group", style: .Default) { (action) in
+        let newMarkGroup = UIAlertAction(title: NSLocalizedString("New Mark Group", comment: ""), style: .Default) { (action) in
             if let person = self.person {
                 MagicalRecord.saveWithBlockAndWait { (var localContext: NSManagedObjectContext!) -> Void in
                     var markGroup = MarkGroup.MR_createInContext(localContext) as! MarkGroup
-                    markGroup.title = "Noten"
+                    markGroup.title = NSLocalizedString("New Mark Group", comment: "")
                     markGroup.person = person.MR_inContext(localContext) as! Person
                     
                     localContext.MR_saveToPersistentStoreWithCompletion({ (let succsess: Bool, let error: NSError!) -> Void in
@@ -293,7 +297,7 @@ class MPPersonViewController: UICollectionViewController, NSFetchedResultsContro
 //        }
 //        alertController.addAction(newSubject)
         
-        let cancel = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
+        let cancel = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .Cancel) { (action) in
             println(action)
         }
         alertController.addAction(cancel)

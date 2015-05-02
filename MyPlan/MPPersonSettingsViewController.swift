@@ -19,6 +19,10 @@ protocol MPPersonSettingsViewControllerDelegate {
 
 class MPPersonSettingsViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     
+    let kSectionTitle = 0
+    let kSectionIO = 1
+    let kSectionTimes = 2
+    
     var person: Person?
     var delegate: MPPersonSettingsViewControllerDelegate?
     
@@ -56,6 +60,7 @@ class MPPersonSettingsViewController: UITableViewController, NSFetchedResultsCon
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
+        
         if let savePerson = self.person {
             if savePerson.deleted == false {
                 MagicalRecord.saveWithBlock { (localContext: NSManagedObjectContext!) -> Void in
@@ -72,7 +77,6 @@ class MPPersonSettingsViewController: UITableViewController, NSFetchedResultsCon
                 self.delegate?.didDeletePerson(savePerson)
             }
         }
-        
     }
     
     
@@ -86,7 +90,7 @@ class MPPersonSettingsViewController: UITableViewController, NSFetchedResultsCon
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch (section) {
-        case 0, 1, 2:
+        case kSectionTitle, kSectionIO, kSectionTimes:
             return 1
             
         default:
@@ -97,10 +101,10 @@ class MPPersonSettingsViewController: UITableViewController, NSFetchedResultsCon
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var reuseIdentifier: String
         switch (indexPath.section, indexPath.row) {
-        case (0, 0):
+        case (kSectionTitle, 0):
             reuseIdentifier = "TextInput"
             
-        case (1, 0):
+        case (kSectionIO, 0):
             reuseIdentifier = "Switch"
             
         default:
@@ -110,7 +114,7 @@ class MPPersonSettingsViewController: UITableViewController, NSFetchedResultsCon
         let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as! UITableViewCell
         
         switch (indexPath.section, indexPath.row) {
-        case (0, 0):
+        case (kSectionTitle, 0):
             var cell = cell as! MPTableViewCellTextInput
             cell.textLabel?.text = NSLocalizedString("Title", comment: "")
             cell.textField.text = person?.title
@@ -120,7 +124,7 @@ class MPPersonSettingsViewController: UITableViewController, NSFetchedResultsCon
             }
             
             
-        case (1, 0):
+        case (kSectionIO, 0):
             var cell = cell as! MPTableViewCellSwitch
             cell.textLabel?.text = NSLocalizedString("Notifications", comment: "")
             if let on = person?.notify.boolValue {
@@ -131,7 +135,7 @@ class MPPersonSettingsViewController: UITableViewController, NSFetchedResultsCon
             }
             
         
-        case (2, 0):
+        case (kSectionTimes, 0):
             cell.textLabel?.text = "Times"
             cell.accessoryType = .DisclosureIndicator
             
@@ -146,7 +150,7 @@ class MPPersonSettingsViewController: UITableViewController, NSFetchedResultsCon
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         switch (indexPath.section, indexPath.row) {
-        case (2, 0):
+        case (kSectionTimes, 0):
             var defaultTimesVC = MPPersonSettingsDefaultTimesViewController(person: self.person!)
             self.navigationController?.pushViewController(defaultTimesVC, animated: true)
             
@@ -157,10 +161,10 @@ class MPPersonSettingsViewController: UITableViewController, NSFetchedResultsCon
     
     override func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         switch (section) {
-        case 0:
+        case kSectionTitle:
             return "Title of the Person"
             
-        case  2:
+        case kSectionTimes:
             return "Set custom times to add houres faster"
             
         default:

@@ -16,6 +16,8 @@ protocol MPSubjectsViewControllerDefault {
 
 class MPSubjectsViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     
+    let kSectionSubjects = 0
+    
     var person: Person?
     var delegate: MPSubjectsViewControllerDefault?
     
@@ -99,7 +101,7 @@ class MPSubjectsViewController: UITableViewController, NSFetchedResultsControlle
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch (section) {
-        case 0:
+        case kSectionSubjects:
             let info = self.fetchedResultsController.sections![section] as! NSFetchedResultsSectionInfo
             return info.numberOfObjects
 
@@ -109,20 +111,19 @@ class MPSubjectsViewController: UITableViewController, NSFetchedResultsControlle
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
         var reuseIdentifier: String
         switch (indexPath.section, indexPath.row) {
-        case (1, 0):
-            reuseIdentifier = "Cell"
+        case (kSectionSubjects, 0...self.tableView(self.tableView, numberOfRowsInSection: kSectionSubjects)):
+            reuseIdentifier = "Subject"
             
         default:
-            reuseIdentifier = "Subject"
+            reuseIdentifier = "Cell"
         }
         
         let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as! UITableViewCell
         
-        switch (indexPath.section) {
-        case 0:
+        switch (indexPath.section, indexPath.row) {
+        case (kSectionSubjects, 0...self.tableView(self.tableView, numberOfRowsInSection: kSectionSubjects)):
             var cell = cell as! MPTableViewCellSubject
             let subject = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Subject
             cell.subject = subject
@@ -131,26 +132,23 @@ class MPSubjectsViewController: UITableViewController, NSFetchedResultsControlle
             break
         }
         
-        
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        switch (indexPath.section) {
-        case 0:
+        switch (indexPath.section, indexPath.row) {
+        case (kSectionSubjects, 0...self.tableView(self.tableView, numberOfRowsInSection: kSectionSubjects)):
             let subject = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Subject
             self.delegate?.didSelectSubject(subject, subjectsVC: self)
             
         default:
             break
         }
-        
-        
     }
     
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        switch indexPath.section {
-        case 0:
+        switch (indexPath.section, indexPath.row) {
+        case (kSectionSubjects, 0...self.tableView(self.tableView, numberOfRowsInSection: kSectionSubjects)):
             return true
             
         default:

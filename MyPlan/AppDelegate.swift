@@ -37,6 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MPMenuViewControllerDeleg
                 subjectDeutsch.timestamp = NSDate()
                 subjectDeutsch.person = person;
                 subjectDeutsch.notify = NSNumber(bool: true);
+                subjectDeutsch.usingMarks = NSNumber(bool: true);
                 subjectDeutsch.title = "Deutsch"
                 subjectDeutsch.titleShort = "D"
                 subjectDeutsch.color = UIColor.blackColor()
@@ -45,6 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MPMenuViewControllerDeleg
                 subjectEnglisch.timestamp = NSDate()
                 subjectEnglisch.person = person;
                 subjectEnglisch.notify = NSNumber(bool: true);
+                subjectEnglisch.usingMarks = NSNumber(bool: true);
                 subjectEnglisch.title = "Englisch"
                 subjectEnglisch.titleShort = "E"
                 subjectEnglisch.color = UIColor.redColor()
@@ -53,6 +55,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MPMenuViewControllerDeleg
                 subjectMathe.timestamp = NSDate()
                 subjectMathe.person = person;
                 subjectMathe.notify = NSNumber(bool: true);
+                subjectMathe.usingMarks = NSNumber(bool: true);
                 subjectMathe.title = "Mathe"
                 subjectMathe.titleShort = "M"
                 subjectMathe.color = UIColor.blueColor()
@@ -61,6 +64,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MPMenuViewControllerDeleg
                 subjectPhysik.timestamp = NSDate()
                 subjectPhysik.person = person;
                 subjectPhysik.notify = NSNumber(bool: true);
+                subjectPhysik.usingMarks = NSNumber(bool: true);
                 subjectPhysik.title = "Physik"
                 subjectPhysik.titleShort = "Ph"
                 subjectPhysik.color = UIColor.whiteColor()

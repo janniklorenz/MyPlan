@@ -7,28 +7,17 @@
 //  Created by Jannik Lorenz on 07.04.15.
 //  Copyright (c) 2015 Jannik Lorenz. All rights reserved.
 //
-/*
-
-- Title
-- Short
-
-- Color
-
-- Notifications
-
-- Subject Key Values
-- ...
-- ...
-
-- Delete
-
-*/
 
 import UIKit
-
 import CoreData
 
 class MPSubjectViewController: UITableViewController, NSFetchedResultsControllerDelegate, MPColorPickerViewControllerDelegate {
+    
+    let kSectionTitle = 0
+    let kSectionColor = 1
+    let kSectionIO = 2
+    let kSectionAttributes = 3
+    let kSectionDelete = 4
     
     var _subject: Subject?
     var subject: Subject? {
@@ -141,20 +130,20 @@ class MPSubjectViewController: UITableViewController, NSFetchedResultsController
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch (section) {
-        case 0:
+        case kSectionTitle:
             return 2
             
-        case 1:
+        case kSectionColor:
             return 1
             
-        case 2:
+        case kSectionIO:
             return 2
             
-        case 3:
+        case kSectionAttributes:
             let info = self.fetchedResultsController.sections![0] as! NSFetchedResultsSectionInfo
             return info.numberOfObjects
             
-        case 4:
+        case kSectionDelete:
             return 1
             
         default:
@@ -166,19 +155,19 @@ class MPSubjectViewController: UITableViewController, NSFetchedResultsController
         
         var reuseIdentifier: String
         switch (indexPath.section, indexPath.row) {
-        case (0, 0...1):
+        case (kSectionTitle, 0...1):
             reuseIdentifier = "TextInput"
         
-        case (1, 0):
+        case (kSectionColor, 0):
             reuseIdentifier = "CellColor"
         
-        case (2, 0...1):
+        case (kSectionIO, 0...1):
             reuseIdentifier = "Switch"
             
-        case (3, 0...self.tableView(self.tableView, numberOfRowsInSection: 3)):
+        case (kSectionAttributes, 0...self.tableView(self.tableView, numberOfRowsInSection: kSectionAttributes)):
             reuseIdentifier = "TextInputDual"
             
-        case (4, 0):
+        case (kSectionDelete, 0):
             reuseIdentifier = "CellButton"
             
         default:
@@ -189,7 +178,7 @@ class MPSubjectViewController: UITableViewController, NSFetchedResultsController
         cell.selectionStyle = .None
         
         switch (indexPath.section, indexPath.row) {
-        case (0, 0):
+        case (kSectionTitle, 0):
             var cell = cell as! MPTableViewCellTextInput
             cell.textLabel?.text = NSLocalizedString("Title", comment: "")
             cell.textField.text = subject?.title
@@ -197,7 +186,7 @@ class MPSubjectViewController: UITableViewController, NSFetchedResultsController
                 self.subject?.title = text
                 self.title = self.subject?.fullTitle
             }
-        case (0, 1):
+        case (kSectionTitle, 1):
             var cell = cell as! MPTableViewCellTextInput
             cell.textLabel?.text = NSLocalizedString("Short", comment: "")
             cell.textField.text = subject?.titleShort
@@ -207,14 +196,14 @@ class MPSubjectViewController: UITableViewController, NSFetchedResultsController
             }
            
             
-        case (1, 0):
+        case (kSectionColor, 0):
             cell.textLabel?.text = NSLocalizedString("Color", comment: "")
             cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
             cell.backgroundColor = subject?.color
             cell.textLabel?.textColor = subject?.color.getReadableTextColor()
             
             
-        case (2, 0):
+        case (kSectionIO, 0):
             var cell = cell as! MPTableViewCellSwitch
             cell.textLabel?.text = NSLocalizedString("Notifications", comment: "")
             if let on = subject?.notify.boolValue {
@@ -225,7 +214,7 @@ class MPSubjectViewController: UITableViewController, NSFetchedResultsController
             }
             
             
-        case (2, 1):
+        case (kSectionIO, 1):
             var cell = cell as! MPTableViewCellSwitch
             cell.textLabel?.text = NSLocalizedString("Using marks", comment: "")
             if let on = subject?.usingMarks.boolValue {
@@ -236,7 +225,7 @@ class MPSubjectViewController: UITableViewController, NSFetchedResultsController
             }
             
             
-        case (3, 0...self.tableView(self.tableView, numberOfRowsInSection: 3)):
+        case (kSectionAttributes, 0...self.tableView(self.tableView, numberOfRowsInSection: kSectionAttributes)):
             var cell = cell as! MPTableViewCellTextInputDual
             let info = self.fetchedResultsController.objectAtIndexPath(NSIndexPath(forRow: indexPath.row, inSection: 0)) as! InfoSubject
             cell.textField.text = info.key
@@ -251,7 +240,7 @@ class MPSubjectViewController: UITableViewController, NSFetchedResultsController
                 })
             }
         
-        case (4, 0):
+        case (kSectionDelete, 0):
             cell.textLabel?.text = NSLocalizedString("Delete Subject", comment: "")
             cell.textLabel?.textAlignment = .Center
             cell.textLabel?.textColor = UIColor.redColor()
@@ -267,18 +256,18 @@ class MPSubjectViewController: UITableViewController, NSFetchedResultsController
     
     override func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         switch (section) {
-        case 0:
+        case kSectionTitle:
             return NSLocalizedString("Title ans Short Version of the Subject", comment: "")
             
-        case 1:
+        case kSectionColor:
             return NSLocalizedString("Color of the Subject", comment: "")
            
-        case 3:
+        case kSectionAttributes:
             if self.tableView(self.tableView, numberOfRowsInSection: 3) != 0 {
                 return NSLocalizedString("Assign the subject different values like room or teacher", comment: "")
             }
             
-        case 4:
+        case kSectionDelete:
             return NSLocalizedString("Delete the subject and all related stuff like makrs, houres, and notes.\n Warning: This can't been undo!", comment: "")
             
         default:
@@ -290,7 +279,7 @@ class MPSubjectViewController: UITableViewController, NSFetchedResultsController
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         switch (indexPath.section, indexPath.row) {
-        case (1, 0):
+        case (kSectionColor, 0):
             if let subject = self.subject {
                 var colorPickerVC = MPColorPickerViewController(delegate: self)
                 self.navigationController?.pushViewController(colorPickerVC, animated: true)
@@ -420,15 +409,15 @@ class MPSubjectViewController: UITableViewController, NSFetchedResultsController
     func controller(controller: NSFetchedResultsController, didChangeObject object: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
         switch type {
         case .Insert:
-            self.tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: newIndexPath!.row, inSection: 3)], withRowAnimation: .Fade)
+            self.tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: newIndexPath!.row, inSection: kSectionAttributes)], withRowAnimation: .Fade)
 //        case .Update:
-//            let cell = self.tableView.cellForRowAtIndexPath(NSIndexPath(forRow: indexPath!.row, inSection: 3))
+//            let cell = self.tableView.cellForRowAtIndexPath(NSIndexPath(forRow: indexPath!.row, inSection: kSectionAttributes))
 //            self.tableView.reloadRowsAtIndexPaths([NSIndexPath(forRow: indexPath!.row, inSection: 3)], withRowAnimation: .Fade)
         case .Move:
-            self.tableView.deleteRowsAtIndexPaths([NSIndexPath(forRow: indexPath!.row, inSection: 3)], withRowAnimation: .Fade)
-            self.tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: newIndexPath!.row, inSection: 3)], withRowAnimation: .Fade)
+            self.tableView.deleteRowsAtIndexPaths([NSIndexPath(forRow: indexPath!.row, inSection: kSectionAttributes)], withRowAnimation: .Fade)
+            self.tableView.insertRowsAtIndexPaths([NSIndexPath(forRow: newIndexPath!.row, inSection: kSectionAttributes)], withRowAnimation: .Fade)
         case .Delete:
-            self.tableView.deleteRowsAtIndexPaths([NSIndexPath(forRow: indexPath!.row, inSection: 3)], withRowAnimation: .Fade)
+            self.tableView.deleteRowsAtIndexPaths([NSIndexPath(forRow: indexPath!.row, inSection: kSectionAttributes)], withRowAnimation: .Fade)
         default:
             return
         }

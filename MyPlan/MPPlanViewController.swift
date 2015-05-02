@@ -10,9 +10,23 @@ import UIKit
 
 import CoreData
 
-class MPPlanViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+class MPPlanViewController: UITableViewController, NSFetchedResultsControllerDelegate, MPPlanSettingsViewControllerDelegate {
     
-    var plan: Plan?
+    let kSectionDays = 0
+    let kSectionSettings = 1
+    
+    var _plan: Plan?
+    var plan: Plan? {
+        set (newPlan) {
+            _plan = newPlan
+            
+            self.title = newPlan?.title
+        }
+        get {
+            return _plan
+        }
+    }
+    
     
     var _fetchedResultsController: NSFetchedResultsController?
     var fetchedResultsController: NSFetchedResultsController {
@@ -53,8 +67,7 @@ class MPPlanViewController: UITableViewController, NSFetchedResultsControllerDel
         
         self.plan = plan
         
-        print(self.plan)
-        self.title = self.plan?.title
+        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -88,35 +101,67 @@ class MPPlanViewController: UITableViewController, NSFetchedResultsControllerDel
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch (section) {
-        case 0:
+        case kSectionDays:
             let info = self.fetchedResultsController.sections![section] as! NSFetchedResultsSectionInfo
             return info.numberOfObjects
-        default: return 0;
+            
+        case kSectionSettings:
+            return 1
+            
+        default:
+            return 0;
         }
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
+        var reuseIdentifier: String
+        switch (indexPath.section, indexPath.row) {
+        default:
+            reuseIdentifier = "Cell"
+        }
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as! UITableViewCell
         cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         
-        let day = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Day
-        cell.textLabel?.text = day.title
-        
-        cell.detailTextLabel?.text = String(day.houres.count) + " Stunde(n)"
-        cell.detailTextLabel?.textColor = UIColor.grayColor()
+        switch (indexPath.section, indexPath.row) {
+        case (kSectionDays, 0...self.tableView(self.tableView, numberOfRowsInSection: kSectionDays)):
+            let day = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Day
+            cell.textLabel?.text = day.title
+            cell.detailTextLabel?.text = String(day.houres.count) + " Stunde(n)"
+            cell.detailTextLabel?.textColor = UIColor.grayColor()
+            
+        case (kSectionSettings, 0):
+            cell.textLabel?.text = NSLocalizedString("Settings", comment: "")
+            
+        default:
+            break
+        }
         
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let day = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Day
-        var dayVC = MPDayViewController(day: day)
-        self.navigationController?.pushViewController(dayVC, animated: true)
+        switch (indexPath.section, indexPath.row) {
+        case (kSectionDays, 0...self.tableView(self.tableView, numberOfRowsInSection: 0)):
+            let day = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Day
+            var dayVC = MPDayViewController(day: day)
+            self.navigationController?.pushViewController(dayVC, animated: true)
+            
+        case (1, 0):
+            if let plan = self.plan {
+                let settingsVC = MPPlanSettingsViewController(plan: plan)
+                settingsVC.delegate = self
+                self.navigationController?.pushViewController(settingsVC, animated: true)
+            }
+            
+        default:
+            break
+        }
     }
     
     /*
@@ -185,6 +230,20 @@ class MPPlanViewController: UITableViewController, NSFetchedResultsControllerDel
     
     func controllerDidChangeContent(controller: NSFetchedResultsController) {
         self.tableView.endUpdates()
+    }
+    
+    
+    
+    
+    
+    
+    // MARK: - MPPlanSettingsViewControllerDelegate
+    
+    func didFinishEditing(plan: Plan) {
+        self.plan = plan
+    }
+    func didDeletePlan(plan: Plan) {
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     

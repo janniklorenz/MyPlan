@@ -28,6 +28,7 @@
 		FB528E381AF501EC001DEC43 /* MPDatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB528E371AF501EC001DEC43 /* MPDatePickerViewController.swift */; };
 		FB528E3A1AF5036E001DEC43 /* MPPersonSettingsDefaultTimesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB528E391AF5036E001DEC43 /* MPPersonSettingsDefaultTimesViewController.swift */; };
 		FB528E3D1AF50EEC001DEC43 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FB528E3F1AF50EEC001DEC43 /* Localizable.strings */; };
+		FB528E431AF52A2C001DEC43 /* MPPlanSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB528E421AF52A2C001DEC43 /* MPPlanSettingsViewController.swift */; };
 		FB61CAAD1AEEAEBD00C3014C /* MPDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB61CAAC1AEEAEBD00C3014C /* MPDayViewController.swift */; };
 		FB61CAC51AEEB92A00C3014C /* MPCalenderLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB61CAC41AEEB92A00C3014C /* MPCalenderLayout.swift */; };
 		FB681D8E1AE15E660002929D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB681D8D1AE15E660002929D /* AppDelegate.swift */; };
@@ -91,6 +92,7 @@
 		FB528E391AF5036E001DEC43 /* MPPersonSettingsDefaultTimesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPPersonSettingsDefaultTimesViewController.swift; sourceTree = "<group>"; };
 		FB528E3E1AF50EEC001DEC43 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FB528E411AF50F06001DEC43 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FB528E421AF52A2C001DEC43 /* MPPlanSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPPlanSettingsViewController.swift; sourceTree = "<group>"; };
 		FB61CAAC1AEEAEBD00C3014C /* MPDayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPDayViewController.swift; sourceTree = "<group>"; };
 		FB61CAC41AEEB92A00C3014C /* MPCalenderLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPCalenderLayout.swift; sourceTree = "<group>"; };
 		FB681D881AE15E660002929D /* MyPlan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyPlan.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -179,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				FB681DBC1AE160630002929D /* MPPlanViewController.swift */,
+				FB528E421AF52A2C001DEC43 /* MPPlanSettingsViewController.swift */,
 				FB61CAAC1AEEAEBD00C3014C /* MPDayViewController.swift */,
 				FB681DB61AE160630002929D /* MPHoureViewController.swift */,
 			);
@@ -476,6 +479,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB681DC81AE160630002929D /* MPSubjectViewController.swift in Sources */,
+				FB528E431AF52A2C001DEC43 /* MPPlanSettingsViewController.swift in Sources */,
 				FB528E211AF2B6E6001DEC43 /* MPCalenderSubjectCell.swift in Sources */,
 				FB681D911AE15E660002929D /* MyPlan.xcdatamodeld in Sources */,
 				FB528E3A1AF5036E001DEC43 /* MPPersonSettingsDefaultTimesViewController.swift in Sources */,

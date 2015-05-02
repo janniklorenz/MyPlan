@@ -114,7 +114,7 @@ class MPMenuViewController: UITableViewController, NSFetchedResultsControllerDel
         
         let info = self.personFetchedResultsController.sections![0] as! NSFetchedResultsSectionInfo
         if (info.numberOfObjects == indexPath.section) {
-            cell.textLabel?.text = "Settings"
+            cell.textLabel?.text = NSLocalizedString("Settings", comment: "")
         }
         else {
             let person = self.personFetchedResultsController.objectAtIndexPath(NSIndexPath(forRow: indexPath.section, inSection: 0)) as! Person
@@ -230,7 +230,7 @@ class MPMenuViewController: UITableViewController, NSFetchedResultsControllerDel
         MagicalRecord.saveWithBlock { (var localContext: NSManagedObjectContext!) -> Void in
             var person:Person = Person.MR_createInContext(localContext) as! Person!
             person.timestamp = NSDate()
-            person.title = "New Person"
+            person.title = NSLocalizedString("New Person", comment: "")
             
             
             var subjectDeutsch = Subject.MR_createInContext(localContext) as! Subject!

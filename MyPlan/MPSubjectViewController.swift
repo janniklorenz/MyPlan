@@ -191,7 +191,7 @@ class MPSubjectViewController: UITableViewController, NSFetchedResultsController
         switch (indexPath.section, indexPath.row) {
         case (0, 0):
             var cell = cell as! MPTableViewCellTextInput
-            cell.textLabel?.text = "Title"
+            cell.textLabel?.text = NSLocalizedString("Title", comment: "")
             cell.textField.text = subject?.title
             cell.didChange = { text in
                 self.subject?.title = text
@@ -199,7 +199,7 @@ class MPSubjectViewController: UITableViewController, NSFetchedResultsController
             }
         case (0, 1):
             var cell = cell as! MPTableViewCellTextInput
-            cell.textLabel?.text = "Short"
+            cell.textLabel?.text = NSLocalizedString("Short", comment: "")
             cell.textField.text = subject?.titleShort
             cell.didChange = { text in
                 self.subject?.titleShort = text
@@ -208,7 +208,7 @@ class MPSubjectViewController: UITableViewController, NSFetchedResultsController
            
             
         case (1, 0):
-            cell.textLabel?.text = "Color"
+            cell.textLabel?.text = NSLocalizedString("Color", comment: "")
             cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
             cell.backgroundColor = subject?.color
             cell.textLabel?.textColor = subject?.color.getReadableTextColor()
@@ -216,7 +216,7 @@ class MPSubjectViewController: UITableViewController, NSFetchedResultsController
             
         case (2, 0):
             var cell = cell as! MPTableViewCellSwitch
-            cell.textLabel?.text = "Notifications"
+            cell.textLabel?.text = NSLocalizedString("Notifications", comment: "")
             if let on = subject?.notify.boolValue {
                 cell.switchItem.on = on
             }
@@ -227,7 +227,7 @@ class MPSubjectViewController: UITableViewController, NSFetchedResultsController
             
         case (2, 1):
             var cell = cell as! MPTableViewCellSwitch
-            cell.textLabel?.text = "Using marks"
+            cell.textLabel?.text = NSLocalizedString("Using marks", comment: "")
             if let on = subject?.usingMarks.boolValue {
                 cell.switchItem.on = on
             }
@@ -252,7 +252,7 @@ class MPSubjectViewController: UITableViewController, NSFetchedResultsController
             }
         
         case (4, 0):
-            cell.textLabel?.text = "Delete Subject"
+            cell.textLabel?.text = NSLocalizedString("Delete Subject", comment: "")
             cell.textLabel?.textAlignment = .Center
             cell.textLabel?.textColor = UIColor.redColor()
             
@@ -268,18 +268,18 @@ class MPSubjectViewController: UITableViewController, NSFetchedResultsController
     override func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         switch (section) {
         case 0:
-            return "Title ans Short Version of the Subject"
+            return NSLocalizedString("Title ans Short Version of the Subject", comment: "")
             
         case 1:
-            return "Color of the Subject"
+            return NSLocalizedString("Color of the Subject", comment: "")
            
         case 3:
             if self.tableView(self.tableView, numberOfRowsInSection: 3) != 0 {
-                return "Assign the subject different values like room or teacher"
+                return NSLocalizedString("Assign the subject different values like room or teacher", comment: "")
             }
             
         case 4:
-            return "Delete the subject and all related stuff like makrs, houres, and notes."
+            return NSLocalizedString("Delete the subject and all related stuff like makrs, houres, and notes.\n Warning: This can't been undo!", comment: "")
             
         default:
             break
@@ -298,9 +298,13 @@ class MPSubjectViewController: UITableViewController, NSFetchedResultsController
             }
             
         case (4, 0):
-            var alert = UIAlertController(title: "Delete Subject", message: "Delete the subject and all related stuff like makrs, houres, and notes.\n Warning: This can't been undo!", preferredStyle: .ActionSheet)
+            var alert = UIAlertController(
+                title: NSLocalizedString("Delete Subject", comment: ""),
+                message: NSLocalizedString("Delete the subject and all related stuff like makrs, houres, and notes.\n Warning: This can't been undo!", comment: ""),
+                preferredStyle: .ActionSheet
+            )
             
-            alert.addAction(UIAlertAction(title: "Delete", style: UIAlertActionStyle.Destructive, handler: { (action: UIAlertAction!) -> Void in
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Delete", comment: ""), style: UIAlertActionStyle.Destructive, handler: { (action: UIAlertAction!) -> Void in
                 if let subject = self.subject {
                     MagicalRecord.saveWithBlock({ (localContext: NSManagedObjectContext!) -> Void in
                         var subject = subject.MR_inContext(localContext) as! Subject
@@ -312,7 +316,7 @@ class MPSubjectViewController: UITableViewController, NSFetchedResultsController
                 }
             }))
             
-            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: { (action: UIAlertAction!) -> Void in
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: UIAlertActionStyle.Cancel, handler: { (action: UIAlertAction!) -> Void in
                 
             }))
             

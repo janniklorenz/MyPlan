@@ -112,7 +112,7 @@ class MPPersonSettingsViewController: UITableViewController, NSFetchedResultsCon
         switch (indexPath.section, indexPath.row) {
         case (0, 0):
             var cell = cell as! MPTableViewCellTextInput
-            cell.textLabel?.text = "Title"
+            cell.textLabel?.text = NSLocalizedString("Title", comment: "")
             cell.textField.text = person?.title
             cell.didChange = { text in
                 self.person?.title = text
@@ -122,7 +122,7 @@ class MPPersonSettingsViewController: UITableViewController, NSFetchedResultsCon
             
         case (1, 0):
             var cell = cell as! MPTableViewCellSwitch
-            cell.textLabel?.text = "Notifications"
+            cell.textLabel?.text = NSLocalizedString("Notifications", comment: "")
             if let on = person?.notify.boolValue {
                 cell.switchItem.on = on
             }
@@ -147,8 +147,8 @@ class MPPersonSettingsViewController: UITableViewController, NSFetchedResultsCon
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         switch (indexPath.section, indexPath.row) {
         case (2, 0):
-            break
-            
+            var defaultTimesVC = MPPersonSettingsDefaultTimesViewController(person: self.person!)
+            self.navigationController?.pushViewController(defaultTimesVC, animated: true)
             
         default:
             break

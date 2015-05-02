@@ -25,6 +25,9 @@
 		FB528E321AF41ED6001DEC43 /* InfoSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB528E301AF41ED6001DEC43 /* InfoSubject.swift */; };
 		FB528E341AF44392001DEC43 /* MPTableViewCellTextInputDual.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB528E331AF44392001DEC43 /* MPTableViewCellTextInputDual.swift */; };
 		FB528E361AF454FF001DEC43 /* DefaultTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB528E351AF454FF001DEC43 /* DefaultTime.swift */; };
+		FB528E381AF501EC001DEC43 /* MPDatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB528E371AF501EC001DEC43 /* MPDatePickerViewController.swift */; };
+		FB528E3A1AF5036E001DEC43 /* MPPersonSettingsDefaultTimesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB528E391AF5036E001DEC43 /* MPPersonSettingsDefaultTimesViewController.swift */; };
+		FB528E3D1AF50EEC001DEC43 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FB528E3F1AF50EEC001DEC43 /* Localizable.strings */; };
 		FB61CAAD1AEEAEBD00C3014C /* MPDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB61CAAC1AEEAEBD00C3014C /* MPDayViewController.swift */; };
 		FB61CAC51AEEB92A00C3014C /* MPCalenderLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB61CAC41AEEB92A00C3014C /* MPCalenderLayout.swift */; };
 		FB681D8E1AE15E660002929D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB681D8D1AE15E660002929D /* AppDelegate.swift */; };
@@ -84,6 +87,10 @@
 		FB528E301AF41ED6001DEC43 /* InfoSubject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InfoSubject.swift; path = CoreData/InfoSubject.swift; sourceTree = "<group>"; };
 		FB528E331AF44392001DEC43 /* MPTableViewCellTextInputDual.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPTableViewCellTextInputDual.swift; sourceTree = "<group>"; };
 		FB528E351AF454FF001DEC43 /* DefaultTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DefaultTime.swift; path = CoreData/DefaultTime.swift; sourceTree = "<group>"; };
+		FB528E371AF501EC001DEC43 /* MPDatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPDatePickerViewController.swift; sourceTree = "<group>"; };
+		FB528E391AF5036E001DEC43 /* MPPersonSettingsDefaultTimesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPPersonSettingsDefaultTimesViewController.swift; sourceTree = "<group>"; };
+		FB528E3E1AF50EEC001DEC43 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		FB528E411AF50F06001DEC43 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FB61CAAC1AEEAEBD00C3014C /* MPDayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPDayViewController.swift; sourceTree = "<group>"; };
 		FB61CAC41AEEB92A00C3014C /* MPCalenderLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPCalenderLayout.swift; sourceTree = "<group>"; };
 		FB681D881AE15E660002929D /* MyPlan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyPlan.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -158,6 +165,7 @@
 			children = (
 				FB0066591AE1A16000F0F0EC /* MPPersonViewController.swift */,
 				FB4DDDC51AEDA8EE009A9B9D /* MPPersonSettingsViewController.swift */,
+				FB528E391AF5036E001DEC43 /* MPPersonSettingsDefaultTimesViewController.swift */,
 				FB4DDDC81AEDB0B4009A9B9D /* Plan */,
 				FB4DDDCB1AEDB0DA009A9B9D /* MarkGroup */,
 				FB4DDDCC1AEDB17C009A9B9D /* Subjects */,
@@ -193,6 +201,7 @@
 				FB681DBD1AE160630002929D /* MPSubjectsViewController.swift */,
 				FB681DBE1AE160630002929D /* MPSubjectViewController.swift */,
 				FB528E221AF3EE90001DEC43 /* MPColorPickerViewController.swift */,
+				FB528E371AF501EC001DEC43 /* MPDatePickerViewController.swift */,
 			);
 			name = Subjects;
 			sourceTree = "<group>";
@@ -256,6 +265,7 @@
 				FB681DE11AE160890002929D /* ViewControllers */,
 				FB681DB51AE160630002929D /* _MPDayViewController.swift */,
 				FB681D8B1AE15E660002929D /* Supporting Files */,
+				FB528E3F1AF50EEC001DEC43 /* Localizable.strings */,
 			);
 			path = MyPlan;
 			sourceTree = "<group>";
@@ -395,6 +405,7 @@
 			knownRegions = (
 				en,
 				Base,
+				de,
 			);
 			mainGroup = FB681D7F1AE15E660002929D;
 			productRefGroup = FB681D891AE15E660002929D /* Products */;
@@ -412,6 +423,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB528E3D1AF50EEC001DEC43 /* Localizable.strings in Resources */,
 				FB681DB41AE1605A0002929D /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -466,6 +478,7 @@
 				FB681DC81AE160630002929D /* MPSubjectViewController.swift in Sources */,
 				FB528E211AF2B6E6001DEC43 /* MPCalenderSubjectCell.swift in Sources */,
 				FB681D911AE15E660002929D /* MyPlan.xcdatamodeld in Sources */,
+				FB528E3A1AF5036E001DEC43 /* MPPersonSettingsDefaultTimesViewController.swift in Sources */,
 				FB528E271AF4192D001DEC43 /* MPTableViewCellSlider.swift in Sources */,
 				FB681DCC1AE160750002929D /* Plan.swift in Sources */,
 				FB681DCE1AE160750002929D /* MarkGroup.swift in Sources */,
@@ -479,6 +492,7 @@
 				FB528E291AF4194E001DEC43 /* MPTableViewCellSwitch.swift in Sources */,
 				FB681DDA1AE160760002929D /* Image.swift in Sources */,
 				FB681D8E1AE15E660002929D /* AppDelegate.swift in Sources */,
+				FB528E381AF501EC001DEC43 /* MPDatePickerViewController.swift in Sources */,
 				FB681DC01AE160630002929D /* MPHoureViewController.swift in Sources */,
 				FB528E321AF41ED6001DEC43 /* InfoSubject.swift in Sources */,
 				FB00665A1AE1A16000F0F0EC /* MPPersonViewController.swift in Sources */,
@@ -524,6 +538,18 @@
 			targetProxy = FB681DA11AE15E660002929D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FB528E3F1AF50EEC001DEC43 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FB528E3E1AF50EEC001DEC43 /* Base */,
+				FB528E411AF50F06001DEC43 /* de */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		FB681DA81AE15E670002929D /* Debug */ = {

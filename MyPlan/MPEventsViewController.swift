@@ -26,7 +26,7 @@ class MPEventsViewController: UITableViewController, NSFetchedResultsControllerD
         
         self.person = person
         
-        self.title = "Events"
+        self.title = NSLocalizedString("Events", comment: "")
     }
     
     required init(coder aDecoder: NSCoder) {

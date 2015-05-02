@@ -127,21 +127,21 @@ class MPColorPickerViewController: UITableViewController {
         
         switch (indexPath.section, indexPath.row) {
         case (0, 0):
-            cell.textLabel?.text = "Red"
+            cell.textLabel?.text = NSLocalizedString("Red", comment: "")
         case (0, 1):
-            cell.textLabel?.text = "Orange"
+            cell.textLabel?.text = NSLocalizedString("Orange", comment: "")
         case (0, 2):
-            cell.textLabel?.text = "Yellow"
+            cell.textLabel?.text = NSLocalizedString("Yellow", comment: "")
         case (0, 3):
-            cell.textLabel?.text = "Blue"
+            cell.textLabel?.text = NSLocalizedString("Blue", comment: "")
         case (0, 4):
-            cell.textLabel?.text = "Green"
+            cell.textLabel?.text = NSLocalizedString("Green", comment: "")
         case (0, 5):
-            cell.textLabel?.text = "Black"
+            cell.textLabel?.text = NSLocalizedString("Black", comment: "")
         case (0, 6):
-            cell.textLabel?.text = "White"
+            cell.textLabel?.text = NSLocalizedString("White", comment: "")
         case (0, 7):
-            cell.textLabel?.text = "Brown"
+            cell.textLabel?.text = NSLocalizedString("Brown", comment: "")
         
             
         case (1, 0):
@@ -183,7 +183,7 @@ class MPColorPickerViewController: UITableViewController {
     override func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         switch (section) {
         case 1:
-            return "Red, Green and Blue (RGB) Sliders"
+            return NSLocalizedString("Red, Green and Blue (RGB) Sliders", comment: "")
             
         default:
             return "";

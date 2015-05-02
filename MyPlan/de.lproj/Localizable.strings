@@ -1,0 +1,52 @@
+/* 
+  Localisation.strings
+  MyPlan
+
+  Created by Jannik Lorenz on 02.05.15.
+  Copyright (c) 2015 Jannik Lorenz. All rights reserved.
+*/
+
+"Delete" =          "Löschen";
+"Settings" =        "Einstellungen";
+"Subjects" =        "Fächer";
+"Events" =          "Termine";
+"Homeworks" =       "Hausaufgaben";
+"Week" =            "Woche";
+"New Person" =      "Neue Person";
+"New Subject" =     "Neues Fach";
+"Title" =           "Titel";
+"Short" =           "Abkürzung";
+"Color" =           "Farbe";
+"Notifications" =   "Benachrichtigung";
+"Using marks" =     "Notenmanager";
+"Delete Subject" =  "Fach löschen";
+"Cancel" =          "Abbrechen";
+"Done" =            "Fertig";
+"Next" =            "Weiter";
+
+"Red" =             "Rot";
+"Orange" =          "Orange";
+"Yellow" =          "Gelb";
+"Blue" =            "Blau";
+"Green" =           "Grün";
+"Black" =           "Schwarz";
+"White" =           "Weiß";
+"Brown" =           "Braun";
+
+
+
+
+"Delete the subject and all related stuff like makrs, houres, and notes.\n Warning: This can't been undo!" =
+    "Das Fach und alle davon abhängigen Daten wie Stunden und Termine löschen.\n Achtung: Kann nicht Rückgängig gemacht werden!";
+
+"Assign the subject different values like room or teacher" =
+    "Verschiedene Attribute des Faches";
+
+"Color of the Subject" =
+    "Farbe des Faches";
+
+"Title ans Short Version of the Subject" =
+    "Titel und Abkürzung des Faches";
+
+"Red, Green and Blue (RGB) Sliders" =
+    "Rot, Grün und Blau (RGB) für weitere Farben";

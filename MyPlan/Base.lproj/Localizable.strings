@@ -1,0 +1,50 @@
+/* 
+  Localisation.strings
+  MyPlan
+
+  Created by Jannik Lorenz on 02.05.15.
+  Copyright (c) 2015 Jannik Lorenz. All rights reserved.
+*/
+
+"Delete" =          "Delete";
+"Settings" =        "Settings";
+"Subjects" =        "Subjects";
+"Events" =          "Events";
+"Homeworks" =       "Homeworks";
+"Week" =            "Week";
+"New Person" =      "Neue Person";
+"New Subject" =     "New Subject";
+"Title" =           "Title";
+"Short" =           "Short";
+"Color" =           "Color";
+"Notifications" =   "Notifications";
+"Using marks" =     "Using marks";
+"Delete Subject" =  "Delete Subject";
+"Cancel" =          "Cancel";
+"Done" =            "Done";
+"Next" =            "Next";
+
+"Red" =             "Red";
+"Orange" =          "Orange";
+"Yellow" =          "Yellow";
+"Blue" =            "Blue";
+"Green" =           "Green";
+"Black" =           "Black";
+"White" =           "White";
+"Brown" =           "Brown";
+
+
+
+
+"Delete the subject and all related stuff like makrs, houres, and notes.\n Warning: This can't been undo!" =
+    "Delete the subject and all related stuff like makrs, houres, and notes.\n Warning: This can't been undo!";
+
+"Assign the subject different values like room or teacher" =
+    "Assign the subject different values like room or teacher";
+
+"Color of the Subject" = "Color of the Subject";
+"Title ans Short Version of the Subject" =
+    "Title ans Short Version of the Subject";
+
+"Red, Green and Blue (RGB) Sliders" =
+    "Red, Green and Blue (RGB) Sliders";

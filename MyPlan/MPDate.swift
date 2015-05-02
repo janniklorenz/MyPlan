@@ -65,6 +65,21 @@ class MPDate: NSObject, NSCoding {
     
     
     
+    func compare(anotherDate: MPDate) -> NSComparisonResult {
+        if self.seconds < anotherDate.seconds {
+            return NSComparisonResult.OrderedAscending
+        }
+        else if self.seconds > anotherDate.seconds {
+            return NSComparisonResult.OrderedDescending
+        }
+        else {
+            return NSComparisonResult.OrderedSame
+        }
+    }
+    
+    
+    
+    
     // MARK: - NSCoding
     
     required convenience init(coder decoder: NSCoder) {

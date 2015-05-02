@@ -84,7 +84,6 @@ class MPPersonViewController: UICollectionViewController, NSFetchedResultsContro
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -131,19 +130,19 @@ class MPPersonViewController: UICollectionViewController, NSFetchedResultsContro
             cell.titleLabel.text = plan.title
             
         case .Settings:
-            cell.titleLabel.text = "Settings"
+            cell.titleLabel.text = NSLocalizedString("Settings", comment: "")
             
         case .Subjects:
-            cell.titleLabel.text = "Subjects"
+            cell.titleLabel.text = NSLocalizedString("Subjects", comment: "")
             
         case .Events:
-            cell.titleLabel.text = "Events"
+            cell.titleLabel.text = NSLocalizedString("Events", comment: "")
             
         case .Homeworks:
-            cell.titleLabel.text = "Homeworks"
+            cell.titleLabel.text = NSLocalizedString("Homeworks", comment: "")
             
         case .Week:
-            cell.titleLabel.text = "Week"
+            cell.titleLabel.text = NSLocalizedString("Week", comment: "")
         }
         
         // Configure the cell

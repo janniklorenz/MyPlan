@@ -26,7 +26,7 @@ class MPHomeworksViewController: UITableViewController, NSFetchedResultsControll
         
         self.person = person
         
-        self.title = "Homeworks"
+        self.title = NSLocalizedString("Homeworks", comment: "")
     }
     
     required init(coder aDecoder: NSCoder) {

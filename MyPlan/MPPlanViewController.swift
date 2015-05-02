@@ -14,6 +14,7 @@ class MPPlanViewController: UITableViewController, NSFetchedResultsControllerDel
     
     var plan: Plan?
     
+    var _fetchedResultsController: NSFetchedResultsController?
     var fetchedResultsController: NSFetchedResultsController {
         
         if self._fetchedResultsController != nil {
@@ -40,7 +41,6 @@ class MPPlanViewController: UITableViewController, NSFetchedResultsControllerDel
         
         return self._fetchedResultsController!
     }
-    var _fetchedResultsController: NSFetchedResultsController?
     
     
     

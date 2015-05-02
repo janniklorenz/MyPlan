@@ -59,7 +59,7 @@ class MPSubjectsViewController: UITableViewController, NSFetchedResultsControlle
         
         self.person = person
         
-        self.title = "Subjects"
+        self.title = NSLocalizedString("Subjects", comment: "")
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -162,9 +162,13 @@ class MPSubjectsViewController: UITableViewController, NSFetchedResultsControlle
         if editingStyle == .Delete {
             // Delete the row from the data source
             
-            var alert = UIAlertController(title: "Delete Subject", message: "Delete the subject and all related stuff like makrs, houres, and notes.\n Warning: This can't been undo!", preferredStyle: .ActionSheet)
+            var alert = UIAlertController(
+                title: NSLocalizedString("Delete Subject", comment: ""),
+                message: NSLocalizedString("Delete the subject and all related stuff like makrs, houres, and notes.\n Warning: This can't been undo!", comment: ""),
+                preferredStyle: .ActionSheet
+            )
             
-            alert.addAction(UIAlertAction(title: "Delete", style: UIAlertActionStyle.Destructive, handler: { (action: UIAlertAction!) -> Void in
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Delete", comment: ""), style: UIAlertActionStyle.Destructive, handler: { (action: UIAlertAction!) -> Void in
                 let subject = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Subject
                 MagicalRecord.saveWithBlock({ (localContext: NSManagedObjectContext!) -> Void in
                     var subject = subject.MR_inContext(localContext) as! Subject
@@ -173,7 +177,7 @@ class MPSubjectsViewController: UITableViewController, NSFetchedResultsControlle
                 })
             }))
             
-            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: { (action: UIAlertAction!) -> Void in
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: UIAlertActionStyle.Cancel, handler: { (action: UIAlertAction!) -> Void in
                 
             }))
             
@@ -222,7 +226,7 @@ class MPSubjectsViewController: UITableViewController, NSFetchedResultsControlle
                 var newSubject = Subject.MR_createInContext(localContext) as! Subject!
                 newSubject.person = person.MR_inContext(localContext) as! Person
                 newSubject.notify = NSNumber(bool: true);
-                newSubject.title = "New Subject"
+                newSubject.title = NSLocalizedString("New Subject", comment: "")
                 newSubject.titleShort = ""
                 newSubject.color = UIColor.whiteColor()
                 

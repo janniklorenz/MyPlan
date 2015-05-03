@@ -13,7 +13,7 @@
 		FB4DDDCF1AEDB512009A9B9D /* MPEventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4DDDCD1AEDB512009A9B9D /* MPEventsViewController.swift */; };
 		FB4DDDD01AEDB512009A9B9D /* MPHomeworksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB4DDDCE1AEDB512009A9B9D /* MPHomeworksViewController.swift */; };
 		FB5146A81AF18E1100139564 /* MPDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5146A71AF18E1100139564 /* MPDate.swift */; };
-		FB528E211AF2B6E6001DEC43 /* MPCalenderSubjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB528E201AF2B6E6001DEC43 /* MPCalenderSubjectCell.swift */; };
+		FB528E211AF2B6E6001DEC43 /* MPCollectionViewSubjectCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB528E201AF2B6E6001DEC43 /* MPCollectionViewSubjectCell.swift */; };
 		FB528E231AF3EE90001DEC43 /* MPColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB528E221AF3EE90001DEC43 /* MPColorPickerViewController.swift */; };
 		FB528E251AF41910001DEC43 /* MPTableViewCellSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB528E241AF41910001DEC43 /* MPTableViewCellSubject.swift */; };
 		FB528E271AF4192D001DEC43 /* MPTableViewCellSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB528E261AF4192D001DEC43 /* MPTableViewCellSlider.swift */; };
@@ -24,7 +24,6 @@
 		FB528E321AF41ED6001DEC43 /* InfoSubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB528E301AF41ED6001DEC43 /* InfoSubject.swift */; };
 		FB528E341AF44392001DEC43 /* MPTableViewCellTextInputDual.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB528E331AF44392001DEC43 /* MPTableViewCellTextInputDual.swift */; };
 		FB528E361AF454FF001DEC43 /* DefaultTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB528E351AF454FF001DEC43 /* DefaultTime.swift */; };
-		FB528E381AF501EC001DEC43 /* MPDatePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB528E371AF501EC001DEC43 /* MPDatePickerViewController.swift */; };
 		FB528E3A1AF5036E001DEC43 /* MPPersonSettingsDefaultTimesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB528E391AF5036E001DEC43 /* MPPersonSettingsDefaultTimesViewController.swift */; };
 		FB528E3D1AF50EEC001DEC43 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FB528E3F1AF50EEC001DEC43 /* Localizable.strings */; };
 		FB528E431AF52A2C001DEC43 /* MPPlanSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB528E421AF52A2C001DEC43 /* MPPlanSettingsViewController.swift */; };
@@ -32,6 +31,8 @@
 		FB59CB131AF5549300E36948 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB59CB121AF5549300E36948 /* Settings.swift */; };
 		FB59CB151AF5553800E36948 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB59CB141AF5553800E36948 /* Defaults.swift */; };
 		FB59CB171AF57BDC00E36948 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB59CB161AF57BDC00E36948 /* Person.swift */; };
+		FB59CB191AF5822500E36948 /* MPCollectionViewMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB59CB181AF5822500E36948 /* MPCollectionViewMenuCell.swift */; };
+		FB59CB1D1AF6932300E36948 /* MPTableViewCellTimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB59CB1C1AF6932300E36948 /* MPTableViewCellTimePicker.swift */; };
 		FB61CAAD1AEEAEBD00C3014C /* MPDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB61CAAC1AEEAEBD00C3014C /* MPDayViewController.swift */; };
 		FB61CAC51AEEB92A00C3014C /* MPCalenderLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB61CAC41AEEB92A00C3014C /* MPCalenderLayout.swift */; };
 		FB681D8E1AE15E660002929D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB681D8D1AE15E660002929D /* AppDelegate.swift */; };
@@ -79,7 +80,7 @@
 		FB4DDDCD1AEDB512009A9B9D /* MPEventsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPEventsViewController.swift; sourceTree = "<group>"; };
 		FB4DDDCE1AEDB512009A9B9D /* MPHomeworksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPHomeworksViewController.swift; sourceTree = "<group>"; };
 		FB5146A71AF18E1100139564 /* MPDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPDate.swift; sourceTree = "<group>"; };
-		FB528E201AF2B6E6001DEC43 /* MPCalenderSubjectCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPCalenderSubjectCell.swift; sourceTree = "<group>"; };
+		FB528E201AF2B6E6001DEC43 /* MPCollectionViewSubjectCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPCollectionViewSubjectCell.swift; sourceTree = "<group>"; };
 		FB528E221AF3EE90001DEC43 /* MPColorPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPColorPickerViewController.swift; sourceTree = "<group>"; };
 		FB528E241AF41910001DEC43 /* MPTableViewCellSubject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPTableViewCellSubject.swift; sourceTree = "<group>"; };
 		FB528E261AF4192D001DEC43 /* MPTableViewCellSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPTableViewCellSlider.swift; sourceTree = "<group>"; };
@@ -90,7 +91,6 @@
 		FB528E301AF41ED6001DEC43 /* InfoSubject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InfoSubject.swift; path = CoreData/InfoSubject.swift; sourceTree = "<group>"; };
 		FB528E331AF44392001DEC43 /* MPTableViewCellTextInputDual.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPTableViewCellTextInputDual.swift; sourceTree = "<group>"; };
 		FB528E351AF454FF001DEC43 /* DefaultTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DefaultTime.swift; path = CoreData/DefaultTime.swift; sourceTree = "<group>"; };
-		FB528E371AF501EC001DEC43 /* MPDatePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPDatePickerViewController.swift; sourceTree = "<group>"; };
 		FB528E391AF5036E001DEC43 /* MPPersonSettingsDefaultTimesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPPersonSettingsDefaultTimesViewController.swift; sourceTree = "<group>"; };
 		FB528E3E1AF50EEC001DEC43 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FB528E411AF50F06001DEC43 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -99,6 +99,8 @@
 		FB59CB121AF5549300E36948 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Settings.swift; path = CoreData/Settings.swift; sourceTree = "<group>"; };
 		FB59CB141AF5553800E36948 /* Defaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
 		FB59CB161AF57BDC00E36948 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Person.swift; path = CoreData/Person.swift; sourceTree = "<group>"; };
+		FB59CB181AF5822500E36948 /* MPCollectionViewMenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPCollectionViewMenuCell.swift; sourceTree = "<group>"; };
+		FB59CB1C1AF6932300E36948 /* MPTableViewCellTimePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPTableViewCellTimePicker.swift; sourceTree = "<group>"; };
 		FB61CAAC1AEEAEBD00C3014C /* MPDayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPDayViewController.swift; sourceTree = "<group>"; };
 		FB61CAC41AEEB92A00C3014C /* MPCalenderLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPCalenderLayout.swift; sourceTree = "<group>"; };
 		FB681D881AE15E660002929D /* MyPlan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyPlan.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -237,6 +239,7 @@
 				FB528E281AF4194E001DEC43 /* MPTableViewCellSwitch.swift */,
 				FB528E261AF4192D001DEC43 /* MPTableViewCellSlider.swift */,
 				FB528E241AF41910001DEC43 /* MPTableViewCellSubject.swift */,
+				FB59CB1C1AF6932300E36948 /* MPTableViewCellTimePicker.swift */,
 			);
 			name = MPTableViewCell;
 			sourceTree = "<group>";
@@ -244,7 +247,6 @@
 		FB59CB111AF5526600E36948 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				FB528E371AF501EC001DEC43 /* MPDatePickerViewController.swift */,
 				FB528E221AF3EE90001DEC43 /* MPColorPickerViewController.swift */,
 			);
 			name = Helper;
@@ -278,7 +280,8 @@
 				FB681DDF1AE1607B0002929D /* Database */,
 				FB5146A71AF18E1100139564 /* MPDate.swift */,
 				FB61CAC41AEEB92A00C3014C /* MPCalenderLayout.swift */,
-				FB528E201AF2B6E6001DEC43 /* MPCalenderSubjectCell.swift */,
+				FB59CB181AF5822500E36948 /* MPCollectionViewMenuCell.swift */,
+				FB528E201AF2B6E6001DEC43 /* MPCollectionViewSubjectCell.swift */,
 				FB528E2C1AF41986001DEC43 /* MPTableViewCell */,
 				FB681DE11AE160890002929D /* ViewControllers */,
 				FB681DB51AE160630002929D /* _MPDayViewController.swift */,
@@ -497,7 +500,7 @@
 			files = (
 				FB681DC81AE160630002929D /* MPSubjectViewController.swift in Sources */,
 				FB528E431AF52A2C001DEC43 /* MPPlanSettingsViewController.swift in Sources */,
-				FB528E211AF2B6E6001DEC43 /* MPCalenderSubjectCell.swift in Sources */,
+				FB528E211AF2B6E6001DEC43 /* MPCollectionViewSubjectCell.swift in Sources */,
 				FB681D911AE15E660002929D /* MyPlan.xcdatamodeld in Sources */,
 				FB528E3A1AF5036E001DEC43 /* MPPersonSettingsDefaultTimesViewController.swift in Sources */,
 				FB528E271AF4192D001DEC43 /* MPTableViewCellSlider.swift in Sources */,
@@ -513,10 +516,10 @@
 				FB528E2B1AF41963001DEC43 /* MPTableViewCellTextImput.swift in Sources */,
 				FB681DC21AE160630002929D /* MPMarkGroupViewController.swift in Sources */,
 				FB681DDE1AE160760002929D /* Mark.swift in Sources */,
+				FB59CB191AF5822500E36948 /* MPCollectionViewMenuCell.swift in Sources */,
 				FB528E291AF4194E001DEC43 /* MPTableViewCellSwitch.swift in Sources */,
 				FB681DDA1AE160760002929D /* Image.swift in Sources */,
 				FB681D8E1AE15E660002929D /* AppDelegate.swift in Sources */,
-				FB528E381AF501EC001DEC43 /* MPDatePickerViewController.swift in Sources */,
 				FB681DC01AE160630002929D /* MPHoureViewController.swift in Sources */,
 				FB528E321AF41ED6001DEC43 /* InfoSubject.swift in Sources */,
 				FB59CB171AF57BDC00E36948 /* Person.swift in Sources */,
@@ -525,6 +528,7 @@
 				FB5146A81AF18E1100139564 /* MPDate.swift in Sources */,
 				FB4DDDCF1AEDB512009A9B9D /* MPEventsViewController.swift in Sources */,
 				FB681DC31AE160630002929D /* MPMarkViewController.swift in Sources */,
+				FB59CB1D1AF6932300E36948 /* MPTableViewCellTimePicker.swift in Sources */,
 				FB61CAAD1AEEAEBD00C3014C /* MPDayViewController.swift in Sources */,
 				FB681DD01AE160750002929D /* Houre.swift in Sources */,
 				FB681DDC1AE160760002929D /* Subject.swift in Sources */,

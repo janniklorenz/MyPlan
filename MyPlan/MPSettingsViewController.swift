@@ -91,12 +91,17 @@ class MPSettingsViewController: UITableViewController, NSFetchedResultsControlle
         case (kSectionNotifications, 0):
             var cell = cell as! MPTableViewCellSwitch
             cell.textLabel?.text = NSLocalizedString("Notifications", comment: "")
-//            if let on = person?.notify.boolValue {
-//                cell.switchItem.on = on
-//            }
-//            cell.didChange = { value in
-//                person?.notify = NSNumber(bool: value)
-//            }
+            let settings = Settings.MR_findFirst() as! Settings
+            cell.switchItem.on = settings.notifications.boolValue
+            cell.didChange = { value in
+                MagicalRecord.saveWithBlock({ (localContext: NSManagedObjectContext!) -> Void in
+                    let settings = settings.MR_inContext(localContext) as! Settings
+                    settings.notifications = NSNumber(bool: value)
+                    
+                    localContext.MR_saveToPersistentStoreAndWait()
+                })
+                
+            }
             
         default:
             break

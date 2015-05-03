@@ -177,7 +177,7 @@ class MPPersonSettingsViewController: UITableViewController, NSFetchedResultsCon
             let alert = UIAlertController(
                 title: NSLocalizedString("Delete Person", comment: ""),
                 message: NSLocalizedString("__Delete_Person_Ask", comment: ""),
-                preferredStyle: .ActionSheet
+                preferredStyle: .Alert
             )
             
             alert.addAction(UIAlertAction(title: NSLocalizedString("Delete", comment: ""), style: UIAlertActionStyle.Destructive, handler: { (action: UIAlertAction!) -> Void in

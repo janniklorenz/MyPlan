@@ -1,5 +1,5 @@
 //
-//  MPCalenderSubjectCell.swift
+//  MPCollectionViewSubjectCell.swift
 //  MyPlan
 //
 //  Created by Jannik Lorenz on 30.04.15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MPCalenderSubjectCell: UICollectionViewCell {
+class MPCollectionViewSubjectCell: UICollectionViewCell {
     
     var timeLabel: UILabel
     var titleLabel: UILabel
@@ -18,7 +18,7 @@ class MPCalenderSubjectCell: UICollectionViewCell {
     var houre: Houre? {
         set (newHoure) {
             if let houre = newHoure {
-                _houre = newHoure
+                _houre = houre
                 
                 var parts = houre.subject.color.getRGBA()
                 self.backgroundColor = UIColor(red: parts.red, green: parts.green, blue: parts.blue, alpha: 0.5)
@@ -50,15 +50,15 @@ class MPCalenderSubjectCell: UICollectionViewCell {
         
         timeLabel.frame = CGRectMake(5, 0, self.frame.size.width*0.3-5, self.frame.size.height)
         timeLabel.autoresizingMask = .FlexibleHeight | .FlexibleWidth
-        self.addSubview(timeLabel)
+        addSubview(timeLabel)
         
         titleLabel.frame = CGRectMake(self.frame.size.width*0.3, 0, self.frame.size.width*0.7, self.frame.size.height)
         titleLabel.autoresizingMask = .FlexibleHeight | .FlexibleWidth
-        self.addSubview(titleLabel)
+        addSubview(titleLabel)
         
         lineView.frame = CGRectMake(0, 0, 3, self.frame.size.height)
         lineView.autoresizingMask = .FlexibleWidth | .FlexibleHeight
-        self.contentView.addSubview(lineView)
+        contentView.addSubview(lineView)
     }
 
     required init(coder aDecoder: NSCoder) {

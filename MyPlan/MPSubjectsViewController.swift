@@ -163,7 +163,7 @@ class MPSubjectsViewController: UITableViewController, NSFetchedResultsControlle
             var alert = UIAlertController(
                 title: NSLocalizedString("Delete Subject", comment: ""),
                 message: NSLocalizedString("__Delete_Subject_Ask", comment: ""),
-                preferredStyle: .ActionSheet
+                preferredStyle: .Alert
             )
             
             alert.addAction(UIAlertAction(title: NSLocalizedString("Delete", comment: ""), style: UIAlertActionStyle.Destructive, handler: { (action: UIAlertAction!) -> Void in

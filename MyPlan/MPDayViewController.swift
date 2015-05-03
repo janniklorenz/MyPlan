@@ -12,7 +12,20 @@ class MPDayViewController: UICollectionViewController, NSFetchedResultsControlle
     
     var cells: [Houre]
     
-    var day: Day?
+    var _day: Day?
+    var day: Day? {
+        set (newDay) {
+            if let day = newDay {
+                _day = day
+                
+                self.title = _day?.fullTitle
+                self.cells = Houre.MR_findAllSortedBy("houre", ascending: true, withPredicate: NSPredicate(format: "(day == %@)", day)) as! [Houre]
+            }
+        }
+        get {
+            return _day
+        }
+    }
     
     
     
@@ -27,12 +40,10 @@ class MPDayViewController: UICollectionViewController, NSFetchedResultsControlle
         super.init(collectionViewLayout: layout)
         
         self.day = day
+        
         layout.delegate = self
         
-        self.cells = Houre.MR_findAllSortedBy("houre", ascending: true, withPredicate: NSPredicate(format: "(day == %@)", day)) as! [Houre]
-        
         self.collectionView?.backgroundColor = UIColor.groupTableViewBackgroundColor()
-        
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -51,7 +62,7 @@ class MPDayViewController: UICollectionViewController, NSFetchedResultsControlle
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.collectionView!.registerClass(MPCalenderSubjectCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        self.collectionView!.registerClass(MPCollectionViewSubjectCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         
         // Add Houre Button
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "addHoure" )
@@ -74,7 +85,7 @@ class MPDayViewController: UICollectionViewController, NSFetchedResultsControlle
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! MPCalenderSubjectCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! MPCollectionViewSubjectCell
         
         cell.houre = cells[indexPath.row]
         

@@ -13,16 +13,6 @@ let reuseIdentifier = "Cell"
 
 class MPPersonViewController: UICollectionViewController, NSFetchedResultsControllerDelegate, MPSubjectsViewControllerDefault, FMMosaicLayoutDelegate, MPPersonSettingsViewControllerDelegate {
     
-    enum Dash {
-        case ShowPlan(Plan)
-        case ShowMarkGroup(MarkGroup)
-        case Settings
-        case Subjects
-        case Events
-        case Homeworks
-        case Week
-    }
-    
     var cells: [Dash] = []
     
     var _person: Person?
@@ -86,7 +76,7 @@ class MPPersonViewController: UICollectionViewController, NSFetchedResultsContro
         super.viewDidLoad()
         
         // Register cell classes
-        self.collectionView!.registerClass(MPCalenderSubjectCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        self.collectionView!.registerClass(MPCollectionViewMenuCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
         
@@ -118,7 +108,8 @@ class MPPersonViewController: UICollectionViewController, NSFetchedResultsContro
     }
 
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! MPCalenderSubjectCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! MPCollectionViewMenuCell
+        cell.backgroundColor = UIColor.whiteColor()
         
         switch cells[indexPath.row] {
         case .ShowMarkGroup(let markGroup):
@@ -142,9 +133,6 @@ class MPPersonViewController: UICollectionViewController, NSFetchedResultsContro
         case .Week:
             cell.titleLabel.text = NSLocalizedString("Week", comment: "")
         }
-        
-        // Configure the cell
-        cell.backgroundColor = UIColor.getRandomColor()
     
         return cell
     }
@@ -231,9 +219,8 @@ class MPPersonViewController: UICollectionViewController, NSFetchedResultsContro
         let alertController = UIAlertController(
             title: NSLocalizedString("New...", comment: ""),
             message: NSLocalizedString("__Add_Subjects_Message", comment: ""),
-            preferredStyle: .ActionSheet
+            preferredStyle: .Alert
         )
-        
         let newPlan = UIAlertAction(title: NSLocalizedString("New Plan", comment: ""), style: .Default) { (action) in
             if let person = self.person {
                 MagicalRecord.saveWithBlockAndWait { (var localContext: NSManagedObjectContext!) -> Void in
@@ -320,16 +307,19 @@ class MPPersonViewController: UICollectionViewController, NSFetchedResultsContro
 //    }
     
     func collectionView(collectionView: UICollectionView!, layout collectionViewLayout: FMMosaicLayout!, mosaicCellSizeForItemAtIndexPath indexPath: NSIndexPath!) -> FMMosaicCellSize {
-        if indexPath.item % 2 == 0 {
+        switch cells[indexPath.row] {
+        case .Settings, .Subjects, .Homeworks, .Events, .Week:
             return .Small
+            
+        default:
+            return .Big
         }
-        return .Big
     }
     func collectionView(collectionView: UICollectionView!, layout collectionViewLayout: FMMosaicLayout!, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
     func collectionView(collectionView: UICollectionView!, layout collectionViewLayout: FMMosaicLayout!, interitemSpacingForSectionAtIndex section: Int) -> CGFloat {
-        return 0
+        return 5
     }
     
     
@@ -352,6 +342,7 @@ class MPPersonViewController: UICollectionViewController, NSFetchedResultsContro
     func didDeletePerson(person: Person) {
         
     }
+    
     
     
 

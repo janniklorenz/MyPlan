@@ -14,6 +14,8 @@ class MPPersonSettingsDefaultTimesViewController: UITableViewController, NSFetch
     
     var person: Person?
     
+    var selectedDateCell: NSIndexPath?
+    
     var _fetchedResultsController: NSFetchedResultsController?
     var fetchedResultsController: NSFetchedResultsController {
         
@@ -54,6 +56,7 @@ class MPPersonSettingsDefaultTimesViewController: UITableViewController, NSFetch
         
         self.person = person
         
+        self.tableView.registerClass(MPTableViewCellTimePicker.self, forCellReuseIdentifier: "DateCell")
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         
         self.title = NSLocalizedString("Times", comment: "")
@@ -112,17 +115,35 @@ class MPPersonSettingsDefaultTimesViewController: UITableViewController, NSFetch
         var reuseIdentifier: String
         switch indexPath.section {
         default:
-            reuseIdentifier = "Cell"
+            reuseIdentifier = "DateCell"
         }
         
         let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as! UITableViewCell
-        cell.selectionStyle = .None
         
         switch (indexPath.section, indexPath.row) {
         case (kSectionDefaultTime, 0...self.tableView(self.tableView, numberOfRowsInSection: kSectionDefaultTime)):
+            var cell = cell as! MPTableViewCellTimePicker
             let defaultTime = self.fetchedResultsController.objectAtIndexPath(indexPath) as! DefaultTime
-            cell.textLabel?.text = "\(defaultTime.beginDate.description) \(defaultTime.endDate.description)"
-            cell.accessoryType = .DisclosureIndicator
+            
+            cell.dateFrom = defaultTime.beginDate
+            cell.dateTo = defaultTime.endDate
+            
+            cell.didChangeFrom = { date in
+                MagicalRecord.saveWithBlock({ (localContext: NSManagedObjectContext!) -> Void in
+                    let defaultTime = defaultTime.MR_inContext(localContext) as! DefaultTime
+                    defaultTime.beginDate = date
+                    
+                    localContext.MR_saveToPersistentStoreAndWait()
+                })
+            }
+            cell.didChangeTo = { date in
+                MagicalRecord.saveWithBlock({ (localContext: NSManagedObjectContext!) -> Void in
+                    let defaultTime = defaultTime.MR_inContext(localContext) as! DefaultTime
+                    defaultTime.endDate = date
+                    
+                    localContext.MR_saveToPersistentStoreAndWait()
+                })
+            }
             
         default:
             break
@@ -141,15 +162,47 @@ class MPPersonSettingsDefaultTimesViewController: UITableViewController, NSFetch
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         switch (indexPath.section, indexPath.row) {
         case (kSectionDefaultTime, 0...self.tableView(self.tableView, numberOfRowsInSection: kSectionDefaultTime)):
-            let defaultTime = self.fetchedResultsController.objectAtIndexPath(indexPath) as! DefaultTime
-            let timeVC = MPDatePickerViewController(delegate: self, dateFrom: defaultTime.beginDate, dateTo: defaultTime.endDate)
-            self.navigationController?.pushViewController(timeVC, animated: true)
+            if selectedDateCell != indexPath {
+                selectedDateCell = indexPath
+                tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            }
+            else {
+                self.tableView(tableView, didDeselectRowAtIndexPath: indexPath)
+            }
+            
+        default:
+            break
+        }
+    }
+    override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+        switch (indexPath.section, indexPath.row) {
+        case (kSectionDefaultTime, 0...self.tableView(self.tableView, numberOfRowsInSection: kSectionDefaultTime)):
+            var cell = self.tableView(tableView, cellForRowAtIndexPath: indexPath) as! MPTableViewCellTimePicker
+            selectedDateCell = nil
+            tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
             
         default:
             break
         }
     }
     
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        switch (indexPath.section, indexPath.row) {
+        case (kSectionDefaultTime, 0...self.tableView(self.tableView, numberOfRowsInSection: kSectionDefaultTime)):
+            if indexPath == selectedDateCell {
+                return 44+216
+            }
+            else {
+                println("\(indexPath.section) \(indexPath.row)")
+            }
+            
+        default:
+            break
+        }
+        
+        return 44
+    }
     
     
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -228,8 +281,11 @@ class MPPersonSettingsDefaultTimesViewController: UITableViewController, NSFetch
             self.tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
         case .Update:
             let cell = self.tableView.cellForRowAtIndexPath(indexPath!)
-            self.tableView.reloadRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
+            self.tableView.reloadRowsAtIndexPaths([indexPath!], withRowAnimation: .None)
         case .Move:
+            if selectedDateCell == indexPath {
+                selectedDateCell = newIndexPath
+            }
             self.tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
             self.tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
         case .Delete:

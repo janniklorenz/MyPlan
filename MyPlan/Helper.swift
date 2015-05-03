@@ -79,5 +79,34 @@ extension DefaultTime {
 }
 
 
+extension Day {
+    var fullTitle: String {
+        get {
+            if self.titleShort.isEmpty {
+                return self.title
+            }
+            else {
+                return "\(self.title) (\(self.titleShort))"
+            }
+        }
+    }
+}
+
+
+
+
+
+enum Dash {
+    case ShowPlan(Plan)
+    case ShowMarkGroup(MarkGroup)
+    case Settings
+    case Subjects
+    case Events
+    case Homeworks
+    case Week
+}
+
+
+
 
 

@@ -155,7 +155,8 @@ class MPMarkViewController: UITableViewController, NSFetchedResultsControllerDel
     
     func removeMark() {
         
-        let actionSheetController: UIAlertController = UIAlertController(title: "Delete", message: "Delete \(self.mark?.title) ?", preferredStyle: .Alert)
+        let actionSheetController = UIAlertController(title: "Delete", message: "Delete \(self.mark?.title) ?", preferredStyle: .Alert)
+        
         actionSheetController.addAction( UIAlertAction(title: "Cancel", style: .Cancel) { action -> Void in } )
         actionSheetController.addAction( UIAlertAction(title: "Delete", style: .Default) { action -> Void in
             MagicalRecord.saveWithBlock { (localContext: NSManagedObjectContext!) -> Void in

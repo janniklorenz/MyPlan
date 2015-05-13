@@ -9,6 +9,7 @@
 import Foundation
 
 class MPTableViewCellSlider: UITableViewCell {
+    
     var slider: UISlider
     var didChange: ((value: Float) -> ())?
     

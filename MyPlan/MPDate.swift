@@ -36,7 +36,47 @@ class MPDate: NSObject, NSCoding {
     override var description: String {
         get {
             var f = self.formated
-            return "\(f.houres):\(f.minutes):\(f.seconds)"
+            
+            
+//            let formatter = NSDateIntervalFormatter()
+//            formatter.dateStyle = .NoStyle
+//            formatter.timeStyle = .ShortStyle
+//            
+//            let fromDate = NSDate()
+//            let toDate = fromDate.dateByAddingTimeInterval(10000)
+//            
+//            return formatter.stringFromDate(fromDate, toDate: toDate)
+            
+            let formatter = NSDateComponentsFormatter()
+            formatter.unitsStyle = .Positional
+            
+            let components = NSDateComponents()
+//            components.year = 0
+//            components.day = 0
+            components.hour = f.houres
+            components.minute = f.minutes
+            
+            return formatter.stringFromDateComponents(components)!
+            
+            
+//            let calendar = NSCalendar(identifier: NSGregorianCalendar)
+//            
+//            let components = NSDateComponents()
+//            components.year = 2010
+//            components.month = 0
+//            components.day = 0
+//            components.hour = 14
+//            components.minute = 20
+//            components.second = 0
+//
+//            println( calendar!.dateFromComponents(components) )
+//            
+//            
+//            return ""
+            
+            
+//            var f = self.formated
+//            return "\(f.houres):\(f.minutes)"
         }
     }
     

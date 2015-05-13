@@ -9,20 +9,17 @@
 import Foundation
 
 class MPTableViewCellSubject: UITableViewCell {
+    
     var colorView: UILabel
     
-    var _subject: Subject?
     var subject: Subject? {
-        set (newSubject) {
-            self.colorView.text = newSubject!.titleShort
+        didSet {
+            self.colorView.text = subject!.titleShort
             
-            self.colorView.backgroundColor = newSubject?.color
-            self.colorView.textColor = newSubject?.color.getReadableTextColor()
+            self.colorView.backgroundColor = subject?.color
+            self.colorView.textColor = subject?.color.getReadableTextColor()
             
-            self.textLabel?.text = newSubject?.title
-        }
-        get {
-            return _subject
+            self.textLabel?.text = subject?.title
         }
     }
     

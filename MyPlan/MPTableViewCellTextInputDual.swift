@@ -9,6 +9,7 @@
 import Foundation
 
 class MPTableViewCellTextInputDual: UITableViewCell, UITextFieldDelegate {
+    
     var textField: UITextField
     var detailTextField: UITextField
     var didChange: ((key: String, value: String) -> ())?

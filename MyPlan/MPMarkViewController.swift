@@ -12,48 +12,19 @@ import CoreData
 
 class MPMarkViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     
-    var mark: Mark?
-    
-//    var fetchedResultsController: NSFetchedResultsController {
-//        
-//        if self._fetchedResultsController != nil {
-//            return self._fetchedResultsController!
-//        }
-//        let managedObjectContext = NSManagedObjectContext.MR_defaultContext()
-//        
-//        let sort = NSSortDescriptor(key: "title", ascending: false)
-//        
-//        let req = NSFetchRequest()
-//        req.entity = Mark.MR_entityDescription()
-//        req.sortDescriptors = [sort]
-//        req.predicate = NSPredicate(format: "(subject == %@) AND (markGroup == %@)", self.subject!, self.markGroup!)
-//        
-//        let aFetchedResultsController = NSFetchedResultsController(fetchRequest: req, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
-//        aFetchedResultsController.delegate = self
-//        self._fetchedResultsController = aFetchedResultsController
-//        
-//        var e: NSError?
-//        if !self._fetchedResultsController!.performFetch(&e) {
-//            println("fetch error: \(e!.localizedDescription)")
-//            abort();
-//        }
-//        
-//        return self._fetchedResultsController!
-//    }
-//    var _fetchedResultsController: NSFetchedResultsController?
-    
+    var mark: Mark? {
+        didSet {
+            self.title = mark?.title
+        }
+    }
     
     
     
     
     // MARK: - Init
     
-    required init(mark: Mark) {
+    required init() {
         super.init(style: UITableViewStyle.Grouped)
-        
-        self.mark = mark
-        
-        self.title = self.mark?.title
     }
     
     required init(coder aDecoder: NSCoder) {

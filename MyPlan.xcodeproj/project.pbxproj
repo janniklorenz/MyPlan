@@ -33,6 +33,9 @@
 		FB59CB171AF57BDC00E36948 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB59CB161AF57BDC00E36948 /* Person.swift */; };
 		FB59CB191AF5822500E36948 /* MPCollectionViewMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB59CB181AF5822500E36948 /* MPCollectionViewMenuCell.swift */; };
 		FB59CB1D1AF6932300E36948 /* MPTableViewCellTimePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB59CB1C1AF6932300E36948 /* MPTableViewCellTimePicker.swift */; };
+		FB5D44AD1AF8000F00276396 /* MPEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5D44AC1AF8000F00276396 /* MPEventViewController.swift */; };
+		FB5D44AF1AF802E100276396 /* MPTableViewCellSubtitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5D44AE1AF802E100276396 /* MPTableViewCellSubtitle.swift */; };
+		FB5D44B11AF80BE200276396 /* JLExampleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB5D44B01AF80BE200276396 /* JLExampleTableViewController.swift */; };
 		FB61CAAD1AEEAEBD00C3014C /* MPDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB61CAAC1AEEAEBD00C3014C /* MPDayViewController.swift */; };
 		FB61CAC51AEEB92A00C3014C /* MPCalenderLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB61CAC41AEEB92A00C3014C /* MPCalenderLayout.swift */; };
 		FB681D8E1AE15E660002929D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB681D8D1AE15E660002929D /* AppDelegate.swift */; };
@@ -58,6 +61,8 @@
 		FB681DDA1AE160760002929D /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB681DD91AE160760002929D /* Image.swift */; };
 		FB681DDC1AE160760002929D /* Subject.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB681DDB1AE160760002929D /* Subject.swift */; };
 		FB681DDE1AE160760002929D /* Mark.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB681DDD1AE160760002929D /* Mark.swift */; };
+		FB72506B1AF977BD002F0B1B /* MPCurrentTimeIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB72506A1AF977BD002F0B1B /* MPCurrentTimeIndicator.swift */; };
+		FB73B7631AF7A5A500B45D00 /* MPTableViewCellValue1.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB73B7621AF7A5A500B45D00 /* MPTableViewCellValue1.swift */; };
 		FBF8D46F1AF28E38002D10A6 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF8D46E1AF28E38002D10A6 /* Helper.swift */; };
 /* End PBXBuildFile section */
 
@@ -101,6 +106,9 @@
 		FB59CB161AF57BDC00E36948 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Person.swift; path = CoreData/Person.swift; sourceTree = "<group>"; };
 		FB59CB181AF5822500E36948 /* MPCollectionViewMenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPCollectionViewMenuCell.swift; sourceTree = "<group>"; };
 		FB59CB1C1AF6932300E36948 /* MPTableViewCellTimePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPTableViewCellTimePicker.swift; sourceTree = "<group>"; };
+		FB5D44AC1AF8000F00276396 /* MPEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPEventViewController.swift; sourceTree = "<group>"; };
+		FB5D44AE1AF802E100276396 /* MPTableViewCellSubtitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPTableViewCellSubtitle.swift; sourceTree = "<group>"; };
+		FB5D44B01AF80BE200276396 /* JLExampleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JLExampleTableViewController.swift; sourceTree = "<group>"; };
 		FB61CAAC1AEEAEBD00C3014C /* MPDayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPDayViewController.swift; sourceTree = "<group>"; };
 		FB61CAC41AEEB92A00C3014C /* MPCalenderLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPCalenderLayout.swift; sourceTree = "<group>"; };
 		FB681D881AE15E660002929D /* MyPlan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyPlan.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,6 +139,8 @@
 		FB681DDB1AE160760002929D /* Subject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Subject.swift; path = CoreData/Subject.swift; sourceTree = "<group>"; };
 		FB681DDD1AE160760002929D /* Mark.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Mark.swift; path = CoreData/Mark.swift; sourceTree = "<group>"; };
 		FB681DE21AE1614B0002929D /* MyPlan-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyPlan-Bridging-Header.h"; sourceTree = "<group>"; };
+		FB72506A1AF977BD002F0B1B /* MPCurrentTimeIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPCurrentTimeIndicator.swift; sourceTree = "<group>"; };
+		FB73B7621AF7A5A500B45D00 /* MPTableViewCellValue1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPTableViewCellValue1.swift; sourceTree = "<group>"; };
 		FBF8D46E1AF28E38002D10A6 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -219,6 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				FB4DDDCD1AEDB512009A9B9D /* MPEventsViewController.swift */,
+				FB5D44AC1AF8000F00276396 /* MPEventViewController.swift */,
 			);
 			name = Events;
 			sourceTree = "<group>";
@@ -240,6 +251,8 @@
 				FB528E261AF4192D001DEC43 /* MPTableViewCellSlider.swift */,
 				FB528E241AF41910001DEC43 /* MPTableViewCellSubject.swift */,
 				FB59CB1C1AF6932300E36948 /* MPTableViewCellTimePicker.swift */,
+				FB73B7621AF7A5A500B45D00 /* MPTableViewCellValue1.swift */,
+				FB5D44AE1AF802E100276396 /* MPTableViewCellSubtitle.swift */,
 			);
 			name = MPTableViewCell;
 			sourceTree = "<group>";
@@ -250,6 +263,14 @@
 				FB528E221AF3EE90001DEC43 /* MPColorPickerViewController.swift */,
 			);
 			name = Helper;
+			sourceTree = "<group>";
+		};
+		FB5D44B21AF80BE500276396 /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				FB5D44B01AF80BE200276396 /* JLExampleTableViewController.swift */,
+			);
+			name = Example;
 			sourceTree = "<group>";
 		};
 		FB681D7F1AE15E660002929D = {
@@ -282,6 +303,7 @@
 				FB61CAC41AEEB92A00C3014C /* MPCalenderLayout.swift */,
 				FB59CB181AF5822500E36948 /* MPCollectionViewMenuCell.swift */,
 				FB528E201AF2B6E6001DEC43 /* MPCollectionViewSubjectCell.swift */,
+				FB72506A1AF977BD002F0B1B /* MPCurrentTimeIndicator.swift */,
 				FB528E2C1AF41986001DEC43 /* MPTableViewCell */,
 				FB681DE11AE160890002929D /* ViewControllers */,
 				FB681DB51AE160630002929D /* _MPDayViewController.swift */,
@@ -354,6 +376,7 @@
 		FB681DE11AE160890002929D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				FB5D44B21AF80BE500276396 /* Example */,
 				FB681DBA1AE160630002929D /* MPMenuViewController.swift */,
 				FB59CB111AF5526600E36948 /* Helper */,
 				FB59CB0F1AF54BBD00E36948 /* MPSettingsViewController.swift */,
@@ -374,6 +397,7 @@
 				FB681D851AE15E660002929D /* Frameworks */,
 				FB681D861AE15E660002929D /* Resources */,
 				7ABD2787C5D0DA0B57B08277 /* Copy Pods Resources */,
+				FB73B7641AF7A6CE00B45D00 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -491,6 +515,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		FB73B7641AF7A6CE00B45D00 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/bash\n\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\n\nIFS=\"-\" read name value <<< \"$buildNumber\"\nb=$(($value + 1))\n\nbuildNumber=\"$(git rev-list HEAD --count)-$b\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -507,7 +544,9 @@
 				FB681DCC1AE160750002929D /* Plan.swift in Sources */,
 				FB59CB151AF5553800E36948 /* Defaults.swift in Sources */,
 				FB681DCE1AE160750002929D /* MarkGroup.swift in Sources */,
+				FB72506B1AF977BD002F0B1B /* MPCurrentTimeIndicator.swift in Sources */,
 				FB59CB131AF5549300E36948 /* Settings.swift in Sources */,
+				FB5D44B11AF80BE200276396 /* JLExampleTableViewController.swift in Sources */,
 				FB681DD21AE160750002929D /* Note.swift in Sources */,
 				FB61CAC51AEEB92A00C3014C /* MPCalenderLayout.swift in Sources */,
 				FBF8D46F1AF28E38002D10A6 /* Helper.swift in Sources */,
@@ -516,6 +555,7 @@
 				FB528E2B1AF41963001DEC43 /* MPTableViewCellTextImput.swift in Sources */,
 				FB681DC21AE160630002929D /* MPMarkGroupViewController.swift in Sources */,
 				FB681DDE1AE160760002929D /* Mark.swift in Sources */,
+				FB73B7631AF7A5A500B45D00 /* MPTableViewCellValue1.swift in Sources */,
 				FB59CB191AF5822500E36948 /* MPCollectionViewMenuCell.swift in Sources */,
 				FB528E291AF4194E001DEC43 /* MPTableViewCellSwitch.swift in Sources */,
 				FB681DDA1AE160760002929D /* Image.swift in Sources */,
@@ -529,6 +569,7 @@
 				FB4DDDCF1AEDB512009A9B9D /* MPEventsViewController.swift in Sources */,
 				FB681DC31AE160630002929D /* MPMarkViewController.swift in Sources */,
 				FB59CB1D1AF6932300E36948 /* MPTableViewCellTimePicker.swift in Sources */,
+				FB5D44AD1AF8000F00276396 /* MPEventViewController.swift in Sources */,
 				FB61CAAD1AEEAEBD00C3014C /* MPDayViewController.swift in Sources */,
 				FB681DD01AE160750002929D /* Houre.swift in Sources */,
 				FB681DDC1AE160760002929D /* Subject.swift in Sources */,
@@ -539,6 +580,7 @@
 				FB4DDDC61AEDA8EE009A9B9D /* MPPersonSettingsViewController.swift in Sources */,
 				FB681DC71AE160630002929D /* MPSubjectsViewController.swift in Sources */,
 				FB681DC41AE160630002929D /* MPMenuViewController.swift in Sources */,
+				FB5D44AF1AF802E100276396 /* MPTableViewCellSubtitle.swift in Sources */,
 				FB528E251AF41910001DEC43 /* MPTableViewCellSubject.swift in Sources */,
 				FB681DC11AE160630002929D /* MPMarkGroupDetailViewController.swift in Sources */,
 				FB528E361AF454FF001DEC43 /* DefaultTime.swift in Sources */,

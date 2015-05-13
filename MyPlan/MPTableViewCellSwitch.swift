@@ -9,6 +9,7 @@
 import Foundation
 
 class MPTableViewCellSwitch: UITableViewCell {
+    
     var switchItem: UISwitch
     var didChange: ((value: Bool) -> ())?
     

@@ -14,19 +14,50 @@ import CoreData
 
 class MPEventsViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     
+    let kSectionEvents = 0
+    
     var person: Person?
+    
+    var _fetchedResultsController: NSFetchedResultsController?
+    var fetchedResultsController: NSFetchedResultsController {
+        
+        if self._fetchedResultsController != nil {
+            return self._fetchedResultsController!
+        }
+        let managedObjectContext = NSManagedObjectContext.MR_defaultContext()
+        
+        let req = NSFetchRequest()
+        req.entity = Event.MR_entityDescription()
+        req.sortDescriptors = [NSSortDescriptor(key: "timestamp", ascending: false)]
+        req.predicate = NSPredicate(format: "(person == %@)", self.person!)
+        
+        let aFetchedResultsController = NSFetchedResultsController(fetchRequest: req, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
+        aFetchedResultsController.delegate = self
+        self._fetchedResultsController = aFetchedResultsController
+        
+        var e: NSError?
+        if !self._fetchedResultsController!.performFetch(&e) {
+            println("fetch error: \(e!.localizedDescription)")
+            abort();
+        }
+        
+        return self._fetchedResultsController!
+    }
+    
+    
     
     
     
     
     // MARK: - Init
     
-    required init(person: Person) {
+    required init() {
         super.init(style: UITableViewStyle.Grouped)
         
-        self.person = person
-        
         self.title = NSLocalizedString("Events", comment: "")
+        
+        self.tableView.registerClass(MPTableViewCellTextInput.self, forCellReuseIdentifier: "TextInput")
+        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -46,10 +77,8 @@ class MPEventsViewController: UITableViewController, NSFetchedResultsControllerD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if self.navigationController?.viewControllers.count == 1 {
-            // Close Button
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action: "close" )
-        }
+        // Add Button
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "addEvent")
     }
     
     
@@ -59,26 +88,39 @@ class MPEventsViewController: UITableViewController, NSFetchedResultsControllerD
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 0
+        return 1
     }
-
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch (section) {
-//        case 0:
-//            let info = self.fetchedResultsController.sections![section] as NSFetchedResultsSectionInfo
-//            return info.numberOfObjects
+        case kSectionEvents:
+            let info = self.fetchedResultsController.sections![0] as! NSFetchedResultsSectionInfo
+            return info.numberOfObjects
+            
         default:
-            return 0;
+            return 0
         }
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
+        var reuseIdentifier: String
+        switch (indexPath.section, indexPath.row) {
+            
+        default:
+            reuseIdentifier = "Cell"
+        }
         
-//        let mark = self.fetchedResultsController.objectAtIndexPath(indexPath) as Mark
-//        cell.textLabel?.text = mark.title
-//        cell.detailTextLabel?.text = mark.mark.stringValue
+        let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as! UITableViewCell
+        cell.selectionStyle = .None
         
+        switch (indexPath.section, indexPath.row) {
+        case (kSectionEvents, 0...self.tableView(self.tableView, numberOfRowsInSection: kSectionEvents)):
+            let event = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Event
+            cell.textLabel?.text = event.description
+            
+        default:
+            break
+        }
         return cell
     }
     
@@ -128,16 +170,50 @@ class MPEventsViewController: UITableViewController, NSFetchedResultsControllerD
     
     
     
-    // MARK: - close
+    // MARK: - UI Interaction
     
-    func close() {
-        self.dismissViewControllerAnimated(true) {
-            
+    func addEvent() {
+        if let person = self.person {
+            MagicalRecord.saveWithBlock { (localContext: NSManagedObjectContext!) -> Void in
+                let event = Event.MR_createInContext(localContext) as! Event
+                event.person = person.MR_inContext(localContext) as! Person
+                event.timestamp = NSDate()
+                
+                localContext.MR_saveToPersistentStoreAndWait()
+            }
         }
     }
     
     
     
+    
+    
+    // MARK: - NSFetchedResultsControllerDelegate
+    
+    func controllerWillChangeContent(controller: NSFetchedResultsController) {
+        self.tableView.beginUpdates()
+    }
+    
+    func controller(controller: NSFetchedResultsController, didChangeObject object: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+        switch type {
+        case .Insert:
+            self.tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
+        case .Update:
+            let cell = self.tableView.cellForRowAtIndexPath(indexPath!)
+            self.tableView.reloadRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
+        case .Move:
+            self.tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
+            self.tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
+        case .Delete:
+            self.tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
+        default:
+            return
+        }
+    }
+    
+    func controllerDidChangeContent(controller: NSFetchedResultsController) {
+        self.tableView.endUpdates()
+    }
     
 
 }

@@ -19,7 +19,11 @@ class MPPlanSettingsViewController: UITableViewController {
     
     var delegate: MPPlanSettingsViewControllerDelegate?
     
-    var plan: Plan?
+    var plan: Plan? {
+        didSet {
+            self.title = plan?.title
+        }
+    }
     
     
     
@@ -28,10 +32,8 @@ class MPPlanSettingsViewController: UITableViewController {
     
     // MARK: - Init
     
-    init(plan: Plan) {
+    init() {
         super.init(style: .Grouped)
-        
-        self.plan = plan
         
         self.tableView.registerClass(MPTableViewCellTextInput.self, forCellReuseIdentifier: "TextInput")
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")

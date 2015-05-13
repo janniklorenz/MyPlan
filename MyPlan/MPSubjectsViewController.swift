@@ -21,6 +21,7 @@ class MPSubjectsViewController: UITableViewController, NSFetchedResultsControlle
     var person: Person?
     var delegate: MPSubjectsViewControllerDefault?
     
+    var _fetchedResultsController: NSFetchedResultsController?
     var fetchedResultsController: NSFetchedResultsController {
         
         if self._fetchedResultsController != nil {
@@ -45,7 +46,7 @@ class MPSubjectsViewController: UITableViewController, NSFetchedResultsControlle
         
         return self._fetchedResultsController!
     }
-    var _fetchedResultsController: NSFetchedResultsController?
+    
     
     
     
@@ -53,15 +54,13 @@ class MPSubjectsViewController: UITableViewController, NSFetchedResultsControlle
     
     // MARK: - Init
     
-    required init(person: Person) {
+    required init() {
         super.init(style: UITableViewStyle.Grouped)
+        
+        self.title = NSLocalizedString("Subjects", comment: "")
         
         self.tableView.registerClass(MPTableViewCellSubject.self, forCellReuseIdentifier: "Subject")
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
-        
-        self.person = person
-        
-        self.title = NSLocalizedString("Subjects", comment: "")
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -102,11 +101,11 @@ class MPSubjectsViewController: UITableViewController, NSFetchedResultsControlle
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch (section) {
         case kSectionSubjects:
-            let info = self.fetchedResultsController.sections![section] as! NSFetchedResultsSectionInfo
+            let info = self.fetchedResultsController.sections![0] as! NSFetchedResultsSectionInfo
             return info.numberOfObjects
 
         default:
-            return 0;
+            return 0
         }
     }
     
@@ -187,10 +186,11 @@ class MPSubjectsViewController: UITableViewController, NSFetchedResultsControlle
         }    
     }
     
+    /*
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 70
     }
-    
+    */
 
     /*
     // Override to support rearranging the table view.
@@ -229,7 +229,8 @@ class MPSubjectsViewController: UITableViewController, NSFetchedResultsControlle
                 newSubject.color = UIColor.whiteColor()
                 
                 localContext.MR_saveToPersistentStoreWithCompletion({ (let succsess: Bool, let error: NSError!) -> Void in
-                    let subjectVC = MPSubjectViewController(subject: (newSubject.MR_inThreadContext() as! Subject!))
+                    let subjectVC = MPSubjectViewController()
+                    subjectVC.subject = newSubject.MR_inThreadContext() as! Subject!
                     self.navigationController?.pushViewController(subjectVC, animated: true)
                 })
             }

@@ -10,27 +10,47 @@ import Foundation
 
 class MPTableViewCellTimePicker: UITableViewCell, UIPickerViewDelegate, UIPickerViewDataSource {
 
-    var didChangeFrom: ((date: MPDate) -> ())?
-    var didChangeTo: ((date: MPDate) -> ())?
+    var didChangeFrom: ((date: NSDateComponents) -> ())?
+    var didChangeTo: ((date: NSDateComponents) -> ())?
     
-    var dateFrom: MPDate? {
+    var dateFrom: NSDateComponents? {
         didSet {
             if let date = dateFrom {
-                pickerView.selectRow(date.formated.houres, inComponent: 0, animated: false)
-                pickerView.selectRow(date.formated.minutes/5, inComponent: 1, animated: false)
+                pickerView.selectRow(date.hour, inComponent: 0, animated: false)
+                pickerView.selectRow(date.minute/5, inComponent: 1, animated: false)
                 
-                labelFrom.text = date.description
+                let formatter = NSDateComponentsFormatter()
+                formatter.unitsStyle = .Positional
+                
+                labelFrom.text = formatter.stringFromDateComponents(date)
             }
         }
     }
-    var dateTo: MPDate? {
+    var dateTo: NSDateComponents? {
         didSet {
             if let date = dateTo {
-                pickerView.selectRow(date.formated.houres, inComponent: 3, animated: false)
-                pickerView.selectRow(date.formated.minutes/5, inComponent: 4, animated: false)
+                pickerView.selectRow(date.hour, inComponent: 3, animated: false)
+                pickerView.selectRow(date.minute/5, inComponent: 4, animated: false)
                 
-                labelTo.text = date.description
+                let formatter = NSDateComponentsFormatter()
+                formatter.unitsStyle = .Positional
+                
+                labelTo.text = formatter.stringFromDateComponents(date)
             }
+        }
+    }
+    
+    var fullVisible: Bool {
+        set (setFullVisible) {
+            if setFullVisible {
+                addSubview(pickerView)
+            }
+            else {
+                pickerView.removeFromSuperview()
+            }
+        }
+        get {
+            return pickerView.hidden
         }
     }
     
@@ -54,7 +74,6 @@ class MPTableViewCellTimePicker: UITableViewCell, UIPickerViewDelegate, UIPicker
         pickerView.delegate = self
         pickerView.autoresizingMask = .FlexibleWidth
         pickerView.frame = CGRectMake(0, 44, frame.size.width, 0)
-        addSubview(pickerView)
         
         labelFrom.frame = CGRectMake(separatorInset.left, separatorInset.top, frame.size.width/2-separatorInset.left, 44)
         labelFrom.autoresizingMask = .FlexibleBottomMargin | .FlexibleRightMargin
@@ -126,18 +145,16 @@ class MPTableViewCellTimePicker: UITableViewCell, UIPickerViewDelegate, UIPicker
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         switch component {
         case 0...1:
-            let date = MPDate(
-                houre: self.pickerView(pickerView, titleForRow: pickerView.selectedRowInComponent(0), forComponent: 0).toInt()!,
-                minute: self.pickerView(pickerView, titleForRow: pickerView.selectedRowInComponent(1), forComponent: 1).toInt()!,
-                seconds: 0
+            let date = NSDateComponents(
+                hour: self.pickerView(pickerView, titleForRow: pickerView.selectedRowInComponent(0), forComponent: 0).toInt()!,
+                minute: self.pickerView(pickerView, titleForRow: pickerView.selectedRowInComponent(1), forComponent: 1).toInt()!
             )
             self.didChangeFrom?(date: date)
             
         case 3...4:
-            let date = MPDate(
-                houre: self.pickerView(pickerView, titleForRow: pickerView.selectedRowInComponent(3), forComponent: 3).toInt()!,
-                minute: self.pickerView(pickerView, titleForRow: pickerView.selectedRowInComponent(4), forComponent: 4).toInt()!,
-                seconds: 0
+            let date = NSDateComponents(
+                hour: self.pickerView(pickerView, titleForRow: pickerView.selectedRowInComponent(3), forComponent: 3).toInt()!,
+                minute: self.pickerView(pickerView, titleForRow: pickerView.selectedRowInComponent(4), forComponent: 4).toInt()!
             )
             self.didChangeTo?(date: date)
             

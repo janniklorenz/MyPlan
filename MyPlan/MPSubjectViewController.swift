@@ -19,16 +19,10 @@ class MPSubjectViewController: UITableViewController, NSFetchedResultsController
     let kSectionAttributes = 3
     let kSectionDelete = 4
     
-    var _subject: Subject?
     var subject: Subject? {
-        set(newSubject) {
-            _subject = newSubject
-            
-            self.title = self.subject?.title
+        didSet {
+            self.title = self.subject?.fullTitle
             self.tableView.reloadData()
-        }
-        get {
-            return _subject
         }
     }
     
@@ -61,9 +55,10 @@ class MPSubjectViewController: UITableViewController, NSFetchedResultsController
     
     
     
+    
     // MARK: - Init
     
-    required init(subject: Subject) {
+    required init() {
         super.init(style: UITableViewStyle.Grouped)
         
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "CellButton")
@@ -72,10 +67,6 @@ class MPSubjectViewController: UITableViewController, NSFetchedResultsController
         self.tableView.registerClass(MPTableViewCellTextInput.self, forCellReuseIdentifier: "TextInput")
         self.tableView.registerClass(MPTableViewCellSwitch.self, forCellReuseIdentifier: "Switch")
         self.tableView.registerClass(MPTableViewCellTextInputDual.self, forCellReuseIdentifier: "TextInputDual")
-        
-        self.subject = subject
-        
-        self.title = self.subject?.fullTitle
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -147,7 +138,7 @@ class MPSubjectViewController: UITableViewController, NSFetchedResultsController
             return 1
             
         default:
-            return 0;
+            return 0
         }
     }
     

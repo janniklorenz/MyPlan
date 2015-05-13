@@ -101,7 +101,8 @@ class _MPDayViewController: UITableViewController, NSFetchedResultsControllerDel
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let houre = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Houre
-        var houreVC = MPHoureViewController(houre: houre)
+        var houreVC = MPHoureViewController()
+        houreVC.houre = houre
         self.navigationController?.pushViewController(houreVC, animated: true)
     }
     
@@ -154,7 +155,8 @@ class _MPDayViewController: UITableViewController, NSFetchedResultsControllerDel
     
     func addHoure() {
         var person = self.day!.plan.person
-        var subjectVC = MPSubjectsViewController(person: person)
+        var subjectVC = MPSubjectsViewController()
+        subjectVC.person = person
         subjectVC.delegate = self
         var nav = UINavigationController(rootViewController: subjectVC)
         self.presentViewController(nav, animated: true) { () -> Void in

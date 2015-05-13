@@ -35,6 +35,26 @@ extension UIColor {
     }
 }
 
+extension NSDateComponents {
+    convenience init (hour: Int, minute: Int) {
+        self.init()
+        self.hour = hour
+        self.minute = minute
+    }
+    func compare(anotherDate: NSDateComponents) -> NSComparisonResult {
+        if self.hour*60+self.minute < anotherDate.hour*60+anotherDate.minute {
+            return NSComparisonResult.OrderedAscending
+        }
+        else if self.hour*60+self.minute > anotherDate.hour*60+anotherDate.minute {
+            return NSComparisonResult.OrderedDescending
+        }
+        else {
+            return NSComparisonResult.OrderedSame
+        }
+    }
+}
+
+
 
 extension Subject {
     var fullTitle: String {
@@ -59,21 +79,21 @@ extension Subject {
 
 
 extension DefaultTime {
-    var beginDate: MPDate {
+    var beginDate: NSDateComponents {
         set (newDate) {
             self.beginDateData = newDate
         }
         get {
-            return self.beginDateData as! MPDate
+            return self.beginDateData as! NSDateComponents
         }
     }
     
-    var endDate: MPDate {
+    var endDate: NSDateComponents {
         set (newDate) {
             self.endDateData = newDate
         }
         get {
-            return self.endDateData as! MPDate
+            return self.endDateData as! NSDateComponents
         }
     }
 }

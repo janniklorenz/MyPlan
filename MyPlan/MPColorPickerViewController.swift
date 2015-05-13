@@ -21,10 +21,8 @@ class MPColorPickerViewController: UITableViewController {
     
     var _oldNavBarSettings: (translucent: Bool, tintColor: UIColor, barTintColor: UIColor?)?
     
-    var _color: UIColor?
-    var color: UIColor {
-        set (newColor) {
-            _color = newColor
+    var color = UIColor() {
+        didSet {
             self.tableView.reloadData()
             
             if let navigationController = self.navigationController {
@@ -35,17 +33,10 @@ class MPColorPickerViewController: UITableViewController {
                         navigationController.navigationBar.barTintColor
                     )
                 }
-                navigationController.navigationBar.barTintColor = _color
-                navigationController.navigationBar.tintColor = _color?.getReadableTextColor()
+                navigationController.navigationBar.barTintColor = color
+                navigationController.navigationBar.tintColor = color.getReadableTextColor()
                 navigationController.navigationBar.translucent = false
             }
-            
-        }
-        get {
-            if _color == nil {
-                _color = UIColor()
-            }
-            return _color!
         }
     }
     
@@ -59,7 +50,6 @@ class MPColorPickerViewController: UITableViewController {
         super.init(style: .Grouped)
         
         self.delegate = delegate
-        self.color = UIColor()
         
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         self.tableView.registerClass(MPTableViewCellSlider.self, forCellReuseIdentifier: "Slider")

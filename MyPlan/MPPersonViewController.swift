@@ -15,28 +15,19 @@ class MPPersonViewController: UICollectionViewController, NSFetchedResultsContro
     
     var cells: [Dash] = []
     
-    var _person: Person?
     var person: Person? {
-        set(newPerson) {
-           _person = newPerson
-                
+        didSet {
             cells = [.Settings, .Subjects, .Events, .Homeworks, .Week]
-            for plan in _person?.plans.allObjects as! [Plan] {
+            for plan in person?.plans.allObjects as! [Plan] {
                 cells.append(.ShowPlan(plan))
             }
-            for markGroup in _person?.markGroups.allObjects as! [MarkGroup] {
+            for markGroup in person?.markGroups.allObjects as! [MarkGroup] {
                 cells.append(.ShowMarkGroup(markGroup))
             }
             
             self.collectionView?.reloadData()
             
             self.title = self.person?.title
-        }
-        get {
-            if (_person == nil) {
-                _person = Person.MR_findFirst() as! Person?
-            }
-            return _person!
         }
     }
     
@@ -46,20 +37,14 @@ class MPPersonViewController: UICollectionViewController, NSFetchedResultsContro
     
     // MARK: - Init
     
-    required init(person : Person) {
-//        var layout = UICollectionViewFlowLayout() //DMRCollectionViewLayout()
-//        layout.itemSize = CGSize(width: 85, height: 100)
-//        layout.minimumInteritemSpacing = 5
-//        layout.minimumLineSpacing = 5
-        
+    init() {
         var layout = FMMosaicLayout()
         
         super.init(collectionViewLayout: layout)
         
         layout.delegate = self
-        self.collectionView?.backgroundColor = UIColor.groupTableViewBackgroundColor()
         
-        self.person = person
+        self.collectionView?.backgroundColor = UIColor.groupTableViewBackgroundColor()
     }
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -140,38 +125,36 @@ class MPPersonViewController: UICollectionViewController, NSFetchedResultsContro
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         switch cells[indexPath.row] {
         case .ShowMarkGroup(let markGroup):
-            let markGroupVC = MPMarkGroupViewController(markGroup: markGroup)
+            let markGroupVC = MPMarkGroupViewController()
+            markGroupVC.markGroup = markGroup
             self.navigationController?.pushViewController(markGroupVC, animated: true)
             
         case .ShowPlan(let plan):
-            let planVC = MPPlanViewController(plan: plan)
+            let planVC = MPPlanViewController()
+            planVC.plan = plan
             self.navigationController?.pushViewController(planVC, animated: true)
             
         case .Settings:
-            if let person = self.person {
-                let settingsVC = MPPersonSettingsViewController(person: person)
-                settingsVC.delegate = self
-                self.navigationController?.pushViewController(settingsVC, animated: true)
-            }
+            let settingsVC = MPPersonSettingsViewController()
+            settingsVC.person = self.person
+            settingsVC.delegate = self
+            self.navigationController?.pushViewController(settingsVC, animated: true)
             
         case .Subjects:
-            if let person = self.person {
-                let subjectsVC = MPSubjectsViewController(person: person)
-                subjectsVC.delegate = self
-                self.navigationController?.pushViewController(subjectsVC, animated: true)
-            }
+            let subjectsVC = MPSubjectsViewController()
+            subjectsVC.person = self.person
+            subjectsVC.delegate = self
+            self.navigationController?.pushViewController(subjectsVC, animated: true)
             
         case .Events:
-            if let person = self.person {
-                let eventsVC = MPEventsViewController(person: person)
-                self.navigationController?.pushViewController(eventsVC, animated: true)
-            }
+            let eventsVC = MPEventsViewController()
+            eventsVC.person = self.person
+            self.navigationController?.pushViewController(eventsVC, animated: true)
             
         case .Homeworks:
-            if let person = self.person {
-                let homeworksVC = MPHomeworksViewController(person: person)
-                self.navigationController?.pushViewController(homeworksVC, animated: true)
-            }
+            let homeworksVC = MPHomeworksViewController()
+            homeworksVC.person = self.person
+            self.navigationController?.pushViewController(homeworksVC, animated: true)
             
         case .Week:
             break
@@ -328,7 +311,8 @@ class MPPersonViewController: UICollectionViewController, NSFetchedResultsContro
     // MARK: - MPSubjectViewControllerDelegate
     
     func didSelectSubject(subject: Subject, subjectsVC: MPSubjectsViewController) {
-        let subjectVC = MPSubjectViewController(subject: subject)
+        let subjectVC = MPSubjectViewController()
+        subjectVC.subject = subject
         subjectsVC.navigationController?.pushViewController(subjectVC, animated: true)
     }
     

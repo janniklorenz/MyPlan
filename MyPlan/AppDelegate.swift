@@ -91,7 +91,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, MPMenuViewControllerDeleg
             }
         }
         
-        let personVC = MPPersonViewController(person: person)
+        let personVC = MPPersonViewController()
+        personVC.person = person
         let nav = UINavigationController(rootViewController: personVC)
         self.revealViewController?.setFrontViewController(nav, animated: true)
         self.revealViewController?.revealToggleAnimated(true)

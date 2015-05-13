@@ -1,5 +1,5 @@
 //
-//  MPHomeworksViewController.swift
+//  MPEventViewController.swift
 //  MyPlan
 //
 //  Show the details of one subject and edit them
@@ -12,9 +12,15 @@ import UIKit
 
 import CoreData
 
-class MPHomeworksViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+class MPEventViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     
-    var person: Person?
+    let kSectionTitle = 0
+    
+    var event: Event? {
+        didSet {
+            
+        }
+    }
     
     
     
@@ -24,7 +30,13 @@ class MPHomeworksViewController: UITableViewController, NSFetchedResultsControll
     required init() {
         super.init(style: UITableViewStyle.Grouped)
         
-        self.title = NSLocalizedString("Homeworks", comment: "")
+        self.tableView.registerClass(MPTableViewCellTextInput.self, forCellReuseIdentifier: "TextInput")
+        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        
+        // Add Button
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "addEvent")
+        
+        self.title = NSLocalizedString("Events", comment: "")
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -43,11 +55,6 @@ class MPHomeworksViewController: UITableViewController, NSFetchedResultsControll
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if self.navigationController?.viewControllers.count == 1 {
-            // Close Button
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Cancel, target: self, action: "close" )
-        }
     }
     
     
@@ -57,28 +64,49 @@ class MPHomeworksViewController: UITableViewController, NSFetchedResultsControll
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 0
+        return 1
     }
-
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch (section) {
-//        case 0:
-//            let info = self.fetchedResultsController.sections![section] as NSFetchedResultsSectionInfo
-//            return info.numberOfObjects
-        default: return 0;
+        case kSectionTitle:
+            return 1
+            
+        default:
+            return 0
         }
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
+        var reuseIdentifier: String
+        switch (indexPath.section, indexPath.row) {
+        case (kSectionTitle, 0...1):
+            reuseIdentifier = "TextInput"
+            
+        default:
+            reuseIdentifier = "Cell"
+        }
         
-//        let mark = self.fetchedResultsController.objectAtIndexPath(indexPath) as Mark
-//        cell.textLabel?.text = mark.title
-//        cell.detailTextLabel?.text = mark.mark.stringValue
+        let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as! UITableViewCell
+        cell.selectionStyle = .None
         
+        switch (indexPath.section, indexPath.row) {
+        case (kSectionTitle, 0):
+            var cell = cell as! MPTableViewCellTextInput
+            cell.textLabel?.text = NSLocalizedString("Title", comment: "")
+//            cell.textField.text = subject?.title
+            cell.didChange = { text in
+//                self.subject?.title = text
+//                self.title = self.subject?.fullTitle
+            }
+            
+        default:
+            break
+        }
         return cell
     }
     
+
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
     }
@@ -124,6 +152,8 @@ class MPHomeworksViewController: UITableViewController, NSFetchedResultsControll
     
     
     
+    
+    
     // MARK: - close
     
     func close() {
@@ -131,6 +161,8 @@ class MPHomeworksViewController: UITableViewController, NSFetchedResultsControll
             
         }
     }
+    
+    
     
     
 

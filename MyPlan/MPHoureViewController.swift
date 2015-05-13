@@ -12,7 +12,11 @@ import CoreData
 
 class MPHoureViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     
-    var houre: Houre?
+    var houre: Houre? {
+        didSet {
+            self.title = houre?.subject.title
+        }
+    }
     
     var _fetchedResultsController: NSFetchedResultsController?
     var fetchedResultsController: NSFetchedResultsController {
@@ -45,12 +49,8 @@ class MPHoureViewController: UITableViewController, NSFetchedResultsControllerDe
     
     // MARK: - Init
     
-    required init(houre: Houre) {
+    required init() {
         super.init(style: UITableViewStyle.Grouped)
-        
-        self.houre = houre
-        
-        self.title = self.houre?.subject.title
     }
     
     required init(coder aDecoder: NSCoder) {

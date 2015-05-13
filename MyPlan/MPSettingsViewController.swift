@@ -11,7 +11,7 @@ import UIKit
 class MPSettingsViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     
     let kSectionNotifications = 0
-    
+    let kSectionInfo = 1
     
     
     
@@ -24,6 +24,7 @@ class MPSettingsViewController: UITableViewController, NSFetchedResultsControlle
         super.init(style: .Grouped)
         
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        self.tableView.registerClass(MPTableViewCellValue1.self, forCellReuseIdentifier: "CellValue1")
         self.tableView.registerClass(MPTableViewCellSwitch.self, forCellReuseIdentifier: "Switch")
         
         self.title = NSLocalizedString("Settings", comment: "")
@@ -60,13 +61,16 @@ class MPSettingsViewController: UITableViewController, NSFetchedResultsControlle
     // MARK: - Table view data source
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case kSectionNotifications:
             return 1
+         
+        case kSectionInfo:
+            return 2
             
         default:
             return 0
@@ -77,8 +81,11 @@ class MPSettingsViewController: UITableViewController, NSFetchedResultsControlle
         
         var reuseIdentifier: String
         switch indexPath.section {
-        case (kSectionNotifications):
+        case kSectionNotifications:
             reuseIdentifier = "Switch"
+            
+        case kSectionInfo:
+            reuseIdentifier = "CellValue1"
             
         default:
             reuseIdentifier = "Cell"
@@ -102,6 +109,14 @@ class MPSettingsViewController: UITableViewController, NSFetchedResultsControlle
                 })
                 
             }
+         
+        case (kSectionInfo, 0):
+            cell.textLabel?.text = "Version"
+            cell.detailTextLabel?.text = (NSBundle.mainBundle().infoDictionary!["CFBundleShortVersionString"] as! String)
+            
+        case (kSectionInfo, 1):
+            cell.textLabel?.text = "Build"
+            cell.detailTextLabel?.text = (NSBundle.mainBundle().infoDictionary!["CFBundleVersion"] as! String)
             
         default:
             break

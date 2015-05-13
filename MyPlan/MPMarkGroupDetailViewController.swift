@@ -12,8 +12,14 @@ import CoreData
 
 class MPMarkGroupDetailViewController: UITableViewController, NSFetchedResultsControllerDelegate {
     
+    let kSectionMarks = 0
+    
     var markGroup: MarkGroup?
-    var subject: Subject?
+    var subject: Subject? {
+        didSet {
+            self.title = subject?.title
+        }
+    }
     
     var fetchedResultsController: NSFetchedResultsController {
         
@@ -49,13 +55,11 @@ class MPMarkGroupDetailViewController: UITableViewController, NSFetchedResultsCo
     
     // MARK: - Init
     
-    required init(markGroup: MarkGroup, subject: Subject) {
+    required init() {
         super.init(style: UITableViewStyle.Grouped)
         
-        self.markGroup = markGroup
-        self.subject = subject
-        
-        self.title = self.subject?.title
+        self.tableView.registerClass(MPTableViewCellSubtitle.self, forCellReuseIdentifier: "CellSubtitle")
+        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -91,49 +95,80 @@ class MPMarkGroupDetailViewController: UITableViewController, NSFetchedResultsCo
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch (section) {
-        case 0:
-            let info = self.fetchedResultsController.sections![section] as! NSFetchedResultsSectionInfo
+        case kSectionMarks:
+            let info = self.fetchedResultsController.sections![0] as! NSFetchedResultsSectionInfo
             return info.numberOfObjects
         default: return 0;
         }
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
+        var reuseIdentifier: String
+        switch (indexPath.section, indexPath.row) {
+        case (kSectionMarks, 0...self.tableView(self.tableView, numberOfRowsInSection: kSectionMarks)):
+            reuseIdentifier = "CellSubtitle"
+            
+        default:
+            reuseIdentifier = "Cell"
+        }
         
-        let mark = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Mark
-        cell.textLabel?.text = mark.title
-        cell.detailTextLabel?.text = mark.mark.stringValue
+        let cell = tableView.dequeueReusableCellWithIdentifier(reuseIdentifier, forIndexPath: indexPath) as! UITableViewCell
+        
+        switch (indexPath.section, indexPath.row) {
+        case (kSectionMarks, 0...self.tableView(self.tableView, numberOfRowsInSection: kSectionMarks)):
+            let mark = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Mark
+            cell.textLabel?.text = mark.title
+            cell.detailTextLabel?.text = mark.mark.stringValue
+            
+        default:
+            break
+        }
         
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let mark = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Mark
-        let markVC = MPMarkViewController(mark: mark)
-        self.navigationController?.pushViewController(markVC, animated: true)
+        switch (indexPath.section, indexPath.row) {
+        case (kSectionMarks, 0...self.tableView(self.tableView, numberOfRowsInSection: kSectionMarks)):
+            let mark = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Mark
+            let markVC = MPMarkViewController()
+            markVC.mark = mark
+            self.navigationController?.pushViewController(markVC, animated: true)
+            
+        default:
+            break
+        }
     }
     
-    /*
+    
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the specified item to be editable.
-        return true
+        switch (indexPath.section, indexPath.row) {
+        case (kSectionMarks, 0...self.tableView(self.tableView, numberOfRowsInSection: kSectionMarks)):
+            return true
+            
+        default:
+            return false
+        }
     }
-    */
+    
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            // Delete the row from the data source
-            
-//            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
+            MagicalRecord.saveWithBlock({ (localContext: NSManagedObjectContext!) -> Void in
+                let mark = self.fetchedResultsController.objectAtIndexPath(indexPath).MR_inContext(localContext) as! Mark
+                mark.MR_deleteInContext(localContext)
+                
+                localContext.MR_saveToPersistentStoreAndWait()
+            })
+        }
+        else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+    
 
     /*
     // Override to support rearranging the table view.

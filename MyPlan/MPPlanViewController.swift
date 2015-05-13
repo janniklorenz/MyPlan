@@ -15,18 +15,11 @@ class MPPlanViewController: UITableViewController, NSFetchedResultsControllerDel
     let kSectionDays = 0
     let kSectionSettings = 1
     
-    var _plan: Plan?
     var plan: Plan? {
-        set (newPlan) {
-            _plan = newPlan
-            
-            self.title = newPlan?.title
-        }
-        get {
-            return _plan
+        didSet {
+            self.title = plan?.title
         }
     }
-    
     
     var _fetchedResultsController: NSFetchedResultsController?
     var fetchedResultsController: NSFetchedResultsController {
@@ -36,11 +29,9 @@ class MPPlanViewController: UITableViewController, NSFetchedResultsControllerDel
         }
         let managedObjectContext = NSManagedObjectContext.MR_defaultContext()
         
-        let sort = NSSortDescriptor(key: "weekIndex", ascending: true)
-        
         let req = NSFetchRequest()
         req.entity = Day.MR_entityDescription()
-        req.sortDescriptors = [sort]
+        req.sortDescriptors = [NSSortDescriptor(key: "weekIndex", ascending: true)]
         req.predicate = NSPredicate(format: "(plan == %@)", self.plan!)
         
         let aFetchedResultsController = NSFetchedResultsController(fetchRequest: req, managedObjectContext: managedObjectContext, sectionNameKeyPath: nil, cacheName: nil)
@@ -62,10 +53,8 @@ class MPPlanViewController: UITableViewController, NSFetchedResultsControllerDel
     
     // MARK: - Init
     
-    required init(plan: Plan) {
+    required init() {
         super.init(style: UITableViewStyle.Grouped)
-        
-        self.plan = plan
         
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
     }
@@ -159,12 +148,14 @@ class MPPlanViewController: UITableViewController, NSFetchedResultsControllerDel
         switch (indexPath.section, indexPath.row) {
         case (kSectionDays, 0...self.tableView(self.tableView, numberOfRowsInSection: 0)):
             let day = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Day
-            var dayVC = MPDayViewController(day: day)
+            var dayVC = MPDayViewController()
+            dayVC.day = day
             self.navigationController?.pushViewController(dayVC, animated: true)
             
         case (1, 0):
             if let plan = self.plan {
-                let settingsVC = MPPlanSettingsViewController(plan: plan)
+                let settingsVC = MPPlanSettingsViewController()
+                settingsVC.plan = plan
                 settingsVC.delegate = self
                 self.navigationController?.pushViewController(settingsVC, animated: true)
             }

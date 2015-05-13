@@ -24,7 +24,11 @@ class MPPersonSettingsViewController: UITableViewController, NSFetchedResultsCon
     let kSectionTimes = 2
     let kSectionDeletePerson = 3
     
-    var person: Person?
+    var person: Person? {
+        didSet {
+            self.title = self.person?.title
+        }
+    }
     var delegate: MPPersonSettingsViewControllerDelegate?
     
     
@@ -33,17 +37,13 @@ class MPPersonSettingsViewController: UITableViewController, NSFetchedResultsCon
     
     // MARK: - Init
     
-    required init(person: Person) {
+    init() {
         super.init(style: UITableViewStyle.Grouped)
         
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "CellButton")
         self.tableView.registerClass(MPTableViewCellTextInput.self, forCellReuseIdentifier: "TextInput")
         self.tableView.registerClass(MPTableViewCellSwitch.self, forCellReuseIdentifier: "Switch")
-        
-        self.person = person
-        
-        self.title = self.person?.title
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -170,8 +170,11 @@ class MPPersonSettingsViewController: UITableViewController, NSFetchedResultsCon
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         switch (indexPath.section, indexPath.row) {
         case (kSectionTimes, 0):
-            var defaultTimesVC = MPPersonSettingsDefaultTimesViewController(person: self.person!)
-            self.navigationController?.pushViewController(defaultTimesVC, animated: true)
+            if let person = self.person {
+                var defaultTimesVC = MPPersonSettingsDefaultTimesViewController()
+                defaultTimesVC.person = person
+                self.navigationController?.pushViewController(defaultTimesVC, animated: true)
+            }
             
         case (kSectionDeletePerson, 0):
             let alert = UIAlertController(

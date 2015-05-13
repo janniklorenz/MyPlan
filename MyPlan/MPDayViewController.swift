@@ -12,18 +12,12 @@ class MPDayViewController: UICollectionViewController, NSFetchedResultsControlle
     
     var cells: [Houre]
     
-    var _day: Day?
     var day: Day? {
-        set (newDay) {
-            if let day = newDay {
-                _day = day
-                
-                self.title = _day?.fullTitle
+        didSet {
+            if let day = day {
+                self.title = day.fullTitle
                 self.cells = Houre.MR_findAllSortedBy("houre", ascending: true, withPredicate: NSPredicate(format: "(day == %@)", day)) as! [Houre]
             }
-        }
-        get {
-            return _day
         }
     }
     
@@ -33,13 +27,23 @@ class MPDayViewController: UICollectionViewController, NSFetchedResultsControlle
     
     // MARK: - Init
     
-    required init(day: Day) {
+    required init() {
         var layout = MPCalenderLayout()
         self.cells = [Houre]()
         
         super.init(collectionViewLayout: layout)
         
-        self.day = day
+        var bView = UIView(frame: self.view.frame)
+//        bView.autoresizingMask = .FlexibleHeight | .FlexibleWeight
+        for i in 0...23 {
+            var hView = UIView(frame: CGRectMake(0, CGFloat(i)*layout.houreHeight, bView.frame.size.width, layout.houreHeight))
+            hView.backgroundColor = UIColor(red: CGFloat(i)/23, green: 0, blue: 0, alpha: 1)
+            
+            bView.addSubview(hView)
+            
+        }
+        
+        self.collectionView?.addSubview(bView)
         
         layout.delegate = self
         
@@ -94,7 +98,8 @@ class MPDayViewController: UICollectionViewController, NSFetchedResultsControlle
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let houre = cells[indexPath.row]
-        var houreVC = MPHoureViewController(houre: houre)
+        var houreVC = MPHoureViewController()
+        houreVC.houre = houre
         self.navigationController?.pushViewController(houreVC, animated: true)
     }
     /*
@@ -134,7 +139,8 @@ class MPDayViewController: UICollectionViewController, NSFetchedResultsControlle
     
     func addHoure() {
         var person = self.day!.plan.person
-        var subjectVC = MPSubjectsViewController(person: person)
+        var subjectVC = MPSubjectsViewController()
+        subjectVC.person = person
         subjectVC.delegate = self
         var nav = UINavigationController(rootViewController: subjectVC)
         self.presentViewController(nav, animated: true) { () -> Void in

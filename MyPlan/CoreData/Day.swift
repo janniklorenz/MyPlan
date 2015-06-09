@@ -15,6 +15,6 @@ import CoreData
     @NSManaged var titleShort: String
     @NSManaged var weekIndex: NSNumber
     @NSManaged var houres: NSSet
-    @NSManaged var plan: Plan
+    @NSManaged var plan: WeekPlan
 
 }

@@ -1,5 +1,5 @@
 //
-//  MPPlanViewController.swift
+//  MPWeekPlanViewController.swift
 //  MyPlan
 //
 //  Created by Jannik Lorenz on 07.04.15.
@@ -10,12 +10,12 @@ import UIKit
 
 import CoreData
 
-class MPPlanViewController: UITableViewController, NSFetchedResultsControllerDelegate, MPPlanSettingsViewControllerDelegate {
+class MPWeekPlanViewController: UITableViewController, NSFetchedResultsControllerDelegate, MPWeekPlanSettingsViewControllerDelegate {
     
     let kSectionDays = 0
     let kSectionSettings = 1
     
-    var plan: Plan? {
+    var plan: WeekPlan? {
         didSet {
             self.title = plan?.title
         }
@@ -154,7 +154,7 @@ class MPPlanViewController: UITableViewController, NSFetchedResultsControllerDel
             
         case (1, 0):
             if let plan = self.plan {
-                let settingsVC = MPPlanSettingsViewController()
+                let settingsVC = MPWeekPlanSettingsViewController()
                 settingsVC.plan = plan
                 settingsVC.delegate = self
                 self.navigationController?.pushViewController(settingsVC, animated: true)
@@ -240,10 +240,10 @@ class MPPlanViewController: UITableViewController, NSFetchedResultsControllerDel
     
     // MARK: - MPPlanSettingsViewControllerDelegate
     
-    func didFinishEditing(plan: Plan) {
+    func didFinishEditing(plan: WeekPlan) {
         self.plan = plan
     }
-    func didDeletePlan(plan: Plan) {
+    func didDeletePlan(plan: WeekPlan) {
         self.navigationController?.popViewControllerAnimated(true)
     }
     

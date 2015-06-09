@@ -130,8 +130,8 @@ class MPPersonViewController: UICollectionViewController, NSFetchedResultsContro
             self.navigationController?.pushViewController(markGroupVC, animated: true)
             
         case .ShowPlan(let plan):
-            let planVC = MPPlanViewController()
-            planVC.plan = plan
+            let planVC = MPWeekPlanViewController()
+            planVC.plan = plan as! WeekPlan // TODO: check if plan is week plan
             self.navigationController?.pushViewController(planVC, animated: true)
             
         case .Settings:
@@ -207,7 +207,7 @@ class MPPersonViewController: UICollectionViewController, NSFetchedResultsContro
         let newPlan = UIAlertAction(title: NSLocalizedString("New Plan", comment: ""), style: .Default) { (action) in
             if let person = self.person {
                 MagicalRecord.saveWithBlockAndWait { (var localContext: NSManagedObjectContext!) -> Void in
-                    var plan = Plan.MR_createInContext(localContext) as! Plan
+                    var plan = WeekPlan.MR_createInContext(localContext) as! WeekPlan
                     plan.title = NSLocalizedString("New Plan", comment: "")
                     plan.person = person.MR_inContext(localContext) as! Person
                     var days = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"]

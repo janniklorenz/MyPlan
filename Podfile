@@ -12,6 +12,7 @@ pod 'SWRevealViewController'
 pod 'CupertinoYankee', '~> 0.1.0'
 pod 'pop', '~> 1.0'
 pod "FMMosaicLayout"
+pod 'MSCollectionViewCalendarLayout'
 
 target 'MyPlan' do
 

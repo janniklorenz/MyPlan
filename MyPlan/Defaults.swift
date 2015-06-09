@@ -52,7 +52,7 @@ extension Person {
         
         
         
-        var plan = Plan.MR_createInContext(localContext) as! Plan!
+        var plan = WeekPlan.MR_createInContext(localContext) as! WeekPlan!
         plan.setDefaults(localContext)
         plan.title = NSLocalizedString("Plan", comment: "")
         plan.person = self
@@ -84,7 +84,7 @@ extension Person {
 }
 
 
-extension Plan {
+extension WeekPlan {
     func setDefaults(localContext: NSManagedObjectContext) {
         self.timestamp = NSDate()
         
@@ -100,7 +100,7 @@ extension Plan {
         
         for i in 0...6 {
             var day = Day.MR_createInContext(localContext) as! Day
-            day.plan = self.MR_inContext(localContext) as! Plan
+            day.plan = self.MR_inContext(localContext) as! WeekPlan
             day.weekIndex = i
             day.title = days[i].long
             day.titleShort = days[i].short

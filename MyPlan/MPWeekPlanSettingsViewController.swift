@@ -1,5 +1,5 @@
 //
-//  MPPlanSettingsViewController.swift
+//  MPWeekPlanSettingsViewController.swift
 //  MyPlan
 //
 //  Created by Jannik Lorenz on 01.05.15.
@@ -8,18 +8,18 @@
 
 import UIKit
 
-protocol MPPlanSettingsViewControllerDelegate {
-    func didFinishEditing(plan: Plan)
-    func didDeletePlan(plan: Plan)
+protocol MPWeekPlanSettingsViewControllerDelegate {
+    func didFinishEditing(plan: WeekPlan)
+    func didDeletePlan(plan: WeekPlan)
 }
 
-class MPPlanSettingsViewController: UITableViewController {
+class MPWeekPlanSettingsViewController: UITableViewController {
     
     let kSectionTitle = 0
     
-    var delegate: MPPlanSettingsViewControllerDelegate?
+    var delegate: MPWeekPlanSettingsViewControllerDelegate?
     
-    var plan: Plan? {
+    var plan: WeekPlan? {
         didSet {
             self.title = plan?.title
         }
@@ -64,7 +64,7 @@ class MPPlanSettingsViewController: UITableViewController {
         if let savePlan = self.plan {
             if savePlan.deleted == false {
                 MagicalRecord.saveWithBlock { (localContext: NSManagedObjectContext!) -> Void in
-                    var p = savePlan.MR_inContext(localContext) as! Plan
+                    var p = savePlan.MR_inContext(localContext) as! WeekPlan
                     
                     p.title = savePlan.title
                     

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7549" systemVersion="14D98g" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="15A178w" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Day" representedClassName="Day" syncable="YES">
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="titleShort" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="weekIndex" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="houres" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="Houre" inverseName="day" inverseEntity="Houre" syncable="YES"/>
-        <relationship name="plan" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Plan" inverseName="days" inverseEntity="Plan" syncable="YES"/>
+        <relationship name="plan" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="WeekPlan" inverseName="days" inverseEntity="WeekPlan" syncable="YES"/>
     </entity>
     <entity name="DefaultTime" representedClassName="DefaultTime" syncable="YES">
         <attribute name="beginDateData" optional="YES" attributeType="Transformable" syncable="YES"/>
@@ -92,9 +92,9 @@
     <entity name="Plan" representedClassName="Plan" syncable="YES">
         <attribute name="timestamp" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="days" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="Day" inverseName="plan" inverseEntity="Day" syncable="YES"/>
         <relationship name="person" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Person" inverseName="plans" inverseEntity="Person" syncable="YES"/>
     </entity>
+    <entity name="SemesterPlan" representedClassName="SemesterPlan" parentEntity="Plan" syncable="YES"/>
     <entity name="Settings" representedClassName="Settings" syncable="YES">
         <attribute name="notifications" optional="YES" attributeType="Boolean" syncable="YES"/>
         <relationship name="currentPerson" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Person" inverseName="settings" inverseEntity="Person" syncable="YES"/>
@@ -113,6 +113,9 @@
         <relationship name="person" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="Person" inverseName="subjects" inverseEntity="Person" syncable="YES"/>
         <relationship name="stunden" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="Houre" inverseName="subject" inverseEntity="Houre" syncable="YES"/>
     </entity>
+    <entity name="WeekPlan" representedClassName="WeekPlan" parentEntity="Plan" syncable="YES">
+        <relationship name="days" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="Day" inverseName="plan" inverseEntity="Day" syncable="YES"/>
+    </entity>
     <elements>
         <element name="Day" positionX="-218" positionY="251" width="128" height="118"/>
         <element name="DefaultTime" positionX="-432" positionY="-255" width="128" height="88"/>
@@ -127,8 +130,10 @@
         <element name="MarkGroup" positionX="-353" positionY="36" width="128" height="103"/>
         <element name="Note" positionX="504" positionY="239" width="128" height="103"/>
         <element name="Person" positionX="-774" positionY="14" width="128" height="193"/>
-        <element name="Plan" positionX="-389" positionY="189" width="128" height="103"/>
-        <element name="Subject" positionX="268" positionY="9" width="128" height="223"/>
+        <element name="Plan" positionX="-389" positionY="189" width="128" height="88"/>
+        <element name="SemesterPlan" positionX="-425" positionY="432" width="128" height="43"/>
         <element name="Settings" positionX="-524" positionY="-109" width="128" height="73"/>
+        <element name="Subject" positionX="268" positionY="9" width="128" height="223"/>
+        <element name="WeekPlan" positionX="-504" positionY="333" width="128" height="58"/>
     </elements>
 </model>

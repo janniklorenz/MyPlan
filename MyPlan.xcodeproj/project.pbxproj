@@ -26,7 +26,7 @@
 		FB528E361AF454FF001DEC43 /* DefaultTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB528E351AF454FF001DEC43 /* DefaultTime.swift */; };
 		FB528E3A1AF5036E001DEC43 /* MPPersonSettingsDefaultTimesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB528E391AF5036E001DEC43 /* MPPersonSettingsDefaultTimesViewController.swift */; };
 		FB528E3D1AF50EEC001DEC43 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FB528E3F1AF50EEC001DEC43 /* Localizable.strings */; };
-		FB528E431AF52A2C001DEC43 /* MPPlanSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB528E421AF52A2C001DEC43 /* MPPlanSettingsViewController.swift */; };
+		FB528E431AF52A2C001DEC43 /* MPWeekPlanSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB528E421AF52A2C001DEC43 /* MPWeekPlanSettingsViewController.swift */; };
 		FB59CB101AF54BBD00E36948 /* MPSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB59CB0F1AF54BBD00E36948 /* MPSettingsViewController.swift */; };
 		FB59CB131AF5549300E36948 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB59CB121AF5549300E36948 /* Settings.swift */; };
 		FB59CB151AF5553800E36948 /* Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB59CB141AF5553800E36948 /* Defaults.swift */; };
@@ -48,7 +48,7 @@
 		FB681DC21AE160630002929D /* MPMarkGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB681DB81AE160630002929D /* MPMarkGroupViewController.swift */; };
 		FB681DC31AE160630002929D /* MPMarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB681DB91AE160630002929D /* MPMarkViewController.swift */; };
 		FB681DC41AE160630002929D /* MPMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB681DBA1AE160630002929D /* MPMenuViewController.swift */; };
-		FB681DC61AE160630002929D /* MPPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB681DBC1AE160630002929D /* MPPlanViewController.swift */; };
+		FB681DC61AE160630002929D /* MPWeekPlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB681DBC1AE160630002929D /* MPWeekPlanViewController.swift */; };
 		FB681DC71AE160630002929D /* MPSubjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB681DBD1AE160630002929D /* MPSubjectsViewController.swift */; };
 		FB681DC81AE160630002929D /* MPSubjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB681DBE1AE160630002929D /* MPSubjectViewController.swift */; };
 		FB681DCA1AE160750002929D /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB681DC91AE160750002929D /* Event.swift */; };
@@ -63,6 +63,8 @@
 		FB681DDE1AE160760002929D /* Mark.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB681DDD1AE160760002929D /* Mark.swift */; };
 		FB72506B1AF977BD002F0B1B /* MPCurrentTimeIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB72506A1AF977BD002F0B1B /* MPCurrentTimeIndicator.swift */; };
 		FB73B7631AF7A5A500B45D00 /* MPTableViewCellValue1.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB73B7621AF7A5A500B45D00 /* MPTableViewCellValue1.swift */; };
+		FB89DFB41B2790C500592D98 /* SemesterPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB89DFB21B2790C500592D98 /* SemesterPlan.swift */; };
+		FB89DFB51B2790C500592D98 /* WeekPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB89DFB31B2790C500592D98 /* WeekPlan.swift */; };
 		FBF8D46F1AF28E38002D10A6 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF8D46E1AF28E38002D10A6 /* Helper.swift */; };
 /* End PBXBuildFile section */
 
@@ -99,7 +101,7 @@
 		FB528E391AF5036E001DEC43 /* MPPersonSettingsDefaultTimesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPPersonSettingsDefaultTimesViewController.swift; sourceTree = "<group>"; };
 		FB528E3E1AF50EEC001DEC43 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FB528E411AF50F06001DEC43 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
-		FB528E421AF52A2C001DEC43 /* MPPlanSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPPlanSettingsViewController.swift; sourceTree = "<group>"; };
+		FB528E421AF52A2C001DEC43 /* MPWeekPlanSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPWeekPlanSettingsViewController.swift; sourceTree = "<group>"; };
 		FB59CB0F1AF54BBD00E36948 /* MPSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPSettingsViewController.swift; sourceTree = "<group>"; };
 		FB59CB121AF5549300E36948 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Settings.swift; path = CoreData/Settings.swift; sourceTree = "<group>"; };
 		FB59CB141AF5553800E36948 /* Defaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defaults.swift; sourceTree = "<group>"; };
@@ -125,7 +127,7 @@
 		FB681DB81AE160630002929D /* MPMarkGroupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPMarkGroupViewController.swift; sourceTree = "<group>"; };
 		FB681DB91AE160630002929D /* MPMarkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPMarkViewController.swift; sourceTree = "<group>"; };
 		FB681DBA1AE160630002929D /* MPMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPMenuViewController.swift; sourceTree = "<group>"; };
-		FB681DBC1AE160630002929D /* MPPlanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPPlanViewController.swift; sourceTree = "<group>"; };
+		FB681DBC1AE160630002929D /* MPWeekPlanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPWeekPlanViewController.swift; sourceTree = "<group>"; };
 		FB681DBD1AE160630002929D /* MPSubjectsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPSubjectsViewController.swift; sourceTree = "<group>"; };
 		FB681DBE1AE160630002929D /* MPSubjectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPSubjectViewController.swift; sourceTree = "<group>"; };
 		FB681DC91AE160750002929D /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Event.swift; path = CoreData/Event.swift; sourceTree = "<group>"; };
@@ -141,6 +143,8 @@
 		FB681DE21AE1614B0002929D /* MyPlan-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyPlan-Bridging-Header.h"; sourceTree = "<group>"; };
 		FB72506A1AF977BD002F0B1B /* MPCurrentTimeIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPCurrentTimeIndicator.swift; sourceTree = "<group>"; };
 		FB73B7621AF7A5A500B45D00 /* MPTableViewCellValue1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPTableViewCellValue1.swift; sourceTree = "<group>"; };
+		FB89DFB21B2790C500592D98 /* SemesterPlan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SemesterPlan.swift; path = CoreData/SemesterPlan.swift; sourceTree = "<group>"; };
+		FB89DFB31B2790C500592D98 /* WeekPlan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WeekPlan.swift; path = CoreData/WeekPlan.swift; sourceTree = "<group>"; };
 		FBF8D46E1AF28E38002D10A6 /* Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -186,7 +190,7 @@
 				FB0066591AE1A16000F0F0EC /* MPPersonViewController.swift */,
 				FB4DDDC51AEDA8EE009A9B9D /* MPPersonSettingsViewController.swift */,
 				FB528E391AF5036E001DEC43 /* MPPersonSettingsDefaultTimesViewController.swift */,
-				FB4DDDC81AEDB0B4009A9B9D /* Plan */,
+				FB4DDDC81AEDB0B4009A9B9D /* WeekPlan */,
 				FB4DDDCB1AEDB0DA009A9B9D /* MarkGroup */,
 				FB4DDDCC1AEDB17C009A9B9D /* Subjects */,
 				FB4DDDD11AEDB517009A9B9D /* Events */,
@@ -195,15 +199,15 @@
 			name = Person;
 			sourceTree = "<group>";
 		};
-		FB4DDDC81AEDB0B4009A9B9D /* Plan */ = {
+		FB4DDDC81AEDB0B4009A9B9D /* WeekPlan */ = {
 			isa = PBXGroup;
 			children = (
-				FB681DBC1AE160630002929D /* MPPlanViewController.swift */,
-				FB528E421AF52A2C001DEC43 /* MPPlanSettingsViewController.swift */,
+				FB681DBC1AE160630002929D /* MPWeekPlanViewController.swift */,
+				FB528E421AF52A2C001DEC43 /* MPWeekPlanSettingsViewController.swift */,
 				FB61CAAC1AEEAEBD00C3014C /* MPDayViewController.swift */,
 				FB681DB61AE160630002929D /* MPHoureViewController.swift */,
 			);
-			name = Plan;
+			name = WeekPlan;
 			sourceTree = "<group>";
 		};
 		FB4DDDCB1AEDB0DA009A9B9D /* MarkGroup */ = {
@@ -357,6 +361,8 @@
 				FB528E2F1AF41ED6001DEC43 /* InfoHoure.swift */,
 				FB528E301AF41ED6001DEC43 /* InfoSubject.swift */,
 				FB681DCB1AE160750002929D /* Plan.swift */,
+				FB89DFB21B2790C500592D98 /* SemesterPlan.swift */,
+				FB89DFB31B2790C500592D98 /* WeekPlan.swift */,
 				FB681DC91AE160750002929D /* Event.swift */,
 				FB59CB121AF5549300E36948 /* Settings.swift */,
 			);
@@ -536,13 +542,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB681DC81AE160630002929D /* MPSubjectViewController.swift in Sources */,
-				FB528E431AF52A2C001DEC43 /* MPPlanSettingsViewController.swift in Sources */,
+				FB528E431AF52A2C001DEC43 /* MPWeekPlanSettingsViewController.swift in Sources */,
 				FB528E211AF2B6E6001DEC43 /* MPCollectionViewSubjectCell.swift in Sources */,
 				FB681D911AE15E660002929D /* MyPlan.xcdatamodeld in Sources */,
 				FB528E3A1AF5036E001DEC43 /* MPPersonSettingsDefaultTimesViewController.swift in Sources */,
 				FB528E271AF4192D001DEC43 /* MPTableViewCellSlider.swift in Sources */,
 				FB681DCC1AE160750002929D /* Plan.swift in Sources */,
 				FB59CB151AF5553800E36948 /* Defaults.swift in Sources */,
+				FB89DFB51B2790C500592D98 /* WeekPlan.swift in Sources */,
 				FB681DCE1AE160750002929D /* MarkGroup.swift in Sources */,
 				FB72506B1AF977BD002F0B1B /* MPCurrentTimeIndicator.swift in Sources */,
 				FB59CB131AF5549300E36948 /* Settings.swift in Sources */,
@@ -575,7 +582,7 @@
 				FB681DDC1AE160760002929D /* Subject.swift in Sources */,
 				FB681DD41AE160750002929D /* Homework.swift in Sources */,
 				FB681DBF1AE160630002929D /* _MPDayViewController.swift in Sources */,
-				FB681DC61AE160630002929D /* MPPlanViewController.swift in Sources */,
+				FB681DC61AE160630002929D /* MPWeekPlanViewController.swift in Sources */,
 				FB528E2E1AF41DF4001DEC43 /* Info.swift in Sources */,
 				FB4DDDC61AEDA8EE009A9B9D /* MPPersonSettingsViewController.swift in Sources */,
 				FB681DC71AE160630002929D /* MPSubjectsViewController.swift in Sources */,
@@ -585,6 +592,7 @@
 				FB681DC11AE160630002929D /* MPMarkGroupDetailViewController.swift in Sources */,
 				FB528E361AF454FF001DEC43 /* DefaultTime.swift in Sources */,
 				FB681DD81AE160750002929D /* Day.swift in Sources */,
+				FB89DFB41B2790C500592D98 /* SemesterPlan.swift in Sources */,
 				FB4DDDD01AEDB512009A9B9D /* MPHomeworksViewController.swift in Sources */,
 				FB681DCA1AE160750002929D /* Event.swift in Sources */,
 				FB528E231AF3EE90001DEC43 /* MPColorPickerViewController.swift in Sources */,

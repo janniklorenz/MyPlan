@@ -9,10 +9,8 @@
 import Foundation
 import CoreData
 
-@objc(Plan) class Plan: NSManagedObject {
-
-    @NSManaged var timestamp: NSDate
-    @NSManaged var title: String
-    @NSManaged var person: Person
+@objc(WeekPlan) class WeekPlan: Plan {
+    
+    @NSManaged var days: NSSet
 
 }

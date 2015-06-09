@@ -22,12 +22,17 @@ class MPDayViewController: UICollectionViewController, NSFetchedResultsControlle
     }
     
     
+    //var layout: MSCollectionViewCalendarLayout
     
     
     
     // MARK: - Init
     
     required init() {
+        
+        //self.layout = MSCollectionViewCalendarLayout()
+        //self.layout.delegate = self
+        
         var layout = MPCalenderLayout()
         self.cells = [Houre]()
         
@@ -66,7 +71,20 @@ class MPDayViewController: UICollectionViewController, NSFetchedResultsControlle
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.collectionView!.registerClass(MPCollectionViewSubjectCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+//        self.collectionView!.registerClass(MPCollectionViewSubjectCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        
+//        self.collectionView!.registerClass(MSEventCell.self, forCellWithReuseIdentifier:"MSEventCellReuseIdentifier")
+//        self.collectionView!.registerClass(MSDayColumnHeader.self, forSupplementaryViewOfKind:MSCollectionElementKindDayColumnHeader, withReuseIdentifier:"MSDayColumnHeaderReuseIdentifier")
+//        self.collectionView!.registerClass(MSTimeRowHeader.self, forSupplementaryViewOfKind:MSCollectionElementKindTimeRowHeader, withReuseIdentifier:"MSTimeRowHeaderReuseIdentifier")
+        
+        // These are optional. If you don't want any of the decoration views, just don't register a class for them.
+//        self.collectionViewCalendarLayout registerClass:MSCurrentTimeIndicator.class forDecorationViewOfKind:MSCollectionElementKindCurrentTimeIndicator];
+//        self.collectionViewCalendarLayout registerClass:MSCurrentTimeGridline.class forDecorationViewOfKind:MSCollectionElementKindCurrentTimeHorizontalGridline];
+//        self.collectionViewCalendarLayout registerClass:MSGridline.class forDecorationViewOfKind:MSCollectionElementKindVerticalGridline];
+//        self.collectionViewCalendarLayout registerClass:MSGridline.class forDecorationViewOfKind:MSCollectionElementKindHorizontalGridline];
+//        self.collectionViewCalendarLayout registerClass:MSTimeRowHeaderBackground.class forDecorationViewOfKind:MSCollectionElementKindTimeRowHeaderBackground];
+//        self.collectionViewCalendarLayout registerClass:MSDayColumnHeaderBackground.class forDecorationViewOfKind:MSCollectionElementKindDayColumnHeaderBackground];
+        
         
         // Add Houre Button
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "addHoure" )
